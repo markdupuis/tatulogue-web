@@ -169,7 +169,7 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"/>
                   </svg>
                 ),
-                text: ‘Tattoo artists face a lot of challenges when it comes to getting new customers in the door.’,
+                text: 'Tattoo artists face a lot of challenges when it comes to getting new customers in the door.',
               },
               {
                 icon: (
@@ -185,7 +185,7 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
                   </svg>
                 ),
-                text: "And without a massive following you’re stuck in a never-ending cycle of trying to get your artwork seen.",
+                text: "And without a massive following you're stuck in a never-ending cycle of trying to get your artwork seen.",
               },
             ].map((item, i) => (
               <div key={i} data-animate="" style={{ transitionDelay: `${i * 0.13}s` }} className="flex gap-4 items-start">
@@ -227,7 +227,7 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
                   </svg>
                 ),
-                text: "You do a search online for shops near you and start looking at random artists’ portfolios. You go to social media and start looking for tattoo artists. You ask in groups and pages for recommendations. You ask for recommendations from friends and family.",
+                text: "You do a search online for shops near you and start looking at random artists' portfolios. You go to social media and start looking for tattoo artists. You ask in groups and pages for recommendations. You ask for recommendations from friends and family.",
               },
               {
                 icon: (
