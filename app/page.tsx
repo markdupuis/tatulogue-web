@@ -138,11 +138,11 @@ export default function Home() {
 
       {/* ── STORY — black section ── */}
       <section id="story" className="bg-black py-24 px-8 max-w-2xl mx-auto">
-        <h2 data-animate className="text-3xl sm:text-4xl font-black mb-8 leading-tight">
+        <h2 data-animate="" className="text-3xl sm:text-4xl font-black mb-8 leading-tight">
           Getting a tattoo is exciting!
         </h2>
-        <p data-animate style={{ transitionDelay: '0.1s' }} className="text-2xl text-white/60 mb-8">But&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</p>
-        <p data-animate style={{ transitionDelay: '0.22s' }} className="text-2xl sm:text-3xl font-bold leading-snug">
+        <p data-animate="" style={{ transitionDelay: '0.1s' }} className="text-2xl text-white/60 mb-8">But&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</p>
+        <p data-animate="" style={{ transitionDelay: '0.22s' }} className="text-2xl sm:text-3xl font-bold leading-snug">
           The process of finding the right artist can be&hellip; challenging.
         </p>
       </section>
@@ -158,7 +158,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative max-w-lg mx-auto">
-          <h2 data-animate className="text-2xl sm:text-3xl font-black mb-10 text-center">
+          <h2 data-animate="" className="text-2xl sm:text-3xl font-black mb-10 text-center">
             The challenge for tattoo artists&hellip;
           </h2>
           <div className="space-y-8">
@@ -188,7 +188,7 @@ export default function Home() {
                 text: "And without a massive following you’re stuck in a never-ending cycle of trying to get your artwork seen.",
               },
             ].map((item, i) => (
-              <div key={i} data-animate style={{ transitionDelay: `${i * 0.13}s` }} className="flex gap-4 items-start">
+              <div key={i} data-animate="" style={{ transitionDelay: `${i * 0.13}s` }} className="flex gap-4 items-start">
                 <div className="flex-shrink-0 text-white/60 mt-0.5">{item.icon}</div>
                 <p className="text-white/80 text-sm sm:text-base leading-relaxed">{item.text}</p>
               </div>
@@ -208,7 +208,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative max-w-lg mx-auto">
-          <h2 data-animate className="text-2xl sm:text-3xl font-black mb-10 text-center">
+          <h2 data-animate="" className="text-2xl sm:text-3xl font-black mb-10 text-center">
             The challenge for enthusiasts&hellip;
           </h2>
           <div className="space-y-8">
@@ -238,7 +238,7 @@ export default function Home() {
                 text: "There is no easy way to find tattoo artists by style that can help bring your vision to reality.",
               },
             ].map((item, i) => (
-              <div key={i} data-animate style={{ transitionDelay: `${i * 0.13}s` }} className="flex gap-4 items-start">
+              <div key={i} data-animate="" style={{ transitionDelay: `${i * 0.13}s` }} className="flex gap-4 items-start">
                 <div className="flex-shrink-0 text-white/60 mt-0.5">{item.icon}</div>
                 <p className="text-white/80 text-sm sm:text-base leading-relaxed">{item.text}</p>
               </div>
@@ -250,7 +250,7 @@ export default function Home() {
       {/* ── SOLUTION ── */}
       <section className="bg-black py-24 px-8 text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 data-animate className="text-3xl sm:text-4xl font-black mb-4">
+          <h2 data-animate="" className="text-3xl sm:text-4xl font-black mb-4">
             Your tattoo journey should be MUCH easier.
           </h2>
           <svg data-animate="fade" style={{ transitionDelay: '0.2s' }} xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 56 56" className="mx-auto mt-4 text-white" fill="currentColor">
@@ -266,15 +266,25 @@ export default function Home() {
           background: 'linear-gradient(135deg, #0d1520 0%, #0d2a30 30%, #1a2a15 55%, #2a1a08 80%, #1a0808 100%)',
         }}
       >
-        <div className="max-w-2xl mx-auto">
-          <p data-animate className="text-white/70 text-lg mb-6">And THAT is why we are creating</p>
-          <h2 data-animate style={{ transitionDelay: '0.12s' }} className="text-5xl sm:text-6xl font-black text-white mb-8 tracking-tight">
-            Tatūlogue.
-          </h2>
-          <p data-animate style={{ transitionDelay: '0.24s' }} className="text-white/70 text-lg leading-relaxed">
-            The place to find your tattoo inspiration and find the perfect artist to do that
-            tattoo. And share and enjoy tattoo culture in an InkSocial environment.
-          </p>
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p data-animate="" className="text-white/70 text-lg mb-6">And THAT is why we are creating</p>
+            <h2 data-animate="" style={{ transitionDelay: '0.12s' }} className="text-5xl sm:text-6xl font-black text-white mb-8 tracking-tight">
+              Tatūlogue.
+            </h2>
+            <p data-animate="" style={{ transitionDelay: '0.24s' }} className="text-white/70 text-lg leading-relaxed">
+              The place to find your tattoo inspiration and find the perfect artist to do that
+              tattoo. And share and enjoy tattoo culture in an InkSocial environment.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <img
+              data-animate="slide-right"
+              src="/phone.png"
+              alt="Tatūlogue app"
+              className="w-56 sm:w-72 drop-shadow-2xl"
+            />
+          </div>
         </div>
       </section>
 
@@ -285,16 +295,16 @@ export default function Home() {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 text-[#41403e]">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
             </svg>
-            <h2 data-animate className="text-2xl sm:text-3xl font-black">Dedicated accounts</h2>
+            <h2 data-animate="" className="text-2xl sm:text-3xl font-black">Dedicated accounts</h2>
           </div>
-          <p data-animate style={{ transitionDelay: '0.1s' }} className="text-[#525354] mb-12 leading-relaxed">
+          <p data-animate="" style={{ transitionDelay: '0.1s' }} className="text-[#525354] mb-12 leading-relaxed">
             At launch, Tatūlogue will feature two profile types. One for licensed Tattoo
             Artists, and one for clients and everyone else called an &ldquo;Enthusiast&rdquo; profile.
           </p>
 
           <div className="flex gap-16 justify-center">
             {/* Artist avatar */}
-            <div data-animate style={{ transitionDelay: '0.2s' }} className="flex flex-col items-center gap-3">
+            <div data-animate="" style={{ transitionDelay: '0.2s' }} className="flex flex-col items-center gap-3">
               <div
                 className="w-32 h-32 rounded-full overflow-hidden"
                 style={{ boxShadow: '0 0 0 4px #2ba4ac, 0 0 24px #2ba4ac60' }}
@@ -306,7 +316,7 @@ export default function Home() {
             </div>
 
             {/* Enthusiast avatar */}
-            <div data-animate style={{ transitionDelay: '0.35s' }} className="flex flex-col items-center gap-3">
+            <div data-animate="" style={{ transitionDelay: '0.35s' }} className="flex flex-col items-center gap-3">
               <div
                 className="w-32 h-32 rounded-full overflow-hidden"
                 style={{ boxShadow: '0 0 0 4px #d87137, 0 0 24px #d8713760' }}
@@ -327,10 +337,10 @@ export default function Home() {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 text-[#41403e]">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/>
             </svg>
-            <h2 data-animate className="text-2xl sm:text-3xl font-black">Discover the possibilities</h2>
+            <h2 data-animate="" className="text-2xl sm:text-3xl font-black">Discover the possibilities</h2>
           </div>
           <div className="space-y-4 text-[#525354] leading-relaxed">
-            <p data-animate style={{ transitionDelay: '0.1s' }}>
+            <p data-animate="" style={{ transitionDelay: '0.1s' }}>
               Tatūlogue will feature a feed where you can browse recently uploaded art, tattoos,
               and inspiration from tattoo artists and other enthusiasts.
             </p>
@@ -373,9 +383,9 @@ export default function Home() {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 text-[#41403e]">
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"/>
             </svg>
-            <h2 data-animate className="text-2xl sm:text-3xl font-black">Share your vision</h2>
+            <h2 data-animate="" className="text-2xl sm:text-3xl font-black">Share your vision</h2>
           </div>
-          <p data-animate style={{ transitionDelay: '0.12s' }} className="text-[#525354] leading-relaxed">
+          <p data-animate="" style={{ transitionDelay: '0.12s' }} className="text-[#525354] leading-relaxed">
             The app will also feature community forums we are calling &ldquo;Articles&rdquo; of the
             Tatūlogue where tattoo artists and enthusiasts can find more ways to connect,
             share art and tattoos, and provide helpful tips and other information.
@@ -387,8 +397,8 @@ export default function Home() {
       <section id="waitlist" className="bg-[#11100e] py-24 px-8">
         <div className="max-w-xl mx-auto">
           <div className="text-center mb-10">
-            <h2 data-animate className="text-3xl sm:text-4xl font-black text-[#f1f1f9] mb-3">Join the waitlist</h2>
-            <p data-animate style={{ transitionDelay: '0.12s' }} className="text-[#cdcdd4]">Get project updates, newsletters, and early app access.</p>
+            <h2 data-animate="" className="text-3xl sm:text-4xl font-black text-[#f1f1f9] mb-3">Join the waitlist</h2>
+            <p data-animate="" style={{ transitionDelay: '0.12s' }} className="text-[#cdcdd4]">Get project updates, newsletters, and early app access.</p>
           </div>
 
           {submitted ? (
