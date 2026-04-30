@@ -2,43 +2,35 @@
 
 import React, { useState, useEffect } from 'react';
 
-// ── Image assets (all from Framer site CDN) ────────────────────────────
-const LOGO_MARK  = 'https://framerusercontent.com/images/D6IXxFkDfcfBTQR8M4VqbRaUY0.svg';
-const LOGO_FULL  = 'https://framerusercontent.com/images/54MolB0VMgxbv5bs6n0OFkQ22E.svg';
-const HERO_BG    = 'https://framerusercontent.com/images/fneUhgBGjjyj8F05LKRYwVsbIUA.jpg';
-const PHONE_HAND = 'https://framerusercontent.com/images/fcIVSg0e215jRipcqwjLYbZOfcA.png';
-const APP_SCREEN = 'https://framerusercontent.com/images/ZShB2lNRKQMhirR9sHqWbis3qY.png';
-
-// Profile avatars
-const AVATAR_ARTIST  = 'https://framerusercontent.com/images/sEyNls7rhlZwJbrVx9oTRQY22E.jpg';
-const AVATAR_CANVAS  = 'https://framerusercontent.com/images/AIPEoaRA3LTU7FLdlA9S4Q82a8.jpg';
-
-// Challenge section backgrounds
-const BG_ARTISTS = 'https://framerusercontent.com/images/fJ6rVSkHjqG1Xts0gyq1moE.jpg';
-const BG_CANVAS  = 'https://framerusercontent.com/images/bwcTaAoNQFk4nVQDpINMEMH8Ws.jpg';
+// ── Image assets — all self-hosted in /public/images ──────────────────
+const HERO_BG       = '/images/hero-poster.jpg';
+const AVATAR_ARTIST = '/images/avatar-artist.jpg';
+const AVATAR_CANVAS = '/images/avatar-enthusiast.jpg';
+const BG_ARTISTS    = '/images/bg-artists.jpg';
+const BG_CANVAS     = '/images/bg-enthusiasts.jpg';
 
 // Image strip — row 1 (scrolls left) and row 2 (scrolls right)
 const STRIP_ROW1 = [
-  'https://framerusercontent.com/images/bqxdbuUYcelfrEEUN1m4H7k2eao.jpg',
-  'https://framerusercontent.com/images/naJqBaqWEqD4dvt31QRwI16TY.jpg',
-  'https://framerusercontent.com/images/6NkZ4PJlYYhZwgQWFAyHm4zg5Y.jpg',
-  'https://framerusercontent.com/images/1papIZPU17IEb9DhDF2NPqF5p0c.jpg',
-  'https://framerusercontent.com/images/3hwXFXYGbRFNCDuHTPmQW4USJTU.jpg',
-  'https://framerusercontent.com/images/y2blrGHxIlYpaQRjwii0booNx8E.jpg',
-  'https://framerusercontent.com/images/6bhTmWSoZ6LvSyS0p8KNoU3VtM.jpg',
-  'https://framerusercontent.com/images/BmoWA1YFWs0TfjKlpnQLgVCN3g.jpg',
-  'https://framerusercontent.com/images/F83rA6EwkEVEcWjoxDBPEXl2Pg.jpg',
+  '/images/strip-1-1.jpg',
+  '/images/strip-1-2.jpg',
+  '/images/strip-1-3.jpg',
+  '/images/strip-1-4.jpg',
+  '/images/strip-1-5.jpg',
+  '/images/strip-1-6.jpg',
+  '/images/strip-1-7.jpg',
+  '/images/strip-1-8.jpg',
+  '/images/strip-1-9.jpg',
 ];
 const STRIP_ROW2 = [
-  'https://framerusercontent.com/images/O3JDOcHAWlZRDY8e7HwhAWtinBY.jpg',
-  'https://framerusercontent.com/images/EZhohVfld2BVDCIxMwQahQ0THjs.jpg',
-  'https://framerusercontent.com/images/Skms9tmQEthH4t4G3SD62zCIPs.jpg',
-  'https://framerusercontent.com/images/7YmMIKzvUplNygF0m9cMNnI.jpg',
-  'https://framerusercontent.com/images/Ncx1lfllvdmeaDXC53VGd4aEk.jpg',
-  'https://framerusercontent.com/images/jHawArCcdIJN68HZlOHYCQvSq8.jpg',
-  'https://framerusercontent.com/images/9rG3z18mo1zdHFdssesFKPiME.jpg',
-  'https://framerusercontent.com/images/JxyOZI9LaJ5QWgWglQZGSXPMwg.jpg',
-  'https://framerusercontent.com/images/mQOXklElANNe9aC9N0NiaKGq5v8.jpg',
+  '/images/strip-2-1.jpg',
+  '/images/strip-2-2.jpg',
+  '/images/strip-2-3.jpg',
+  '/images/strip-2-4.jpg',
+  '/images/strip-2-5.jpg',
+  '/images/strip-2-6.jpg',
+  '/images/strip-2-7.jpg',
+  '/images/strip-2-8.jpg',
+  '/images/strip-2-9.jpg',
 ];
 
 const US_STATES = [
@@ -473,7 +465,7 @@ export default function Home() {
       <footer className="bg-black border-t border-white/10 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <img src={LOGO_MARK} alt="Tatūlogue" className="h-5 w-auto opacity-60" />
+            <img src="/logo.svg" alt="Tatūlogue" className="h-5 w-auto opacity-60" />
             <span className="text-white/30 text-sm">&copy; 2026 Tatūlogue, LLC</span>
           </div>
           <div className="flex gap-6 text-sm text-white/40">
