@@ -201,7 +201,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative max-w-lg mx-auto">
           <h2 className="text-2xl sm:text-3xl font-black mb-10 text-center">
-            The challenge for canvases&hellip;
+            The challenge for enthusiasts&hellip;
           </h2>
           <div className="space-y-8">
             {[
@@ -286,7 +286,7 @@ export default function Home() {
           </div>
           <p className="text-[#525354] mb-12 leading-relaxed">
             At launch, Tatūlogue will feature two profile types. One for licensed Tattoo
-            Artists, and one for clients and everyone else called a &ldquo;Canvas&rdquo; profile.
+            Artists, and one for clients and everyone else called an &ldquo;Enthusiast&rdquo; profile.
           </p>
 
           <div className="flex gap-16 justify-center">
@@ -308,9 +308,9 @@ export default function Home() {
                 className="w-32 h-32 rounded-full overflow-hidden"
                 style={{ boxShadow: '0 0 0 4px #d87137, 0 0 24px #d8713760' }}
               >
-                <img src={AVATAR_CANVAS} alt="Canvas" className="w-full h-full object-cover object-top" />
+                <img src={AVATAR_CANVAS} alt="Enthusiast" className="w-full h-full object-cover object-top" />
               </div>
-              <p className="font-bold text-[#d87137]">Canvas</p>
+              <p className="font-bold text-[#d87137]">Enthusiast</p>
               <p className="text-[#525354] text-sm text-center">Clients &amp; tattoo enthusiasts</p>
             </div>
           </div>
@@ -329,7 +329,7 @@ export default function Home() {
           <div className="space-y-4 text-[#525354] leading-relaxed">
             <p>
               Tatūlogue will feature a feed where you can browse recently uploaded art, tattoos,
-              and inspiration from tattoo artists and other canvases.
+              and inspiration from tattoo artists and other enthusiasts.
             </p>
             <p>
               We will also have a search which will feature a &ldquo;Browse All&rdquo; for looking for
@@ -374,7 +374,7 @@ export default function Home() {
           </div>
           <p className="text-[#525354] leading-relaxed">
             The app will also feature community forums we are calling &ldquo;Articles&rdquo; of the
-            Tatūlogue where tattoo artists and canvases can find more ways to connect,
+            Tatūlogue where tattoo artists and enthusiasts can find more ways to connect,
             share art and tattoos, and provide helpful tips and other information.
           </p>
         </div>
@@ -443,7 +443,7 @@ export default function Home() {
                   className="w-full px-4 py-3 rounded-xl bg-[#1e1d1b] border border-white/15 focus:border-[#d87137] focus:outline-none text-white">
                   <option value="" disabled>Select…</option>
                   <option value="artist">Tattoo Artist (I&apos;m a licensed tattoo artist)</option>
-                  <option value="canvas">Canvas (I&apos;m a potential client or tattoo enthusiast)</option>
+                  <option value="enthusiast">Enthusiast (I&apos;m a potential client or tattoo enthusiast)</option>
                 </select>
               </div>
 
