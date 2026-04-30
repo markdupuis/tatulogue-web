@@ -2,4 +2,6 @@ name = "tatulogue-web"
 compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
 
-pages_build_output_dir = ".vercel/output/static"
+# next build (output: export) puts static files in ./out
+[assets]
+directory = "./out"
