@@ -107,7 +107,7 @@ export default function Home() {
         {/* Centered wordmark */}
         <div className="relative z-10 flex flex-col items-center gap-4">
           <img src="/logo.svg" alt="TATŪLOGUE" className="w-96 sm:w-[460px] object-contain" />
-          <
+          <a
             href="#waitlist"
             className="mt-2 px-8 py-3 rounded-full border border-white text-white hover:bg-white hover:text-black font-medium transition-colors"
           >
