@@ -266,23 +266,15 @@ export default function Home() {
           background: 'linear-gradient(135deg, #0d1520 0%, #0d2a30 30%, #1a2a15 55%, #2a1a08 80%, #1a0808 100%)',
         }}
       >
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p data-animate className="text-white/70 text-lg mb-3">And THAT is why we are creating</p>
-            <img data-animate="fade" style={{ transitionDelay: '0.1s' }} src={LOGO_FULL} alt="Tatūlogue" className="h-10 w-auto mb-6" />
-            <p data-animate style={{ transitionDelay: '0.2s' }} className="text-white/70 leading-relaxed">
-              The place to find your tattoo inspiration and find the perfect artist to do that
-              tattoo. And share and enjoy tattoo culture in an InkSocial environment.
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <img
-              data-animate="slide-right"
-              src={PHONE_HAND}
-              alt="Tatūlogue app"
-              className="w-56 sm:w-72 drop-shadow-2xl"
-            />
-          </div>
+        <div className="max-w-2xl mx-auto">
+          <p data-animate className="text-white/70 text-lg mb-6">And THAT is why we are creating</p>
+          <h2 data-animate style={{ transitionDelay: '0.12s' }} className="text-5xl sm:text-6xl font-black text-white mb-8 tracking-tight">
+            Tatūlogue.
+          </h2>
+          <p data-animate style={{ transitionDelay: '0.24s' }} className="text-white/70 text-lg leading-relaxed">
+            The place to find your tattoo inspiration and find the perfect artist to do that
+            tattoo. And share and enjoy tattoo culture in an InkSocial environment.
+          </p>
         </div>
       </section>
 
