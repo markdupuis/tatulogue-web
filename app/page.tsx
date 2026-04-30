@@ -2,13 +2,44 @@
 
 import { useState } from 'react';
 
-const APP_MOCKUP = 'https://framerusercontent.com/images/fcIVSg0e215jRipcqwjLYbZOfcA.png';
-const PHONE_SCREENS = 'https://framerusercontent.com/images/zXziPdtIkEnEfcZqYGFYcb5D5A.png';
-const LOGO = 'https://framerusercontent.com/images/D6IXxFkDfcfBTQR8M4VqbRaUY0.svg';
-const TATTOO_1 = 'https://framerusercontent.com/images/sEyNls7rhlZwJbrVx9oTRQY22E.jpg';
-const TATTOO_2 = 'https://framerusercontent.com/images/UIBpEIGYTIoqVMsj8NQFluhdsjE.jpg';
-const TATTOO_3 = 'https://framerusercontent.com/images/uGBGnhNvMWidBsmaKcaCVRlOZnQ.jpg';
-const TATTOO_4 = 'https://framerusercontent.com/images/3Al1aqTt98M7Kb6eGR4OAg.jpg';
+// ── Image assets (all from Framer site CDN) ────────────────────────────
+const LOGO_MARK  = 'https://framerusercontent.com/images/D6IXxFkDfcfBTQR8M4VqbRaUY0.svg';
+const LOGO_FULL  = 'https://framerusercontent.com/images/54MolB0VMgxbv5bs6n0OFkQ22E.svg';
+const HERO_BG    = 'https://framerusercontent.com/images/fneUhgBGjjyj8F05LKRYwVsbIUA.jpg';
+const PHONE_HAND = 'https://framerusercontent.com/images/fcIVSg0e215jRipcqwjLYbZOfcA.png';
+const APP_SCREEN = 'https://framerusercontent.com/images/ZShB2lNRKQMhirR9sHqWbis3qY.png';
+
+// Profile avatars
+const AVATAR_ARTIST  = 'https://framerusercontent.com/images/sEyNls7rhlZwJbrVx9oTRQY22E.jpg';
+const AVATAR_CANVAS  = 'https://framerusercontent.com/images/AIPEoaRA3LTU7FLdlA9S4Q82a8.jpg';
+
+// Challenge section backgrounds
+const BG_ARTISTS = 'https://framerusercontent.com/images/fJ6rVSkHjqG1Xts0gyq1moE.jpg';
+const BG_CANVAS  = 'https://framerusercontent.com/images/bwcTaAoNQFk4nVQDpINMEMH8Ws.jpg';
+
+// Image strip — row 1 (scrolls left) and row 2 (scrolls right)
+const STRIP_ROW1 = [
+  'https://framerusercontent.com/images/bqxdbuUYcelfrEEUN1m4H7k2eao.jpg',
+  'https://framerusercontent.com/images/naJqBaqWEqD4dvt31QRwI16TY.jpg',
+  'https://framerusercontent.com/images/6NkZ4PJlYYhZwgQWFAyHm4zg5Y.jpg',
+  'https://framerusercontent.com/images/1papIZPU17IEb9DhDF2NPqF5p0c.jpg',
+  'https://framerusercontent.com/images/3hwXFXYGbRFNCDuHTPmQW4USJTU.jpg',
+  'https://framerusercontent.com/images/y2blrGHxIlYpaQRjwii0booNx8E.jpg',
+  'https://framerusercontent.com/images/6bhTmWSoZ6LvSyS0p8KNoU3VtM.jpg',
+  'https://framerusercontent.com/images/BmoWA1YFWs0TfjKlpnQLgVCN3g.jpg',
+  'https://framerusercontent.com/images/F83rA6EwkEVEcWjoxDBPEXl2Pg.jpg',
+];
+const STRIP_ROW2 = [
+  'https://framerusercontent.com/images/O3JDOcHAWlZRDY8e7HwhAWtinBY.jpg',
+  'https://framerusercontent.com/images/EZhohVfld2BVDCIxMwQahQ0THjs.jpg',
+  'https://framerusercontent.com/images/Skms9tmQEthH4t4G3SD62zCIPs.jpg',
+  'https://framerusercontent.com/images/7YmMIKzvUplNygF0m9cMNnI.jpg',
+  'https://framerusercontent.com/images/Ncx1lfllvdmeaDXC53VGd4aEk.jpg',
+  'https://framerusercontent.com/images/jHawArCcdIJN68HZlOHYCQvSq8.jpg',
+  'https://framerusercontent.com/images/9rG3z18mo1zdHFdssesFKPiME.jpg',
+  'https://framerusercontent.com/images/JxyOZI9LaJ5QWgWglQZGSXPMwg.jpg',
+  'https://framerusercontent.com/images/mQOXklElANNe9aC9N0NiaKGq5v8.jpg',
+];
 
 const US_STATES = [
   'Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut',
@@ -27,10 +58,10 @@ export default function Home() {
     firstName: '', lastName: '', email: '', state: '', city: '', accountType: '',
   });
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading]     = useState(false);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -43,199 +74,312 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-white text-[#11100e] overflow-x-hidden">
+    <main className="min-h-screen bg-black text-white overflow-x-hidden">
 
-      {/* ── NAV ── */}
-      <nav className="flex items-center justify-between px-6 py-4 border-b border-[#cdcdd4]/40">
-        <img src={LOGO} alt="Tatūlogue" className="h-7 w-auto" />
-        <a
-          href="#waitlist"
-          className="text-sm font-semibold px-5 py-2.5 rounded-full bg-[#11100e] text-white hover:bg-[#41403e] transition-colors"
-        >
-          Sign up for updates
-        </a>
-      </nav>
+      {/* ── HERO — full-screen dark image + centered logo ── */}
+      <section
+        className="relative min-h-screen flex flex-col items-center justify-center text-center px-6"
+        style={{
+          backgroundImage: `url(${HERO_BG})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/65" />
 
-      {/* ── COMING SOON TICKER ── */}
-      <div className="bg-[#11100e] text-[#f1f1f9] py-2.5 overflow-hidden">
-        <div className="flex gap-12 whitespace-nowrap text-xs font-semibold tracking-widest uppercase animate-pulse">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <span key={i} className="flex-shrink-0">Coming Soon &nbsp;·&nbsp; Coming Soon &nbsp;·&nbsp; Coming Soon</span>
-          ))}
-        </div>
-      </div>
+        {/* Nav */}
+        <nav className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-5 z-10">
+          <div />
+          <a
+            href="#waitlist"
+            className="text-sm font-medium px-5 py-2 rounded-full border border-white/60 text-white hover:bg-white hover:text-black transition-colors"
+          >
+            Sign up for updates
+          </a>
+        </nav>
 
-      {/* ── HERO ── */}
-      <section className="py-20 px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-[#11100e]">
-            Getting a tattoo is{' '}
-            <span className="text-[#d87137]">exciting!</span>
-          </h1>
-          <p className="text-2xl text-[#525354] font-light mb-3">But&hellip;</p>
-          <p className="text-xl sm:text-2xl text-[#41403e] max-w-2xl mx-auto leading-relaxed">
-            The process of finding the right artist can be&hellip;{' '}
-            <span className="text-[#11100e] font-semibold">challenging.</span>
+        {/* Centered wordmark */}
+        <div className="relative z-10 flex flex-col items-center gap-6">
+          <img src={LOGO_MARK} alt="" className="w-24 h-24 object-contain" />
+          <img src={LOGO_FULL} alt="TATŪLOGUE" className="h-16 w-auto object-contain" />
+          <p className="text-xs sm:text-sm tracking-[0.25em] uppercase text-white/70 font-light">
+            Your Tattoo Journey Starts Here
           </p>
-          <div className="mt-10 flex flex-wrap gap-4 justify-center">
-            <a
-              href="#waitlist"
-              className="px-8 py-4 rounded-full bg-[#11100e] text-white hover:bg-[#41403e] font-semibold transition-colors"
-            >
-              Join the waitlist
-            </a>
-            <a
-              href="#how-it-works"
-              className="px-8 py-4 rounded-full border-2 border-[#11100e] text-[#11100e] hover:bg-[#f1f1f9] font-semibold transition-colors"
-            >
-              Learn more
-            </a>
-          </div>
+          <a
+            href="#waitlist"
+            className="mt-2 px-8 py-3 rounded-full border border-white text-white hover:bg-white hover:text-black font-medium transition-colors"
+          >
+            Sign up for updates
+          </a>
         </div>
 
-        {/* Hero mockup */}
-        <div className="mt-16 max-w-lg mx-auto">
-          <img
-            src={APP_MOCKUP}
-            alt="Tatūlogue app"
-            className="w-full rounded-2xl shadow-xl shadow-[#11100e]/10"
-          />
+        {/* Scroll indicator */}
+        <a href="#story" className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors">
+          <span className="text-xs tracking-widest">learn more</span>
+          <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+            <path d="M8 0v16M1 9l7 7 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </a>
+      </section>
+
+      {/* ── STORY — black section ── */}
+      <section id="story" className="bg-black py-24 px-8 max-w-2xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-black mb-8 leading-tight">
+          Getting a tattoo is exciting!
+        </h2>
+        <p className="text-2xl text-white/60 mb-8">But&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</p>
+        <p className="text-2xl sm:text-3xl font-bold leading-snug">
+          The process of finding the right artist can be&hellip; challenging.
+        </p>
+      </section>
+
+      {/* ── CHALLENGE: ARTISTS ── */}
+      <section
+        className="relative py-20 px-8"
+        style={{
+          backgroundImage: `url(${BG_ARTISTS})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="relative max-w-lg mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-black mb-10 text-center">
+            The challenge for tattoo artists&hellip;
+          </h2>
+          <div className="space-y-8">
+            {[
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"/>
+                  </svg>
+                ),
+                text: 'Tattoo artists face a lot of challenges when it comes to getting new customers in the door.',
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46"/>
+                  </svg>
+                ),
+                text: "Having to market themselves non-stop, battling with mega influencers on social media from sports, to politics, to brands, tech companies, podcasts… you name it.",
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+                  </svg>
+                ),
+                text: "And without a massive following you’re stuck in a never-ending cycle of trying to get your artwork seen.",
+              },
+            ].map((item, i) => (
+              <div key={i} className="flex gap-4 items-start">
+                <div className="flex-shrink-0 text-white/60 mt-0.5">{item.icon}</div>
+                <p className="text-white/80 text-sm sm:text-base leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── PROBLEM CARDS ── */}
-      <section id="how-it-works" className="py-20 px-6 bg-[#f1f1f9]">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-          {/* Artists */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-[#cdcdd4]/30">
-            <div className="w-10 h-10 rounded-full bg-[#d87137]/15 flex items-center justify-center mb-4 text-xl">🎨</div>
-            <h2 className="text-2xl font-bold mb-3 text-[#11100e]">The challenge for tattoo artists&hellip;</h2>
-            <p className="text-[#525354] leading-relaxed">
-              Tattoo artists face a lot of challenges when it comes to getting new customers in the
-              door. Having to market themselves non-stop, battling with mega influencers on social
-              media — sports, politics, brands, tech companies, podcasts&hellip; you name it. And
-              without a massive following you&apos;re stuck in a never-ending cycle of trying to get
-              your artwork seen.
-            </p>
-          </div>
-
-          {/* Canvases */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-[#cdcdd4]/30">
-            <div className="w-10 h-10 rounded-full bg-[#2ba4ac]/15 flex items-center justify-center mb-4 text-xl">✨</div>
-            <h2 className="text-2xl font-bold mb-3 text-[#11100e]">The challenge for canvases&hellip;</h2>
-            <p className="text-[#525354] leading-relaxed">
-              Shopping for an artist is anything but easy. You find something you want tattooed — the
-              next step is finding an artist who specializes in that style. Online searches, social
-              media, groups, recommendations from friends&hellip; there is no easy way to find artists
-              by style that can help bring your vision to reality.
-            </p>
+      {/* ── CHALLENGE: CANVAS ── */}
+      <section
+        className="relative py-20 px-8"
+        style={{
+          backgroundImage: `url(${BG_CANVAS})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="relative max-w-lg mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-black mb-10 text-center">
+            The challenge for canvases&hellip;
+          </h2>
+          <div className="space-y-8">
+            {[
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.774 4.774zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                ),
+                text: "Shopping for an artist is anything but easy. You find something that you want to get tattooed. The next step is finding an artist that specializes in that style. Where do you start?",
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
+                  </svg>
+                ),
+                text: "You do a search online for shops near you and start looking at random artists’ portfolios. You go to social media and start looking for tattoo artists. You ask in groups and pages for recommendations. You ask for recommendations from friends and family.",
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"/>
+                  </svg>
+                ),
+                text: "There is no easy way to find tattoo artists by style that can help bring your vision to reality.",
+              },
+            ].map((item, i) => (
+              <div key={i} className="flex gap-4 items-start">
+                <div className="flex-shrink-0 text-white/60 mt-0.5">{item.icon}</div>
+                <p className="text-white/80 text-sm sm:text-base leading-relaxed">{item.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── SOLUTION ── */}
-      <section className="py-20 px-6 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-black mb-6 text-[#11100e]">
-            Your tattoo journey should be{' '}
-            <span className="text-[#d87137]">MUCH easier.</span>
+      <section className="bg-black py-24 px-8 text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-black mb-4">
+            Your tattoo journey should be MUCH easier.
           </h2>
-          <p className="text-xl text-[#525354] leading-relaxed">
-            THAT is why we are creating <span className="font-bold text-[#11100e]">Tatūlogue.</span>
+          <p className="text-4xl">✨</p>
+        </div>
+      </section>
+
+      {/* ── WHY TATULOGUE — gradient section ── */}
+      <section
+        className="relative py-20 px-8 overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #0d1520 0%, #0d2a30 30%, #1a2a15 55%, #2a1a08 80%, #1a0808 100%)',
+        }}
+      >
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-white/70 text-lg mb-3">And THAT is why we are creating</p>
+            <img src={LOGO_FULL} alt="Tatūlogue" className="h-10 w-auto mb-6" />
+            <p className="text-white/70 leading-relaxed">
+              The place to find your tattoo inspiration and find the perfect artist to do that
+              tattoo. And share and enjoy tattoo culture in an InkSocial environment.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <img
+              src={PHONE_HAND}
+              alt="Tatūlogue app"
+              className="w-56 sm:w-72 drop-shadow-2xl"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── DEDICATED ACCOUNTS — white section ── */}
+      <section className="bg-white text-[#11100e] py-20 px-8">
+        <div className="max-w-2xl mx-auto">
+          <div className="flex items-center gap-3 mb-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 text-[#41403e]">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+            </svg>
+            <h2 className="text-2xl sm:text-3xl font-black">Dedicated accounts</h2>
+          </div>
+          <p className="text-[#525354] mb-12 leading-relaxed">
+            At launch, Tatūlogue will feature two profile types. One for licensed Tattoo
+            Artists, and one for clients and everyone else called a &ldquo;Canvas&rdquo; profile.
+          </p>
+
+          <div className="flex gap-16 justify-center">
+            {/* Artist avatar */}
+            <div className="flex flex-col items-center gap-3">
+              <div
+                className="w-32 h-32 rounded-full overflow-hidden"
+                style={{ boxShadow: '0 0 0 4px #2ba4ac, 0 0 24px #2ba4ac60' }}
+              >
+                <img src={AVATAR_ARTIST} alt="Tattoo Artist" className="w-full h-full object-cover" />
+              </div>
+              <p className="font-bold text-[#2ba4ac]">Tattoo Artists</p>
+              <p className="text-[#525354] text-sm text-center">Licensed tattoo artists</p>
+            </div>
+
+            {/* Canvas avatar */}
+            <div className="flex flex-col items-center gap-3">
+              <div
+                className="w-32 h-32 rounded-full overflow-hidden"
+                style={{ boxShadow: '0 0 0 4px #d87137, 0 0 24px #d8713760' }}
+              >
+                <img src={AVATAR_CANVAS} alt="Canvas" className="w-full h-full object-cover object-top" />
+              </div>
+              <p className="font-bold text-[#d87137]">Canvas</p>
+              <p className="text-[#525354] text-sm text-center">Clients &amp; tattoo enthusiasts</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DISCOVER — white section ── */}
+      <section className="bg-white text-[#11100e] py-16 px-8">
+        <div className="max-w-2xl mx-auto">
+          <div className="flex items-center gap-3 mb-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 text-[#41403e]">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/>
+            </svg>
+            <h2 className="text-2xl sm:text-3xl font-black">Discover the possibilities</h2>
+          </div>
+          <div className="space-y-4 text-[#525354] leading-relaxed">
+            <p>
+              Tatūlogue will feature a feed where you can browse recently uploaded art, tattoos,
+              and inspiration from tattoo artists and other canvases.
+            </p>
+            <p>
+              We will also have a search which will feature a &ldquo;Browse All&rdquo; for looking for
+              inspiration and &ldquo;Looking to Book&rdquo; which allows you to find local artists by style.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ANIMATED IMAGE STRIP ── */}
+      <section className="bg-white py-6 overflow-hidden">
+        {/* Row 1 — scrolls left */}
+        <div className="overflow-hidden mb-3">
+          <div className="flex gap-3 animate-scroll-left" style={{ width: 'max-content' }}>
+            {[...STRIP_ROW1, ...STRIP_ROW1].map((src, i) => (
+              <div key={i} className="flex-shrink-0 w-40 h-28 rounded-lg overflow-hidden">
+                <img src={src} alt="" className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Row 2 — scrolls right */}
+        <div className="overflow-hidden">
+          <div className="flex gap-3 animate-scroll-right" style={{ width: 'max-content' }}>
+            {[...STRIP_ROW2, ...STRIP_ROW2].map((src, i) => (
+              <div key={i} className="flex-shrink-0 w-40 h-28 rounded-lg overflow-hidden">
+                <img src={src} alt="" className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SHARE YOUR VISION ── */}
+      <section className="bg-white text-[#11100e] py-16 px-8">
+        <div className="max-w-2xl mx-auto">
+          <div className="flex items-center gap-3 mb-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 text-[#41403e]">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"/>
+            </svg>
+            <h2 className="text-2xl sm:text-3xl font-black">Share your vision</h2>
+          </div>
+          <p className="text-[#525354] leading-relaxed">
+            The app will also feature community forums we are calling &ldquo;Articles&rdquo; of the
+            Tatūlogue where tattoo artists and canvases can find more ways to connect,
+            share art and tattoos, and provide helpful tips and other information.
           </p>
         </div>
       </section>
 
-      {/* ── PROFILE TYPES ── */}
-      <section className="py-20 px-6 bg-[#11100e]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-black text-center mb-4 text-[#f1f1f9]">
-            Built for everyone in the tattoo world
-          </h2>
-          <p className="text-center text-[#cdcdd4] mb-14">Two types of accounts. One platform.</p>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Artist */}
-            <div className="group rounded-2xl overflow-hidden">
-              <div className="relative h-72 overflow-hidden rounded-2xl">
-                <img src={TATTOO_1} alt="Tattoo artist" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#11100e] via-[#11100e]/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#d87137] text-white text-xs font-bold tracking-widest uppercase mb-2">
-                    Artist
-                  </span>
-                  <h3 className="text-xl font-bold text-white">Tattoo Artists</h3>
-                  <p className="text-[#cdcdd4] text-sm mt-1">Licensed tattoo professionals. Showcase your portfolio and connect with your ideal clients.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Canvas */}
-            <div className="group rounded-2xl overflow-hidden">
-              <div className="relative h-72 overflow-hidden rounded-2xl">
-                <img src={TATTOO_2} alt="Tattoo enthusiast" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#11100e] via-[#11100e]/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#2ba4ac] text-white text-xs font-bold tracking-widest uppercase mb-2">
-                    Canvas
-                  </span>
-                  <h3 className="text-xl font-bold text-white">Canvas</h3>
-                  <p className="text-[#cdcdd4] text-sm mt-1">Clients &amp; tattoo enthusiasts. Discover artists by style and bring your vision to life.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── FEATURES ── */}
-      <section className="py-20 px-6 bg-[#f1f1f9]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-black text-center mb-3 text-[#11100e]">Discover the possibilities</h2>
-          <p className="text-center text-[#525354] mb-14">&hellip;and this is just the beginning.</p>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { icon: '🔍', title: 'Find by style', desc: 'Search artists by style — traditional, neo-trad, realism, blackwork, watercolor, and more.', color: '#d87137' },
-              { icon: '📸', title: 'Share your vision', desc: "Upload references and describe your idea so artists know exactly what you're looking for.", color: '#2ba4ac' },
-              { icon: '📍', title: 'The right place', desc: 'Browse verified artists in your area or find the one worth traveling to.', color: '#d87137' },
-              { icon: '🤝', title: 'The right artist', desc: "Match with artists whose style aligns with your vision, not just who's closest.", color: '#2ba4ac' },
-              { icon: '🗓️', title: 'Priority booking', desc: 'Early access to artist calendars. Secure your spot before they fill up.', color: '#d87137' },
-              { icon: '🏅', title: 'Verified artists', desc: 'Licensed professionals with verified portfolios. No bots, no fakes.', color: '#2ba4ac' },
-            ].map((f) => (
-              <div key={f.title} className="bg-white rounded-2xl p-6 border border-[#cdcdd4]/30 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-9 h-9 rounded-full flex items-center justify-center text-lg mb-3" style={{ backgroundColor: f.color + '20' }}>
-                  {f.icon}
-                </div>
-                <h3 className="font-bold text-[#11100e] mb-1.5">{f.title}</h3>
-                <p className="text-[#525354] text-sm leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* App screens */}
-          <div className="mt-16">
-            <img src={PHONE_SCREENS} alt="Tatūlogue app screens" className="w-full max-w-3xl mx-auto rounded-2xl shadow-lg" />
-          </div>
-        </div>
-      </section>
-
-      {/* ── PHOTO STRIP ── */}
-      <section className="py-10 overflow-hidden bg-white">
-        <div className="flex gap-4">
-          {[TATTOO_1, TATTOO_2, TATTOO_3, TATTOO_4, TATTOO_1, TATTOO_2].map((src, i) => (
-            <div key={i} className="flex-shrink-0 w-44 h-60 rounded-xl overflow-hidden">
-              <img src={src} alt="" className="w-full h-full object-cover" />
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ── WAITLIST FORM ── */}
-      <section id="waitlist" className="py-24 px-6 bg-[#11100e]">
+      <section id="waitlist" className="bg-[#11100e] py-24 px-8">
         <div className="max-w-xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-4xl sm:text-5xl font-black text-[#f1f1f9] mb-3">Join the waitlist</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-[#f1f1f9] mb-3">Join the waitlist</h2>
             <p className="text-[#cdcdd4]">Get project updates, newsletters, and early app access.</p>
           </div>
 
@@ -247,90 +391,59 @@ export default function Home() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Name row */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[#cdcdd4] text-sm mb-1.5">
-                    First Name <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    type="text" name="firstName" required
-                    value={form.firstName} onChange={handleChange}
+                  <label className="block text-[#cdcdd4] text-sm mb-1.5">First Name <span className="text-red-400">*</span></label>
+                  <input type="text" name="firstName" required value={form.firstName} onChange={handleChange}
                     placeholder="David"
-                    className="w-full px-4 py-3 rounded-xl bg-white/8 border border-white/15 focus:border-[#d87137] focus:outline-none text-white placeholder-white/30"
-                  />
+                    className="w-full px-4 py-3 rounded-xl bg-white/8 border border-white/15 focus:border-[#d87137] focus:outline-none text-white placeholder-white/30" />
                 </div>
                 <div>
                   <label className="block text-[#cdcdd4] text-sm mb-1.5">Last Name</label>
-                  <input
-                    type="text" name="lastName"
-                    value={form.lastName} onChange={handleChange}
+                  <input type="text" name="lastName" value={form.lastName} onChange={handleChange}
                     placeholder="Smyth"
-                    className="w-full px-4 py-3 rounded-xl bg-white/8 border border-white/15 focus:border-[#d87137] focus:outline-none text-white placeholder-white/30"
-                  />
+                    className="w-full px-4 py-3 rounded-xl bg-white/8 border border-white/15 focus:border-[#d87137] focus:outline-none text-white placeholder-white/30" />
                 </div>
               </div>
 
-              {/* Email */}
               <div>
-                <label className="block text-[#cdcdd4] text-sm mb-1.5">
-                  Email <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="email" name="email" required
-                  value={form.email} onChange={handleChange}
+                <label className="block text-[#cdcdd4] text-sm mb-1.5">Email <span className="text-red-400">*</span></label>
+                <input type="email" name="email" required value={form.email} onChange={handleChange}
                   placeholder="so.many.tattoos@gmail.com"
-                  className="w-full px-4 py-3 rounded-xl bg-white/8 border border-white/15 focus:border-[#d87137] focus:outline-none text-white placeholder-white/30"
-                />
+                  className="w-full px-4 py-3 rounded-xl bg-white/8 border border-white/15 focus:border-[#d87137] focus:outline-none text-white placeholder-white/30" />
               </div>
 
-              {/* State + City */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[#cdcdd4] text-sm mb-1.5">
-                    State <span className="text-red-400">*</span>
-                  </label>
-                  <select
-                    name="state" required
-                    value={form.state} onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-[#1e1d1b] border border-white/15 focus:border-[#d87137] focus:outline-none text-white"
-                  >
+                  <label className="block text-[#cdcdd4] text-sm mb-1.5">State <span className="text-red-400">*</span></label>
+                  <select name="state" required value={form.state} onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl bg-[#1e1d1b] border border-white/15 focus:border-[#d87137] focus:outline-none text-white">
                     <option value="" disabled>Select…</option>
                     {US_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="block text-[#cdcdd4] text-sm mb-1.5">City</label>
-                  <input
-                    type="text" name="city"
-                    value={form.city} onChange={handleChange}
+                  <input type="text" name="city" value={form.city} onChange={handleChange}
                     placeholder="e.g. Miami Beach"
-                    className="w-full px-4 py-3 rounded-xl bg-white/8 border border-white/15 focus:border-[#d87137] focus:outline-none text-white placeholder-white/30"
-                  />
+                    className="w-full px-4 py-3 rounded-xl bg-white/8 border border-white/15 focus:border-[#d87137] focus:outline-none text-white placeholder-white/30" />
                 </div>
               </div>
 
-              {/* Account type */}
               <div>
                 <label className="block text-[#cdcdd4] text-sm mb-1.5">
                   Which account type are you most interested in? <span className="text-red-400">*</span>
                 </label>
-                <select
-                  name="accountType" required
-                  value={form.accountType} onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-[#1e1d1b] border border-white/15 focus:border-[#d87137] focus:outline-none text-white"
-                >
+                <select name="accountType" required value={form.accountType} onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl bg-[#1e1d1b] border border-white/15 focus:border-[#d87137] focus:outline-none text-white">
                   <option value="" disabled>Select…</option>
                   <option value="artist">Tattoo Artist (I&apos;m a licensed tattoo artist)</option>
                   <option value="canvas">Canvas (I&apos;m a potential client or tattoo enthusiast)</option>
                 </select>
               </div>
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full py-4 rounded-xl bg-[#d87137] hover:bg-[#c5632a] text-white font-bold text-base transition-colors disabled:opacity-60 mt-2"
-              >
+              <button type="submit" disabled={loading}
+                className="w-full py-4 rounded-xl bg-[#333] hover:bg-[#444] text-white font-bold transition-colors disabled:opacity-60 mt-2">
                 {loading ? 'Submitting…' : 'Notify me'}
               </button>
             </form>
@@ -339,15 +452,15 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="border-t border-[#cdcdd4]/30 py-8 px-6 bg-white">
+      <footer className="bg-black border-t border-white/10 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <img src={LOGO} alt="Tatūlogue" className="h-5 w-auto opacity-60" />
-            <span className="text-[#525354] text-sm">&copy; 2026 Tatūlogue, LLC</span>
+            <img src={LOGO_MARK} alt="Tatūlogue" className="h-5 w-auto opacity-60" />
+            <span className="text-white/30 text-sm">&copy; 2026 Tatūlogue, LLC</span>
           </div>
-          <div className="flex gap-6 text-sm text-[#525354]">
-            <a href="/privacy" className="hover:text-[#11100e] transition-colors">Privacy Policy</a>
-            <a href="/terms" className="hover:text-[#11100e] transition-colors">Terms of Service</a>
+          <div className="flex gap-6 text-sm text-white/40">
+            <a href="/privacy" className="hover:text-white/70 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-white/70 transition-colors">Terms of Service</a>
           </div>
         </div>
       </footer>
