@@ -305,27 +305,25 @@ export default function Home() {
           </p>
 
           <div className="flex gap-16 justify-center">
-            {/* Artist avatar */}
+            {/* Artist avatar — blue→purple gradient (matches app artistGradient) */}
             <div data-animate="" style={{ transitionDelay: '0.2s' }} className="flex flex-col items-center gap-3">
-              <div
-                className="w-32 h-32 rounded-full overflow-hidden"
-                style={{ boxShadow: '0 0 0 4px #2ba4ac, 0 0 24px #2ba4ac60' }}
-              >
-                <img src={AVATAR_ARTIST} alt="Tattoo Artist" className="w-full h-full object-cover" />
+              <div style={{ background: 'linear-gradient(135deg, #2B5876, #4E4376)', padding: '3px', borderRadius: '9999px' }}>
+                <div className="w-32 h-32 rounded-full overflow-hidden bg-white">
+                  <img src={AVATAR_ARTIST} alt="Tattoo Artist" className="w-full h-full object-cover" />
+                </div>
               </div>
-              <p className="font-bold text-[#2ba4ac]">Tattoo Artists</p>
+              <p className="font-bold" style={{ background: 'linear-gradient(135deg, #2B5876, #4E4376)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tattoo Artists</p>
               <p className="text-[#525354] text-sm text-center">Licensed tattoo artists</p>
             </div>
 
-            {/* Enthusiast avatar */}
+            {/* Enthusiast avatar — red→gold gradient (matches app enthusiastGradient) */}
             <div data-animate="" style={{ transitionDelay: '0.35s' }} className="flex flex-col items-center gap-3">
-              <div
-                className="w-32 h-32 rounded-full overflow-hidden"
-                style={{ boxShadow: '0 0 0 4px #d87137, 0 0 24px #d8713760' }}
-              >
-                <img src={AVATAR_CANVAS} alt="Enthusiast" className="w-full h-full object-cover object-top" />
+              <div style={{ background: 'linear-gradient(135deg, #F12711, #F5AF19)', padding: '3px', borderRadius: '9999px' }}>
+                <div className="w-32 h-32 rounded-full overflow-hidden bg-white">
+                  <img src={AVATAR_CANVAS} alt="Enthusiast" className="w-full h-full object-cover object-top" />
+                </div>
               </div>
-              <p className="font-bold text-[#d87137]">Enthusiast</p>
+              <p className="font-bold" style={{ background: 'linear-gradient(135deg, #F12711, #F5AF19)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Enthusiast</p>
               <p className="text-[#525354] text-sm text-center">Clients &amp; tattoo enthusiasts</p>
             </div>
           </div>
