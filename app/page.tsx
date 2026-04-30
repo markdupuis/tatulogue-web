@@ -105,7 +105,8 @@ export default function Home() {
         </nav>
 
         {/* Centered wordmark */}
-        <div className="relative z-10 flex flex-col items-center gap-6">
+        <div className="relative z-10 flex flex-col items-center gap-4">
+          <img src={LOGO_MARK} alt="" className="w-64 h-64 sm:w-72 sm:h-72 object-contain" />
           <img src={LOGO_FULL} alt="TATŪLOGUE" className="h-16 w-auto object-contain" />
           <p className="text-xs sm:text-sm tracking-[0.25em] uppercase text-white/70 font-light">
             Your Tattoo Journey Starts Here
