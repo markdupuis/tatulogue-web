@@ -261,13 +261,14 @@ export default function Home() {
 
       {/* ── WHY TATULOGUE — gradient section ── */}
       <section
-        className="relative py-20 px-8 overflow-hidden"
+        className="relative pt-20 pb-0 px-8 overflow-hidden"
         style={{
           background: 'linear-gradient(135deg, #0d1520 0%, #0d2a30 30%, #1a2a15 55%, #2a1a08 80%, #1a0808 100%)',
         }}
       >
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-end">
+          {/* Text — padded so it doesn't hug the bottom */}
+          <div className="pb-20">
             <p data-animate="" className="text-white/70 text-lg mb-6">And THAT is why we are creating</p>
             <h2 data-animate="" style={{ transitionDelay: '0.12s' }} className="text-5xl sm:text-6xl font-black text-white mb-8 tracking-tight">
               Tatūlogue.
@@ -277,12 +278,13 @@ export default function Home() {
               tattoo. And share and enjoy tattoo culture in an InkSocial environment.
             </p>
           </div>
-          <div className="flex justify-center">
+          {/* Phone — bottom-anchored so the hand is clipped at the section edge */}
+          <div className="flex justify-center items-end">
             <img
               data-animate="slide-right"
               src="/phone.png"
               alt="Tatūlogue app"
-              className="w-56 sm:w-72 drop-shadow-2xl"
+              className="w-64 sm:w-80 drop-shadow-2xl"
             />
           </div>
         </div>
