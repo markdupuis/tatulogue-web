@@ -106,11 +106,8 @@ export default function Home() {
 
         {/* Centered wordmark */}
         <div className="relative z-10 flex flex-col items-center gap-4">
-          <img src="/logo.svg" alt="TATŪLOGUE" className="w-80 sm:w-96 object-contain" />
-          <p className="text-xs sm:text-sm tracking-[0.25em] uppercase text-white/70 font-light">
-            Your Tattoo Journey Starts Here
-          </p>
-          <a
+          <img src="/logo.svg" alt="TATŪLOGUE" className="w-96 sm:w-[460px] object-contain" />
+          <
             href="#waitlist"
             className="mt-2 px-8 py-3 rounded-full border border-white text-white hover:bg-white hover:text-black font-medium transition-colors"
           >
