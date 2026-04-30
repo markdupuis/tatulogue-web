@@ -76,15 +76,20 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white overflow-x-hidden">
 
-      {/* ── HERO — full-screen dark image + centered logo ── */}
-      <section
-        className="relative min-h-screen flex flex-col items-center justify-center text-center px-6"
-        style={{
-          backgroundImage: `url(${HERO_BG})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
+      {/* ── HERO — full-screen video + centered logo ── */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6">
+        {/* Background video — place hero.mp4 in /public to activate */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={HERO_BG}
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
+
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/65" />
 
