@@ -99,7 +99,7 @@ export default function AdminPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              className="w-full px-4 py-3 rounded-xl bg-white/8 border border-white/15 focus:border-violet-500 focus:outline-none placeholder-white/30"
+              className="w-full px-4 py-3 rounded-xl bg-white border border-white/15 focus:border-violet-500 focus:outline-none text-black placeholder-gray-400"
             />
             <button type="submit" className="w-full py-3 rounded-xl bg-violet-600 hover:bg-violet-500 font-semibold transition-colors">
               Sign in
