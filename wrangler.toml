@@ -1,6 +1,12 @@
 name = "tatulogue-web"
+account_id = "c624942c3c98348d062163c179846323"
 compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
+
+routes = [
+  { pattern = "tatulogue.com", custom_domain = true },
+  { pattern = "www.tatulogue.com", custom_domain = true }
+]
 
 # next build (output: export) puts static files in ./out
 [assets]
