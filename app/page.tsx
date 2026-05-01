@@ -71,10 +71,35 @@ export default function Home() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    // TODO: wire to Supabase waitlist table
-    await new Promise((r) => setTimeout(r, 800));
-    setSubmitted(true);
-    setLoading(false);
+    try {
+      const res = await fetch(
+        'https://wvndcypeecniuzrnwnmx.supabase.co/rest/v1/waitlist',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind2bmRjeXBlZWNuaXV6cm53bm14Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2MDQ5NjcsImV4cCI6MjA3OTE4MDk2N30.ssbErAc6AMBL5UcZtd3q8YKRkFdS0qdfNmm7bcoHrUo',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind2bmRjeXBlZWNuaXV6cm53bm14Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2MDQ5NjcsImV4cCI6MjA3OTE4MDk2N30.ssbErAc6AMBL5UcZtd3q8YKRkFdS0qdfNmm7bcoHrUo',
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify({
+            first_name:   form.firstName,
+            last_name:    form.lastName,
+            email:        form.email,
+            state:        form.state,
+            city:         form.city,
+            account_type: form.accountType,
+          }),
+        }
+      );
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Waitlist submit failed:', err);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
