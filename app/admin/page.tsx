@@ -17,6 +17,7 @@ interface Report {
   priority:    Priority;
   report_type: 'bug' | 'feature_request';
   created_at:  string;
+  reporter_id: string;
   username:    string | null;
 }
 
@@ -51,14 +52,14 @@ export default function AdminPage() {
     setDataLoading(true);
     const { data, error } = await supabase
       .from('bug_reports')
-      .select(`id, title, description, steps_to_reproduce, status, priority, report_type, created_at, users(username)`)
+      .select(`id, title, description, steps_to_reproduce, status, priority, report_type, created_at, reporter_id`)
       .order('created_at', { ascending: false });
 
     if (!error && data) {
       setReports(
         data.map((r: any) => ({
           ...r,
-          username: r.users?.username ?? null,
+          username: null,
         }))
       );
     }
