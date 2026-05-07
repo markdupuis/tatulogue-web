@@ -9,28 +9,13 @@ const AVATAR_CANVAS = '/images/avatar-enthusiast.jpg';
 const BG_ARTISTS    = '/images/bg-artists.jpg';
 const BG_CANVAS     = '/images/bg-enthusiasts.jpg';
 
-// Image strip — row 1 (scrolls left) and row 2 (scrolls right)
-const STRIP_ROW1 = [
-  '/images/strip-1-1.jpg',
-  '/images/strip-1-2.jpg',
-  '/images/strip-1-3.jpg',
-  '/images/strip-1-4.jpg',
-  '/images/strip-1-5.jpg',
-  '/images/strip-1-6.jpg',
-  '/images/strip-1-7.jpg',
-  '/images/strip-1-8.jpg',
-  '/images/strip-1-9.jpg',
-];
-const STRIP_ROW2 = [
-  '/images/strip-2-1.jpg',
-  '/images/strip-2-2.jpg',
-  '/images/strip-2-3.jpg',
-  '/images/strip-2-4.jpg',
-  '/images/strip-2-5.jpg',
-  '/images/strip-2-6.jpg',
-  '/images/strip-2-7.jpg',
-  '/images/strip-2-8.jpg',
-  '/images/strip-2-9.jpg',
+// Video strip — stock tattoo artist clips
+const STRIP_VIDEOS = [
+  '/videos/tattoo-back.mp4',
+  '/videos/tattoo-back2.mp4',
+  '/videos/tattoo-arm.mp4',
+  '/videos/tattoo-arm2.mp4',
+  '/videos/tattoo-woman.mp4',
 ];
 
 const US_STATES = [
@@ -369,24 +354,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── ANIMATED IMAGE STRIP ── */}
-      <section className="bg-white py-6 overflow-hidden">
-        {/* Row 1 — scrolls left */}
-        <div className="overflow-hidden mb-3">
-          <div className="flex gap-3 animate-scroll-left" style={{ width: 'max-content' }}>
-            {[...STRIP_ROW1, ...STRIP_ROW1].map((src, i) => (
-              <div key={i} className="flex-shrink-0 w-40 h-28 rounded-lg overflow-hidden">
-                <img src={src} alt="" className="w-full h-full object-cover" />
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* Row 2 — scrolls right */}
+      {/* ── VIDEO STRIP ── */}
+      <section className="bg-[#07070d] py-8 overflow-hidden">
         <div className="overflow-hidden">
-          <div className="flex gap-3 animate-scroll-right" style={{ width: 'max-content' }}>
-            {[...STRIP_ROW2, ...STRIP_ROW2].map((src, i) => (
-              <div key={i} className="flex-shrink-0 w-40 h-28 rounded-lg overflow-hidden">
-                <img src={src} alt="" className="w-full h-full object-cover" />
+          <div className="flex gap-4 animate-scroll-left" style={{ width: 'max-content' }}>
+            {[...STRIP_VIDEOS, ...STRIP_VIDEOS, ...STRIP_VIDEOS].map((src, i) => (
+              <div key={i} className="flex-shrink-0 w-56 h-40 rounded-xl overflow-hidden">
+                <video
+                  src={src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
           </div>
