@@ -123,7 +123,7 @@ export default function AdminPage() {
             &larr; Back
           </Link>
           <h1 className="text-2xl font-black mb-1">Admin</h1>
-          <p className="text-white/40 text-sm mb-8">Tatūlogue dashboard</p>
+          <p className="text-white/40 text-sm mb-8">Tatulogue dashboard</p>
           <form onSubmit={handleLogin} className="space-y-4">
             <input
               type="email"
@@ -174,7 +174,7 @@ export default function AdminPage() {
   return (
     <main className="min-h-screen bg-[#07070d] text-white">
       <nav className="flex items-center justify-between px-6 py-4 border-b border-white/5">
-        <Link href="/" className="text-white/50 text-sm hover:text-white transition-colors">&larr; Tatūlogue</Link>
+        <Link href="/" className="text-white/50 text-sm hover:text-white transition-colors">&larr; Tatulogue</Link>
         <h1 className="font-bold">Admin Dashboard</h1>
         <button onClick={handleSignOut} className="text-white/30 text-sm hover:text-white/60 transition-colors">
           Sign out

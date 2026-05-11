@@ -273,7 +273,7 @@ export default function Home() {
           <div className="pb-20">
             <p data-animate="" className="text-white/70 text-lg mb-6">And THAT is why we are creating</p>
             <h2 data-animate="" style={{ transitionDelay: '0.12s' }} className="text-5xl sm:text-6xl font-black text-white mb-8 tracking-tight">
-              Tatūlogue.
+              Tatulogue.
             </h2>
             <p data-animate="" style={{ transitionDelay: '0.24s' }} className="text-white/70 text-lg leading-relaxed">
               The place to find your tattoo inspiration and find the perfect artist to do that
@@ -285,7 +285,7 @@ export default function Home() {
             <img
               data-animate="slide-right"
               src="/phone.png"
-              alt="Tatūlogue app"
+              alt="Tatulogue app"
               className="w-64 sm:w-80 drop-shadow-2xl"
             />
           </div>
@@ -302,7 +302,7 @@ export default function Home() {
             <h2 data-animate="" className="text-2xl sm:text-3xl font-black">Dedicated accounts</h2>
           </div>
           <p data-animate="" style={{ transitionDelay: '0.1s' }} className="text-[#525354] mb-12 leading-relaxed">
-            At launch, Tatūlogue will feature two profile types. One for licensed Tattoo
+            At launch, Tatulogue will feature two profile types. One for licensed Tattoo
             Artists, and one for clients and everyone else called an &ldquo;Enthusiast&rdquo; profile.
           </p>
 
@@ -343,7 +343,7 @@ export default function Home() {
           </div>
           <div className="space-y-4 text-[#525354] leading-relaxed">
             <p data-animate="" style={{ transitionDelay: '0.1s' }}>
-              Tatūlogue will feature a feed where you can browse recently uploaded art, tattoos,
+              Tatulogue will feature a feed where you can browse recently uploaded art, tattoos,
               and inspiration from tattoo artists and other enthusiasts.
             </p>
             <p>
@@ -385,7 +385,7 @@ export default function Home() {
           </div>
           <p data-animate="" style={{ transitionDelay: '0.12s' }} className="text-[#525354] leading-relaxed">
             The app will also feature community forums we are calling &ldquo;Articles&rdquo; of the
-            Tatūlogue where tattoo artists and enthusiasts can find more ways to connect,
+            Tatulogue where tattoo artists and enthusiasts can find more ways to connect,
             share art and tattoos, and provide helpful tips and other information.
           </p>
         </div>
@@ -471,8 +471,8 @@ export default function Home() {
       <footer className="bg-black border-t border-white/10 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <img src="/logo.svg" alt="Tatūlogue" className="h-5 w-auto opacity-60" />
-            <span className="text-white/30 text-sm">&copy; 2026 Tatūlogue, LLC</span>
+            <img src="/logo.svg" alt="Tatulogue" className="h-5 w-auto opacity-60" />
+            <span className="text-white/30 text-sm">&copy; 2026 Tatulogue, LLC</span>
           </div>
           <div className="flex gap-6 text-sm text-white/40">
             <a href="/privacy" className="hover:text-white/70 transition-colors">Privacy Policy</a>
