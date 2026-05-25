@@ -467,6 +467,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── FROM THE JOURNAL ── */}
+      <section className="bg-[#07070d] py-20 px-8 border-t border-white/6">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-2">The Tatulogue Journal</p>
+              <h2 data-animate="" className="text-3xl sm:text-4xl font-black text-white leading-tight">
+                From the blog
+              </h2>
+            </div>
+            <a href="/blog" className="text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors whitespace-nowrap">
+              View all →
+            </a>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {/* Post 1 */}
+            <a href="/blog/tattoo-aftercare-guide" className="group block rounded-xl border border-white/8 bg-zinc-900/60 overflow-hidden hover:border-violet-500/40 transition-all duration-300 hover:-translate-y-1">
+              <div className="aspect-video overflow-hidden bg-zinc-800">
+                <img
+                  src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=600&q=80&auto=format&fit=crop"
+                  alt="Fresh tattoo aftercare"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5">
+                <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">Education</span>
+                <h3 className="mt-2 font-bold leading-snug group-hover:text-violet-300 transition-colors">Tattoo Aftercare: The Complete Day-by-Day Healing Guide</h3>
+                <p className="mt-2 text-zinc-400 text-sm line-clamp-2 leading-relaxed">From the first wrap to the final peel — what actually matters in the first four weeks.</p>
+              </div>
+            </a>
+            {/* Post 2 */}
+            <a href="/blog/tattoo-styles-guide-2026" className="group block rounded-xl border border-white/8 bg-zinc-900/60 overflow-hidden hover:border-violet-500/40 transition-all duration-300 hover:-translate-y-1">
+              <div className="aspect-video overflow-hidden bg-zinc-800">
+                <img
+                  src="https://images.unsplash.com/photo-1562962230-16e4623d36e6?w=600&q=80&auto=format&fit=crop"
+                  alt="Tattoo styles"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5">
+                <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">Education</span>
+                <h3 className="mt-2 font-bold leading-snug group-hover:text-violet-300 transition-colors">The 10 Most Popular Tattoo Styles in 2026</h3>
+                <p className="mt-2 text-zinc-400 text-sm line-clamp-2 leading-relaxed">A buyer&apos;s guide to styles, aging, and finding the right artist for each one.</p>
+              </div>
+            </a>
+            {/* Post 3 */}
+            <a href="/blog/fine-line-tattoos-complete-guide" className="group block rounded-xl border border-white/8 bg-zinc-900/60 overflow-hidden hover:border-violet-500/40 transition-all duration-300 hover:-translate-y-1">
+              <div className="aspect-video overflow-hidden bg-zinc-800">
+                <img
+                  src="https://images.unsplash.com/photo-1605647533135-51b5906087d0?w=600&q=80&auto=format&fit=crop"
+                  alt="Fine line tattoo detail"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5">
+                <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">Education</span>
+                <h3 className="mt-2 font-bold leading-snug group-hover:text-violet-300 transition-colors">Fine Line Tattoos: Everything You Need to Know Before You Book</h3>
+                <p className="mt-2 text-zinc-400 text-sm line-clamp-2 leading-relaxed">Looks incredible fresh. Here&apos;s the honest story on how it ages and what placements hold.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── FOOTER ── */}
       <footer className="bg-black border-t border-white/10 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">

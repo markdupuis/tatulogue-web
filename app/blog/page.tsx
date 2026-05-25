@@ -79,9 +79,7 @@ export default function BlogIndex() {
       <nav className="sticky top-0 z-50 border-b border-white/8 bg-black/80 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#2B5876] to-[#6B4FFF] flex items-center justify-center font-black text-sm">
-              T
-            </div>
+            <img src="/images/logo-mark.svg" alt="Tatulogue" className="w-7 h-7 brightness-0 invert" />
             <span className="font-bold text-lg tracking-tight">Tatulogue</span>
           </Link>
           <Link
