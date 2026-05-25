@@ -7,6 +7,8 @@ category: education
 tags: [tattoo-styles, beginner-guide, japanese, blackwork, fine-line, traditional, realism]
 featured: false
 readTime: 10
+coverImage: "https://images.unsplash.com/photo-1562962230-16e4623d36e6?w=1200&q=80&auto=format&fit=crop"
+coverAlt: "Collection of different tattoo styles on skin"
 ---
 
 > **TL;DR:** You want a tattoo but you don't know what to call the thing you want — which means you can't find the right artist for it. This is the practical breakdown: what each style actually is, how it ages, and who it's not for. Use it to book smarter.

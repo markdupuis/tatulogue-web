@@ -7,6 +7,8 @@ category: education
 tags: [aftercare, healing, tattoo-care, new-tattoo]
 featured: false
 readTime: 8
+coverImage: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=1200&q=80&auto=format&fit=crop"
+coverAlt: "Fresh tattoo being cared for during healing"
 ---
 
 > **TL;DR:** You just got tattooed. Now the work actually starts. Most tattoos that look bad in a year weren't done badly — they were healed badly. This is what actually matters in the first four weeks, broken down day by day, without the conflicting advice your friends are about to send you.
