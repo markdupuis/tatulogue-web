@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: about
 tags: [tatulogue, tattoo-app, tattoo-booking, tattoo-platform]
 featured: true
-coverImage: "https://images.unsplash.com/photo-1753259789341-808371092e19?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Tattoo artist at work in their studio"
+coverImage: "https://images.unsplash.com/photo-hxNiXP498UI?w=1200&q=80&auto=format&fit=crop"
+coverAlt: "Person doing a tattoo"
 readTime: 7
 ---
 
