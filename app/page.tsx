@@ -9,13 +9,13 @@ const AVATAR_CANVAS = '/images/avatar-enthusiast.jpg';
 const BG_ARTISTS    = '/images/bg-artists.jpg';
 const BG_CANVAS     = '/images/bg-enthusiasts.jpg';
 
-// Video strip — stock tattoo artist clips
-const STRIP_VIDEOS = [
-  '/videos/tattoo-back.mp4',
-  '/videos/tattoo-back2.mp4',
-  '/videos/tattoo-arm.mp4',
-  '/videos/tattoo-arm2.mp4',
-  '/videos/tattoo-woman.mp4',
+// Strip images — lightweight JPGs replacing the video strip
+const STRIP_IMAGES = [
+  '/images/strip-1-1.jpg', '/images/strip-1-2.jpg', '/images/strip-1-3.jpg',
+  '/images/strip-1-4.jpg', '/images/strip-1-5.jpg', '/images/strip-1-6.jpg',
+  '/images/strip-1-7.jpg', '/images/strip-1-8.jpg', '/images/strip-1-9.jpg',
+  '/images/strip-2-1.jpg', '/images/strip-2-2.jpg', '/images/strip-2-3.jpg',
+  '/images/strip-2-4.jpg', '/images/strip-2-5.jpg', '/images/strip-2-6.jpg',
 ];
 
 const US_STATES = [
@@ -98,6 +98,7 @@ export default function Home() {
           muted
           loop
           playsInline
+          preload="none"
           poster={HERO_BG}
           className="absolute inset-0 w-full h-full object-cover"
         >
@@ -358,14 +359,12 @@ export default function Home() {
       <section className="bg-[#07070d] py-8 overflow-hidden">
         <div className="overflow-hidden">
           <div className="flex gap-4 animate-scroll-left" style={{ width: 'max-content' }}>
-            {[...STRIP_VIDEOS, ...STRIP_VIDEOS, ...STRIP_VIDEOS].map((src, i) => (
+            {[...STRIP_IMAGES, ...STRIP_IMAGES].map((src, i) => (
               <div key={i} className="flex-shrink-0 w-56 h-40 rounded-xl overflow-hidden">
-                <video
+                <img
                   src={src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                  alt=""
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>
