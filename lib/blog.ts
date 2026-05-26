@@ -69,7 +69,14 @@ export async function getPost(slug: string): Promise<Post | null> {
   const { data, content } = matter(raw);
 
   const processed = await remark().use(html, { sanitize: false }).process(content);
-  const contentHtml = processed.toString();
+
+  // Open external links in a new tab; internal links stay in-page
+  const contentHtml = processed
+    .toString()
+    .replace(
+      /<a href="(https?:\/\/(?!(?:www\.)?tatulogue\.com)[^"]+)"([^>]*)>/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer"$2>',
+    );
 
   return {
     slug,
