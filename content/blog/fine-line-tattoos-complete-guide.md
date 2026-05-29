@@ -29,7 +29,7 @@ Fine line looks hard fresh, but not every artist can make that shit heal clean f
 
 Ink sits in the dermis. Over time the body moves it slightly — immune response, cell turnover, just time. In a bold piece with packed black, that migration is invisible. In fine line, it's the difference between a crispy result and something that looks like it was drawn with a drying marker.
 
-What happens in practice: lines soften. Grey washes fade. Tiny details — small faces, hyper-fine script, micro botanicals — pack in as the negative space fills. [Tattoodo's breakdown on aging](https://www.tattoodo.com/articles/how-do-tattoos-age) puts it plainly: pieces under two inches with heavy detail are the most likely to lose legibility over time.
+What happens in practice: lines soften. Grey washes fade. Tiny details — small faces, hyper-fine script, micro botanicals — pack in as the negative space fills. [our breakdown on how tattoos age](/blog/how-tattoos-age) puts it plainly: pieces under two inches with heavy detail are the most likely to lose legibility over time.
 
 This isn't a reason to avoid fine line. It's a reason to go in knowing what holds and what doesn't. Simple linework with real negative space. One clean stem. Geometric forms. Script sized right for the placement. Simple isn't a compromise — it's what actually lasts.
 

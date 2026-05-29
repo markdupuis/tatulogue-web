@@ -29,7 +29,7 @@ Traditional ages better than almost anything else. The bold outlines hold the de
 
 ## Japanese / Irezumi
 
-Large-scale compositions built around koi, dragons, peonies, waves, tigers. Designed to flow with the body — the piece is mapped to the muscle and form, not just placed on it. [Japanese tattooing has centuries of cultural history](https://www.mymodernmet.com/japanese-tattoo-history/) behind its visual language, and the iconography has specific meaning.
+Large-scale compositions built around koi, dragons, peonies, waves, tigers. Designed to flow with the body — the piece is mapped to the muscle and form, not just placed on it. [Japanese tattooing has centuries of cultural history](/blog/japanese-tattoo-history-iconography) behind its visual language, and the iconography has specific meaning.
 
 Requires a specialist. The scale, body mapping, and technical requirements mean you can't just find a generalist and hand them a koi reference. Look for artists who only do Japanese work, or who do it as their primary focus. Check their large-scale pieces, not just the smaller flash-style work.
 
@@ -39,7 +39,7 @@ Requires a specialist. The scale, body mapping, and technical requirements mean 
 
 Solid black, heavy fills, graphic forms. Can range from geometric abstraction to dark illustrative work to large blackout panels. The boldest end of the spectrum.
 
-Packed black holds the longest of any technique. If you want something that still looks intentional in twenty years without maintenance, blackwork delivers. The [growth in blackwork](https://www.painfulpleasures.com/blogs/community/tattoo-trend-forecast-for-2026) has been consistent for a decade because collectors who've seen their other work age are choosing it deliberately.
+Packed black holds the longest of any technique. If you want something that still looks intentional in twenty years without maintenance, blackwork delivers. The [growth in blackwork](/blog/tattoo-trends-2026) has been consistent for a decade because collectors who've seen their other work age are choosing it deliberately.
 
 **Who this is NOT for:** People who might want the piece removed later — blackwork is the hardest style to remove via laser. Also not ideal for collectors who want colour, detail, or softness in their work.
 
@@ -55,7 +55,7 @@ The issue isn't the style — it's the execution and placement. [Fine line on th
 
 Photorealistic rendering in black and grey. Portraits, nature studies, detailed animal work. The technical ceiling for this style is extremely high.
 
-Good black and grey realism looks stunning and, done with the right technique, holds well. The key word is right technique — [artists who over-work the skin](https://removery.com/blog/tattoos-after-10-years/) trying to achieve photorealism can cause scarring and poor ink retention. This style rewards doing real research on the artist.
+Good black and grey realism looks stunning and, done with the right technique, holds well. The key word is right technique — [artists who over-work the skin](/blog/overworked-skin-tattoo) trying to achieve photorealism can cause scarring and poor ink retention. This style rewards doing real research on the artist.
 
 **Who this is NOT for:** People on a budget looking for the cheapest version of this style. Realism done cheap almost always becomes mush. Save and book the artist who can actually do it.
 
@@ -79,7 +79,7 @@ Geometric tattoos look incredible when executed precisely. A single misaligned l
 
 Mimics the look of watercolour paint — loose washes of colour, soft edges, no traditional outlines. The style that gets the most questions about aging, and for good reason.
 
-[Watercolour tattoos fade faster than virtually any other style](https://vitiumtattoo.com/blog/watercolor-tattoos-longevity-fading-guide). Without bold outlines to hold the design, the colour washes bleed and soften significantly over time. The look that attracted you to the style is often the first thing to go. Most artists who work in watercolour will tell you this honestly — if yours doesn't, that's information.
+[Watercolour tattoos fade faster than virtually any other style](/blog/watercolour-tattoos-how-they-age). Without bold outlines to hold the design, the colour washes bleed and soften significantly over time. The look that attracted you to the style is often the first thing to go. Most artists who work in watercolour will tell you this honestly — if yours doesn't, that's information.
 
 **Who this is NOT for:** People who want something that looks the same in ten years as it did fresh. Watercolour is a style that requires expectation-setting going in.
 

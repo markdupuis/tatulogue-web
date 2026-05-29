@@ -23,7 +23,7 @@ That's the problem Tatulogue exists to fix.
 
 Instagram is built to keep people on Instagram. The algorithm serves content it thinks will generate engagement — saves, shares, time-on-screen. What it doesn't optimise for is connecting you with the right tattoer for the thing you want to put on your body permanently.
 
-A [2025 creator economy survey from Netinfluencer](https://www.netinfluencer.com/the-creator-economy-in-review-2025-what-77-professionals-say-must-change-in-2026/) found that over 60% of creators reported their reach being significantly shaped by algorithm changes outside their control. For tattoo artists, that reach isn't just visibility — it's their waitlist. Their livelihood.
+A [research on how algorithm changes are killing creator reach](/blog/instagram-failing-tattoo-artists) found that over 60% of creators reported their reach being significantly shaped by algorithm changes outside their control. For tattoo artists, that reach isn't just visibility — it's their waitlist. Their livelihood.
 
 The other problem: discovery on Instagram is style-blind. You can search hashtags, but you can't filter by style + location + availability. You can't see healed work versus fresh work. You can't compare portfolios side by side from artists in your area who specialise in exactly what you want.
 
@@ -49,7 +49,7 @@ The tattoer and the collector have different problems and Tatulogue is built to 
 
 There are other booking platforms. Most of them approach the tattoo world the same way they approach any service industry — as a scheduling problem.
 
-Tatulogue is a community platform first. The [existing tattoo booking software landscape](https://tattoogenda.com/software-comparisons/tattoo-booking-software/) is largely built around appointment management. That's useful, but it doesn't solve the discovery problem. It doesn't create a place where the tattoo community actually lives.
+Tatulogue is a community platform first. The [existing tattoo booking software landscape](/blog/tatulogue-vs-booksy-vs-styleseat) is largely built around appointment management. That's useful, but it doesn't solve the discovery problem. It doesn't create a place where the tattoo community actually lives.
 
 The difference: Tatulogue is built to be the place you go to find the right artist, not just to fill an appointment slot once you've already figured that out somewhere else.
 

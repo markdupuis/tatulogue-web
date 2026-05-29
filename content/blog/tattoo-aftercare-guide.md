@@ -45,7 +45,7 @@ The surface looks healed. It's not.
 
 The deeper layers of the dermis are still setting. The tattoo can look cloudy or dull for two to four weeks — that's totally normal. It'll clear up. Some areas may look patchy. Wait it out before you worry.
 
-[Research from dermatologists on tattoo healing](https://www.healthline.com/health/how-long-does-it-take-for-a-tattoo-to-heal) shows full dermal healing takes four to six weeks, even when the surface looks done at two. This matters for touch-ups — your artist needs to see the healed result, not two-week skin.
+[Full dermal healing takes four to six weeks](/blog/tattoo-healing-stages) shows full dermal healing takes four to six weeks, even when the surface looks done at two. This matters for touch-ups — your artist needs to see the healed result, not two-week skin.
 
 Moisturise daily. Sun protection on the healed piece. Start building the SPF habit now — it's the single biggest factor in how your tattoo looks in ten years.
 
@@ -61,7 +61,7 @@ These are the ones that actually cause damage:
 
 **Sun on fresh ink.** UV breaks down ink particles. A fresh tattoo in direct sun will fade faster and heal uneven. Keep it covered or out of the sun for the first three to four weeks minimum.
 
-**Swimming.** Pools have chlorine. The ocean has bacteria. Both are bad for healing skin. [Swim Right Academy's guidance on swimming post-tattoo](https://www.swimrightacademy.com/can-you-swim-after-getting-a-tattoo/) says wait a minimum of two weeks — and that's for surface healing, not full dermal healing.
+**Swimming.** Pools have chlorine. The ocean has bacteria. Both are bad for healing skin. [guidance on swimming with a new tattoo](/blog/swimming-with-new-tattoo) says wait a minimum of two weeks — and that's for surface healing, not full dermal healing.
 
 **Tight clothing over fresh work.** Friction on a healing tattoo causes irritation and uneven healing. Loose, breathable fabric only.
 
