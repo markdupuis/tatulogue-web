@@ -1,6 +1,8 @@
 import { supabase } from '../supabase';
 import type {
   AdminUser,
+  BlogIdea,
+  BlogIdeaStatus,
   BugReport,
   EventCountStat,
   OverviewMetrics,
@@ -272,4 +274,32 @@ export async function fetchBangers(limit = 10): Promise<PostStat[]> {
     .filter((post) => post.likes >= 1)
     .sort((a, b) => b.likes - a.likes)
     .slice(0, limit);
+}
+
+export async function fetchBlogIdeas(): Promise<BlogIdea[]> {
+  const { data, error } = await supabase
+    .from('blog_ideas')
+    .select('*')
+    .order('created_at', { ascending: false });
+  if (error || !data) return [];
+  return data as BlogIdea[];
+}
+
+export async function createBlogIdea(
+  input: Partial<BlogIdea> & { title: string }
+): Promise<BlogIdea | null> {
+  const { data, error } = await supabase.from('blog_ideas').insert(input).select().single();
+  if (error || !data) return null;
+  return data as BlogIdea;
+}
+
+export async function updateBlogIdea(id: string, patch: Partial<BlogIdea>): Promise<void> {
+  await supabase
+    .from('blog_ideas')
+    .update({ ...patch, updated_at: new Date().toISOString() })
+    .eq('id', id);
+}
+
+export async function deleteBlogIdea(id: string): Promise<void> {
+  await supabase.from('blog_ideas').delete().eq('id', id);
 }

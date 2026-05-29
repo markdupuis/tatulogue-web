@@ -76,3 +76,24 @@ export interface OverviewMetrics {
   totalEvents: number;
   searches: number;
 }
+
+export type BlogIdeaStatus = 'idea' | 'writing' | 'published';
+
+export interface BlogIdea {
+  id: string;
+  title: string;
+  angle: string | null;
+  target_keyword: string | null;
+  category: string | null;
+  status: BlogIdeaStatus;
+  published_slug: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ExistingPostSummary {
+  slug: string;
+  title: string;
+  category: string;
+  date: string;
+}

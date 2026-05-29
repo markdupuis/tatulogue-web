@@ -13,7 +13,7 @@ interface AdminAuthState {
 
 async function isAdmin(userId: string): Promise<boolean> {
   const { data } = await supabase
-    .from('admins')
+    .from('web_admins')
     .select('id')
     .eq('user_id', userId)
     .maybeSingle();
