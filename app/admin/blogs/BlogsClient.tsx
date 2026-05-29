@@ -139,6 +139,35 @@ function IdeaCard({ idea, onMove, onSlug, onDelete }: IdeaCardProps) {
   );
 }
 
+function ExistingPostCard({ post }: { post: ExistingPostSummary }) {
+  return (
+    <div className="rounded-xl border border-white/8 bg-white/[0.02] p-4">
+      <div className="flex items-start justify-between gap-2">
+        <h3 className="font-semibold text-white">{post.title}</h3>
+        <span className="flex-shrink-0 rounded-full border border-green-400/20 px-2 py-0.5 text-xs text-green-400">
+          Live
+        </span>
+      </div>
+      <div className="mt-2 flex flex-wrap gap-2">
+        <span className="rounded-full bg-white/[0.04] px-2 py-0.5 text-xs text-white/50">
+          {CATEGORY_LABELS[post.category] ?? post.category}
+        </span>
+      </div>
+      <div className="mt-3 flex items-center justify-between gap-2">
+        <span className="text-xs text-white/30">{formatDate(post.date)}</span>
+        <a
+          href={`/blog/${post.slug}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-violet-400 hover:text-violet-300"
+        >
+          View →
+        </a>
+      </div>
+    </div>
+  );
+}
+
 interface BlogsClientProps {
   existingPosts: ExistingPostSummary[];
 }
@@ -200,45 +229,6 @@ export default function BlogsClient({ existingPosts }: BlogsClientProps) {
 
   return (
     <AdminShell active="blogs" title="Blogs">
-      <section className="mb-10">
-        <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-white/40">
-          Existing posts
-        </h2>
-        {existingPosts.length === 0 ? (
-          <p className="text-white/40">No published posts yet.</p>
-        ) : (
-          <div className="overflow-hidden rounded-xl border border-white/8 bg-white/[0.02]">
-            {existingPosts.map((post, i) => (
-              <div
-                key={post.slug}
-                className={`flex items-center justify-between gap-4 px-4 py-3 ${
-                  i > 0 ? 'border-t border-white/8' : ''
-                }`}
-              >
-                <div className="min-w-0">
-                  <p className="truncate font-medium text-white">{post.title}</p>
-                  <p className="mt-0.5 flex flex-wrap items-center gap-2 text-xs text-white/40">
-                    <span>{CATEGORY_LABELS[post.category] ?? post.category}</span>
-                    <span>•</span>
-                    <span>{formatDate(post.date)}</span>
-                    <span>•</span>
-                    <span className="text-white/30">{post.slug}</span>
-                  </p>
-                </div>
-                <a
-                  href={`/blog/${post.slug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-shrink-0 text-sm text-violet-400 hover:text-violet-300"
-                >
-                  View →
-                </a>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
-
       <section>
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-white/40">
@@ -320,6 +310,8 @@ export default function BlogsClient({ existingPosts }: BlogsClientProps) {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {STATUS_ORDER.map((status) => {
               const columnIdeas = ideas.filter((it) => it.status === status);
+              const livePosts = status === 'published' ? existingPosts : [];
+              const total = columnIdeas.length + livePosts.length;
               return (
                 <div
                   key={status}
@@ -329,21 +321,26 @@ export default function BlogsClient({ existingPosts }: BlogsClientProps) {
                     <h3 className="text-sm font-semibold text-white">
                       {STATUS_LABELS[status]}
                     </h3>
-                    <span className="text-xs text-white/40">{columnIdeas.length}</span>
+                    <span className="text-xs text-white/40">{total}</span>
                   </div>
                   <div className="space-y-3">
-                    {columnIdeas.length === 0 ? (
+                    {total === 0 ? (
                       <p className="px-1 py-6 text-center text-xs text-white/25">Empty</p>
                     ) : (
-                      columnIdeas.map((idea) => (
-                        <IdeaCard
-                          key={idea.id}
-                          idea={idea}
-                          onMove={handleMove}
-                          onSlug={handleSlug}
-                          onDelete={handleDelete}
-                        />
-                      ))
+                      <>
+                        {columnIdeas.map((idea) => (
+                          <IdeaCard
+                            key={idea.id}
+                            idea={idea}
+                            onMove={handleMove}
+                            onSlug={handleSlug}
+                            onDelete={handleDelete}
+                          />
+                        ))}
+                        {livePosts.map((post) => (
+                          <ExistingPostCard key={post.slug} post={post} />
+                        ))}
+                      </>
                     )}
                   </div>
                 </div>
