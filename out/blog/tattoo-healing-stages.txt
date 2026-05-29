@@ -1,0 +1,151 @@
+3:I[4707,[],""]
+5:I[6423,[],""]
+4:["slug","tattoo-healing-stages","d"]
+0:["-UBBsFHXAK1e-BUXx3f1s",[[["",{"children":["blog",{"children":[["slug","tattoo-healing-stages","d"],{"children":["__PAGE__?{\"slug\":\"tattoo-healing-stages\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","tattoo-healing-stages","d"],{"children":["__PAGE__",{},[["$L1","$L2",null],null],null]},[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/e8c246b0fe116f9e.css","precedence":"next","crossOrigin":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","script",null,{"async":true,"src":"https://www.googletagmanager.com/gtag/js?id=G-HL4LNZVQ6Y"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              window.dataLayer = window.dataLayer || [];\n              function gtag(){dataLayer.push(arguments);}\n              gtag('js', new Date());\n              gtag('config', 'G-HL4LNZVQ6Y');\n            "}}]]}],["$","body",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[]}]}]]}]],null],null],["$L6",null]]]]
+7:I[2972,["972","static/chunks/972-3a938e7079d06116.js","308","static/chunks/app/blog/%5Bslug%5D/page-8e1f31d00a416644.js"],""]
+8:T3d3a,<blockquote>
+<p><strong>TL;DR:</strong> A fresh tattoo goes through three distinct phases: surface healing in week 1 (oozing, swelling, peeling — all normal), the milky cloudy phase in weeks 2–3 (looks dull, still healing underneath), and full dermal healing from week 4 to 6. Your piece isn't actually done until the dermis locks the ink in. Jump the gun on judging the work — or booking a touch-up — and you'll get it wrong every time.</p>
+</blockquote>
+<hr>
+<p>It's day three. Your piece is red around the edges, ink looks patchy, and there's this weird film forming across the surface. You're spiraling a little. Is it infected? Did your artist mess up? Is it supposed to look like this?</p>
+<p>Yes. It's supposed to look like this.</p>
+<p>Tattoo healing stages confuse people because nobody tells you the whole arc before you sit down. You get the basics — wrap it, moisturize it, stay out of the sun — but the week-by-week reality of how skin actually repairs itself after a tattoo session is almost never explained. So the milky phase hits at week two and people panic. They start picking. They book a touch-up too early. They wreck the work.</p>
+<p>This is the breakdown you should've gotten at the counter. What's happening under the skin, what it looks like at each stage, what's genuinely fine, and what actually means something's wrong.</p>
+<hr>
+<h2>Week 1: Surface Healing, Peeling, and What's Normal</h2>
+<p><strong>The surface of your skin is a wound. Treat it like one for the first seven days.</strong></p>
+<p>Your artist broke through the epidermis and deposited ink into the dermis — roughly 1–2mm below the surface, according to <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6467166/" target="_blank" rel="noopener noreferrer">research on tattoo pigment placement</a> published in the journal <em>Experimental Dermatology</em>. The body immediately launches its wound-healing response. That means inflammation. That means plasma, blood, and excess ink weeping to the surface. That means the first 24–72 hours looking worse than when you walked out of the shop.</p>
+<p>By day two or three, you'll likely see:</p>
+<ul>
+<li><strong>Swelling and redness</strong> around the tattooed area — normal, especially on fleshy spots</li>
+<li><strong>Weeping</strong> — a clear or lightly tinted fluid called plasma seeping out alongside ink</li>
+<li><strong>A warm feeling</strong> to the touch — your immune system doing its job</li>
+<li><strong>Tightness</strong> as the top layer of skin starts to crust</li>
+</ul>
+<p>Around day four to seven, the peeling starts. This is where people get weird. The peeling skin often has color in it — it looks like the tattoo is flaking off. It's not. That's just the damaged epidermis shedding. The ink that matters is already locked several layers deeper. Let it peel naturally. Do not pick it. If you pull a flake that isn't ready to come off, you're pulling real ink with it and creating a soft spot in the healed piece.</p>
+<p>For your full day-by-day aftercare protocol, the <a href="/blog/tattoo-aftercare-guide">Tattoo Aftercare: The Complete Guide</a> covers washing, moisturizing, and what to put (and not put) on a fresh piece.</p>
+<hr>
+<h2>Weeks 2–3: The Milky, Cloudy Phase</h2>
+<p><strong>This is the stage that breaks people's brains. Your tattoo looks dull, faded, almost foggy. It's fine.</strong></p>
+<p>What you're seeing is a new layer of epidermis forming over the tattooed dermis. That fresh skin is thicker and less translucent than the skin it replaced. <a href="https://www.ncbi.nlm.nih.gov/books/NBK470464/" target="_blank" rel="noopener noreferrer">The epidermis regenerates completely in about 2–4 weeks</a> — that's basic dermatology. Until that new layer fully matures and thins out, it acts like a frosted window over your piece.</p>
+<p>Collectors call this the "milky phase" or just "cloudy." Your linework looks softer. Colors look muted. If you just got black and grey, the whole thing might look like someone turned down the contrast. Don't compare it to the photo you took right after the session — fresh is saturated and raw. Cloudy week-two isn't the finished product.</p>
+<p>What you should be doing during this window:</p>
+<ul>
+<li>Keep moisturizing but scale back the frequency — skin shouldn't look greasy</li>
+<li>Stay out of direct sun entirely — UV exposure at this stage can permanently fade new ink</li>
+<li>No soaking (pools, baths, ocean) — the new epidermis is fragile</li>
+<li>Stop wearing tight clothing or anything that rubs the area</li>
+</ul>
+<p>If you're getting <a href="/blog/fine-line-tattoos-complete-guide">fine line work</a>, this phase matters even more. Fine lines heal with less margin for error — picking or rubbing during weeks two and three can cause dropout that looks like the artist missed lines. They didn't. You wrecked the heal.</p>
+<hr>
+<h2>Weeks 4–6: Full Dermal Healing</h2>
+<p><strong>The surface looks healed. It's not fully healed. This distinction matters more than most people know.</strong></p>
+<p>By week four, your piece will look close to done. The peeling is over, the cloudiness is clearing, and the colors or blacks are starting to come back. But underneath the epidermis, the dermis is still settling. The <a href="https://www.ncbi.nlm.nih.gov/books/NBK278943/" target="_blank" rel="noopener noreferrer">wound-healing cascade involves three overlapping phases</a> — inflammatory, proliferative, and remodeling — and that remodeling phase runs for weeks past when the surface looks normal.</p>
+<p>This is why most reputable artists won't do a touch-up before the six-week mark. Touch-ups done at week three or four on skin that looks healed but isn't can cause trauma to a dermis that's still organizing collagen and locking pigment. You end up with blowouts, irregular saturation, or healing problems you didn't have the first time around.</p>
+<p>Wait the full six weeks. Minimum. For larger pieces, heavily saturated work, or pieces on high-movement areas like elbows, wrists, or feet — wait longer. Eight to twelve weeks isn't overkill.</p>
+<hr>
+<h2>What Healed Work Actually Looks Like vs. Fresh</h2>
+<p>Fresh tattoos are misleading. They look sharp, saturated, and almost too perfect because the skin is still swollen and the ink hasn't settled. It's like seeing a print before it's dried — the colors read differently once everything stabilizes.</p>
+<p>Healed work sits differently in the skin. Lines look slightly softer. Colors shift slightly warmer or cooler depending on the pigments used. Black and grey settles into the skin and takes on depth. This is normal and expected — an artist who's been doing this for years already accounts for how their work will look healed. That's part of the craft.</p>
+<p>The best way to vet an artist before booking is to look at their healed work, not just fresh photos from the day of. <a href="https://app.tatulogue.com" target="_blank" rel="noopener noreferrer">Tatulogue</a> lets you browse artist portfolios specifically for healed results — not just the glamour shot from the wrap table. There's a significant difference between an artist who photographs well fresh and one whose work actually holds up.</p>
+<hr>
+<h2>Red Flags at Each Stage</h2>
+<p>Most of what happens during healing is normal. Some things aren't. Here's where to pay attention.</p>
+<p><strong>Week 1 red flags:</strong></p>
+<ul>
+<li>Spreading redness beyond the tattoo border (not just around it)</li>
+<li>Hot, swollen, and getting worse after day three instead of better</li>
+<li>Green or yellow discharge — that's infected, not just plasma</li>
+<li>Fever or red streaks tracking away from the area — get to a doctor immediately</li>
+</ul>
+<p><strong>Weeks 2–3 red flags:</strong></p>
+<ul>
+<li>Raised bumps filled with fluid that aren't just normal peeling texture</li>
+<li>Itching so intense it's keeping you up — could indicate an <a href="https://www.aad.org/public/everyday-care/skin-care-basics/tattoos/tattoo-reactions" target="_blank" rel="noopener noreferrer">allergic reaction to specific pigments</a>, particularly red, yellow, and some blue pigments (per the American Academy of Dermatology)</li>
+<li>Large sections of ink visibly missing before the peel phase is over — this usually means something disrupted the heal</li>
+</ul>
+<p><strong>Weeks 4–6 red flags:</strong></p>
+<ul>
+<li>Raised, thickened areas that feel like scar tissue forming — keloid response</li>
+<li>Persistent ink fallout in specific spots without explanation</li>
+</ul>
+<p>When in doubt, call your artist. Not a Facebook group. Your artist.</p>
+<hr>
+<h2>Second Skin and Wrap Aftercare</h2>
+<p>Second skin (Saniderm, Tegaderm, Derm Shield — all the same concept) has changed how a lot of studios handle the first few days of a heal. If your artist sent you home wrapped, here's what's actually happening.</p>
+<p>The wrap creates a sealed, moist environment over the fresh piece. That fluid pooling under the bandage — plasma, ink, a little blood — is normal and actually beneficial. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7518739/" target="_blank" rel="noopener noreferrer">Moist wound healing accelerates epidermal regeneration</a> and reduces scabbing. Less scabbing means less risk of ink disruption during the peel phase.</p>
+<p>Standard protocol for most second skin applications:</p>
+<ul>
+<li><strong>First wrap</strong>: left on for 24–48 hours (some artists go up to 72 for larger pieces)</li>
+<li><strong>Remove carefully</strong>: in the shower, pulling back slowly against the skin — not straight up</li>
+<li><strong>Second application</strong> (if your artist uses two rounds): worn for three to five days</li>
+<li><strong>After removal</strong>: the tattoo is still fresh, still healing — start your regular aftercare routine</li>
+</ul>
+<p>A few things that trip people up with second skin: if the seal breaks, remove the wrap. A compromised seal lets bacteria in and traps it. Also, some people react to the adhesive — redness at the border of the wrap is usually just irritation from the adhesive, not infection. It clears fast once the wrap is off.</p>
+<hr>
+<h2>FAQ</h2>
+<p><strong>How long does a tattoo take to fully heal?</strong></p>
+<p>Surface healing — the peeling and visible repair — wraps up in two to three weeks for most people. Full dermal healing, where the ink is completely settled in the dermis and the skin above it is fully mature, takes four to six weeks minimum. High-movement areas like hands, feet, elbows, and knees can run eight to twelve weeks for a complete heal.</p>
+<p><strong>Is it normal for a tattoo to peel a lot?</strong></p>
+<p>Yes. Heavy peeling in days four through ten is completely normal and doesn't mean your tattoo is falling apart. The peeling skin often contains color, which looks alarming but is just the damaged epidermis shedding. The ink that counts is already in the dermis. Don't pick or force the peel — let it come off on its own.</p>
+<p><strong>Why does my tattoo look faded or cloudy after two weeks?</strong></p>
+<p>That's the milky phase — a completely normal part of the tattoo healing stages. A new layer of epidermis has grown over the dermis, and that fresh skin is temporarily less translucent than mature skin. It creates a frosted-glass effect over the piece. It clears up as the skin matures, usually by weeks three to four.</p>
+<p><strong>When can I get a touch-up?</strong></p>
+<p>Most artists require a minimum of six weeks before doing a touch-up on healed work. Some prefer eight to twelve weeks, especially for larger pieces or spots on high-friction areas. Going back too early means tattooing skin that's still in the remodeling phase, which can cause new problems. Let the piece fully settle before you judge what actually needs touching.</p>
+<p><strong>Can I go in the sun during tattoo healing?</strong></p>
+<p>Not directly, and not for the first four to six weeks. UV exposure on healing skin causes ink to break down faster and can cause permanent fading or uneven color. After it's fully healed, always use sunscreen (SPF 50+) on tattooed skin when it's exposed — <a href="https://pubmed.ncbi.nlm.nih.gov/26969284/" target="_blank" rel="noopener noreferrer">UV radiation degrades tattoo pigments</a> and contributes to the blurring and fading that happens over years.</p>
+<hr>
+<p>The short version: trust the process, don't pick, and wait the full six weeks before deciding the piece needs work. Most "bad heals" are bad because someone couldn't leave it alone.</p>
+<p>If you're still building out your aftercare routine or want to understand the full picture from day one through long-term maintenance, the <a href="/blog/tattoo-aftercare-guide">Tattoo Aftercare: The Complete Guide</a> has everything organized in one place.</p>
+<p>And if you're at the point of booking your next session and want to specifically find artists whose work holds up long-term — healed examples, not just fresh photos — <a href="https://app.tatulogue.com" target="_blank" rel="noopener noreferrer">browse artist portfolios on Tatulogue</a> before you commit.</p>
+<hr>
+<pre><code class="language-json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does a tattoo take to fully heal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Surface healing takes two to three weeks for most people. Full dermal healing, where the ink is completely settled and the overlying skin is mature, takes four to six weeks minimum. High-movement areas like hands, feet, elbows, and knees can run eight to twelve weeks for a complete heal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it normal for a tattoo to peel a lot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Heavy peeling in days four through ten is completely normal. The peeling skin often contains color, which looks alarming but is just the damaged epidermis shedding. The ink is already in the dermis. Don't pick or force the peel — let it come off on its own."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my tattoo look faded or cloudy after two weeks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That's the milky phase — a normal part of the tattoo healing stages. A new layer of epidermis has grown over the dermis, and that fresh skin is temporarily less translucent, creating a frosted-glass effect. It clears up as the skin matures, usually by weeks three to four."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When can I get a touch-up on my tattoo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most artists require a minimum of six weeks before doing a touch-up. Some prefer eight to twelve weeks, especially for larger pieces or high-friction areas. Going back too early means tattooing skin still in the remodeling phase, which can create new problems. Let the piece fully settle before judging what needs work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I go in the sun while my tattoo is healing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — avoid direct sun exposure for the first four to six weeks. UV on healing skin causes ink to break down faster and can cause permanent fading or uneven color. After it's fully healed, use SPF 50+ sunscreen on tattooed skin whenever it's exposed to protect the work long-term."
+      }
+    }
+  ]
+}
+</code></pre>
+2:["$","main",null,{"className":"min-h-screen bg-black","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Tattoo Healing Stages: What's Actually Happening Week by Week\",\"description\":\"Day 3 looks rough. Week 2 looks milky. Week 6 is when it's actually healed. Here's what's happening at each stage and what to watch for.\",\"author\":{\"@type\":\"Person\",\"name\":\"Tatulogue Team\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Tatulogue\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://tatulogue.com/logo.svg\"}},\"datePublished\":\"2026-05-28T00:00:00.000Z\",\"url\":\"https://tatulogue.com/blog/tattoo-healing-stages\"}"}}],["$","nav",null,{"className":"sticky top-0 z-50 border-b border-white/8 bg-black/80 backdrop-blur-xl","children":["$","div",null,{"className":"max-w-6xl mx-auto px-6 h-16 flex items-center justify-between","children":[["$","$L7",null,{"href":"/","className":"flex items-center gap-3","children":[["$","img",null,{"src":"/images/logo-mark.svg","alt":"Tatulogue","className":"w-7 h-7 brightness-0 invert"}],["$","span",null,{"className":"font-bold text-lg tracking-tight","children":"Tatulogue"}]]}],["$","div",null,{"className":"flex items-center gap-3","children":[["$","$L7",null,{"href":"/blog","className":"text-sm text-zinc-400 hover:text-white transition-colors","children":"← Journal"}],["$","$L7",null,{"href":"https://app.tatulogue.com","target":"_blank","rel":"noopener","className":"px-4 py-2 rounded-lg bg-zinc-900 border border-white/10 text-sm font-semibold hover:border-violet-500/50 transition-colors","children":"Open App"}]]}]]}]}],["$","article",null,{"children":[["$","header",null,{"className":"pt-14 pb-10 border-b border-white/8","children":["$","div",null,{"className":"max-w-3xl mx-auto px-6","children":[["$","div",null,{"className":"flex items-center gap-3 mb-6","children":[["$","$L7",null,{"href":"/blog?category=education","className":"px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest border bg-blue-950/50 text-blue-300 border-blue-800/50","children":"Education"}],["$","span",null,{"className":"text-zinc-500 text-sm","children":[8," min read"]}]]}],["$","h1",null,{"className":"text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] mb-5","children":"Tattoo Healing Stages: What's Actually Happening Week by Week"}],["$","p",null,{"className":"text-zinc-400 text-xl leading-relaxed mb-6","children":"Day 3 looks rough. Week 2 looks milky. Week 6 is when it's actually healed. Here's what's happening at each stage and what to watch for."}],["$","div",null,{"className":"flex items-center gap-2 text-sm text-zinc-500","children":[["$","span",null,{"className":"text-zinc-300 font-medium","children":"Tatulogue Team"}],["$","span",null,{"children":"·"}],["$","time",null,{"dateTime":"2026-05-28T00:00:00.000Z","children":"May 27, 2026"}]]}]]}]}],["$","div",null,{"className":"max-w-4xl mx-auto px-6 my-8","children":["$","img",null,{"src":"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop","alt":"Fresh tattoo being wrapped with second skin bandage","className":"w-full rounded-2xl object-cover max-h-[480px]"}]}],["$","div",null,{"className":"max-w-3xl mx-auto px-6 py-10","children":["$","div",null,{"className":"prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-zinc-300 prose-p:leading-relaxed prose-a:text-violet-400 prose-a:no-underline hover:prose-a:text-violet-300 prose-strong:text-white prose-strong:font-semibold prose-blockquote:border-l-violet-500 prose-blockquote:bg-violet-950/20 prose-blockquote:rounded-r-lg prose-blockquote:py-1 prose-code:text-amber-400 prose-code:bg-zinc-900 prose-code:rounded prose-code:px-1.5 prose-code:text-sm prose-hr:border-white/10 prose-li:text-zinc-300 prose-table:text-sm prose-th:text-zinc-300 prose-td:text-zinc-400 prose-thead:border-white/20 prose-tbody:border-white/10","dangerouslySetInnerHTML":{"__html":"$8"}}]}],["$","div",null,{"className":"max-w-3xl mx-auto px-6 pb-8 flex flex-wrap gap-2","children":[["$","span","tattoo-healing",{"className":"px-3 py-1 rounded-full bg-zinc-900 border border-white/8 text-zinc-400 text-xs","children":["#","tattoo-healing"]}],["$","span","aftercare",{"className":"px-3 py-1 rounded-full bg-zinc-900 border border-white/8 text-zinc-400 text-xs","children":["#","aftercare"]}],["$","span","new-tattoo",{"className":"px-3 py-1 rounded-full bg-zinc-900 border border-white/8 text-zinc-400 text-xs","children":["#","new-tattoo"]}],["$","span","healing-stages",{"className":"px-3 py-1 rounded-full bg-zinc-900 border border-white/8 text-zinc-400 text-xs","children":["#","healing-stages"]}]]}]]}],["$","section",null,{"className":"border-t border-b border-white/8 bg-zinc-950 py-14 my-8","children":["$","div",null,{"className":"max-w-3xl mx-auto px-6 relative","children":[["$","div",null,{"className":"absolute inset-0 pointer-events-none overflow-hidden","aria-hidden":true,"children":["$","div",null,{"className":"absolute -right-10 top-0 w-48 h-48 rounded-full bg-violet-600/10 blur-3xl"}]}],["$","div",null,{"className":"relative","children":[["$","h2",null,{"className":"text-2xl md:text-3xl font-bold mb-3","children":"Ready to find your next tattoo artist?"}],["$","p",null,{"className":"text-zinc-400 mb-6 leading-relaxed max-w-md","children":"Browse portfolios, book sessions, and track your tattoo journey on Tatulogue."}],["$","$L7",null,{"href":"https://app.tatulogue.com","target":"_blank","rel":"noopener","className":"inline-flex px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 font-bold text-sm hover:opacity-90 transition-opacity","children":"Open Tatulogue →"}]]}]]}]}],["$","section",null,{"className":"max-w-6xl mx-auto px-6 pb-16","children":[["$","p",null,{"className":"text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6","children":["More from ","Education"]}],["$","div",null,{"className":"grid grid-cols-1 sm:grid-cols-3 gap-5","children":[["$","$L7","how-tattoos-age",{"href":"/blog/how-tattoos-age","className":"group block rounded-xl border border-white/8 bg-zinc-900/60 p-5 hover:border-violet-500/40 transition-all hover:-translate-y-0.5","children":[["$","p",null,{"className":"text-zinc-500 text-xs mb-2","children":"May 27, 2026"}],["$","h3",null,{"className":"font-semibold leading-snug mb-2 group-hover:text-violet-300 transition-colors line-clamp-2","children":"How Tattoos Age: What Actually Happens to Your Ink Over Time"}],["$","p",null,{"className":"text-zinc-400 text-sm line-clamp-2 leading-relaxed","children":"Packed black holds. Tiny fine line doesn't. Here's the honest breakdown of how different styles and placements age — and what to look for before you book."}]]}],["$","$L7","japanese-tattoo-history-iconography",{"href":"/blog/japanese-tattoo-history-iconography","className":"group block rounded-xl border border-white/8 bg-zinc-900/60 p-5 hover:border-violet-500/40 transition-all hover:-translate-y-0.5","children":[["$","p",null,{"className":"text-zinc-500 text-xs mb-2","children":"May 27, 2026"}],["$","h3",null,{"className":"font-semibold leading-snug mb-2 group-hover:text-violet-300 transition-colors line-clamp-2","children":"Japanese Tattoo History and Iconography: What the Symbols Actually Mean"}],["$","p",null,{"className":"text-zinc-400 text-sm line-clamp-2 leading-relaxed","children":"Koi aren't just fish. Dragons aren't just dragons. Japanese tattooing has centuries of visual language behind it — here's what it means and how to work with it."}]]}],["$","$L7","overworked-skin-tattoo",{"href":"/blog/overworked-skin-tattoo","className":"group block rounded-xl border border-white/8 bg-zinc-900/60 p-5 hover:border-violet-500/40 transition-all hover:-translate-y-0.5","children":[["$","p",null,{"className":"text-zinc-500 text-xs mb-2","children":"May 27, 2026"}],["$","h3",null,{"className":"font-semibold leading-snug mb-2 group-hover:text-violet-300 transition-colors line-clamp-2","children":"Overworked Skin: What It Is, How to Spot It, and Why It Ruins Tattoos"}],["$","p",null,{"className":"text-zinc-400 text-sm line-clamp-2 leading-relaxed","children":"Too many passes. Too much detail. Skin that looks like it's been chewed up. Overworked skin is permanent — here's how to spot it before it's in your skin."}]]}]]}]]}],["$","footer",null,{"className":"border-t border-white/8 py-8","children":["$","div",null,{"className":"max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-zinc-500 text-sm","children":[["$","span",null,{"children":["© ",2026," Tatulogue"]}],["$","div",null,{"className":"flex gap-6","children":[["$","$L7",null,{"href":"/","className":"hover:text-white transition-colors","children":"Home"}],["$","$L7",null,{"href":"/blog","className":"hover:text-white transition-colors","children":"Journal"}],["$","$L7",null,{"href":"https://app.tatulogue.com","target":"_blank","rel":"noopener","className":"hover:text-white transition-colors","children":"App"}]]}]]}]}]]}]
+6:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Tattoo Healing Stages: What's Actually Happening Week by Week | Tatulogue Journal"}],["$","meta","3",{"name":"description","content":"Day 3 looks rough. Week 2 looks milky. Week 6 is when it's actually healed. Here's what's happening at each stage and what to watch for."}],["$","meta","4",{"property":"og:title","content":"Tattoo Healing Stages: What's Actually Happening Week by Week"}],["$","meta","5",{"property":"og:description","content":"Day 3 looks rough. Week 2 looks milky. Week 6 is when it's actually healed. Here's what's happening at each stage and what to watch for."}],["$","meta","6",{"property":"og:url","content":"https://tatulogue.com/blog/tattoo-healing-stages"}],["$","meta","7",{"property":"og:image","content":"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop"}],["$","meta","8",{"property":"og:type","content":"article"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"Tattoo Healing Stages: What's Actually Happening Week by Week"}],["$","meta","11",{"name":"twitter:description","content":"Day 3 looks rough. Week 2 looks milky. Week 6 is when it's actually healed. Here's what's happening at each stage and what to watch for."}],["$","meta","12",{"name":"twitter:image","content":"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop"}]]
+1:null
