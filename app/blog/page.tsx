@@ -4,11 +4,11 @@ import { getAllPostMeta, CATEGORY_LABELS, type PostMeta } from '@/lib/blog';
 import CategoryFilter from './components/CategoryFilter';
 
 export const metadata: Metadata = {
-  title: 'The Tatulogue Journal — Tattoo Education, Artist Spotlights & Trends',
+  title: 'Articles — Tattoo Education, Artist Spotlights & Trends | Tatulogue',
   description:
     'In-depth guides on tattoo styles, aftercare, artist spotlights, and the latest trends in the tattoo community.',
   openGraph: {
-    title: 'The Tatulogue Journal',
+    title: 'Articles',
     description:
       'Tattoo education, artist spotlights, trends and stories from the Tatulogue community.',
     url: 'https://tatulogue.com/blog',
@@ -97,7 +97,7 @@ export default function BlogIndex() {
       <section className="pt-16 pb-12 border-b border-white/8">
         <div className="max-w-6xl mx-auto px-6">
           <span className="inline-block mb-4 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest border border-violet-800/50 bg-violet-950/30 text-violet-400">
-            The Tatulogue Journal
+            Articles
           </span>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-none mb-4">
             Tattoo education,
@@ -168,7 +168,7 @@ export default function BlogIndex() {
               Home
             </Link>
             <Link href="/blog" className="hover:text-white transition-colors">
-              Journal
+              Articles
             </Link>
             <Link
               href="https://app.tatulogue.com"

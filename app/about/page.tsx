@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'About | Tatulogue',
   description:
-    'Tatulogue is a platform that connects tattoo artists and enthusiasts — discover artists by style, explore portfolios, and learn through The Tatulogue Journal.',
+    'Tatulogue is a platform that connects tattoo artists and enthusiasts — discover artists by style, explore portfolios, and learn through our articles.',
 };
 
 export default function AboutPage() {
@@ -64,13 +64,13 @@ export default function AboutPage() {
             </p>
           </Section>
 
-          <Section title="The Tatulogue Journal">
+          <Section title="Articles">
             <p>
               Alongside the platform, we publish{' '}
               <Link href="/blog" className="text-violet-400 hover:text-violet-300">
-                The Tatulogue Journal
+                our articles
               </Link>
-              {' '}— our editorial home for in-depth tattoo education and culture. The Journal covers
+              {' '}— the editorial home for in-depth tattoo education and culture. They cover
               the things people actually need before and after they sit down: honest style guides,
               placement and aging advice, day-by-day aftercare and healing breakdowns, artist
               spotlights, and the trends shaping the industry. It is written to help first-timers

@@ -150,7 +150,7 @@ export default function Home() {
             <img src="/logo.svg" alt="Tatulogue" className="h-6 w-auto" />
           </a>
           <nav className="flex items-center gap-6 text-sm font-semibold">
-            <a href="/blog" className="text-white/70 hover:text-white transition-colors">Journal</a>
+            <a href="/blog" className="text-white/70 hover:text-white transition-colors">Articles</a>
             <a href="/about" className="text-white/70 hover:text-white transition-colors">About</a>
             <a href="/contact" className="text-white/70 hover:text-white transition-colors">Contact</a>
             <a
@@ -166,13 +166,13 @@ export default function Home() {
       {/* ── EDITORIAL INTRO — The Tatulogue Journal ── */}
       <section className="bg-[#07070d] py-20 px-8 border-b border-white/8">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-4">The Tatulogue Journal</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-4">Articles</p>
           <h1 data-animate="" className="text-4xl sm:text-5xl font-black text-white leading-tight mb-6">
             Tattoo culture, education, and the artists shaping it.
           </h1>
           <p data-animate="" style={{ transitionDelay: '0.1s' }} className="text-lg text-white/60 leading-relaxed">
             Tatulogue is a platform for tattoo artists and enthusiasts to discover incredible work and
-            connect over the craft. The Tatulogue Journal is our editorial home — in-depth healing and
+            connect over the craft. Our articles are the editorial home for in-depth healing and
             aftercare guides, artist spotlights, deep dives into styles and history, and the trends
             shaping where tattooing goes next. Whether you&apos;re planning your first piece or your
             fortieth, start here.
@@ -181,7 +181,7 @@ export default function Home() {
             href="/blog"
             className="inline-block mt-8 px-7 py-3 rounded-full bg-violet-600 hover:bg-violet-500 text-white font-semibold transition-colors"
           >
-            Read the Journal →
+            Browse articles →
           </a>
         </div>
       </section>
@@ -518,7 +518,7 @@ export default function Home() {
           <div className="text-center mb-10">
             <p className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-3">Coming soon</p>
             <h2 data-animate="" className="text-3xl sm:text-4xl font-black text-[#f1f1f9] mb-3">Get early access to the app</h2>
-            <p data-animate="" style={{ transitionDelay: '0.12s' }} className="text-[#cdcdd4]">Beyond the Journal, we&apos;re building the Tatulogue app. Join the list for project updates, newsletters, and early app access.</p>
+            <p data-animate="" style={{ transitionDelay: '0.12s' }} className="text-[#cdcdd4]">Beyond the articles, we&apos;re building the Tatulogue app. Join the list for project updates, newsletters, and early app access.</p>
           </div>
 
           {submitted ? (
@@ -597,7 +597,7 @@ export default function Home() {
             <span className="text-white/30 text-sm">&copy; 2026 Tatulogue, LLC</span>
           </div>
           <div className="flex gap-6 text-sm text-white/40">
-            <a href="/blog" className="hover:text-white/70 transition-colors">Journal</a>
+            <a href="/blog" className="hover:text-white/70 transition-colors">Articles</a>
             <a href="/about" className="hover:text-white/70 transition-colors">About</a>
             <a href="/contact" className="hover:text-white/70 transition-colors">Contact</a>
             <a href="/privacy" className="hover:text-white/70 transition-colors">Privacy Policy</a>

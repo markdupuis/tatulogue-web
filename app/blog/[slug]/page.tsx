@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const ogImage = post.coverImage ?? '/images/og-default.jpg';
 
   return {
-    title: `${post.title} | Tatulogue Journal`,
+    title: `${post.title} | Tatulogue`,
     description: post.description,
     openGraph: {
       title: post.title,
@@ -76,7 +76,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
             <span className="font-bold text-lg tracking-tight">Tatulogue</span>
           </Link>
           <div className="flex items-center gap-3">
-            <Link href="/blog" className="text-sm text-zinc-400 hover:text-white transition-colors">← Journal</Link>
+            <Link href="/blog" className="text-sm text-zinc-400 hover:text-white transition-colors">← Articles</Link>
             <Link href="https://app.tatulogue.com" target="_blank" rel="noopener"
               className="px-4 py-2 rounded-lg bg-zinc-900 border border-white/10 text-sm font-semibold hover:border-violet-500/50 transition-colors">
               Open App
@@ -186,7 +186,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
           <span>© {new Date().getFullYear()} Tatulogue</span>
           <div className="flex gap-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <Link href="/blog" className="hover:text-white transition-colors">Journal</Link>
+            <Link href="/blog" className="hover:text-white transition-colors">Articles</Link>
             <Link href="https://app.tatulogue.com" target="_blank" rel="noopener" className="hover:text-white transition-colors">App</Link>
           </div>
         </div>
