@@ -82,6 +82,11 @@ export default function PrivacyPage() {
             <SubSection title="3.5 No Sale of Personal Data">
               <p>We do not sell, rent, or trade your personal information to third parties for their independent marketing purposes.</p>
             </SubSection>
+            <SubSection title="3.6 Advertising and Third-Party Cookies">
+              <p>We use third-party advertising companies, including Google, to serve ads when you visit our website. These vendors may use cookies, web beacons, and similar technologies to collect information about your visits to this and other websites (not including your name, address, email, or telephone number) in order to provide advertisements about goods and services of interest to you.</p>
+              <p className="mt-3">Third-party vendors, including Google, use cookies to serve ads based on your prior visits to our website or other websites. Google&rsquo;s use of advertising cookies enables it and its partners to serve ads to you based on your visit to our site and/or other sites on the Internet.</p>
+              <p className="mt-3">You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300">Google Ads Settings</a>, or opt out of a third-party vendor&rsquo;s use of cookies for personalized advertising at <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300">aboutads.info</a>. For more information about how Google uses data when you use our partners&rsquo; sites or apps, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300">How Google uses information from sites or apps that use our services</a>.</p>
+            </SubSection>
           </Section>
 
           <Section title="4. Data Retention">

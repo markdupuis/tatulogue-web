@@ -6,7 +6,7 @@ author: Tatulogue Team
 category: education
 tags: [watercolour-tattoo, tattoo-aging, tattoo-styles, longevity]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1583545399989-6b8d30498b6d?w=1200&q=80&auto=format&fit=crop"
+coverImage: "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=1200&q=80&auto=format&fit=crop"
 coverAlt: "Colourful watercolour style tattoo on forearm"
 readTime: 8
 ---
