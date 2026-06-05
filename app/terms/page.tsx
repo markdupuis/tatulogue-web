@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Tatūlogue',
-  description: 'Terms of Service for the Tatūlogue platform.',
+  title: 'Terms of Service | Tatulogue',
+  description: 'Terms of Service for the Tatulogue platform.',
 };
 
 export default function TermsPage() {
@@ -11,7 +11,7 @@ export default function TermsPage() {
     <main className="min-h-screen bg-[#07070d] text-white">
       <nav className="flex items-center justify-between px-6 py-4 border-b border-white/5">
         <Link href="/" className="text-white/70 hover:text-white text-sm transition-colors">
-          ← Back to Tatūlogue
+          ← Back to Tatulogue
         </Link>
         <span className="text-white/30 text-xs">Last updated: April 16, 2026</span>
       </nav>
@@ -20,14 +20,14 @@ export default function TermsPage() {
         <h1 className="text-4xl font-black mb-2">Terms of Service</h1>
         <p className="text-white/40 text-sm mb-4">TATULOGUE, LLC | State of Utah</p>
         <div className="rounded-xl border border-yellow-500/20 bg-yellow-500/5 p-4 mb-12 text-sm text-yellow-200/70">
-          PLEASE READ THESE TERMS CAREFULLY. By accessing or using the Tatūlogue platform, you agree to be legally bound by these Terms.
+          PLEASE READ THESE TERMS CAREFULLY. By accessing or using the Tatulogue platform, you agree to be legally bound by these Terms.
         </div>
 
         <div className="space-y-10 text-white/70 leading-relaxed text-sm">
           <p>
             These Terms of Service (&ldquo;Terms&rdquo;) constitute a legally binding agreement between you (&ldquo;User,&rdquo;
-            &ldquo;Artist,&rdquo; or &ldquo;Enthusiast&rdquo;) and TATULOGUE, LLC (&ldquo;Tatūlogue,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
-            They govern your access to and use of the Tatūlogue mobile application, website, and all related
+            &ldquo;Artist,&rdquo; or &ldquo;Enthusiast&rdquo;) and TATULOGUE, LLC (&ldquo;Tatulogue,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).
+            They govern your access to and use of the Tatulogue mobile application, website, and all related
             services (collectively, the &ldquo;Platform&rdquo;).
           </p>
 
@@ -45,10 +45,10 @@ export default function TermsPage() {
 
           <Section title="2. User Content and Intellectual Property">
             <SubSection title="2.1 Ownership">
-              <p>You retain full ownership of all content you post to the Platform. Tatūlogue does not claim any ownership interest in your User Content.</p>
+              <p>You retain full ownership of all content you post to the Platform. Tatulogue does not claim any ownership interest in your User Content.</p>
             </SubSection>
-            <SubSection title="2.2 License to Tatūlogue">
-              <p>By posting User Content, you grant Tatūlogue a limited, non-exclusive, royalty-free, worldwide license to display, distribute, and transmit your content solely within the Platform. This license terminates when you delete the content or close your account. We will not use your content in advertising without your express prior written consent.</p>
+            <SubSection title="2.2 License to Tatulogue">
+              <p>By posting User Content, you grant Tatulogue a limited, non-exclusive, royalty-free, worldwide license to display, distribute, and transmit your content solely within the Platform. This license terminates when you delete the content or close your account. We will not use your content in advertising without your express prior written consent.</p>
             </SubSection>
             <SubSection title="2.3 DMCA Policy">
               <p>Send copyright infringement notices to <a href="mailto:DMCA@tatulogue.com" className="text-violet-400 hover:text-violet-300">DMCA@tatulogue.com</a> with: (a) identification of the copyrighted work; (b) location of the infringing material; (c) your contact information; (d) a good faith belief statement; (e) a statement under penalty of perjury; and (f) your signature.</p>
@@ -70,15 +70,15 @@ export default function TermsPage() {
           </Section>
 
           <Section title="4. Platform Nature and Tattoo Services Disclaimer">
-            <p>Tatūlogue is a discovery platform. We do not provide tattooing services and are not a party to any agreement between users. We do not employ, endorse, or certify any artist.</p>
+            <p>Tatulogue is a discovery platform. We do not provide tattooing services and are not a party to any agreement between users. We do not employ, endorse, or certify any artist.</p>
             <p>You are solely responsible for verifying artist licenses, BBP certifications, studio compliance, and all terms agreed with artists.</p>
             <div className="mt-3 rounded-lg border border-white/10 bg-white/5 p-4 text-xs uppercase tracking-wide text-white/40">
-              ANY DISPUTE ARISING FROM SERVICES PERFORMED BY AN ARTIST DISCOVERED THROUGH THE PLATFORM IS SOLELY BETWEEN THE CLIENT AND THE ARTIST. TATŪLOGUE SHALL HAVE NO LIABILITY IN CONNECTION THEREWITH.
+              ANY DISPUTE ARISING FROM SERVICES PERFORMED BY AN ARTIST DISCOVERED THROUGH THE PLATFORM IS SOLELY BETWEEN THE CLIENT AND THE ARTIST. TATULOGUE SHALL HAVE NO LIABILITY IN CONNECTION THEREWITH.
             </div>
           </Section>
 
           <Section title="5. Payments and Future Paid Features">
-            <p>The Platform is currently offered free of charge. Tatūlogue reserves the right to introduce paid features at any time with reasonable advance notice. Continued use after such notice constitutes acceptance.</p>
+            <p>The Platform is currently offered free of charge. Tatulogue reserves the right to introduce paid features at any time with reasonable advance notice. Continued use after such notice constitutes acceptance.</p>
           </Section>
 
           <Section title="6. Privacy">
@@ -87,14 +87,14 @@ export default function TermsPage() {
 
           <Section title="7. Disclaimers of Warranties">
             <div className="rounded-lg border border-white/10 bg-white/5 p-4 text-xs uppercase tracking-wide text-white/40">
-              THE PLATFORM IS PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; WITHOUT WARRANTY OF ANY KIND. TATŪLOGUE EXPRESSLY DISCLAIMS ALL WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+              THE PLATFORM IS PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; WITHOUT WARRANTY OF ANY KIND. TATULOGUE EXPRESSLY DISCLAIMS ALL WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
             </div>
           </Section>
 
           <Section title="8. Limitation of Liability">
             <div className="rounded-lg border border-white/10 bg-white/5 p-4 text-xs uppercase tracking-wide text-white/40 space-y-2">
-              <p>TATŪLOGUE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES.</p>
-              <p>IN NO EVENT SHALL TATŪLOGUE&apos;S TOTAL AGGREGATE LIABILITY EXCEED ONE HUNDRED UNITED STATES DOLLARS ($100.00).</p>
+              <p>TATULOGUE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES.</p>
+              <p>IN NO EVENT SHALL TATULOGUE&apos;S TOTAL AGGREGATE LIABILITY EXCEED ONE HUNDRED UNITED STATES DOLLARS ($100.00).</p>
             </div>
           </Section>
 
@@ -126,7 +126,7 @@ export default function TermsPage() {
           </Section>
 
           <Section title="12. Termination">
-            <p>You may delete your account at any time via Platform settings or by contacting <a href="mailto:charlie@tatulogue.com" className="text-violet-400 hover:text-violet-300">charlie@tatulogue.com</a>. Tatūlogue may suspend or terminate your account at any time for violations of these Terms or for any business reason.</p>
+            <p>You may delete your account at any time via Platform settings or by contacting <a href="mailto:charlie@tatulogue.com" className="text-violet-400 hover:text-violet-300">charlie@tatulogue.com</a>. Tatulogue may suspend or terminate your account at any time for violations of these Terms or for any business reason.</p>
           </Section>
 
           <Section title="13. Modifications to Terms">

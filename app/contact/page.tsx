@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Contact | Tatūlogue',
+  title: 'Contact | Tatulogue',
   description:
-    'Get in touch with Tatūlogue. Reach the team at TATULOGUE, LLC for support, account help, press, and legal or privacy questions.',
+    'Get in touch with Tatulogue. Reach the team at TATULOGUE, LLC for support, account help, press, and legal or privacy questions.',
 };
 
 export default function ContactPage() {
@@ -12,7 +12,7 @@ export default function ContactPage() {
     <main className="min-h-screen bg-[#07070d] text-white">
       <nav className="flex items-center justify-between px-6 py-4 border-b border-white/5">
         <Link href="/" className="text-white/70 hover:text-white text-sm transition-colors">
-          ← Back to Tatūlogue
+          ← Back to Tatulogue
         </Link>
         <span className="text-white/30 text-xs">TATULOGUE, LLC</span>
       </nav>

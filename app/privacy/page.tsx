@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Tatūlogue',
-  description: 'Privacy Policy for Tatūlogue — how we collect, use, and protect your information.',
+  title: 'Privacy Policy | Tatulogue',
+  description: 'Privacy Policy for Tatulogue — how we collect, use, and protect your information.',
 };
 
 export default function PrivacyPage() {
@@ -11,7 +11,7 @@ export default function PrivacyPage() {
     <main className="min-h-screen bg-[#07070d] text-white">
       <nav className="flex items-center justify-between px-6 py-4 border-b border-white/5">
         <Link href="/" className="text-white/70 hover:text-white text-sm transition-colors">
-          ← Back to Tatūlogue
+          ← Back to Tatulogue
         </Link>
         <span className="text-white/30 text-xs">Last updated: April 16, 2026</span>
       </nav>
@@ -22,8 +22,8 @@ export default function PrivacyPage() {
 
         <div className="space-y-10 text-white/70 leading-relaxed text-sm">
           <p>
-            This Privacy Policy describes how TATULOGUE, LLC (&ldquo;Tatūlogue,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects,
-            uses, stores, shares, and protects information about you when you access or use the Tatūlogue
+            This Privacy Policy describes how TATULOGUE, LLC (&ldquo;Tatulogue,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects,
+            uses, stores, shares, and protects information about you when you access or use the Tatulogue
             mobile application, website, or any related services (collectively, the &ldquo;Platform&rdquo;). By using
             the Platform, you consent to the practices described in this Privacy Policy.
           </p>
@@ -74,7 +74,7 @@ export default function PrivacyPage() {
               <p>We share information with trusted third-party providers (cloud hosting via Supabase, analytics, email delivery) who are contractually obligated to use your information only as directed by us.</p>
             </SubSection>
             <SubSection title="3.3 Legal Requirements">
-              <p>We may disclose information when required by law, court order, or to protect the rights and safety of Tatūlogue or others.</p>
+              <p>We may disclose information when required by law, court order, or to protect the rights and safety of Tatulogue or others.</p>
             </SubSection>
             <SubSection title="3.4 Business Transfers">
               <p>In a merger, acquisition, or sale of assets, your information may be transferred. We will notify you before your information becomes subject to a different privacy policy.</p>
