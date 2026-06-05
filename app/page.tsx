@@ -18,6 +18,59 @@ const STRIP_IMAGES = [
   '/images/strip-2-4.jpg', '/images/strip-2-5.jpg', '/images/strip-2-6.jpg',
 ];
 
+// Featured Journal posts — hardcoded because this is a 'use client' component
+// and cannot import lib/blog (which uses fs at build time).
+const JOURNAL_POSTS = [
+  {
+    slug: 'tattoo-aftercare-guide',
+    category: 'Education',
+    title: 'Tattoo Aftercare: The Complete Day-by-Day Healing Guide',
+    excerpt: 'From the first wrap to the final peel — what actually matters in the first four weeks.',
+    image: 'https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=600&q=80&auto=format&fit=crop',
+    alt: 'Fresh tattoo aftercare',
+  },
+  {
+    slug: 'tattoo-styles-guide-2026',
+    category: 'Education',
+    title: 'The 10 Most Popular Tattoo Styles in 2026',
+    excerpt: "A buyer's guide to styles, aging, and finding the right artist for each one.",
+    image: 'https://images.unsplash.com/photo-1562962230-16e4623d36e6?w=600&q=80&auto=format&fit=crop',
+    alt: 'Tattoo styles',
+  },
+  {
+    slug: 'fine-line-tattoos-complete-guide',
+    category: 'Education',
+    title: 'Fine Line Tattoos: Everything You Need to Know',
+    excerpt: "Looks incredible fresh. Here's the honest story on how it ages and what placements hold.",
+    image: 'https://images.unsplash.com/photo-1605647533135-51b5906087d0?w=600&q=80&auto=format&fit=crop',
+    alt: 'Fine line tattoo detail',
+  },
+  {
+    slug: 'how-tattoos-age',
+    category: 'Education',
+    title: 'How Tattoos Age: What Actually Happens to Ink Over Time',
+    excerpt: 'Why some pieces stay crisp for decades and others blur — and how to plan for it.',
+    image: 'https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=600&q=80&auto=format&fit=crop',
+    alt: 'Aged tattoo on skin',
+  },
+  {
+    slug: 'japanese-tattoo-history-iconography',
+    category: 'Culture',
+    title: 'Japanese Tattoo History & Iconography',
+    excerpt: 'Dragons, koi, and the centuries of meaning behind Irezumi motifs.',
+    image: 'https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=600&q=80&auto=format&fit=crop',
+    alt: 'Japanese style tattoo',
+  },
+  {
+    slug: 'tattoo-trends-2026',
+    category: 'Trends',
+    title: 'Tattoo Trends to Watch in 2026',
+    excerpt: 'The styles, placements, and techniques shaping where tattooing goes next.',
+    image: 'https://images.unsplash.com/photo-1611690073989-26db74dba8be?w=600&q=80&auto=format&fit=crop',
+    alt: 'Modern tattoo work',
+  },
+];
+
 const US_STATES = [
   'Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut',
   'Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa',
@@ -90,6 +143,86 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white overflow-x-hidden">
 
+      {/* ── TOP NAV HEADER ── */}
+      <header className="sticky top-0 z-50 bg-[#07070d]/90 backdrop-blur-md border-b border-white/8">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+          <a href="/" className="flex items-center gap-2">
+            <img src="/logo.svg" alt="Tatulogue" className="h-6 w-auto" />
+          </a>
+          <nav className="flex items-center gap-6 text-sm font-semibold">
+            <a href="/blog" className="text-white/70 hover:text-white transition-colors">Journal</a>
+            <a href="/about" className="text-white/70 hover:text-white transition-colors">About</a>
+            <a href="/contact" className="text-white/70 hover:text-white transition-colors">Contact</a>
+            <a
+              href="#waitlist"
+              className="px-4 py-2 rounded-full bg-violet-600 hover:bg-violet-500 text-white transition-colors"
+            >
+              Get early access
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      {/* ── EDITORIAL INTRO — The Tatulogue Journal ── */}
+      <section className="bg-[#07070d] py-20 px-8 border-b border-white/8">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-4">The Tatulogue Journal</p>
+          <h1 data-animate="" className="text-4xl sm:text-5xl font-black text-white leading-tight mb-6">
+            Tattoo culture, education, and the artists shaping it.
+          </h1>
+          <p data-animate="" style={{ transitionDelay: '0.1s' }} className="text-lg text-white/60 leading-relaxed">
+            Tatulogue is a platform for tattoo artists and enthusiasts to discover incredible work and
+            connect over the craft. The Tatulogue Journal is our editorial home — in-depth healing and
+            aftercare guides, artist spotlights, deep dives into styles and history, and the trends
+            shaping where tattooing goes next. Whether you&apos;re planning your first piece or your
+            fortieth, start here.
+          </p>
+          <a
+            href="/blog"
+            className="inline-block mt-8 px-7 py-3 rounded-full bg-violet-600 hover:bg-violet-500 text-white font-semibold transition-colors"
+          >
+            Read the Journal →
+          </a>
+        </div>
+      </section>
+
+      {/* ── FEATURED ARTICLES — prominent, high in the page ── */}
+      <section className="bg-[#07070d] py-16 px-8 border-b border-white/8">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-end justify-between mb-10">
+            <h2 data-animate="" className="text-3xl sm:text-4xl font-black text-white leading-tight">
+              Featured articles
+            </h2>
+            <a href="/blog" className="text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors whitespace-nowrap">
+              View all articles →
+            </a>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {JOURNAL_POSTS.map((post) => (
+              <a
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group block rounded-2xl border border-white/8 bg-zinc-900/60 overflow-hidden hover:border-violet-500/40 transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="aspect-video overflow-hidden bg-zinc-800">
+                  <img
+                    src={post.image}
+                    alt={post.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-5">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">{post.category}</span>
+                  <h3 className="mt-2 font-bold leading-snug text-white group-hover:text-violet-300 transition-colors">{post.title}</h3>
+                  <p className="mt-2 text-zinc-400 text-sm line-clamp-2 leading-relaxed">{post.excerpt}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── HERO — full-screen video + centered logo ── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6">
         {/* Background video — place hero.mp4 in /public to activate */}
@@ -107,17 +240,6 @@ export default function Home() {
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/65" />
-
-        {/* Nav */}
-        <nav className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-5 z-10">
-          <div />
-          <a
-            href="#waitlist"
-            className="text-sm font-medium px-5 py-2 rounded-full border border-white/60 text-white hover:bg-white hover:text-black transition-colors"
-          >
-            Sign up for updates
-          </a>
-        </nav>
 
         {/* Centered wordmark */}
         <div className="relative z-10 flex flex-col items-center gap-4">
@@ -394,8 +516,9 @@ export default function Home() {
       <section id="waitlist" className="bg-[#11100e] py-24 px-8">
         <div className="max-w-xl mx-auto">
           <div className="text-center mb-10">
-            <h2 data-animate="" className="text-3xl sm:text-4xl font-black text-[#f1f1f9] mb-3">Join the waitlist</h2>
-            <p data-animate="" style={{ transitionDelay: '0.12s' }} className="text-[#cdcdd4]">Get project updates, newsletters, and early app access.</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-3">Coming soon</p>
+            <h2 data-animate="" className="text-3xl sm:text-4xl font-black text-[#f1f1f9] mb-3">Get early access to the app</h2>
+            <p data-animate="" style={{ transitionDelay: '0.12s' }} className="text-[#cdcdd4]">Beyond the Journal, we&apos;re building the Tatulogue app. Join the list for project updates, newsletters, and early app access.</p>
           </div>
 
           {submitted ? (
@@ -466,70 +589,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FROM THE JOURNAL ── */}
-      <section className="bg-[#07070d] py-20 px-8 border-t border-white/6">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-2">The Tatulogue Journal</p>
-              <h2 data-animate="" className="text-3xl sm:text-4xl font-black text-white leading-tight">
-                From the blog
-              </h2>
-            </div>
-            <a href="/blog" className="text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors whitespace-nowrap">
-              View all →
-            </a>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {/* Post 1 */}
-            <a href="/blog/tattoo-aftercare-guide" className="group block rounded-xl border border-white/8 bg-zinc-900/60 overflow-hidden hover:border-violet-500/40 transition-all duration-300 hover:-translate-y-1">
-              <div className="aspect-video overflow-hidden bg-zinc-800">
-                <img
-                  src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=600&q=80&auto=format&fit=crop"
-                  alt="Fresh tattoo aftercare"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-5">
-                <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">Education</span>
-                <h3 className="mt-2 font-bold leading-snug group-hover:text-violet-300 transition-colors">Tattoo Aftercare: The Complete Day-by-Day Healing Guide</h3>
-                <p className="mt-2 text-zinc-400 text-sm line-clamp-2 leading-relaxed">From the first wrap to the final peel — what actually matters in the first four weeks.</p>
-              </div>
-            </a>
-            {/* Post 2 */}
-            <a href="/blog/tattoo-styles-guide-2026" className="group block rounded-xl border border-white/8 bg-zinc-900/60 overflow-hidden hover:border-violet-500/40 transition-all duration-300 hover:-translate-y-1">
-              <div className="aspect-video overflow-hidden bg-zinc-800">
-                <img
-                  src="https://images.unsplash.com/photo-1562962230-16e4623d36e6?w=600&q=80&auto=format&fit=crop"
-                  alt="Tattoo styles"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-5">
-                <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">Education</span>
-                <h3 className="mt-2 font-bold leading-snug group-hover:text-violet-300 transition-colors">The 10 Most Popular Tattoo Styles in 2026</h3>
-                <p className="mt-2 text-zinc-400 text-sm line-clamp-2 leading-relaxed">A buyer&apos;s guide to styles, aging, and finding the right artist for each one.</p>
-              </div>
-            </a>
-            {/* Post 3 */}
-            <a href="/blog/fine-line-tattoos-complete-guide" className="group block rounded-xl border border-white/8 bg-zinc-900/60 overflow-hidden hover:border-violet-500/40 transition-all duration-300 hover:-translate-y-1">
-              <div className="aspect-video overflow-hidden bg-zinc-800">
-                <img
-                  src="https://images.unsplash.com/photo-1605647533135-51b5906087d0?w=600&q=80&auto=format&fit=crop"
-                  alt="Fine line tattoo detail"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-5">
-                <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">Education</span>
-                <h3 className="mt-2 font-bold leading-snug group-hover:text-violet-300 transition-colors">Fine Line Tattoos: Everything You Need to Know Before You Book</h3>
-                <p className="mt-2 text-zinc-400 text-sm line-clamp-2 leading-relaxed">Looks incredible fresh. Here&apos;s the honest story on how it ages and what placements hold.</p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* ── FOOTER ── */}
       <footer className="bg-black border-t border-white/10 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -538,6 +597,9 @@ export default function Home() {
             <span className="text-white/30 text-sm">&copy; 2026 Tatulogue, LLC</span>
           </div>
           <div className="flex gap-6 text-sm text-white/40">
+            <a href="/blog" className="hover:text-white/70 transition-colors">Journal</a>
+            <a href="/about" className="hover:text-white/70 transition-colors">About</a>
+            <a href="/contact" className="hover:text-white/70 transition-colors">Contact</a>
             <a href="/privacy" className="hover:text-white/70 transition-colors">Privacy Policy</a>
             <a href="/terms" className="hover:text-white/70 transition-colors">Terms of Service</a>
           </div>

@@ -65,7 +65,7 @@ The app is live at [app.tatulogue.com](https://app.tatulogue.com). The Kickstart
 
 The app is available now. [Open Tatulogue](https://app.tatulogue.com), create a profile — whether you're a collector building a wishlist and finding artists, or an artist getting your portfolio set up and accepting bookings.
 
-For artists looking at what life looks like off the Instagram hamster wheel — that's exactly what Tatulogue is built for. Check out our [artist spotlight series](/blog/artist-spotlight-template) to see the kinds of artists who are already building on the platform.
+For artists looking at what life looks like off the Instagram hamster wheel — that's exactly what Tatulogue is built for. Check out our [artist spotlight series](/blog/artist-spotlight-series) to see the kinds of artists who are already building on the platform.
 
 For collectors who want to understand the style landscape before they search — the [tattoo styles guide](/blog/tattoo-styles-guide-2026) is a good starting point for knowing what to look for.
 

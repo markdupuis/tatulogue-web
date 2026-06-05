@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /admin/
+
+Host: https://tatulogue.com
+Sitemap: https://tatulogue.com/sitemap.xml

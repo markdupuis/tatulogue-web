@@ -88,7 +88,7 @@ The platform is built around the booking relationship — how artists get found,
 
 You can read more about how the platform works in [what Tatulogue is and why it was built](/blog/what-is-tatulogue). The short version: a social platform designed around tattoo culture specifics, not a general platform that tattooers have tried to squeeze into a booking tool.
 
-We also run an [artist spotlight series](/blog/artist-spotlight-template) — if you're on the platform, it's worth knowing how that works.
+We also run an [artist spotlight series](/blog/artist-spotlight-series) — if you're on the platform, it's worth knowing how that works.
 
 ---
 

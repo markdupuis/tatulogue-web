@@ -122,7 +122,7 @@ Expect the artist to ask about long-term plans. Are you building toward a sleeve
 
 Bring reference for the motifs you're drawn to, but hold it loosely. A traditional artist is going to adapt to your body, your existing work, and the compositional rules of the tradition. If you hand them a screenshot and say "exactly this," you're not doing a Japanese tattoo — you're doing a copy. Those are different things.
 
-Ask about their source material. Are they referencing historical woodblocks, prints, established masters? Or are they going off Pinterest? The answer tells you a lot. See the [artist vetting guide at Tatulogue](/blog/artist-spotlight-template) for the full checklist of what a real consultation should cover.
+Ask about their source material. Are they referencing historical woodblocks, prints, established masters? Or are they going off Pinterest? The answer tells you a lot. See the [artist vetting guide at Tatulogue](/blog/artist-spotlight-series) for the full checklist of what a real consultation should cover.
 
 Discuss scale honestly. Japanese tattooing doesn't work small in the traditional sense. The linework is heavy, the fills are dense, the compositions are designed to read at bodysuit scale. Miniaturizing the style usually kills what makes it work. A good artist will tell you this directly.
 

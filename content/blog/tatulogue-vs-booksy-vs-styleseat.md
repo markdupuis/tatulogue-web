@@ -55,7 +55,7 @@ This isn't a knock on either product. They're built for what they're built for. 
 
 **No style-based filtering.** A collector looking specifically for a healed neo trad piece can't filter for that on Booksy or StyleSeat. They can search by location and maybe by service type ("tattooing"), but there's no way to browse by style, technique, or specialty. Trad, fine line, realism, blackwork — to these platforms, it's all the same service.
 
-**No healed work emphasis.** Fresh photos look great. Healed work is what tells you whether an artist's linework holds and whether their black packs solid. Tatulogue [covers this in detail in the artist spotlight framework](/blog/artist-spotlight-template) — healed portfolios are a different category of information than fresh-off-the-machine shots. Neither Booksy nor StyleSeat creates any structure around this.
+**No healed work emphasis.** Fresh photos look great. Healed work is what tells you whether an artist's linework holds and whether their black packs solid. Tatulogue [covers this in detail in the artist spotlight framework](/blog/artist-spotlight-series) — healed portfolios are a different category of information than fresh-off-the-machine shots. Neither Booksy nor StyleSeat creates any structure around this.
 
 **Commission structures built for fixed-price services.** A haircut is $45. A manicure is $60. You can attach a price and Booksy or StyleSeat can take a cut of that. Tattooing at the custom end doesn't work that way. Day rates, hourly rates, project quotes after a consultation — these pricing structures don't map cleanly onto platforms built for fixed, repeatable service pricing.
 
