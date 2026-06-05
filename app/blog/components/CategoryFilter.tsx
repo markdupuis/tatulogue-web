@@ -12,10 +12,12 @@ const CATEGORY_LABELS: Record<string, string> = {
   about: 'About Tatulogue',
 };
 
+const BLUE_GRADIENT = 'linear-gradient(135deg, #2B5876, #4E4376)';
+
 const CAT_COLORS: Record<string, string> = {
-  education: 'bg-blue-950/50 text-blue-300 border-blue-800/50',
+  education: 'bg-[#2B5876]/20 text-[#9db8d4] border-[#4E4376]/40',
   spotlight: 'bg-orange-950/40 text-amber-400 border-orange-800/40',
-  trends: 'bg-violet-950/50 text-violet-300 border-violet-800/50',
+  trends: 'bg-amber-950/30 text-amber-300 border-amber-700/40',
   updates: 'bg-zinc-800/50 text-zinc-300 border-zinc-700/50',
   about: 'bg-orange-950/40 text-amber-400 border-orange-800/40',
 };
@@ -40,7 +42,7 @@ function PostCard({ post }: { post: PostMeta }) {
 
   return (
     <Link href={`/blog/${post.slug}`} className="group block">
-      <div className="h-full rounded-xl border border-white/8 bg-zinc-900/60 overflow-hidden hover:border-violet-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-950/20 flex flex-col">
+      <div className="h-full rounded-xl border border-white/8 bg-white/[0.03] overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-[#4E4376]/55 hover:shadow-xl hover:shadow-[#2B5876]/20 flex flex-col">
         <div className="aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center text-5xl font-black text-white/10 overflow-hidden flex-shrink-0">
           {post.coverImage ? (
             <img
@@ -58,17 +60,26 @@ function PostCard({ post }: { post: PostMeta }) {
               {catLabel}
             </span>
           </div>
-          <h2 className="text-lg font-bold leading-snug mb-2 line-clamp-2 group-hover:text-violet-300 transition-colors">
+          <h2 className="text-lg font-bold leading-snug mb-2 line-clamp-2 transition-colors group-hover:text-[#F5AF19]">
             {post.title}
           </h2>
-          <p className="text-zinc-400 text-sm leading-relaxed line-clamp-3 flex-1 mb-4">
+          <p className="text-white/50 text-sm leading-relaxed line-clamp-3 flex-1 mb-4">
             {post.description}
           </p>
           <div className="flex items-center justify-between mt-auto">
-            <span className="text-zinc-500 text-xs">
+            <span className="text-white/40 text-xs">
               {dateStr} · {post.readTime} min
             </span>
-            <span className="text-violet-400 text-xs font-semibold group-hover:translate-x-0.5 transition-transform inline-block">
+            <span
+              className="text-xs font-semibold inline-block transition-transform group-hover:translate-x-0.5"
+              style={{
+                background: BLUE_GRADIENT,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                color: 'transparent',
+              }}
+            >
               Read →
             </span>
           </div>
@@ -100,10 +111,10 @@ export default function CategoryFilter({ posts, featuredSlug }: CategoryFilterPr
           <button
             key={cat.key}
             onClick={() => setActiveCategory(cat.key)}
-            className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${
+            className={`px-5 py-2.5 rounded-full text-sm font-medium border transition-all ${
               activeCategory === cat.key
-                ? 'bg-zinc-800 border-violet-500/60 text-white'
-                : 'bg-transparent border-white/10 text-zinc-400 hover:border-white/25 hover:text-white'
+                ? 'border-[#4E4376]/70 text-white bg-gradient-to-br from-[#2B5876]/50 to-[#4E4376]/50'
+                : 'bg-white/5 border-white/10 text-white/60 hover:border-[#F12711]/60 hover:text-[#F5AF19]'
             }`}
           >
             {cat.label}
@@ -112,7 +123,7 @@ export default function CategoryFilter({ posts, featuredSlug }: CategoryFilterPr
       </div>
 
       {visible.length === 0 ? (
-        <p className="text-center py-20 text-zinc-500">
+        <p className="text-center py-20 text-white/40">
           No posts in this category yet — check back soon.
         </p>
       ) : (
