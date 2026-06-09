@@ -12,6 +12,7 @@ import type {
   RoadmapItem,
   ScreenVisitStat,
   SearchQueryStat,
+  TeamMember,
 } from './types';
 
 const ANALYTICS_ROW_CAP = 10000;
@@ -89,7 +90,7 @@ export async function convertBugToRoadmap(report: BugReport): Promise<RoadmapIte
     .single();
 
   if (error || !data) return null;
-  return data as RoadmapItem;
+  return { ...(data as Omit<RoadmapItem, 'assignees'>), assignees: [] } as RoadmapItem;
 }
 
 export async function fetchRoadmap(): Promise<RoadmapItem[]> {
@@ -100,30 +101,76 @@ export async function fetchRoadmap(): Promise<RoadmapItem[]> {
     .order('created_at', { ascending: false });
 
   if (error || !data) return [];
-  return data as RoadmapItem[];
+
+  const { data: assigneeRows } = await supabase
+    .from('roadmap_item_assignees')
+    .select('roadmap_item_id, user_id');
+
+  const byItem = new Map<string, string[]>();
+  for (const r of (assigneeRows ?? []) as { roadmap_item_id: string; user_id: string }[]) {
+    const list = byItem.get(r.roadmap_item_id) ?? [];
+    list.push(r.user_id);
+    byItem.set(r.roadmap_item_id, list);
+  }
+
+  return (data as Omit<RoadmapItem, 'assignees'>[]).map((row) => ({
+    ...row,
+    assignees: byItem.get(row.id) ?? [],
+  }));
 }
 
 export async function createRoadmapItem(
   input: Partial<RoadmapItem> & { title: string }
 ): Promise<RoadmapItem | null> {
+  const { assignees: _assignees, ...row } = input;
+  void _assignees;
   const { data, error } = await supabase
     .from('roadmap_items')
-    .insert(input)
+    .insert(row)
     .select()
     .single();
 
   if (error || !data) return null;
-  return data as RoadmapItem;
+  return { ...(data as Omit<RoadmapItem, 'assignees'>), assignees: [] };
 }
 
 export async function updateRoadmapItem(
   id: string,
   patch: Partial<RoadmapItem>
 ): Promise<void> {
+  const { assignees: _assignees, ...rest } = patch;
+  void _assignees;
   await supabase
     .from('roadmap_items')
-    .update({ ...patch, updated_at: new Date().toISOString() })
+    .update({ ...rest, updated_at: new Date().toISOString() })
     .eq('id', id);
+}
+
+export async function setRoadmapAssignees(itemId: string, userIds: string[]): Promise<void> {
+  await supabase.from('roadmap_item_assignees').delete().eq('roadmap_item_id', itemId);
+  if (userIds.length > 0) {
+    await supabase
+      .from('roadmap_item_assignees')
+      .insert(userIds.map((user_id) => ({ roadmap_item_id: itemId, user_id })));
+  }
+}
+
+export async function fetchTeamMembers(): Promise<TeamMember[]> {
+  const { data: admins } = await supabase.from('web_admins').select('user_id');
+  const ids = (admins ?? []).map((a: { user_id: string }) => a.user_id);
+  if (ids.length === 0) return [];
+
+  const { data: users } = await supabase
+    .from('users')
+    .select('id, full_name, username')
+    .in('id', ids);
+
+  return (users ?? []).map(
+    (u: { id: string; full_name: string | null; username: string | null }): TeamMember => ({
+      user_id: u.id,
+      name: u.full_name || u.username || 'Member',
+    })
+  );
 }
 
 export async function deleteRoadmapItem(id: string): Promise<void> {

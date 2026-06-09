@@ -18,7 +18,7 @@ export interface BugReport {
   created_at: string;
 }
 
-export type RoadmapStatus = 'planned' | 'in_progress' | 'shipped' | 'parked';
+export type RoadmapStatus = 'backlog' | 'planned' | 'in_progress' | 'completed';
 
 export interface RoadmapItem {
   id: string;
@@ -29,8 +29,17 @@ export interface RoadmapItem {
   quarter: string | null;
   category: string | null;
   source_bug_id: string | null;
+  start_date: string | null;
+  due_date: string | null;
+  progress: number;
+  assignees: string[];
   created_at: string;
   updated_at: string;
+}
+
+export interface TeamMember {
+  user_id: string;
+  name: string;
 }
 
 export interface AdminUser {
