@@ -7,8 +7,9 @@ const DAY_WIDTH = 36;
 const LABEL_WIDTH = 180;
 const ROW_HEIGHT = 44;
 const BAR_HEIGHT = 28;
-const RANGE_PAD_DAYS = 7;
-const DEFAULT_RANGE_DAYS = 56;
+const WINDOW_DAYS = 42;
+const LANE_PADDING = 8;
+const BAR_TOP_PADDING = 6;
 const EDGE_HANDLE_WIDTH = 8;
 const UNASSIGNED_LANE = '__unassigned__';
 
@@ -79,10 +80,52 @@ interface DragState {
   deltaDays: number;
 }
 
+interface PackedBar {
+  item: RoadmapItem;
+  subRow: number;
+}
+
 interface Lane {
   key: string;
   name: string;
   items: RoadmapItem[];
+  bars: PackedBar[];
+  subRowCount: number;
+}
+
+// Greedy interval packing: sort by start date, place each bar on the first
+// sub-row whose previous bar ends (due day, inclusive) before this bar starts.
+function packLane(items: RoadmapItem[]): { bars: PackedBar[]; subRowCount: number } {
+  const sorted = [...items].sort((a, b) => {
+    const sa = a.start_date as string;
+    const sb = b.start_date as string;
+    if (sa !== sb) return sa < sb ? -1 : 1;
+    return (a.due_date as string) < (b.due_date as string) ? -1 : 1;
+  });
+
+  const rowEnds: Date[] = [];
+  const bars: PackedBar[] = [];
+
+  for (const item of sorted) {
+    const start = fromISO(item.start_date as string);
+    const due = fromISO(item.due_date as string);
+    let placed = -1;
+    for (let row = 0; row < rowEnds.length; row += 1) {
+      if (rowEnds[row] < start) {
+        placed = row;
+        break;
+      }
+    }
+    if (placed === -1) {
+      placed = rowEnds.length;
+      rowEnds.push(due);
+    } else {
+      rowEnds[placed] = due;
+    }
+    bars.push({ item, subRow: placed });
+  }
+
+  return { bars, subRowCount: rowEnds.length };
 }
 
 interface GanttTimelineProps {
@@ -104,29 +147,28 @@ export default function GanttTimeline({
   const scheduled = useMemo(() => items.filter(isScheduled), [items]);
   const unscheduled = useMemo(() => items.filter((it) => !isScheduled(it)), [items]);
 
-  const { rangeStart, totalDays } = useMemo(() => {
-    if (scheduled.length === 0) {
-      const start = startOfWeek(todayUTC());
-      return { rangeStart: start, totalDays: DEFAULT_RANGE_DAYS };
-    }
+  // Default window: Monday on/before the earliest scheduled start, else this week's Monday.
+  const defaultWindowStart = useMemo(() => {
+    if (scheduled.length === 0) return startOfWeek(todayUTC());
     let min = fromISO(scheduled[0].start_date as string);
-    let max = fromISO(scheduled[0].due_date as string);
     for (const it of scheduled) {
       const s = fromISO(it.start_date as string);
-      const d = fromISO(it.due_date as string);
       if (s < min) min = s;
-      if (d > max) max = d;
     }
-    const start = addDays(min, -RANGE_PAD_DAYS);
-    const end = addDays(max, RANGE_PAD_DAYS);
-    return { rangeStart: start, totalDays: diffDays(end, start) + 1 };
+    return startOfWeek(min);
   }, [scheduled]);
 
+  const [windowStart, setWindowStart] = useState<Date>(defaultWindowStart);
+
+  const windowEnd = useMemo(() => addDays(windowStart, WINDOW_DAYS - 1), [windowStart]);
+
   const days = useMemo(
-    () => Array.from({ length: totalDays }, (_, i) => addDays(rangeStart, i)),
-    [rangeStart, totalDays]
+    () => Array.from({ length: WINDOW_DAYS }, (_, i) => addDays(windowStart, i)),
+    [windowStart]
   );
 
+  // Month row as aligned segments: group visible days by calendar month so each
+  // segment's width = (visible days in that month) * DAY_WIDTH.
   const monthSegments = useMemo(() => {
     const segments: { label: string; span: number }[] = [];
     for (const day of days) {
@@ -138,23 +180,50 @@ export default function GanttTimeline({
     return segments;
   }, [days]);
 
+  // Only bars overlapping the window belong to a lane; pack them into sub-rows.
   const lanes = useMemo<Lane[]>(() => {
-    const result: Lane[] = team.map((member) => ({
-      key: member.user_id,
-      name: member.name,
-      items: scheduled.filter((it) => it.assignees.includes(member.user_id)),
-    }));
-    const unassigned = scheduled.filter((it) => it.assignees.length === 0);
+    const overlapsWindow = (it: RoadmapItem) =>
+      fromISO(it.start_date as string) <= windowEnd &&
+      fromISO(it.due_date as string) >= windowStart;
+
+    const build = (key: string, name: string, laneItems: RoadmapItem[]): Lane => {
+      const { bars, subRowCount } = packLane(laneItems);
+      return { key, name, items: laneItems, bars, subRowCount };
+    };
+
+    const result: Lane[] = team.map((member) =>
+      build(
+        member.user_id,
+        member.name,
+        scheduled.filter(
+          (it) => it.assignees.includes(member.user_id) && overlapsWindow(it)
+        )
+      )
+    );
+    const unassigned = scheduled.filter(
+      (it) => it.assignees.length === 0 && overlapsWindow(it)
+    );
     if (unassigned.length > 0) {
-      result.push({ key: UNASSIGNED_LANE, name: 'Unassigned', items: unassigned });
+      result.push(build(UNASSIGNED_LANE, 'Unassigned', unassigned));
     }
     return result;
-  }, [team, scheduled]);
+  }, [team, scheduled, windowStart, windowEnd]);
 
   const today = todayUTC();
-  const todayOffset = diffDays(today, rangeStart);
-  const showToday = todayOffset >= 0 && todayOffset < totalDays;
-  const gridWidth = totalDays * DAY_WIDTH;
+  const todayOffset = diffDays(today, windowStart);
+  const showToday = todayOffset >= 0 && todayOffset < WINDOW_DAYS;
+  const gridWidth = WINDOW_DAYS * DAY_WIDTH;
+
+  const laneHeight = (lane: Lane) =>
+    Math.max(lane.subRowCount, 1) * ROW_HEIGHT + LANE_PADDING;
+
+  function shiftWindow(weeks: number) {
+    setWindowStart((prev) => addDays(prev, weeks * 7));
+  }
+
+  function goToday() {
+    setWindowStart(startOfWeek(todayUTC()));
+  }
 
   function previewDates(item: RoadmapItem): { start: Date; due: Date } {
     const start = fromISO(item.start_date as string);
@@ -213,8 +282,28 @@ export default function GanttTimeline({
     }
   }
 
+  const navButton =
+    'rounded-lg border border-white/8 bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-white/70 transition-colors hover:border-white/20 hover:text-white';
+
   return (
     <div className="space-y-6">
+      {/* Calendar navigation toolbar */}
+      <div className="flex items-center gap-2">
+        <button type="button" className={navButton} onClick={() => shiftWindow(-1)}>
+          ◀ Prev
+        </button>
+        <button type="button" className={navButton} onClick={goToday}>
+          Today
+        </button>
+        <button type="button" className={navButton} onClick={() => shiftWindow(1)}>
+          Next ▶
+        </button>
+        <span className="ml-2 text-xs text-white/35">
+          {`${MONTH_NAMES[windowStart.getUTCMonth()]} ${windowStart.getUTCDate()}`} —{' '}
+          {`${MONTH_NAMES[windowEnd.getUTCMonth()]} ${windowEnd.getUTCDate()}, ${windowEnd.getUTCFullYear()}`}
+        </span>
+      </div>
+
       <div className="overflow-x-auto rounded-2xl border border-white/8 bg-white/[0.02]" ref={scrollRef}>
         <div style={{ width: LABEL_WIDTH + gridWidth }}>
           {/* Month header */}
@@ -279,7 +368,7 @@ export default function GanttTimeline({
                   style={{
                     width: LABEL_WIDTH,
                     minWidth: LABEL_WIDTH,
-                    minHeight: Math.max(lane.items.length, 1) * ROW_HEIGHT + 8,
+                    minHeight: laneHeight(lane),
                   }}
                 >
                   {lane.name}
@@ -290,7 +379,7 @@ export default function GanttTimeline({
                   className="relative"
                   style={{
                     width: gridWidth,
-                    minHeight: Math.max(lane.items.length, 1) * ROW_HEIGHT + 8,
+                    minHeight: laneHeight(lane),
                   }}
                 >
                   {/* Week gridlines */}
@@ -311,22 +400,32 @@ export default function GanttTimeline({
                     />
                   )}
 
-                  {lane.items.map((item, rowIdx) => {
+                  {lane.bars.map(({ item, subRow }) => {
                     const { start, due } = previewDates(item);
-                    const left = diffDays(start, rangeStart) * DAY_WIDTH;
-                    const width = (diffDays(due, start) + 1) * DAY_WIDTH;
+                    // Real (unclipped) bar geometry against the window.
+                    const rawStartOffset = diffDays(start, windowStart);
+                    const rawEndOffset = diffDays(due, windowStart) + 1;
+                    // Clip to window edges so out-of-range tasks pin to a border.
+                    const clippedStart = Math.max(0, rawStartOffset);
+                    const clippedEnd = Math.min(WINDOW_DAYS, rawEndOffset);
+                    const left = clippedStart * DAY_WIDTH;
+                    const width = (clippedEnd - clippedStart) * DAY_WIDTH;
+                    const clippedLeft = rawStartOffset < 0;
+                    const clippedRight = rawEndOffset > WINDOW_DAYS;
                     const isDragging = drag?.itemId === item.id;
                     return (
                       <div
                         key={`${lane.key}-${item.id}`}
-                        className={`group absolute flex items-center overflow-hidden rounded-lg border text-xs text-white shadow-sm ${
+                        className={`group absolute flex items-center overflow-hidden border text-xs text-white shadow-sm ${
+                          clippedLeft ? '' : 'rounded-l-lg'
+                        } ${clippedRight ? '' : 'rounded-r-lg'} ${
                           STATUS_BAR[item.status]
                         } ${isDragging ? 'opacity-90 ring-1 ring-white/40' : ''}`}
                         style={{
                           left,
                           width,
                           height: BAR_HEIGHT,
-                          top: rowIdx * ROW_HEIGHT + 6,
+                          top: subRow * ROW_HEIGHT + BAR_TOP_PADDING,
                           cursor: 'grab',
                           touchAction: 'none',
                         }}
@@ -353,31 +452,35 @@ export default function GanttTimeline({
                           style={{ width: `${Math.min(100, Math.max(0, item.progress))}%` }}
                           aria-hidden
                         />
-                        {/* Resize handle: start */}
-                        <span
-                          className="absolute inset-y-0 left-0 z-10 cursor-ew-resize opacity-0 group-hover:opacity-100"
-                          style={{ width: EDGE_HANDLE_WIDTH }}
-                          onPointerDown={(e) => handlePointerDown(e, item, 'resize-start')}
-                          onPointerMove={handlePointerMove}
-                          onPointerUp={() => handlePointerUp(item)}
-                          aria-hidden
-                        >
-                          <span className="absolute inset-y-1 left-1 w-0.5 rounded bg-white/60" />
-                        </span>
+                        {/* Resize handle: start (hidden when the real start is clipped off-window) */}
+                        {!clippedLeft && (
+                          <span
+                            className="absolute inset-y-0 left-0 z-10 cursor-ew-resize opacity-0 group-hover:opacity-100"
+                            style={{ width: EDGE_HANDLE_WIDTH }}
+                            onPointerDown={(e) => handlePointerDown(e, item, 'resize-start')}
+                            onPointerMove={handlePointerMove}
+                            onPointerUp={() => handlePointerUp(item)}
+                            aria-hidden
+                          >
+                            <span className="absolute inset-y-1 left-1 w-0.5 rounded bg-white/60" />
+                          </span>
+                        )}
                         <span className="relative z-[5] truncate px-2.5 font-medium">
                           {item.title}
                         </span>
-                        {/* Resize handle: end */}
-                        <span
-                          className="absolute inset-y-0 right-0 z-10 cursor-ew-resize opacity-0 group-hover:opacity-100"
-                          style={{ width: EDGE_HANDLE_WIDTH }}
-                          onPointerDown={(e) => handlePointerDown(e, item, 'resize-end')}
-                          onPointerMove={handlePointerMove}
-                          onPointerUp={() => handlePointerUp(item)}
-                          aria-hidden
-                        >
-                          <span className="absolute inset-y-1 right-1 w-0.5 rounded bg-white/60" />
-                        </span>
+                        {/* Resize handle: end (hidden when the real end is clipped off-window) */}
+                        {!clippedRight && (
+                          <span
+                            className="absolute inset-y-0 right-0 z-10 cursor-ew-resize opacity-0 group-hover:opacity-100"
+                            style={{ width: EDGE_HANDLE_WIDTH }}
+                            onPointerDown={(e) => handlePointerDown(e, item, 'resize-end')}
+                            onPointerMove={handlePointerMove}
+                            onPointerUp={() => handlePointerUp(item)}
+                            aria-hidden
+                          >
+                            <span className="absolute inset-y-1 right-1 w-0.5 rounded bg-white/60" />
+                          </span>
+                        )}
                       </div>
                     );
                   })}
