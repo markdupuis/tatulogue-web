@@ -34,13 +34,16 @@ const PRIORITY_COLOR: Record<Priority, string> = {
 };
 
 const STATUS_FILTERS: (ReportStatus | 'all')[] = ['all', 'open', 'resolved', 'closed'];
-const TYPE_FILTERS: (ReportType | 'all')[] = ['all', 'bug', 'feature_request'];
+const TYPE_TABS: (ReportType | 'all')[] = ['bug', 'feature_request', 'all'];
 const STATUS_ACTIONS: ReportStatus[] = ['open', 'resolved', 'closed'];
 
-function typeLabel(type: ReportType | 'all'): string {
-  if (type === 'all') return 'All types';
-  return type === 'bug' ? 'Bug' : 'Feature';
-}
+const ACTIVE_TAB_GRADIENT = 'linear-gradient(135deg,#2B5876,#4E4376)';
+
+const TYPE_TAB_LABELS: Record<ReportType | 'all', string> = {
+  bug: 'Bugs',
+  feature_request: 'Feature Requests',
+  all: 'All',
+};
 
 function pill(activeState: boolean): string {
   return `px-4 py-1.5 rounded-full text-sm border transition-colors ${
@@ -71,7 +74,7 @@ export default function BugsPage() {
   const [reports, setReports] = useState<BugReport[]>([]);
   const [loading, setLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState<ReportStatus | 'all'>('all');
-  const [typeFilter, setTypeFilter] = useState<ReportType | 'all'>('all');
+  const [typeFilter, setTypeFilter] = useState<ReportType | 'all'>('bug');
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [convertingId, setConvertingId] = useState<string | null>(null);
@@ -105,6 +108,12 @@ export default function BugsPage() {
     setConvertingId(null);
   }
 
+  function countOpen(type: ReportType | 'all'): number {
+    return reports.filter(
+      (r) => r.status === 'open' && (type === 'all' || r.report_type === type)
+    ).length;
+  }
+
   const filtered = reports.filter((r) => {
     const matchStatus = statusFilter === 'all' || r.status === statusFilter;
     const matchType = typeFilter === 'all' || r.report_type === typeFilter;
@@ -130,6 +139,27 @@ export default function BugsPage() {
         <p className="text-white/40">Loading…</p>
       ) : (
         <>
+          <div className="mb-6 flex flex-wrap gap-2">
+            {TYPE_TABS.map((t) => {
+              const isActive = typeFilter === t;
+              return (
+                <button
+                  key={t}
+                  type="button"
+                  onClick={() => setTypeFilter(t)}
+                  className={`rounded-xl border px-5 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'border-transparent text-white'
+                      : 'border-white/8 bg-white/[0.02] text-white/50 hover:border-white/20 hover:text-white/80'
+                  }`}
+                  style={isActive ? { backgroundImage: ACTIVE_TAB_GRADIENT } : undefined}
+                >
+                  {TYPE_TAB_LABELS[t]} ({countOpen(t)})
+                </button>
+              );
+            })}
+          </div>
+
           <div className="mb-8 grid grid-cols-3 gap-3 sm:grid-cols-6">
             {stats.map((s) => (
               <div
@@ -142,7 +172,7 @@ export default function BugsPage() {
             ))}
           </div>
 
-          <div className="mb-3 flex flex-wrap gap-2">
+          <div className="mb-8 flex flex-wrap gap-2">
             {STATUS_FILTERS.map((s) => (
               <button
                 key={s}
@@ -151,18 +181,6 @@ export default function BugsPage() {
                 className={pill(statusFilter === s)}
               >
                 {s === 'all' ? 'All status' : STATUS_LABELS[s]}
-              </button>
-            ))}
-          </div>
-          <div className="mb-8 flex flex-wrap gap-2">
-            {TYPE_FILTERS.map((t) => (
-              <button
-                key={t}
-                type="button"
-                onClick={() => setTypeFilter(t)}
-                className={pill(typeFilter === t)}
-              >
-                {typeLabel(t)}
               </button>
             ))}
           </div>
