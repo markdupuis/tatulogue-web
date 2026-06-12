@@ -24,7 +24,62 @@ export interface Product {
 }
 
 const GRAD_BLUE = 'linear-gradient(135deg, #2B5876, #4E4376)';
-const FREE_SHIPPING_THRESHOLD_CENTS = 7500;
+const ZIP_PATTERN = /^\d{5}(-\d{4})?$/;
+const SHIPPING_STORAGE_KEY = 'tatu_ship_v1';
+
+const US_STATES: { code: string; label: string }[] = [
+  { code: 'AL', label: 'Alabama' },
+  { code: 'AK', label: 'Alaska' },
+  { code: 'AZ', label: 'Arizona' },
+  { code: 'AR', label: 'Arkansas' },
+  { code: 'CA', label: 'California' },
+  { code: 'CO', label: 'Colorado' },
+  { code: 'CT', label: 'Connecticut' },
+  { code: 'DE', label: 'Delaware' },
+  { code: 'DC', label: 'District of Columbia' },
+  { code: 'FL', label: 'Florida' },
+  { code: 'GA', label: 'Georgia' },
+  { code: 'HI', label: 'Hawaii' },
+  { code: 'ID', label: 'Idaho' },
+  { code: 'IL', label: 'Illinois' },
+  { code: 'IN', label: 'Indiana' },
+  { code: 'IA', label: 'Iowa' },
+  { code: 'KS', label: 'Kansas' },
+  { code: 'KY', label: 'Kentucky' },
+  { code: 'LA', label: 'Louisiana' },
+  { code: 'ME', label: 'Maine' },
+  { code: 'MD', label: 'Maryland' },
+  { code: 'MA', label: 'Massachusetts' },
+  { code: 'MI', label: 'Michigan' },
+  { code: 'MN', label: 'Minnesota' },
+  { code: 'MS', label: 'Mississippi' },
+  { code: 'MO', label: 'Missouri' },
+  { code: 'MT', label: 'Montana' },
+  { code: 'NE', label: 'Nebraska' },
+  { code: 'NV', label: 'Nevada' },
+  { code: 'NH', label: 'New Hampshire' },
+  { code: 'NJ', label: 'New Jersey' },
+  { code: 'NM', label: 'New Mexico' },
+  { code: 'NY', label: 'New York' },
+  { code: 'NC', label: 'North Carolina' },
+  { code: 'ND', label: 'North Dakota' },
+  { code: 'OH', label: 'Ohio' },
+  { code: 'OK', label: 'Oklahoma' },
+  { code: 'OR', label: 'Oregon' },
+  { code: 'PA', label: 'Pennsylvania' },
+  { code: 'RI', label: 'Rhode Island' },
+  { code: 'SC', label: 'South Carolina' },
+  { code: 'SD', label: 'South Dakota' },
+  { code: 'TN', label: 'Tennessee' },
+  { code: 'TX', label: 'Texas' },
+  { code: 'UT', label: 'Utah' },
+  { code: 'VT', label: 'Vermont' },
+  { code: 'VA', label: 'Virginia' },
+  { code: 'WA', label: 'Washington' },
+  { code: 'WV', label: 'West Virginia' },
+  { code: 'WI', label: 'Wisconsin' },
+  { code: 'WY', label: 'Wyoming' },
+];
 
 function formatPrice(cents: number): string {
   return `$${(cents / 100).toFixed(2)}`;
@@ -187,7 +242,7 @@ function ProductGrid({ products, onSelect }: { products: Product[]; onSelect: (p
           Official Tatulogue merch.
         </h1>
         <p className="mt-5 max-w-xl text-white/60 leading-relaxed">
-          Printed on demand and shipped to your door. Free US shipping over $75.
+          Printed on demand and shipped to your door, anywhere in the US.
         </p>
       </div>
 
@@ -445,6 +500,41 @@ function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { items, subtotalCents } = useCart();
   const [checkingOut, setCheckingOut] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [stateCode, setStateCode] = useState('');
+  const [zip, setZip] = useState('');
+
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(SHIPPING_STORAGE_KEY);
+      if (!raw) return;
+      const saved: { state_code?: unknown; zip?: unknown } = JSON.parse(raw);
+      if (typeof saved.state_code === 'string') setStateCode(saved.state_code);
+      if (typeof saved.zip === 'string') setZip(saved.zip);
+    } catch {
+      // Corrupt or inaccessible storage — fall back to empty fields.
+    }
+  }, []);
+
+  function persistShipping(nextStateCode: string, nextZip: string) {
+    try {
+      window.localStorage.setItem(
+        SHIPPING_STORAGE_KEY,
+        JSON.stringify({ state_code: nextStateCode, zip: nextZip })
+      );
+    } catch {
+      // Storage unavailable (private mode) — fields still work for this session.
+    }
+  }
+
+  function handleStateChange(next: string) {
+    setStateCode(next);
+    persistShipping(next, zip);
+  }
+
+  function handleZipChange(next: string) {
+    setZip(next);
+    persistShipping(stateCode, next);
+  }
 
   useEffect(() => {
     if (!open) return;
@@ -457,11 +547,16 @@ function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
 
   if (!open) return null;
 
+  const isShippingValid = stateCode !== '' && ZIP_PATTERN.test(zip);
+
   async function handleCheckout() {
     setError(null);
     setCheckingOut(true);
     try {
-      await startCheckout(items.map((i) => ({ sync_variant_id: i.sync_variant_id, quantity: i.qty })));
+      await startCheckout(
+        items.map((i) => ({ sync_variant_id: i.sync_variant_id, quantity: i.qty })),
+        { state_code: stateCode, zip }
+      );
       // Redirecting — keep the spinner up until the browser navigates.
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Checkout failed. Please try again.');
@@ -513,10 +608,36 @@ function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
                 <span className="text-white/50 text-sm">Subtotal</span>
                 <span className="font-display font-extrabold text-xl">{formatPrice(subtotalCents)}</span>
               </div>
+              <fieldset>
+                <legend className="text-xs tracking-[0.2em] text-white/40 mb-2.5">SHIPPING</legend>
+                <div className="flex gap-3">
+                  <select
+                    value={stateCode}
+                    onChange={(e) => handleStateChange(e.target.value)}
+                    aria-label="US state"
+                    className="flex-1 min-w-0 rounded-xl border border-white/[0.08] bg-white/[0.04] px-3 py-2.5 text-sm text-white focus:border-[#F5AF19] focus:outline-none [&>option]:bg-[#0c0c14]"
+                  >
+                    <option value="">State</option>
+                    {US_STATES.map((s) => (
+                      <option key={s.code} value={s.code}>
+                        {s.label}
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    type="text"
+                    value={zip}
+                    onChange={(e) => handleZipChange(e.target.value.trim())}
+                    inputMode="numeric"
+                    maxLength={10}
+                    placeholder="ZIP"
+                    aria-label="ZIP code"
+                    className="w-28 rounded-xl border border-white/[0.08] bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-[#F5AF19] focus:outline-none"
+                  />
+                </div>
+              </fieldset>
               <p className="text-xs text-white/40">
-                {subtotalCents >= FREE_SHIPPING_THRESHOLD_CENTS
-                  ? 'You qualify for free US shipping. 🤘'
-                  : 'Free US shipping over $75 — shipping calculated at checkout.'}
+                Shipping calculated at Printful&apos;s live rate — enter state + ZIP.
               </p>
               {error && (
                 <p role="alert" className="text-sm text-[#F5AF19] border border-[#F12711]/40 bg-[#F12711]/10 rounded-xl px-4 py-3">
@@ -526,7 +647,7 @@ function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
               <button
                 type="button"
                 onClick={handleCheckout}
-                disabled={checkingOut}
+                disabled={checkingOut || items.length === 0 || !isShippingValid}
                 className="tl-btn-energy w-full py-4 rounded-xl text-white font-bold shadow-[0_0_30px_-8px_rgba(241,39,17,0.7)] disabled:opacity-60 flex items-center justify-center gap-2.5"
               >
                 {checkingOut && <span className="tl-spinner" aria-hidden />}

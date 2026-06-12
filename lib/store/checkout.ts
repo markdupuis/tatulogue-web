@@ -11,7 +11,12 @@ export interface CheckoutItem {
   quantity: number;
 }
 
-export async function startCheckout(items: CheckoutItem[]): Promise<void> {
+export interface CheckoutAddress {
+  state_code: string;
+  zip: string;
+}
+
+export async function startCheckout(items: CheckoutItem[], address: CheckoutAddress): Promise<void> {
   const res = await fetch(CHECKOUT_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -21,6 +26,7 @@ export async function startCheckout(items: CheckoutItem[]): Promise<void> {
     },
     body: JSON.stringify({
       items: items.map(({ sync_variant_id, quantity }) => ({ sync_variant_id, quantity })),
+      address: { state_code: address.state_code, zip: address.zip },
     }),
   });
 
