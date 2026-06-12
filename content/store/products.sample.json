@@ -1,0 +1,141 @@
+[
+  {
+    "id": 101,
+    "slug": "tatulogue-script-snapback",
+    "name": "Tatulogue Script Snapback",
+    "description": "Structured six-panel snapback with the Tatulogue script mark embroidered front and center. Flat brim, adjustable snap closure, one size fits most. Made to take a beating in the shop or on the street.",
+    "thumbnail": "https://files.cdn.printful.com/files/sample/snapback-black-front.jpg",
+    "variants": [
+      {
+        "sync_variant_id": 9101,
+        "name": "Black",
+        "size": "One size",
+        "color": "Black",
+        "price_cents": 2800,
+        "image": "https://files.cdn.printful.com/files/sample/snapback-black-front.jpg"
+      },
+      {
+        "sync_variant_id": 9102,
+        "name": "Heather Grey",
+        "size": "One size",
+        "color": "Heather Grey",
+        "price_cents": 2800,
+        "image": "https://files.cdn.printful.com/files/sample/snapback-grey-front.jpg"
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "slug": "tatulogue-classic-tee",
+    "name": "Tatulogue Classic Tee",
+    "description": "Heavyweight 100% ring-spun cotton tee with the Tatulogue wordmark across the chest. Pre-shrunk, side-seamed, true to size. The shirt you reach for on session day.",
+    "thumbnail": "https://files.cdn.printful.com/files/sample/tee-black-front.jpg",
+    "variants": [
+      {
+        "sync_variant_id": 9201,
+        "name": "Black / S",
+        "size": "S",
+        "color": "Black",
+        "price_cents": 3200,
+        "image": "https://files.cdn.printful.com/files/sample/tee-black-front.jpg"
+      },
+      {
+        "sync_variant_id": 9202,
+        "name": "Black / M",
+        "size": "M",
+        "color": "Black",
+        "price_cents": 3200,
+        "image": "https://files.cdn.printful.com/files/sample/tee-black-front.jpg"
+      },
+      {
+        "sync_variant_id": 9203,
+        "name": "Black / L",
+        "size": "L",
+        "color": "Black",
+        "price_cents": 3200,
+        "image": "https://files.cdn.printful.com/files/sample/tee-black-front.jpg"
+      },
+      {
+        "sync_variant_id": 9204,
+        "name": "Black / XL",
+        "size": "XL",
+        "color": "Black",
+        "price_cents": 3200,
+        "image": "https://files.cdn.printful.com/files/sample/tee-black-front.jpg"
+      },
+      {
+        "sync_variant_id": 9205,
+        "name": "Bone / M",
+        "size": "M",
+        "color": "Bone",
+        "price_cents": 3200,
+        "image": "https://files.cdn.printful.com/files/sample/tee-bone-front.jpg"
+      },
+      {
+        "sync_variant_id": 9206,
+        "name": "Bone / L",
+        "size": "L",
+        "color": "Bone",
+        "price_cents": 3200,
+        "image": "https://files.cdn.printful.com/files/sample/tee-bone-front.jpg"
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "slug": "tatulogue-flash-hoodie",
+    "name": "Tatulogue Flash Hoodie",
+    "description": "Midweight fleece pullover with a full flash-sheet print across the back and a small chest hit on the front. Brushed interior, double-lined hood, kangaroo pocket. Healing-weather approved.",
+    "thumbnail": "https://files.cdn.printful.com/files/sample/hoodie-black-front.jpg",
+    "variants": [
+      {
+        "sync_variant_id": 9301,
+        "name": "Black / S",
+        "size": "S",
+        "color": "Black",
+        "price_cents": 5800,
+        "image": "https://files.cdn.printful.com/files/sample/hoodie-black-front.jpg"
+      },
+      {
+        "sync_variant_id": 9302,
+        "name": "Black / M",
+        "size": "M",
+        "color": "Black",
+        "price_cents": 5800,
+        "image": "https://files.cdn.printful.com/files/sample/hoodie-black-front.jpg"
+      },
+      {
+        "sync_variant_id": 9303,
+        "name": "Black / L",
+        "size": "L",
+        "color": "Black",
+        "price_cents": 5800,
+        "image": "https://files.cdn.printful.com/files/sample/hoodie-black-front.jpg"
+      },
+      {
+        "sync_variant_id": 9304,
+        "name": "Black / XL",
+        "size": "XL",
+        "color": "Black",
+        "price_cents": 5800,
+        "image": "https://files.cdn.printful.com/files/sample/hoodie-black-front.jpg"
+      },
+      {
+        "sync_variant_id": 9305,
+        "name": "Maroon / M",
+        "size": "M",
+        "color": "Maroon",
+        "price_cents": 5800,
+        "image": "https://files.cdn.printful.com/files/sample/hoodie-maroon-front.jpg"
+      },
+      {
+        "sync_variant_id": 9306,
+        "name": "Maroon / L",
+        "size": "L",
+        "color": "Maroon",
+        "price_cents": 5800,
+        "image": "https://files.cdn.printful.com/files/sample/hoodie-maroon-front.jpg"
+      }
+    ]
+  }
+]

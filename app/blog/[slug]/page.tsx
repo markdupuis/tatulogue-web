@@ -220,6 +220,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
             <Link href="/" className="font-black text-2xl tracking-[-0.04em]">TATULOGUE</Link>
             <nav className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/50">
               <Link href="/blog" className="hover:text-white transition-colors">Articles</Link>
+              <Link href="/store" className="hover:text-white transition-colors">Store</Link>
               <Link href="/about" className="hover:text-white transition-colors">About</Link>
               <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
               <Link href="https://app.tatulogue.com" target="_blank" rel="noopener" className="hover:text-white transition-colors">App</Link>
