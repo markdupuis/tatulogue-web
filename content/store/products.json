@@ -8,43 +8,51 @@
     "thumbnail": "https://tatulogue.com/print/tatulogue-t-white.png",
     "variants": [
       {
-        "sync_variant_id": 5352138431,
+        "sync_variant_id": 5352160258,
         "name": "S",
         "size": "S",
         "color": "",
-        "price_cents": 5500,
+        "price_cents": 4000,
         "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
       },
       {
-        "sync_variant_id": 5352138433,
+        "sync_variant_id": 5352160259,
         "name": "M",
         "size": "M",
         "color": "",
-        "price_cents": 5500,
+        "price_cents": 4000,
         "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
       },
       {
-        "sync_variant_id": 5352138451,
+        "sync_variant_id": 5352160260,
         "name": "L",
         "size": "L",
         "color": "",
-        "price_cents": 5500,
+        "price_cents": 4000,
         "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
       },
       {
-        "sync_variant_id": 5352138453,
+        "sync_variant_id": 5352160261,
         "name": "XL",
         "size": "XL",
         "color": "",
-        "price_cents": 5500,
+        "price_cents": 4000,
         "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
       },
       {
-        "sync_variant_id": 5352138454,
+        "sync_variant_id": 5352160263,
         "name": "2XL",
         "size": "2XL",
         "color": "",
-        "price_cents": 5500,
+        "price_cents": 4200,
+        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+      },
+      {
+        "sync_variant_id": 5352160264,
+        "name": "3XL",
+        "size": "3XL",
+        "color": "",
+        "price_cents": 4400,
         "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
       }
     ]
@@ -58,43 +66,51 @@
     "thumbnail": "https://tatulogue.com/print/tatulogue-t-white.png",
     "variants": [
       {
-        "sync_variant_id": 5352137731,
+        "sync_variant_id": 5352160190,
         "name": "S",
         "size": "S",
         "color": "",
-        "price_cents": 3000,
+        "price_cents": 2000,
         "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
       },
       {
-        "sync_variant_id": 5352137732,
+        "sync_variant_id": 5352160191,
         "name": "M",
         "size": "M",
         "color": "",
-        "price_cents": 3000,
+        "price_cents": 2000,
         "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
       },
       {
-        "sync_variant_id": 5352137733,
+        "sync_variant_id": 5352160194,
         "name": "L",
         "size": "L",
         "color": "",
-        "price_cents": 3000,
+        "price_cents": 2000,
         "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
       },
       {
-        "sync_variant_id": 5352137734,
+        "sync_variant_id": 5352160197,
         "name": "XL",
         "size": "XL",
         "color": "",
-        "price_cents": 3000,
+        "price_cents": 2000,
         "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
       },
       {
-        "sync_variant_id": 5352137735,
+        "sync_variant_id": 5352160200,
         "name": "2XL",
         "size": "2XL",
         "color": "",
-        "price_cents": 3000,
+        "price_cents": 2200,
+        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+      },
+      {
+        "sync_variant_id": 5352160201,
+        "name": "3XL",
+        "size": "3XL",
+        "color": "",
+        "price_cents": 2400,
         "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
       }
     ]
