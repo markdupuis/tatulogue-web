@@ -283,7 +283,15 @@ function uniqueInOrder(values: string[]): string[] {
   return values.filter((v, i) => v && values.indexOf(v) === i);
 }
 
-function ProductDetail({ product, onClose }: { product: Product; onClose: () => void }) {
+function ProductDetail({
+  product,
+  onClose,
+  onAdded,
+}: {
+  product: Product;
+  onClose: () => void;
+  onAdded: () => void;
+}) {
   const { add } = useCart();
   const colors = useMemo(() => uniqueInOrder(product.variants.map((v) => v.color)), [product]);
   const [color, setColor] = useState(colors[0] ?? '');
@@ -324,7 +332,8 @@ function ProductDetail({ product, onClose }: { product: Product; onClose: () => 
       qty
     );
     setAdded(true);
-    window.setTimeout(() => setAdded(false), 1600);
+    // Close the product modal and reveal the cart so the add is obvious.
+    onAdded();
   }
 
   return (
@@ -696,7 +705,16 @@ function StoreUI({ products }: { products: Product[] }) {
 
       <StoreFooter />
 
-      {selected && <ProductDetail product={selected} onClose={handleCloseDetail} />}
+      {selected && (
+        <ProductDetail
+          product={selected}
+          onClose={handleCloseDetail}
+          onAdded={() => {
+            handleCloseDetail();
+            setCartOpen(true);
+          }}
+        />
+      )}
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </main>
   );
