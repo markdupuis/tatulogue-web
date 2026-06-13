@@ -11,7 +11,19 @@ const PAGE_LIMIT = 100;
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUTPUT_PATH = join(ROOT, 'content', 'store', 'products.json');
+const COPY_PATH = join(ROOT, 'content', 'store', 'copy.json');
 const ENV_LOCAL_PATH = join(ROOT, '.env.local');
+
+// Marketing/SEO copy keyed by slug — Printful has no description field,
+// so we merge our own (committed, survives every re-sync).
+function loadCopy() {
+  if (!existsSync(COPY_PATH)) return {};
+  try {
+    return JSON.parse(readFileSync(COPY_PATH, 'utf8'));
+  } catch {
+    return {};
+  }
+}
 
 function loadEnvLocal() {
   if (!existsSync(ENV_LOCAL_PATH)) return;
@@ -120,15 +132,20 @@ function mapProduct(detail) {
       image: pickVariantImage(variant, thumbnail),
     };
   });
+  const slug = toKebabCase(syncProduct.name);
+  const copy = COPY[slug] ?? {};
   return {
     id: syncProduct.id,
-    slug: toKebabCase(syncProduct.name),
+    slug,
     name: syncProduct.name,
-    description: syncProduct.description ?? '',
+    description: copy.description ?? syncProduct.description ?? '',
+    seo_title: copy.seo_title ?? null,
     thumbnail,
     variants,
   };
 }
+
+const COPY = loadCopy();
 
 async function main() {
   const apiKey = getApiKey();

@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "id": 438918554,
+    "slug": "tatulogue-hoodie",
+    "name": "Tatulogue Hoodie",
+    "description": "Shop-day hoodie with the blackletter T on the chest. Heavy blend fleece, unisex fit, S–2XL. Printed when you order it — built for convention floors, flights between guest spots, and everything after the session.",
+    "seo_title": "Tatulogue Hoodie — Blackletter T Tattoo Streetwear",
+    "thumbnail": "https://tatulogue.com/print/tatulogue-t-white.png",
+    "variants": [
+      {
+        "sync_variant_id": 5352138431,
+        "name": "S",
+        "size": "S",
+        "color": "",
+        "price_cents": 5500,
+        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+      },
+      {
+        "sync_variant_id": 5352138433,
+        "name": "M",
+        "size": "M",
+        "color": "",
+        "price_cents": 5500,
+        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+      },
+      {
+        "sync_variant_id": 5352138451,
+        "name": "L",
+        "size": "L",
+        "color": "",
+        "price_cents": 5500,
+        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+      },
+      {
+        "sync_variant_id": 5352138453,
+        "name": "XL",
+        "size": "XL",
+        "color": "",
+        "price_cents": 5500,
+        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+      },
+      {
+        "sync_variant_id": 5352138454,
+        "name": "2XL",
+        "size": "2XL",
+        "color": "",
+        "price_cents": 5500,
+        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+      }
+    ]
+  },
+  {
+    "id": 438918460,
+    "slug": "tatulogue-classic-tee",
+    "name": "Tatulogue Classic Tee",
+    "description": "The blackletter T, front and center. Heavyweight 100% cotton tee with the Tatulogue mark — printed on demand, no warehouse, no leftovers, just yours. Unisex fit, S–2XL. Wear the platform that puts tattooers first.",
+    "seo_title": "Tatulogue Classic Tee — Blackletter T Tattoo Merch",
+    "thumbnail": "https://tatulogue.com/print/tatulogue-t-white.png",
+    "variants": [
+      {
+        "sync_variant_id": 5352137731,
+        "name": "S",
+        "size": "S",
+        "color": "",
+        "price_cents": 3000,
+        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+      },
+      {
+        "sync_variant_id": 5352137732,
+        "name": "M",
+        "size": "M",
+        "color": "",
+        "price_cents": 3000,
+        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+      },
+      {
+        "sync_variant_id": 5352137733,
+        "name": "L",
+        "size": "L",
+        "color": "",
+        "price_cents": 3000,
+        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+      },
+      {
+        "sync_variant_id": 5352137734,
+        "name": "XL",
+        "size": "XL",
+        "color": "",
+        "price_cents": 3000,
+        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+      },
+      {
+        "sync_variant_id": 5352137735,
+        "name": "2XL",
+        "size": "2XL",
+        "color": "",
+        "price_cents": 3000,
+        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+      }
+    ]
+  }
+]
