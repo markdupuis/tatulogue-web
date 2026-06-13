@@ -5,55 +5,55 @@
     "name": "Tatulogue Hoodie",
     "description": "Shop-day hoodie with the blackletter T on the chest. Heavy blend fleece, unisex fit, S–2XL. Printed when you order it — built for convention floors, flights between guest spots, and everything after the session.",
     "seo_title": "Tatulogue Hoodie — Blackletter T Tattoo Streetwear",
-    "thumbnail": "https://tatulogue.com/print/tatulogue-t-white.png",
+    "thumbnail": "https://tatulogue.com/print/tatulogue-hoodie-print.png",
     "variants": [
       {
-        "sync_variant_id": 5352160258,
+        "sync_variant_id": 5352280708,
         "name": "S",
         "size": "S",
         "color": "",
         "price_cents": 4000,
-        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+        "image": "https://files.cdn.printful.com/files/0b0/0b04be54eb800b58b1861f0fbec916f4_preview.png"
       },
       {
-        "sync_variant_id": 5352160259,
+        "sync_variant_id": 5352280710,
         "name": "M",
         "size": "M",
         "color": "",
         "price_cents": 4000,
-        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+        "image": "https://files.cdn.printful.com/files/0b0/0b04be54eb800b58b1861f0fbec916f4_preview.png"
       },
       {
-        "sync_variant_id": 5352160260,
+        "sync_variant_id": 5352280711,
         "name": "L",
         "size": "L",
         "color": "",
         "price_cents": 4000,
-        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+        "image": "https://files.cdn.printful.com/files/0b0/0b04be54eb800b58b1861f0fbec916f4_preview.png"
       },
       {
-        "sync_variant_id": 5352160261,
+        "sync_variant_id": 5352280712,
         "name": "XL",
         "size": "XL",
         "color": "",
         "price_cents": 4000,
-        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+        "image": "https://files.cdn.printful.com/files/0b0/0b04be54eb800b58b1861f0fbec916f4_preview.png"
       },
       {
-        "sync_variant_id": 5352160263,
+        "sync_variant_id": 5352280713,
         "name": "2XL",
         "size": "2XL",
         "color": "",
         "price_cents": 4200,
-        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+        "image": "https://files.cdn.printful.com/files/0b0/0b04be54eb800b58b1861f0fbec916f4_preview.png"
       },
       {
-        "sync_variant_id": 5352160264,
+        "sync_variant_id": 5352280714,
         "name": "3XL",
         "size": "3XL",
         "color": "",
         "price_cents": 4400,
-        "image": "https://files.cdn.printful.com/files/817/81738a82df7104b8c41981fe1ac97807_preview.png"
+        "image": "https://files.cdn.printful.com/files/0b0/0b04be54eb800b58b1861f0fbec916f4_preview.png"
       }
     ]
   },
@@ -63,55 +63,55 @@
     "name": "Tatulogue Classic Tee",
     "description": "The blackletter T, front and center. Heavyweight 100% cotton tee with the Tatulogue mark — printed on demand, no warehouse, no leftovers, just yours. Unisex fit, S–2XL. Wear the platform that puts tattooers first.",
     "seo_title": "Tatulogue Classic Tee — Blackletter T Tattoo Merch",
-    "thumbnail": "https://tatulogue.com/print/tatulogue-t-white.png",
+    "thumbnail": "https://tatulogue.com/print/tatulogue-tee-print.png",
     "variants": [
       {
-        "sync_variant_id": 5352160190,
+        "sync_variant_id": 5352280623,
         "name": "S",
         "size": "S",
         "color": "",
         "price_cents": 2000,
-        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+        "image": "https://files.cdn.printful.com/files/f46/f4653dd3fad72c46161c3c1315980b19_preview.png"
       },
       {
-        "sync_variant_id": 5352160191,
+        "sync_variant_id": 5352280624,
         "name": "M",
         "size": "M",
         "color": "",
         "price_cents": 2000,
-        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+        "image": "https://files.cdn.printful.com/files/f46/f4653dd3fad72c46161c3c1315980b19_preview.png"
       },
       {
-        "sync_variant_id": 5352160194,
+        "sync_variant_id": 5352280625,
         "name": "L",
         "size": "L",
         "color": "",
         "price_cents": 2000,
-        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+        "image": "https://files.cdn.printful.com/files/f46/f4653dd3fad72c46161c3c1315980b19_preview.png"
       },
       {
-        "sync_variant_id": 5352160197,
+        "sync_variant_id": 5352280626,
         "name": "XL",
         "size": "XL",
         "color": "",
         "price_cents": 2000,
-        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+        "image": "https://files.cdn.printful.com/files/f46/f4653dd3fad72c46161c3c1315980b19_preview.png"
       },
       {
-        "sync_variant_id": 5352160200,
+        "sync_variant_id": 5352280627,
         "name": "2XL",
         "size": "2XL",
         "color": "",
         "price_cents": 2200,
-        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+        "image": "https://files.cdn.printful.com/files/f46/f4653dd3fad72c46161c3c1315980b19_preview.png"
       },
       {
-        "sync_variant_id": 5352160201,
+        "sync_variant_id": 5352280628,
         "name": "3XL",
         "size": "3XL",
         "color": "",
         "price_cents": 2400,
-        "image": "https://files.cdn.printful.com/files/2f9/2f9316f2ac137695e5cfb77cfd743975_preview.png"
+        "image": "https://files.cdn.printful.com/files/f46/f4653dd3fad72c46161c3c1315980b19_preview.png"
       }
     ]
   }
