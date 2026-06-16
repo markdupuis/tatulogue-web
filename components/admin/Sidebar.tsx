@@ -19,6 +19,7 @@ const NAV_ITEMS: NavItem[] = [
   { key: 'roadmap', label: 'Roadmap', href: '/admin/roadmap', icon: '🗺️' },
   { key: 'blogs', label: 'Blogs', href: '/admin/blogs', icon: '📝' },
   { key: 'users', label: 'Users', href: '/admin/users', icon: '👥' },
+  { key: 'waitlist', label: 'Waitlist', href: '/admin/waitlist', icon: '📋' },
   { key: 'analytics', label: 'Analytics', href: '/admin/analytics', icon: '📈' },
 ];
 

@@ -13,6 +13,7 @@ import type {
   ScreenVisitStat,
   SearchQueryStat,
   TeamMember,
+  WaitlistEntry,
 } from './types';
 
 const ANALYTICS_ROW_CAP = 10000;
@@ -200,6 +201,26 @@ export async function fetchUsers(): Promise<AdminUser[]> {
     avatar: (row.avatar as string | null) ?? null,
     created_at: row.created_at as string,
     post_count: postCountByUser.get(row.id as string) ?? 0,
+  }));
+}
+
+export async function fetchWaitlist(): Promise<WaitlistEntry[]> {
+  const { data, error } = await supabase
+    .from('waitlist')
+    .select('id, first_name, last_name, email, state, city, account_type, created_at')
+    .order('created_at', { ascending: false });
+
+  if (error || !data) return [];
+
+  return data.map((row: Record<string, unknown>): WaitlistEntry => ({
+    id: row.id as string,
+    first_name: row.first_name as string,
+    last_name: (row.last_name as string | null) ?? null,
+    email: row.email as string,
+    state: row.state as string,
+    city: (row.city as string | null) ?? null,
+    account_type: row.account_type as string,
+    created_at: row.created_at as string,
   }));
 }
 

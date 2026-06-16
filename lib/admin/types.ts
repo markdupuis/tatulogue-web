@@ -106,3 +106,14 @@ export interface ExistingPostSummary {
   category: string;
   date: string;
 }
+
+export interface WaitlistEntry {
+  id: string;
+  first_name: string;
+  last_name: string | null;
+  email: string;
+  state: string;
+  city: string | null;
+  account_type: string;
+  created_at: string;
+}
