@@ -134,10 +134,10 @@ export default function BlogIndex() {
               color: 'transparent',
             }}
           >
-            ARTICLES
+            TATULOGUE
           </p>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-[0.95] mb-5 max-w-4xl">
-            Tattoo culture, education,
+            Alternative social media for
             <br />
             <span
               style={{
@@ -148,12 +148,12 @@ export default function BlogIndex() {
                 color: 'transparent',
               }}
             >
-              and the artists shaping it.
+              People Over Profit.
             </span>
           </h1>
           <p className="text-white/60 text-base sm:text-lg max-w-xl leading-relaxed">
-            In-depth guides for first-timers and collectors. Spotlights on artists. Everything you
-            need to know about tattoos.
+            Made for tattooers and tattoo culture. In-depth guides, artist spotlights, and a clear
+            read on the craft — with a rule of no AI content.
           </p>
         </div>
       </section>
