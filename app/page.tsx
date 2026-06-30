@@ -228,25 +228,47 @@ export default function Home() {
         />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pb-20 sm:pb-28 pt-32 w-full">
-          <p data-animate="" className="tl-text-grad-blue text-xs sm:text-sm tracking-[0.35em] font-medium mb-6">ARTICLES</p>
+          <p data-animate="" className="tl-text-grad-blue text-xs sm:text-sm tracking-[0.35em] font-medium mb-6">TATULOGUE</p>
           <h1 data-animate="" style={{ transitionDelay: '0.08s' }} className="font-display font-black leading-[0.92] tracking-[-0.035em] text-5xl sm:text-7xl lg:text-8xl max-w-5xl">
-            Tattoo culture, education, and the artists shaping it.
+            Alternative social media for <span className="tl-text-grad-blue">People Over Profit</span>.
           </h1>
-          <p data-animate="" style={{ transitionDelay: '0.16s' }} className="mt-7 max-w-xl text-base sm:text-lg text-white/60 leading-relaxed">
-            In-depth guides, artist spotlights, and a clear read on the styles and trends moving through the industry right now.
+          <p data-animate="" style={{ transitionDelay: '0.16s' }} className="mt-7 max-w-xl text-base sm:text-lg text-white/65 leading-relaxed">
+            Made for tattooers and tattoo culture.
           </p>
           <div data-animate="" style={{ transitionDelay: '0.24s' }} className="mt-9 flex flex-wrap items-center gap-4">
-            <a href="/blog" className="group tl-btn-blue rounded-full text-white px-7 py-3.5 font-semibold shadow-[0_0_40px_-10px_rgba(43,88,118,0.9)]">
-              Browse articles <span className="inline-block group-hover:translate-x-1 transition-transform">&rarr;</span>
+            <a href="#early-access" className="group tl-btn-blue rounded-full text-white px-7 py-3.5 font-semibold shadow-[0_0_40px_-10px_rgba(43,88,118,0.9)]">
+              Get early access <span className="inline-block group-hover:translate-x-1 transition-transform">&rarr;</span>
             </a>
-            <a href="#early-access" className="rounded-full border border-white/20 hover:border-[#F5AF19] hover:text-[#F5AF19] hover:bg-white/5 px-7 py-3.5 font-medium transition-colors">
-              Get early access
+            <a href="/blog" className="rounded-full border border-white/20 hover:border-[#F5AF19] hover:text-[#F5AF19] hover:bg-white/5 px-7 py-3.5 font-medium transition-colors">
+              Browse articles
             </a>
           </div>
         </div>
 
         <div className="absolute bottom-6 right-6 hidden sm:flex items-center gap-3 text-[11px] tracking-[0.25em] text-white/30">
           <span>SCROLL</span><span className="w-10 h-px bg-white/30" />
+        </div>
+      </section>
+
+      {/* ── MANIFESTO ── */}
+      <section className="relative max-w-4xl mx-auto px-5 sm:px-8 py-24 sm:py-32">
+        <div data-animate="" className="space-y-7 text-lg sm:text-xl text-white/70 leading-relaxed">
+          <p>
+            There is no easy way to find a tattoo artist by style and location. And the social media
+            landscape is in need of a mixup. We&apos;re setting out to do both by creating the first
+            alternative social media platform with features designed for tattooers.
+          </p>
+          <p className="font-display font-bold text-2xl sm:text-3xl tracking-[-0.02em] text-white">
+            With a rule of no AI content. <span className="tl-text-grad-blue">Protect the art, protect the artist.</span>
+          </p>
+          <p>
+            Social media platforms today have become billion-dollar machines that cater only to
+            investors. We believe in People over Profit — and that there&apos;s a better way for social
+            media to function, by enhancing our lives and giving back to the community.
+          </p>
+          <p className="font-display font-bold text-2xl sm:text-3xl tracking-[-0.02em] text-white">
+            So we have a commitment to give back <span className="tl-text-grad-blue">50% of all profits</span> back to the tattoo community.
+          </p>
         </div>
       </section>
 
