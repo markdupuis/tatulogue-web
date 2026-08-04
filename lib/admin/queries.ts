@@ -1,11 +1,13 @@
 import { supabase } from '../supabase';
 import type {
   AdminUser,
+  ArtistDocPaths,
   BlogIdea,
   BlogIdeaStatus,
   BugReport,
   EventCountStat,
   OverviewMetrics,
+  PendingArtist,
   PostStat,
   Priority,
   ReportStatus,
@@ -13,6 +15,7 @@ import type {
   ScreenVisitStat,
   SearchQueryStat,
   TeamMember,
+  VerificationStatus,
   WaitlistEntry,
 } from './types';
 
@@ -202,6 +205,75 @@ export async function fetchUsers(): Promise<AdminUser[]> {
     created_at: row.created_at as string,
     post_count: postCountByUser.get(row.id as string) ?? 0,
   }));
+}
+
+export async function fetchPendingArtists(): Promise<PendingArtist[]> {
+  const { data, error } = await supabase
+    .from('artist_profiles')
+    .select('id, professional_name, business_address, specializations, verification_status, created_at')
+    .eq('verification_status', 'pending')
+    .order('created_at', { ascending: true });
+
+  if (error || !data) return [];
+
+  const ids = data.map((row: Record<string, unknown>) => row.id as string);
+  const { data: userRows } = await supabase
+    .from('users')
+    .select('id, username, full_name, avatar')
+    .in('id', ids);
+
+  const userById = new Map(
+    (userRows ?? []).map((u: { id: string; username: string | null; full_name: string | null; avatar: string | null }) => [u.id, u])
+  );
+
+  return data.map((row: Record<string, unknown>): PendingArtist => {
+    const user = userById.get(row.id as string);
+    return {
+      id: row.id as string,
+      username: user?.username ?? null,
+      full_name: user?.full_name ?? null,
+      avatar: user?.avatar ?? null,
+      professional_name: row.professional_name as string,
+      business_address: (row.business_address as string | null) ?? null,
+      specializations: (row.specializations as string[] | null) ?? [],
+      verification_status: row.verification_status as VerificationStatus,
+      created_at: row.created_at as string,
+    };
+  });
+}
+
+export async function fetchArtistDocPaths(artistId: string): Promise<ArtistDocPaths> {
+  const { data, error } = await supabase
+    .from('artist_profiles')
+    .select('id_doc, license_doc, certificate_doc')
+    .eq('id', artistId)
+    .maybeSingle();
+
+  if (error || !data) return { id_doc: null, license_doc: null, certificate_doc: null };
+  return {
+    id_doc: (data.id_doc as string | null) ?? null,
+    license_doc: (data.license_doc as string | null) ?? null,
+    certificate_doc: (data.certificate_doc as string | null) ?? null,
+  };
+}
+
+export async function getArtistDocSignedUrl(path: string): Promise<string | null> {
+  const { data, error } = await supabase.storage
+    .from('verification_docs')
+    .createSignedUrl(path, 3600);
+  if (error || !data) return null;
+  return data.signedUrl;
+}
+
+export async function setArtistVerificationStatus(
+  artistId: string,
+  status: VerificationStatus
+): Promise<boolean> {
+  const { error } = await supabase.rpc('set_artist_verification_status', {
+    target_artist_id: artistId,
+    new_status: status,
+  });
+  return !error;
 }
 
 export async function fetchWaitlist(): Promise<WaitlistEntry[]> {

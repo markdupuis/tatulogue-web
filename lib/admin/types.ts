@@ -107,6 +107,26 @@ export interface ExistingPostSummary {
   date: string;
 }
 
+export type VerificationStatus = 'pending' | 'verified' | 'rejected';
+
+export interface PendingArtist {
+  id: string;
+  username: string | null;
+  full_name: string | null;
+  avatar: string | null;
+  professional_name: string;
+  business_address: string | null;
+  specializations: string[];
+  verification_status: VerificationStatus;
+  created_at: string;
+}
+
+export interface ArtistDocPaths {
+  id_doc: string | null;
+  license_doc: string | null;
+  certificate_doc: string | null;
+}
+
 export interface WaitlistEntry {
   id: string;
   first_name: string;
