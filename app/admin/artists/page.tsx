@@ -45,6 +45,61 @@ function pill(activeState: boolean): string {
   }`;
 }
 
+const IMAGE_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.webp', '.gif'];
+
+function isImagePath(path: string): boolean {
+  const lower = path.toLowerCase();
+  return IMAGE_EXTENSIONS.some((ext) => lower.endsWith(ext));
+}
+
+interface DocViewerState {
+  label: string;
+  url: string;
+  isImage: boolean;
+}
+
+function DocViewerModal({ doc, onClose }: { doc: DocViewerState; onClose: () => void }) {
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose();
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-6"
+      onClick={onClose}
+    >
+      <div
+        className="flex max-h-[85vh] w-full max-w-3xl flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0c0c14]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between border-b border-white/8 px-5 py-3">
+          <p className="text-sm font-medium text-white">{doc.label}</p>
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-lg px-2 py-1 text-white/50 hover:bg-white/[0.06] hover:text-white"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </div>
+        <div className="flex-1 overflow-auto bg-black/40 p-4">
+          {doc.isImage ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={doc.url} alt={doc.label} className="mx-auto max-w-full rounded-lg" />
+          ) : (
+            <iframe src={doc.url} title={doc.label} className="h-[70vh] w-full rounded-lg bg-white" />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ArtistApprovalsPage() {
   const [artists, setArtists] = useState<ArtistRow[]>([]);
   const [loading, setLoading] = useState(true);
@@ -54,6 +109,7 @@ export default function ArtistApprovalsPage() {
   const [docsByArtist, setDocsByArtist] = useState<Record<string, ArtistDocPaths>>({});
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [busyId, setBusyId] = useState<string | null>(null);
+  const [viewerDoc, setViewerDoc] = useState<DocViewerState | null>(null);
 
   useEffect(() => {
     load();
@@ -99,10 +155,10 @@ export default function ArtistApprovalsPage() {
     }
   }
 
-  async function openDoc(path: string | null) {
+  async function openDoc(path: string | null, label: string) {
     if (!path) return;
     const url = await getArtistDocSignedUrl(path);
-    if (url) window.open(url, '_blank', 'noopener,noreferrer');
+    if (url) setViewerDoc({ label, url, isImage: isImagePath(path) });
   }
 
   async function decide(artist: ArtistRow, status: VerificationStatus) {
@@ -254,7 +310,7 @@ export default function ArtistApprovalsPage() {
                                         key={key}
                                         type="button"
                                         disabled={!path}
-                                        onClick={() => openDoc(path)}
+                                        onClick={() => openDoc(path, `${displayName(a)} — ${label}`)}
                                         className={`rounded-lg border px-3 py-1 text-xs transition-colors ${
                                           path
                                             ? 'border-white/15 text-white/70 hover:border-white/30 hover:text-white'
@@ -262,7 +318,7 @@ export default function ArtistApprovalsPage() {
                                         }`}
                                       >
                                         {label}
-                                        {path ? ' ↗' : ' (none)'}
+                                        {path ? ' 👁' : ' (none)'}
                                       </button>
                                     );
                                   })
@@ -284,6 +340,7 @@ export default function ArtistApprovalsPage() {
           </p>
         </>
       )}
+      {viewerDoc && <DocViewerModal doc={viewerDoc} onClose={() => setViewerDoc(null)} />}
     </AdminShell>
   );
 }
