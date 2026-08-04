@@ -109,7 +109,7 @@ export interface ExistingPostSummary {
 
 export type VerificationStatus = 'pending' | 'verified' | 'rejected';
 
-export interface PendingArtist {
+export interface ArtistRow {
   id: string;
   username: string | null;
   full_name: string | null;
@@ -118,7 +118,7 @@ export interface PendingArtist {
   business_address: string | null;
   specializations: string[];
   verification_status: VerificationStatus;
-  created_at: string;
+  created_at: string | null;
 }
 
 export interface ArtistDocPaths {

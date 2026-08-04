@@ -2,12 +2,12 @@ import { supabase } from '../supabase';
 import type {
   AdminUser,
   ArtistDocPaths,
+  ArtistRow,
   BlogIdea,
   BlogIdeaStatus,
   BugReport,
   EventCountStat,
   OverviewMetrics,
-  PendingArtist,
   PostStat,
   Priority,
   ReportStatus,
@@ -207,39 +207,51 @@ export async function fetchUsers(): Promise<AdminUser[]> {
   }));
 }
 
-export async function fetchPendingArtists(): Promise<PendingArtist[]> {
+export async function fetchArtists(): Promise<ArtistRow[]> {
+  // artist_profiles has no timestamp column -- "joined" date comes from users.
   const { data, error } = await supabase
     .from('artist_profiles')
-    .select('id, professional_name, business_address, specializations, verification_status, created_at')
-    .eq('verification_status', 'pending')
-    .order('created_at', { ascending: true });
+    .select('id, professional_name, business_address, specializations, verification_status');
 
-  if (error || !data) return [];
+  if (error || !data) {
+    console.error('[fetchArtists] artist_profiles query failed:', error);
+    return [];
+  }
 
   const ids = data.map((row: Record<string, unknown>) => row.id as string);
-  const { data: userRows } = await supabase
+  if (ids.length === 0) return [];
+
+  const { data: userRows, error: userError } = await supabase
     .from('users')
-    .select('id, username, full_name, avatar')
+    .select('id, username, full_name, avatar, created_at')
     .in('id', ids);
 
+  if (userError) {
+    console.error('[fetchArtists] users query failed:', userError);
+  }
+
   const userById = new Map(
-    (userRows ?? []).map((u: { id: string; username: string | null; full_name: string | null; avatar: string | null }) => [u.id, u])
+    (userRows ?? []).map(
+      (u: { id: string; username: string | null; full_name: string | null; avatar: string | null; created_at: string | null }) => [u.id, u]
+    )
   );
 
-  return data.map((row: Record<string, unknown>): PendingArtist => {
-    const user = userById.get(row.id as string);
-    return {
-      id: row.id as string,
-      username: user?.username ?? null,
-      full_name: user?.full_name ?? null,
-      avatar: user?.avatar ?? null,
-      professional_name: row.professional_name as string,
-      business_address: (row.business_address as string | null) ?? null,
-      specializations: (row.specializations as string[] | null) ?? [],
-      verification_status: row.verification_status as VerificationStatus,
-      created_at: row.created_at as string,
-    };
-  });
+  return data
+    .map((row: Record<string, unknown>): ArtistRow => {
+      const user = userById.get(row.id as string);
+      return {
+        id: row.id as string,
+        username: user?.username ?? null,
+        full_name: user?.full_name ?? null,
+        avatar: user?.avatar ?? null,
+        professional_name: row.professional_name as string,
+        business_address: (row.business_address as string | null) ?? null,
+        specializations: (row.specializations as string[] | null) ?? [],
+        verification_status: row.verification_status as VerificationStatus,
+        created_at: user?.created_at ?? null,
+      };
+    })
+    .sort((a, b) => (b.created_at ?? '').localeCompare(a.created_at ?? ''));
 }
 
 export async function fetchArtistDocPaths(artistId: string): Promise<ArtistDocPaths> {
