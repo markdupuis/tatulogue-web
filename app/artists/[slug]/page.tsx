@@ -10,7 +10,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const artist = ARTISTS[params.slug];
   if (!artist) return {};
   const title = `${artist.name} — ${artist.shopName} | Tatulogue`;
-  const description = `${artist.tagline}. ${artist.specialties.join(', ')}. Book with ${artist.name} on Tatulogue.`;
+  const description = `${artist.tagline}. ${artist.specialties.join(', ')}. Follow ${artist.name} on TATULOGUE.`;
   return {
     title,
     description,
@@ -167,7 +167,7 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
         {/* Closing CTA */}
         <div className="mt-16 tl-surface rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden tl-grain">
           <h3 className="font-display font-extrabold text-3xl sm:text-4xl tracking-[-0.03em]">
-            Book with <span className="tl-text-grad-blue">{firstName}</span> on Tatulogue
+            Follow <span className="tl-text-grad-blue">{firstName}</span> on TATULOGUE
           </h3>
           <p className="mt-4 text-white/60 max-w-lg mx-auto">
             Find artists by style and location. Alternative social media for People Over Profit —

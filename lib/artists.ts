@@ -56,7 +56,7 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     ],
     ogImage: '/images/hero-poster.jpg',
     ctaHref: 'https://app.tatulogue.com',
-    ctaLabel: 'Book with Daniel on Tatulogue',
+    ctaLabel: 'Follow him on TATULOGUE',
     utm: { source: 'facebook', medium: 'paid', campaign: 'artist_daniel_greene' },
   },
 };
