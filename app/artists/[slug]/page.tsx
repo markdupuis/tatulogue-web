@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ARTISTS, buildCtaUrl } from '../../../lib/artists';
+import { ARTISTS, buildCtaUrl, getSocialIcon } from '../../../lib/artists';
 
 export function generateStaticParams() {
   return Object.keys(ARTISTS).map((slug) => ({ slug }));
@@ -31,6 +31,9 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
   if (!artist) notFound();
   const ctaUrl = buildCtaUrl(artist);
   const firstName = artist.name.split(' ')[0];
+  const fullAddress = `${artist.address.street}, ${artist.address.city}, ${artist.address.state} ${artist.address.zip}`;
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`;
+  const mapEmbedUrl = `https://www.google.com/maps?q=${artist.mapEmbedQuery}&output=embed`;
 
   return (
     <main className="min-h-screen bg-[#07070d] text-white overflow-x-hidden antialiased font-body">
@@ -38,7 +41,6 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
         href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,600;0,800;0,900;1,800&family=Space+Grotesk:wght@300;400;500;700&display=swap"
         rel="stylesheet"
       />
-      {/* Same per-page utility block the homepage uses (see app/page.tsx) */}
       <style>{`
         .font-display { font-family: 'Archivo', system-ui, sans-serif; }
         .font-body { font-family: 'Space Grotesk', system-ui, sans-serif; }
@@ -64,7 +66,7 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
         a:focus-visible, button:focus-visible { outline: 2px solid #F5AF19; outline-offset: 2px; }
       `}</style>
 
-      {/* ── NAV (same as homepage) ── */}
+      {/* ── NAV ── */}
       <header className="fixed top-0 inset-x-0 z-50">
         <div className="backdrop-blur-xl bg-[#07070d]/60 border-b border-white/[0.08]">
           <nav className="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
@@ -141,6 +143,118 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
+      {/* ── CONTACT & LOCATION ── */}
+      <section className="relative max-w-7xl mx-auto px-5 sm:px-8 pb-20 sm:pb-24">
+        <p className="tl-text-grad-blue text-xs tracking-[0.3em] mb-4">FIND {firstName.toUpperCase()}</p>
+        <h2 className="font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] mb-12">
+          Location &amp; contact
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Contact details */}
+          <div className="tl-surface rounded-2xl p-6 sm:p-8 space-y-6">
+            {/* Shop name */}
+            <div>
+              <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Shop</p>
+              <p className="text-lg font-semibold">{artist.shopName}</p>
+            </div>
+
+            {/* Address */}
+            <div>
+              <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Address</p>
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors leading-relaxed"
+              >
+                {artist.address.street}<br />
+                {artist.address.city}, {artist.address.state} {artist.address.zip}
+              </a>
+            </div>
+
+            {/* Phone */}
+            <div>
+              <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Phone</p>
+              <a
+                href={`tel:${artist.phone.replace(/[^+\d]/g, '')}`}
+                className="text-white/70 hover:text-white transition-colors"
+              >
+                {artist.phone}
+              </a>
+            </div>
+
+            {/* Website */}
+            {artist.website && (
+              <div>
+                <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Website</p>
+                <a
+                  href={artist.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-white transition-colors break-all"
+                >
+                  {artist.website.replace(/^https?:\/\/(www\.)?/, '')}
+                </a>
+              </div>
+            )}
+
+            {/* Email */}
+            {artist.email && (
+              <div>
+                <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Email</p>
+                <a
+                  href={`mailto:${artist.email}`}
+                  className="text-white/70 hover:text-white transition-colors break-all"
+                >
+                  {artist.email}
+                </a>
+              </div>
+            )}
+
+            {/* Social media */}
+            <div>
+              <p className="text-xs text-white/40 uppercase tracking-widest mb-3">Social</p>
+              <div className="flex flex-wrap gap-3">
+                {artist.socials.map((s) => (
+                  <a
+                    key={s.url}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white/60 hover:text-white hover:border-white/30 transition-colors"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-4 h-4 shrink-0"
+                      aria-hidden="true"
+                    >
+                      <path d={getSocialIcon(s.platform)} />
+                    </svg>
+                    {s.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Map */}
+          <div className="tl-surface rounded-2xl overflow-hidden min-h-[320px] lg:min-h-0">
+            <iframe
+              src={mapEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: '320px', filter: 'invert(0.9) hue-rotate(180deg) saturate(0.3) brightness(0.7)' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={`Map of ${artist.shopName}`}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* ── PORTFOLIO ── */}
       <section className="relative max-w-7xl mx-auto px-5 sm:px-8 pb-24 sm:pb-32">
         <p className="tl-text-grad-blue text-xs tracking-[0.3em] mb-4">RECENT WORK</p>
@@ -183,7 +297,7 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* ── FOOTER (same as homepage) ── */}
+      {/* ── FOOTER ── */}
       <footer className="border-t border-white/[0.08]">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 py-14">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
