@@ -95,6 +95,7 @@ export default function BlogIndex() {
           </Link>
           <nav className="flex items-center gap-6 text-sm font-semibold">
             <Link href="/blog" className="text-white transition-colors">Articles</Link>
+            <Link href="/artists" className="text-white/70 hover:text-white transition-colors">Artists</Link>
             <Link href="/store" className="text-white/70 hover:text-white transition-colors">Store</Link>
             <Link href="/about" className="text-white/70 hover:text-white transition-colors">About</Link>
             <Link href="/contact" className="text-white/70 hover:text-white transition-colors">Contact</Link>
@@ -227,6 +228,7 @@ export default function BlogIndex() {
           </Link>
           <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white/50">
             <Link href="/blog" className="hover:text-white transition-colors">Articles</Link>
+            <Link href="/artists" className="hover:text-white transition-colors">Artists</Link>
             <Link href="/store" className="hover:text-white transition-colors">Store</Link>
             <Link href="/about" className="hover:text-white transition-colors">About</Link>
             <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
