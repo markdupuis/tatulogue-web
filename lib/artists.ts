@@ -40,8 +40,8 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     name: 'Daniel Greene',
     tagline: 'Award-winning tattoo & piercing artist',
     bio: [
-      'Daniel Greene is an award-winning tattoo and piercing artist and the owner of Black Bumble Tattoo.',
-      'A PRO-TEAM artist with Taetu4U, Daniel works across styles — from bold blackwork to detailed black & grey realism.',
+      'Daniel Greene is an award-winning tattoo and piercing artist, the owner of Black Bumble Tattoo, and investor in TATULOGUE.',
+      "A pro-team artist with Tae'Tu, Daniel works across styles — from bold blackwork to detailed black & grey realism.",
     ],
     shopName: 'Black Bumble Tattoo',
     instagramHandle: 'danielgreenetattoos',

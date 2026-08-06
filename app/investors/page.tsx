@@ -2,17 +2,17 @@ import type { Metadata } from 'next';
 import { ARTISTS } from '../../lib/artists';
 
 export const metadata: Metadata = {
-  title: 'Artists — Tatulogue',
-  description: 'Discover tattoo artists on Tatulogue. Real work from real artists — no AI content, ever.',
+  title: 'Investors — Tatulogue',
+  description: 'Meet the investors behind Tatulogue — tattoo artists and industry partners shaping the future of tattoo culture.',
   openGraph: {
-    title: 'Artists — Tatulogue',
-    description: 'Discover tattoo artists on Tatulogue. Real work from real artists — no AI content, ever.',
-    url: 'https://tatulogue.com/artists',
+    title: 'Investors — Tatulogue',
+    description: 'Meet the investors behind Tatulogue — tattoo artists and industry partners shaping the future of tattoo culture.',
+    url: 'https://tatulogue.com/investors',
     siteName: 'Tatulogue',
   },
 };
 
-export default function ArtistsPage() {
+export default function InvestorsPage() {
   const artists = Object.values(ARTISTS);
 
   return (
@@ -51,7 +51,7 @@ export default function ArtistsPage() {
             <a href="/" className="font-display font-black tracking-[-0.04em] text-xl sm:text-2xl">TATULOGUE</a>
             <div className="hidden md:flex items-center gap-9 text-sm text-white/60">
               <a href="/blog" className="hover:text-white transition-colors">Articles</a>
-              <a href="/artists" className="text-white transition-colors">Artists</a>
+              <a href="/investors" className="text-white transition-colors">Investors</a>
               <a href="/store" className="hover:text-white transition-colors">Store</a>
               <a href="/about" className="hover:text-white transition-colors">About</a>
               <a href="/contact" className="hover:text-white transition-colors">Contact</a>
@@ -78,19 +78,23 @@ export default function ArtistsPage() {
         />
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-36 pb-16 sm:pt-44 sm:pb-24">
           <p className="tl-text-grad-blue text-xs sm:text-sm tracking-[0.35em] font-medium mb-6">
-            TATULOGUE ARTISTS
+            TATULOGUE INVESTORS
           </p>
           <h1 className="font-display font-black leading-[0.92] tracking-[-0.035em] text-5xl sm:text-7xl max-w-4xl">
-            Real artists. <span className="tl-text-grad-blue">Real work.</span>
+            For the <span className="tl-text-grad-blue">Artists</span>
           </h1>
           <p className="mt-6 max-w-xl text-base sm:text-lg text-white/65 leading-relaxed">
-            Discover tattoo artists on TATULOGUE. No AI content, ever.
+            Meet the people investing in the future of tattoo culture.
           </p>
         </div>
       </section>
 
-      {/* ── ARTIST GRID ── */}
-      <section className="relative max-w-7xl mx-auto px-5 sm:px-8 pb-24 sm:pb-32">
+      {/* ── ARTISTS SECTION ── */}
+      <section className="relative max-w-7xl mx-auto px-5 sm:px-8 pb-20 sm:pb-24">
+        <p className="tl-text-grad-blue text-xs tracking-[0.3em] mb-4">ARTISTS</p>
+        <h2 className="font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] mb-12">
+          Tattoo artists
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {artists.map((artist) => (
             <a
@@ -98,7 +102,7 @@ export default function ArtistsPage() {
               href={`/artists/${artist.slug}`}
               className="tl-card tl-surface rounded-2xl overflow-hidden group"
             >
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="aspect-square overflow-hidden">
                 <img
                   src={artist.portfolio[0]?.src || artist.ogImage}
                   alt={artist.name}
@@ -106,10 +110,9 @@ export default function ArtistsPage() {
                 />
               </div>
               <div className="p-6">
-                <h2 className="font-display font-bold text-xl tracking-[-0.02em]">{artist.name}</h2>
+                <h3 className="font-display font-bold text-xl tracking-[-0.02em]">{artist.name}</h3>
                 <p className="text-white/50 text-sm mt-1">{artist.shopName}</p>
-                <p className="text-white/40 text-sm mt-3 line-clamp-2">{artist.tagline}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-3 flex flex-wrap gap-2">
                   {artist.specialties.slice(0, 3).map((s) => (
                     <span
                       key={s}
@@ -128,6 +131,20 @@ export default function ArtistsPage() {
         </div>
       </section>
 
+      {/* ── INDUSTRY SECTION ── */}
+      <section className="relative max-w-7xl mx-auto px-5 sm:px-8 pb-24 sm:pb-32">
+        <p className="tl-text-grad-blue text-xs tracking-[0.3em] mb-4">INDUSTRY</p>
+        <h2 className="font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] mb-12">
+          Industry partners
+        </h2>
+        <div className="tl-surface rounded-2xl p-8 sm:p-12 text-center">
+          <p className="text-white/50 text-lg">Coming soon</p>
+          <p className="text-white/30 text-sm mt-2 max-w-md mx-auto">
+            Tattoo industry vendors and partners who believe in building for the culture.
+          </p>
+        </div>
+      </section>
+
       {/* ── FOOTER ── */}
       <footer className="border-t border-white/[0.08]">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 py-14">
@@ -135,7 +152,7 @@ export default function ArtistsPage() {
             <a href="/" className="font-display font-black tracking-[-0.04em] text-2xl">TATULOGUE</a>
             <nav className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/50">
               <a href="/blog" className="hover:text-white transition-colors">Articles</a>
-              <a href="/artists" className="hover:text-white transition-colors">Artists</a>
+              <a href="/investors" className="hover:text-white transition-colors">Investors</a>
               <a href="/store" className="hover:text-white transition-colors">Store</a>
               <a href="/about" className="hover:text-white transition-colors">About</a>
               <a href="/contact" className="hover:text-white transition-colors">Contact</a>

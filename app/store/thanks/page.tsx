@@ -31,7 +31,7 @@ export default function ThanksPage() {
             <a href="/" className="font-display font-black tracking-[-0.04em] text-xl sm:text-2xl">TATULOGUE</a>
             <div className="hidden md:flex items-center gap-9 text-sm text-white/60">
               <a href="/blog" className="hover:text-white transition-colors">Articles</a>
-              <a href="/artists" className="hover:text-white transition-colors">Artists</a>
+              <a href="/investors" className="hover:text-white transition-colors">Investors</a>
               <a href="/store" className="hover:text-white transition-colors">Store</a>
               <a href="/about" className="hover:text-white transition-colors">About</a>
               <a href="/contact" className="hover:text-white transition-colors">Contact</a>
@@ -82,7 +82,7 @@ export default function ThanksPage() {
             <a href="/" className="font-display font-black tracking-[-0.04em] text-2xl">TATULOGUE</a>
             <nav className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/50">
               <a href="/blog" className="hover:text-white transition-colors">Articles</a>
-              <a href="/artists" className="hover:text-white transition-colors">Artists</a>
+              <a href="/investors" className="hover:text-white transition-colors">Investors</a>
               <a href="/store" className="hover:text-white transition-colors">Store</a>
               <a href="/about" className="hover:text-white transition-colors">About</a>
               <a href="/contact" className="hover:text-white transition-colors">Contact</a>
