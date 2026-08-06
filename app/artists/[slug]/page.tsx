@@ -100,7 +100,7 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
         />
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-36 pb-16 sm:pt-44 sm:pb-24">
           <p className="tl-text-grad-blue text-xs sm:text-sm tracking-[0.35em] font-medium mb-6">
-            ARTIST SPOTLIGHT
+            {artist.type === 'industry' ? 'INDUSTRY SPOTLIGHT' : 'ARTIST SPOTLIGHT'}
           </p>
           <h1 className="font-display font-black leading-[0.92] tracking-[-0.035em] text-5xl sm:text-7xl max-w-4xl">
             {artist.name}
