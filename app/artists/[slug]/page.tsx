@@ -137,8 +137,7 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
             <p key={p}>{p}</p>
           ))}
           <p className="font-display font-bold text-2xl sm:text-3xl tracking-[-0.02em] text-white">
-            Real work from a real artist.{' '}
-            <span className="tl-text-grad-blue">No AI content, ever.</span>
+            For the <span className="tl-text-grad-blue">Artists.</span>
           </p>
         </div>
       </section>
