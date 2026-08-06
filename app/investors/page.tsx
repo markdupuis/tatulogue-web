@@ -83,8 +83,13 @@ export default function InvestorsPage() {
           <h1 className="font-display font-black leading-[0.92] tracking-[-0.035em] text-5xl sm:text-7xl max-w-4xl">
             For the <span className="tl-text-grad-blue">Artists</span>
           </h1>
-          <p className="mt-6 max-w-xl text-base sm:text-lg text-white/65 leading-relaxed">
-            Meet the people investing in the future of tattoo culture.
+          <p className="mt-6 max-w-2xl text-base sm:text-lg text-white/65 leading-relaxed">
+            Below are some of our investors in TATULOGUE. If you&apos;re interested in investment
+            options <strong className="text-white/90">and</strong> are in the tattoo industry — tattoo
+            artist or industry — reach out via the{' '}
+            <a href="#investor-contact" className="underline text-white/80 hover:text-white transition-colors">
+              form below
+            </a>!
           </p>
         </div>
       </section>
@@ -142,6 +147,25 @@ export default function InvestorsPage() {
           <p className="text-white/30 text-sm mt-2 max-w-md mx-auto">
             Tattoo industry vendors and partners who believe in building for the culture.
           </p>
+        </div>
+      </section>
+
+      {/* ── INVESTOR CONTACT ── */}
+      <section id="investor-contact" className="relative max-w-7xl mx-auto px-5 sm:px-8 pb-24 sm:pb-32">
+        <div className="tl-surface rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden tl-grain">
+          <h3 className="font-display font-extrabold text-3xl sm:text-4xl tracking-[-0.03em]">
+            Interested in <span className="tl-text-grad-blue">investing</span>?
+          </h3>
+          <p className="mt-4 text-white/60 max-w-lg mx-auto">
+            If you&apos;re a tattoo artist or in the tattoo industry and want to learn about
+            investment opportunities with TATULOGUE, we&apos;d love to hear from you.
+          </p>
+          <a
+            href="mailto:charlie@tatulogue.com?subject=Investor%20Inquiry%20%E2%80%94%20Tatulogue"
+            className="tl-btn-energy inline-block mt-8 rounded-full px-8 py-4 font-bold text-white shadow-[0_0_30px_-6px_rgba(241,39,17,0.7)]"
+          >
+            Contact us
+          </a>
         </div>
       </section>
 
