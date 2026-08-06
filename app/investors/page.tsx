@@ -13,7 +13,9 @@ export const metadata: Metadata = {
 };
 
 export default function InvestorsPage() {
-  const artists = Object.values(ARTISTS);
+  const allInvestors = Object.values(ARTISTS);
+  const artists = allInvestors.filter((a) => a.type === 'artist');
+  const industry = allInvestors.filter((a) => a.type === 'industry');
 
   return (
     <main className="min-h-screen bg-[#07070d] text-white overflow-x-hidden antialiased font-body">
@@ -142,11 +144,39 @@ export default function InvestorsPage() {
         <h2 className="font-display font-extrabold text-4xl sm:text-5xl tracking-[-0.03em] mb-12">
           Industry partners
         </h2>
-        <div className="tl-surface rounded-2xl p-8 sm:p-12 text-center">
-          <p className="text-white/50 text-lg">Coming soon</p>
-          <p className="text-white/30 text-sm mt-2 max-w-md mx-auto">
-            Tattoo industry vendors and partners who believe in building for the culture.
-          </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {industry.map((inv) => (
+            <a
+              key={inv.slug}
+              href={`/artists/${inv.slug}`}
+              className="tl-card tl-surface rounded-2xl overflow-hidden group"
+            >
+              <div className="aspect-square overflow-hidden">
+                <img
+                  src={inv.portfolio[0]?.src || inv.ogImage}
+                  alt={inv.name}
+                  className="h-full w-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-display font-bold text-xl tracking-[-0.02em]">{inv.name}</h3>
+                <p className="text-white/50 text-sm mt-1">{inv.shopName}</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {inv.specialties.slice(0, 3).map((s) => (
+                    <span
+                      key={s}
+                      className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/60"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+                <span className="inline-block mt-5 text-sm font-medium tl-text-grad-blue group-hover:opacity-80 transition-opacity">
+                  View profile &rarr;
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

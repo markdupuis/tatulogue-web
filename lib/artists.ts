@@ -11,6 +11,7 @@ export interface SocialLink {
 export interface ArtistLanding {
   slug: string;
   name: string;
+  type: 'artist' | 'industry';
   tagline: string;
   bio: string[];
   shopName: string;
@@ -39,6 +40,7 @@ export const ARTISTS: Record<string, ArtistLanding> = {
   'daniel-greene': {
     slug: 'daniel-greene',
     name: 'Daniel Greene',
+    type: 'artist',
     tagline: 'Award-winning tattoo artist & shop owner',
     bio: [
       'Daniel Greene is an award-winning tattoo artist, the owner of Black Bumble Tattoo — a full-service tattoo & piercing shop — and investor in TATULOGUE.',
@@ -77,6 +79,45 @@ export const ARTISTS: Record<string, ArtistLanding> = {
       { platform: 'tiktok', url: 'https://www.tiktok.com/@danielgreene801', label: '@danielgreene801' },
     ],
     mapEmbedQuery: 'Black+Bumble+Tattoo+354+S+State+St+Clearfield+UT+84015',
+  },
+  'beehive-worldwide': {
+    slug: 'beehive-worldwide',
+    name: 'Abe Aguilar',
+    type: 'industry',
+    tagline: 'Mobile tattoo supply & distribution',
+    bio: [
+      'Abe Aguilar is the founder of Beehive Worldwide Distro — a family-owned tattoo supply company serving licensed professionals across the US and beyond.',
+      'From a mobile supply van hitting shops in Utah, Idaho, and Reno to a full online store with free local deliveries, Beehive Worldwide keeps artists stocked with the inks, gloves, and aftercare they need.',
+    ],
+    shopName: 'Beehive Worldwide Distro',
+    instagramHandle: 'beehiveworldwidedistro',
+    specialties: ['Tattoo Supply', 'Mobile Distribution', 'Aftercare'],
+    portfolio: [
+      { src: '/images/beehive-worldwide/abe-van.png', alt: 'Abe Aguilar with the Beehive Worldwide supply van', placeholder: false },
+      { src: '/images/beehive-worldwide/ink-bottles.jpg', alt: 'Insane Ink tattoo supply products', placeholder: false },
+      { src: '/images/beehive-worldwide/shop-products.png', alt: 'Beehive Worldwide Distro product display', placeholder: false },
+      { src: '/images/beehive-worldwide/convention-booth.png', alt: 'Beehive Worldwide at a tattoo convention', placeholder: false },
+    ],
+    ogImage: '/images/beehive-worldwide/abe-van.png',
+    ctaHref: 'https://app.tatulogue.com',
+    ctaLabel: 'Follow on TATULOGUE',
+    utm: { source: 'website', medium: 'organic', campaign: 'industry_beehive_worldwide' },
+    address: {
+      street: '3539 Washington Blvd',
+      city: 'Ogden',
+      state: 'UT',
+      zip: '84401',
+    },
+    phone: '',
+    email: null,
+    website: 'https://beehiveworldwidedistro.com',
+    hours: null,
+    socials: [
+      { platform: 'instagram', url: 'https://www.instagram.com/beehiveworldwidedistro/', label: '@beehiveworldwidedistro' },
+      { platform: 'instagram', url: 'https://www.instagram.com/bigsleepsinkutah/', label: '@bigsleepsinkutah' },
+      { platform: 'facebook', url: 'https://www.facebook.com/abraham.aguilar.939594/', label: 'Abe Aguilar' },
+    ],
+    mapEmbedQuery: 'Beehive+Worldwide+Distro+3539+Washington+Blvd+Ogden+UT',
   },
 };
 
