@@ -79,34 +79,46 @@ export default async function BlogPost({ params }: { params: { slug: string } })
   };
 
   return (
-    <main className="min-h-screen" style={{ backgroundColor: '#07070d' }}>
+    <main className="min-h-screen antialiased font-body" style={{ backgroundColor: '#07070d' }}>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,600;0,800;0,900;1,800&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+        rel="stylesheet"
+      />
+      <style>{`
+        .font-display { font-family: 'Archivo', system-ui, sans-serif; }
+        .font-body { font-family: 'Space Grotesk', system-ui, sans-serif; }
+        .tl-btn-energy { background: linear-gradient(135deg, #F12711, #F5AF19); transition: filter .35s ease; }
+        .tl-btn-energy:hover { filter: brightness(1.08) saturate(1.1); }
+      `}</style>
+
       {/* JSON-LD */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Nav */}
-      <nav className="sticky top-0 z-50 border-b border-white/[0.08] backdrop-blur-xl" style={{ backgroundColor: 'rgba(7,7,13,0.6)' }}>
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="font-black text-xl sm:text-2xl tracking-[-0.04em]">TATULOGUE</Link>
-          <div className="hidden md:flex items-center gap-9 text-sm text-white/60">
-            <Link href="/blog" className="hover:text-white transition-colors">Articles</Link>
-            <Link href="/investors" className="hover:text-white transition-colors">Investors</Link>
-            <Link href="/about" className="hover:text-white transition-colors">About</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-          </div>
-          <div className="flex items-center gap-3">
-            <Link href="/blog" className="text-sm text-white/60 hover:text-white transition-colors">← Articles</Link>
-            <Link href="https://app.tatulogue.com" target="_blank" rel="noopener"
-              className="px-5 py-2.5 rounded-full text-sm font-medium text-white transition-[filter] hover:brightness-110"
-              style={{ background: ENERGY_GRADIENT, boxShadow: '0 0 30px -6px rgba(241,39,17,0.7)' }}>
-              Get early access
-            </Link>
-          </div>
+      <header className="fixed top-0 inset-x-0 z-50">
+        <div className="backdrop-blur-xl bg-[#07070d]/60 border-b border-white/[0.08]">
+          <nav className="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+            <Link href="/" className="font-display font-black tracking-[-0.04em] text-xl sm:text-2xl">TATULOGUE</Link>
+            <div className="hidden md:flex items-center gap-9 text-sm text-white/60">
+              <Link href="/blog" className="text-white transition-colors">Articles</Link>
+              <Link href="/investors" className="hover:text-white transition-colors">Investors</Link>
+              <Link href="/store" className="hover:text-white transition-colors">Store</Link>
+              <Link href="/about" className="hover:text-white transition-colors">About</Link>
+              <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+            </div>
+            <a
+              href="https://app.tatulogue.com"
+              className="tl-btn-energy rounded-full px-5 py-2.5 text-sm font-medium text-white shadow-[0_0_30px_-6px_rgba(241,39,17,0.7)]"
+            >
+              Join Tatulogue
+            </a>
+          </nav>
         </div>
-      </nav>
+      </header>
 
       <article>
         {/* Header */}
-        <header className="pt-14 pb-10 border-b border-white/[0.08]">
+        <header className="pt-28 pb-10 border-b border-white/[0.08]">
           <div className="max-w-3xl mx-auto px-6">
             <p
               className="text-xs tracking-[0.3em] font-medium mb-5"
@@ -216,19 +228,22 @@ export default async function BlogPost({ params }: { params: { slug: string } })
       )}
 
       <footer className="border-t border-white/[0.08]">
-        <div className="max-w-6xl mx-auto px-6 py-14">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-14">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-            <Link href="/" className="font-black text-2xl tracking-[-0.04em]">TATULOGUE</Link>
+            <Link href="/" className="font-display font-black tracking-[-0.04em] text-2xl">TATULOGUE</Link>
             <nav className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/50">
               <Link href="/blog" className="hover:text-white transition-colors">Articles</Link>
               <Link href="/investors" className="hover:text-white transition-colors">Investors</Link>
               <Link href="/store" className="hover:text-white transition-colors">Store</Link>
               <Link href="/about" className="hover:text-white transition-colors">About</Link>
               <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-              <Link href="https://app.tatulogue.com" target="_blank" rel="noopener" className="hover:text-white transition-colors">App</Link>
+              <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
             </nav>
           </div>
-          <p className="mt-10 text-xs text-white/30">© {new Date().getFullYear()} Tatulogue. Tattoo culture, education, and the artists shaping it.</p>
+          <p className="mt-10 text-xs text-white/30">
+            &copy; 2026 Tatulogue. Tattoo culture, education, and the artists shaping it.
+          </p>
         </div>
       </footer>
     </main>
