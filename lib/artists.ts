@@ -86,7 +86,7 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     type: 'industry',
     tagline: 'Mobile tattoo supply & distribution',
     bio: [
-      'Abe Aguilar is the founder of Beehive Worldwide Distro — a family-owned tattoo supply company serving licensed professionals across the US and beyond.',
+      'Abe Aguilar is the founder of Beehive Worldwide Distro — a family-owned tattoo supply company serving licensed professionals across the US and beyond. Tattoo supply is available to licensed shops only — not open to the general public.',
       'From a mobile supply van hitting shops in Utah, Idaho, and Reno to a full online store with free local deliveries, Beehive Worldwide keeps artists stocked with the inks, gloves, and aftercare they need.',
     ],
     shopName: 'Beehive Worldwide Distro',
