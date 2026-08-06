@@ -30,6 +30,7 @@ export interface ArtistLanding {
   phone: string;
   email: string | null;
   website: string | null;
+  hours: string | null;
   socials: SocialLink[];
   mapEmbedQuery: string;
 }
@@ -38,21 +39,21 @@ export const ARTISTS: Record<string, ArtistLanding> = {
   'daniel-greene': {
     slug: 'daniel-greene',
     name: 'Daniel Greene',
-    tagline: 'Award-winning tattoo & piercing artist',
+    tagline: 'Award-winning tattoo artist & shop owner',
     bio: [
-      'Daniel Greene is an award-winning tattoo and piercing artist, the owner of Black Bumble Tattoo, and investor in TATULOGUE.',
+      'Daniel Greene is an award-winning tattoo artist, the owner of Black Bumble Tattoo — a full-service tattoo & piercing shop — and investor in TATULOGUE.',
       "A pro-team artist with Tae'Tu, Daniel works across styles — from bold blackwork to detailed black & grey realism.",
     ],
     shopName: 'Black Bumble Tattoo',
-    instagramHandle: 'danielgreenetattoos',
+    instagramHandle: 'danielgreeneutahink',
     specialties: ['Realism', 'Black & Grey', 'Geometric'],
     portfolio: [
-      { src: '/images/strip-1-1.jpg', alt: 'Placeholder tattoo work — awaiting artist photos', placeholder: true },
-      { src: '/images/strip-1-2.jpg', alt: 'Placeholder tattoo work — awaiting artist photos', placeholder: true },
-      { src: '/images/strip-2-1.jpg', alt: 'Placeholder tattoo work — awaiting artist photos', placeholder: true },
-      { src: '/images/strip-2-2.jpg', alt: 'Placeholder tattoo work — awaiting artist photos', placeholder: true },
-      { src: '/images/strip-1-4.jpg', alt: 'Placeholder tattoo work — awaiting artist photos', placeholder: true },
-      { src: '/images/strip-2-4.jpg', alt: 'Placeholder tattoo work — awaiting artist photos', placeholder: true },
+      { src: '/images/daniel-greene/action-1.jpg', alt: 'Daniel Greene tattooing — close-up blackwork detail', placeholder: false },
+      { src: '/images/daniel-greene/action-2.jpg', alt: 'Daniel Greene working on a sleeve tattoo', placeholder: false },
+      { src: '/images/daniel-greene/portrait.jpg', alt: 'Daniel Greene portrait', placeholder: false },
+      { src: '/images/daniel-greene/action-3.jpg', alt: 'Daniel Greene tattooing a client', placeholder: false },
+      { src: '/images/daniel-greene/rose-tattoo.jpg', alt: 'Bold traditional rose tattoo by Daniel Greene', placeholder: false },
+      { src: '/images/daniel-greene/action-4.jpg', alt: 'Daniel Greene tattooing at Black Bumble Tattoo', placeholder: false },
     ],
     ogImage: '/images/hero-poster.jpg',
     ctaHref: 'https://app.tatulogue.com',
@@ -65,12 +66,13 @@ export const ARTISTS: Record<string, ArtistLanding> = {
       zip: '84015',
     },
     phone: '(385) 239-4176',
-    email: null,
+    email: 'blackbumbletattoo@gmail.com',
     website: 'https://www.blackbumbletattoo.com',
+    hours: 'Monday – Sunday, 11:00 AM – 6:00 PM',
     socials: [
       { platform: 'instagram', url: 'https://www.instagram.com/blackbumbletattoo/', label: '@blackbumbletattoo' },
-      { platform: 'instagram', url: 'https://www.instagram.com/danielgreenetattoos/', label: '@danielgreenetattoos' },
-      { platform: 'facebook', url: 'https://www.facebook.com/p/Black-Bumble-Tattoo-61551018793255/', label: 'Black Bumble Tattoo' },
+      { platform: 'instagram', url: 'https://www.instagram.com/danielgreeneutahink/', label: '@danielgreeneutahink' },
+      { platform: 'facebook', url: 'https://www.facebook.com/profile.php?id=100094196664430', label: 'Black Bumble Tattoo' },
       { platform: 'tiktok', url: 'https://www.tiktok.com/@danielgreene801', label: '@danielgreene801' },
     ],
     mapEmbedQuery: 'Black+Bumble+Tattoo+354+S+State+St+Clearfield+UT+84015',

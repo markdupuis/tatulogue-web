@@ -212,6 +212,14 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
               </div>
             )}
 
+            {/* Hours */}
+            {artist.hours && (
+              <div>
+                <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Hours</p>
+                <p className="text-white/70">{artist.hours}</p>
+              </div>
+            )}
+
             {/* Social media */}
             <div>
               <p className="text-xs text-white/40 uppercase tracking-widest mb-3">Social</p>
