@@ -72,6 +72,7 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     socials: [
       { platform: 'instagram', url: 'https://www.instagram.com/blackbumbletattoo/', label: '@blackbumbletattoo' },
       { platform: 'instagram', url: 'https://www.instagram.com/danielgreeneutahink/', label: '@danielgreeneutahink' },
+      { platform: 'instagram', url: 'https://www.instagram.com/danielgreenetattoos/', label: '@danielgreenetattoos' },
       { platform: 'facebook', url: 'https://www.facebook.com/profile.php?id=100094196664430', label: 'Black Bumble Tattoo' },
       { platform: 'tiktok', url: 'https://www.tiktok.com/@danielgreene801', label: '@danielgreene801' },
     ],
