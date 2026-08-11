@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [tattoo-placement, body-flow, sleeve, tattoo-planning, patchwork]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Arm sleeve tattoo wrapping the forearm following the natural muscle flow"
+coverImage: "/images/blog/tattoo-placement-guide.jpg"
+coverAlt: "Tattoo artist inking a detailed design on a forearm"
 readTime: 10
 ---
 

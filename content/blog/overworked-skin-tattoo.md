@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [overworked-skin, tattoo-quality, realism, artist-vetting, healed-tattoos]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Tattoo artist working with precision on detailed realism piece"
+coverImage: "/images/blog/overworked-skin-tattoo.jpg"
+coverAlt: "Black and white close-up of the tattooing process on an arm"
 readTime: 9
 ---
 

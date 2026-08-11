@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [first-tattoo, first-tattoo-guide, tattoo-tips, tattoo-consultation, beginners]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "First-timer getting tattooed in a clean studio, artist running the machine over a fresh stencil"
+coverImage: "/images/blog/first-tattoo-guide.jpg"
+coverAlt: "Woman getting her first tattoo in a tattoo parlor"
 readTime: 11
 ---
 

@@ -7,8 +7,8 @@ category: spotlight
 tags: [artist-spotlight, tatulogue-artists, tattoo-artist, community]
 featured: false
 readTime: 6
-coverImage: "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Tattoo artist working on a client in their studio"
+coverImage: "/images/blog/artist-spotlight-series.jpg"
+coverAlt: "Tattoo artist concentrating on her work in a warmly decorated studio"
 ---
 
 > **TL;DR:** Tatulogue's Artist Spotlight series tells the stories behind the artists on the platform — where they started, what they specialise in, and what they're building. For collectors, it's a way to find artists whose work actually resonates. For artists, it's a place to tell the story behind the portfolio.

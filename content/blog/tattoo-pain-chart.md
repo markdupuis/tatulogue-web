@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [tattoo-pain, tattoo-pain-chart, tattoo-placement, first-tattoo, pain-management]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Artist tattooing a forearm mid-session, needle on skin"
+coverImage: "/images/blog/tattoo-pain-chart.jpg"
+coverAlt: "Tattoo artist applying a stencil to a client's ribs"
 readTime: 10
 ---
 

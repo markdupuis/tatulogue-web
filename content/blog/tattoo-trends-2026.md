@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: trends
 tags: [tattoo-trends, 2026, blackwork, fine-line, collector]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Tattoo artist working on a bold blackwork piece"
+coverImage: "/images/blog/tattoo-trends-2026.jpg"
+coverAlt: "Stylish woman with tattoos in natural sunlight"
 readTime: 8
 ---
 

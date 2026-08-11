@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [tattoo-cover-up, blastover, tattoo-removal, blackwork, tattoo-regret]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1562962230-16e4623d36e6?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Bold dark blackwork cover-up tattoo packed over faded old ink on a forearm"
+coverImage: "/images/blog/tattoo-cover-ups.jpg"
+coverAlt: "Tattoo artist transferring a new floral design onto skin"
 readTime: 10
 ---
 

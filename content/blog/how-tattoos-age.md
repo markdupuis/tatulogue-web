@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [tattoo-aging, healed-tattoos, tattoo-longevity, blackwork, fine-line]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1605647533135-51b5906087d0?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Close-up of a healed traditional tattoo on forearm"
+coverImage: "/images/blog/how-tattoos-age.jpg"
+coverAlt: "Elderly man with tattoos and a beard standing confidently"
 readTime: 9
 ---
 

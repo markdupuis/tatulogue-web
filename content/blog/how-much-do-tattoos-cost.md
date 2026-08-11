@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [tattoo-cost, tattoo-pricing, shop-minimum, first-tattoo, tattoo-budget]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Tattoo artist working a packed black piece on a client's forearm in a shop"
+coverImage: "/images/blog/how-much-do-tattoos-cost.jpg"
+coverAlt: "Tattooed hand holding a US dollar bill"
 readTime: 10
 ---
 

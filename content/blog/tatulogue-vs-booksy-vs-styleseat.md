@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: about
 tags: [tattoo-booking, tatulogue, booksy, styleseat, tattoo-platform]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Tattoo artist reviewing their booking schedule on a tablet"
+coverImage: "/images/blog/tatulogue-vs-booksy-vs-styleseat.jpg"
+coverAlt: "Close-up of a tattoo photographed on a smartphone with ring light"
 readTime: 9
 ---
 

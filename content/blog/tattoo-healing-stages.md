@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [tattoo-healing, aftercare, new-tattoo, healing-stages]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Fresh tattoo being wrapped with second skin bandage"
+coverImage: "/images/blog/tattoo-healing-stages.jpg"
+coverAlt: "Close-up of a new tattoo showing skin texture during healing"
 readTime: 8
 ---
 

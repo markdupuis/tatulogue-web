@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [japanese-tattoo, irezumi, tebori, tattoo-styles, iconography]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Detailed Japanese sleeve tattoo with koi and waves"
+coverImage: "/images/blog/japanese-tattoo-history-iconography.jpg"
+coverAlt: "Colorful Japanese-style dragon tattoo on a man's arm"
 readTime: 9
 ---
 

@@ -7,8 +7,8 @@ category: education
 tags: [fine-line, tattoo-styles, single-needle, tattoo-longevity, minimalist]
 featured: false
 readTime: 8
-coverImage: "https://images.unsplash.com/photo-1605647533135-51b5906087d0?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Close-up of fine line tattoo work on arm"
+coverImage: "/images/blog/fine-line-tattoos-complete-guide.jpg"
+coverAlt: "Minimalist fine line tattoo on a forearm"
 ---
 
 > **TL;DR:** Fine line is everywhere right now — botanicals, micro portraits, delicate script. It can hold up for years or turn soft and grey inside of three. The difference is the artist, the placement, and whether the design is sized right for the skin. This covers all of it.

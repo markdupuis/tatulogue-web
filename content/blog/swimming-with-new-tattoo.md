@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [tattoo-aftercare, swimming, new-tattoo, healing]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Swimming pool with sunlight on the water"
+coverImage: "/images/blog/swimming-with-new-tattoo.jpg"
+coverAlt: "Tattooed arms submerged in swimming pool water"
 readTime: 7
 ---
 

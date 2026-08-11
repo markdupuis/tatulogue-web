@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [black-and-grey, color-tattoos, tattoo-styles, tattoo-aging, realism]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Half black-and-grey, half color tattoo sleeve on a forearm side by side"
+coverImage: "/images/blog/black-and-grey-vs-color-tattoos.jpg"
+coverAlt: "Detailed black and grey lion and clock tattoo on a man's arm"
 readTime: 10
 ---
 

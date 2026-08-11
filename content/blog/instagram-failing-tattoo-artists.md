@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: about
 tags: [instagram, tattoo-artist, tatulogue, tattoo-booking, social-media]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Tattoo artist photographing their work for social media"
+coverImage: "/images/blog/instagram-failing-tattoo-artists.jpg"
+coverAlt: "Close-up of a tattooed arm holding a smartphone"
 readTime: 8
 ---
 

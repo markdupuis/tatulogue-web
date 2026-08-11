@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [choosing-a-tattoo-artist, tattoo-red-flags, tattoo-portfolio, booking, scratcher]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Tattoo artist's sterile workstation with machine, ink caps, and gloves laid out"
+coverImage: "/images/blog/how-to-vet-a-tattoo-artist.jpg"
+coverAlt: "Tattoo artist consulting with a client and sketching a design in studio"
 readTime: 10
 ---
 

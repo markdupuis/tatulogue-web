@@ -6,8 +6,8 @@ author: Tatulogue Team
 category: education
 tags: [american-traditional, trad-tattoos, sailor-jerry, tattoo-styles, flash]
 featured: false
-coverImage: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=1200&q=80&auto=format&fit=crop"
-coverAlt: "Bold American traditional eagle tattoo with solid fills on a forearm"
+coverImage: "/images/blog/american-traditional-tattoos.jpg"
+coverAlt: "Traditional tattoo flash sketches featuring a skull and swallow design"
 readTime: 10
 ---
 
