@@ -99,33 +99,52 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
           style={{ background: 'rgba(78,67,118,0.3)' }}
         />
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-36 pb-16 sm:pt-44 sm:pb-24">
-          <p className="tl-text-grad-blue text-xs sm:text-sm tracking-[0.35em] font-medium mb-6">
-            {artist.type === 'industry' ? 'INDUSTRY SPOTLIGHT' : 'ARTIST SPOTLIGHT'}
-          </p>
-          <h1 className="font-display font-black leading-[0.92] tracking-[-0.035em] text-5xl sm:text-7xl max-w-4xl">
-            {artist.name}
-          </h1>
-          <p className="mt-6 max-w-xl text-base sm:text-lg text-white/65 leading-relaxed">
-            {artist.tagline} · {artist.shopName} · @{artist.instagramHandle}
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2.5">
-            {artist.specialties.map((s) => (
-              <span
-                key={s}
-                className="rounded-full border border-white/15 px-4 py-1.5 text-sm text-white/70"
+          <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-14">
+            {/* Photo — leads, seen first */}
+            <div className="shrink-0 mx-auto lg:mx-0">
+              <div
+                className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden border border-white/10"
+                style={{ boxShadow: '0 0 60px -12px rgba(43,88,118,0.55)' }}
               >
-                {s}
-              </span>
-            ))}
-          </div>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <a
-              href={ctaUrl}
-              className="group tl-btn-blue rounded-full text-white px-7 py-3.5 font-semibold shadow-[0_0_40px_-10px_rgba(43,88,118,0.9)]"
-            >
-              {artist.ctaLabel}{' '}
-              <span className="inline-block group-hover:translate-x-1 transition-transform">&rarr;</span>
-            </a>
+                <img
+                  src={artist.heroImage}
+                  alt={artist.heroImageAlt}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Text — offset to the right of / below the photo */}
+            <div className="min-w-0">
+              <p className="tl-text-grad-blue text-xs sm:text-sm tracking-[0.35em] font-medium mb-6">
+                {artist.type === 'industry' ? 'INDUSTRY SPOTLIGHT' : 'ARTIST SPOTLIGHT'}
+              </p>
+              <h1 className="font-display font-black leading-[0.92] tracking-[-0.035em] text-5xl sm:text-7xl max-w-4xl">
+                {artist.name}
+              </h1>
+              <p className="mt-6 max-w-xl text-base sm:text-lg text-white/65 leading-relaxed">
+                {artist.tagline} · {artist.shopName} · @{artist.instagramHandle}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                {artist.specialties.map((s) => (
+                  <span
+                    key={s}
+                    className="rounded-full border border-white/15 px-4 py-1.5 text-sm text-white/70"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <a
+                  href={ctaUrl}
+                  className="group tl-btn-blue rounded-full text-white px-7 py-3.5 font-semibold shadow-[0_0_40px_-10px_rgba(43,88,118,0.9)]"
+                >
+                  {artist.ctaLabel}{' '}
+                  <span className="inline-block group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

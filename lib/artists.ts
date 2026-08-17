@@ -13,6 +13,8 @@ export interface ArtistLanding {
   name: string;
   type: 'artist' | 'industry';
   tagline: string;
+  heroImage: string;
+  heroImageAlt: string;
   bio: string[];
   shopName: string;
   instagramHandle: string;
@@ -42,6 +44,8 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     name: 'Daniel Greene',
     type: 'artist',
     tagline: 'Award-winning tattoo artist & shop owner',
+    heroImage: '/images/daniel-greene/daniel-tattooing.png',
+    heroImageAlt: 'Daniel Greene tattooing at Black Bumble Tattoo',
     bio: [
       'Daniel Greene is an award-winning tattoo artist, the owner of Black Bumble Tattoo — a full-service tattoo & piercing shop — and investor in TATULOGUE.',
       "A pro-team artist with Tae'Tu, Daniel works across styles — from bold blackwork to detailed black & grey realism.",
@@ -85,6 +89,8 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     name: 'Abe Aguilar',
     type: 'industry',
     tagline: 'Tattoo supply & distribution',
+    heroImage: '/images/beehive-worldwide/abe-van.png',
+    heroImageAlt: 'Abe Aguilar with the Beehive Worldwide supply van',
     bio: [
       'Abe Aguilar is the founder of Beehive Worldwide Distro — a family-owned tattoo supply company serving licensed professionals across the US and beyond. Tattoo supply is available to licensed shops only, but they also sell a variety of gloves to the general public, as well as tattoo aftercare.',
       'With free local deliveries across Utah, Idaho, and Reno plus a full online store, Beehive Worldwide keeps artists stocked with the inks, gloves, and aftercare they need.',
@@ -124,6 +130,8 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     name: 'Pony Lawson',
     type: 'artist',
     tagline: 'Tattooer, co-founder of Mayday Tattoo Co & Ink Master alum',
+    heroImage: '/images/pony-lawson/pony-lawson-headshot.jpg',
+    heroImageAlt: 'Pony Lawson headshot',
     bio: [
       "Pony Lawson is a world-renowned tattoo artist. He's the co-founder of Mayday Tattoo Co, an OG cast member on season 16 of Ink Master, and host of Tattoo Critiques on YouTube. He's also the creator of the original Tattoo Stencil App and Tattoo Palette App.",
       "With over 20 years of experience, he's best known for realistic tattoos — micro portraits, patches, and metallic pieces. Pony works primarily in Chicago but frequently travels to conventions and guest spots around the world.",
@@ -139,7 +147,6 @@ export const ARTISTS: Record<string, ArtistLanding> = {
       { src: '/images/pony-lawson/scooby-doo-patch.webp', alt: 'Embroidered patch-style Scooby-Doo and Shaggy tattoo by Pony Lawson', placeholder: false },
       { src: '/images/pony-lawson/leopard-cub-sticker.jpg', alt: 'Colorful sticker-style leopard cub tattoo by Pony Lawson', placeholder: false },
       { src: '/images/pony-lawson/robot-toy.jpg', alt: 'Colorful vintage toy robot tattoo by Pony Lawson', placeholder: false },
-      { src: '/images/pony-lawson/pony-lawson-headshot.jpg', alt: 'Pony Lawson headshot', placeholder: false },
     ],
     ogImage: '/images/pony-lawson/gold-chrome-tattoos.jpg',
     ctaHref: 'https://app.tatulogue.com',
