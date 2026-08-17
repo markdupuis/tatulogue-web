@@ -111,8 +111,8 @@ export default function InvestorsPage() {
             >
               <div className="aspect-square overflow-hidden">
                 <img
-                  src={artist.portfolio[0]?.src || artist.ogImage}
-                  alt={artist.name}
+                  src={artist.heroImage}
+                  alt={artist.heroImageAlt}
                   className="h-full w-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500"
                 />
               </div>
@@ -153,8 +153,8 @@ export default function InvestorsPage() {
             >
               <div className="aspect-square overflow-hidden">
                 <img
-                  src={inv.portfolio[0]?.src || inv.ogImage}
-                  alt={inv.name}
+                  src={inv.heroImage}
+                  alt={inv.heroImageAlt}
                   className="h-full w-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500"
                 />
               </div>
