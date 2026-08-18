@@ -234,7 +234,6 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     slug: 'david-mariscal',
     name: 'David Mariscal',
     type: 'artist',
-    enabled: false, // pending his permission to go live
     tagline: 'Tattoo artist at Marauder Tattoo Studio',
     heroImage: '/images/david-mariscal/david-mariscal-headshot.jpg',
     heroImageAlt: 'David Mariscal tattooing in his studio',
