@@ -1,6 +1,6 @@
 ---
 title: "Artist Spotlight: Meet the Tattoo Artists Building on Tatulogue"
-description: "We're starting a series to tell the stories behind the artists — the paths they took, the styles they developed, and the work they're most proud of."
+description: "We're starting a series to tell the stories behind the artists: the paths they took, the styles they developed, and the work they're most proud of."
 date: 2026-05-18
 author: Tatulogue Team
 category: spotlight
@@ -11,9 +11,9 @@ coverImage: "/images/blog/artist-spotlight-series.jpg"
 coverAlt: "Tattoo artist concentrating on her work in a warmly decorated studio"
 ---
 
-> **TL;DR:** Tatulogue's Artist Spotlight series tells the stories behind the artists on the platform — where they started, what they specialise in, and what they're building. For collectors, it's a way to find artists whose work actually resonates. For artists, it's a place to tell the story behind the portfolio.
+> **TL;DR:** Tatulogue's Artist Spotlight series tells the stories behind the artists on the platform: where they started, what they specialise in, and what they're building. For collectors, it's a way to find artists whose work actually resonates. For artists, it's a place to tell the story behind the portfolio.
 
-It's 2am and you're deep in your phone looking for a tattoer who does a specific thing. Not just "blackwork" — the particular kind of dense, graphic blackwork with architectural forms that you've been saving references for. The algorithm keeps showing you sponsored content and viral reels. You've been at it for thirty minutes and you're no closer.
+It's 2am and you're deep in your phone looking for a tattoer who does a specific thing. Not just "blackwork": the particular kind of dense, graphic blackwork with architectural forms that you've been saving references for. The algorithm keeps showing you sponsored content and viral reels. You've been at it for thirty minutes and you're no closer.
 
 That's not a personal failing. That's a platform problem. Instagram wasn't built for this kind of discovery. Tatulogue was.
 
@@ -31,11 +31,11 @@ The work is the art. The story is the context that makes it make sense.
 
 Each feature is built around three things: where the artist started, what they've developed, and what they're building right now.
 
-Not a CV. Not a press release. The actual path — including the detours, the apprenticeships that didn't work out, the style pivots, the pieces they're proudest of and why.
+Not a CV. Not a press release. The actual path: including the detours, the apprenticeships that didn't work out, the style pivots, the pieces they're proudest of and why.
 
 We ask about healed work specifically. The tattoo community knows that fresh photos are marketing. Healed work is the real portfolio. We want to show both.
 
-And we ask what they want to tattoo. Not what they get asked for constantly — what they want to do. Some of the most interesting things in the series will come from that gap.
+And we ask what they want to tattoo. Not what they get asked for constantly. What they want to do. Some of the most interesting things in the series will come from that gap.
 
 ## The Artists We're Featuring
 
@@ -53,7 +53,7 @@ If you're a tattoer on Tatulogue and you want to be part of the series, get your
 
 What we're looking for: a genuine body of work, healed portfolio examples, and a story that's specific to you. Not everyone has a linear path into tattooing. The more specific and honest the story, the better the feature.
 
-The series runs monthly. If you're not on Tatulogue yet, [set up your artist profile](https://app.tatulogue.com) and get your portfolio live — that's the starting point.
+The series runs monthly. If you're not on Tatulogue yet, [set up your artist profile](https://app.tatulogue.com) and get your portfolio live. That's the starting point.
 
 ## For Collectors: How to Use the Series
 
@@ -61,9 +61,9 @@ The Artist Spotlight is a discovery tool.
 
 When you find an artist in the series whose work resonates, you can go directly to their Tatulogue profile, see their full portfolio including healed work, and reach out to them. No hunting for their Instagram. No DM that gets lost in requests. Direct contact through a platform built for it.
 
-If you're still figuring out what style you're looking for before you start the artist search — the [tattoo styles guide](/blog/tattoo-styles-guide-2026) is the right starting point.
+If you're still figuring out what style you're looking for before you start the artist search, the [tattoo styles guide](/blog/tattoo-styles-guide-2026) is the right starting point.
 
-And if you want to understand what Tatulogue is and why we're building it this way — [the full story is here](/blog/what-is-tatulogue).
+And if you want to understand what Tatulogue is and why we're building it this way, [the full story is here](/blog/what-is-tatulogue).
 
 ---
 
@@ -82,4 +82,4 @@ No. The series features artists at different career stages deliberately. An arti
 Yes. If you've been tattooed by someone on Tatulogue and want to see them featured, reach out through the platform and let us know. Some of the best features come from collector recommendations.
 
 **Do featured artists get anything out of it?**
-Visibility to the Tatulogue collector community, a professionally written piece about their work and story, and a permanent feature on the platform. It's not a paid placement — it's editorial coverage of artists whose work we think is worth putting in front of the community.
+Visibility to the Tatulogue collector community, a professionally written piece about their work and story, and a permanent feature on the platform. It's not a paid placement: it's editorial coverage of artists whose work we think is worth putting in front of the community.
