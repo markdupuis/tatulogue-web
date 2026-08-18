@@ -2,8 +2,10 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import AdminShell from '../../../components/admin/AdminShell';
-import { fetchUsers } from '../../../lib/admin/queries';
+import { fetchUsers, sendPasswordReset } from '../../../lib/admin/queries';
 import type { AdminUser } from '../../../lib/admin/types';
+
+type ResetStatus = 'idle' | 'sending' | 'sent' | 'error';
 
 const TYPE_CHIP_COLORS: Record<string, string> = {
   admin: 'text-violet-400',
@@ -54,6 +56,7 @@ export default function UsersPage() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [sortByPosts, setSortByPosts] = useState(false);
+  const [resetStatus, setResetStatus] = useState<Record<string, ResetStatus>>({});
 
   useEffect(() => {
     let active = true;
@@ -80,6 +83,34 @@ export default function UsersPage() {
     if (!sortByPosts) return matched;
     return [...matched].sort((a, b) => b.post_count - a.post_count);
   }, [users, search, sortByPosts]);
+
+  async function handleResetPassword(user: AdminUser) {
+    if (!user.email) return;
+    if (!window.confirm(`Send a password reset email to ${user.email}?`)) return;
+
+    setResetStatus((prev) => ({ ...prev, [user.id]: 'sending' }));
+    const result = await sendPasswordReset(user.email, user.id);
+    setResetStatus((prev) => ({ ...prev, [user.id]: result.ok ? 'sent' : 'error' }));
+
+    if (result.ok) {
+      setTimeout(() => {
+        setResetStatus((prev) => ({ ...prev, [user.id]: 'idle' }));
+      }, 4000);
+    }
+  }
+
+  function resetButtonLabel(status: ResetStatus | undefined): string {
+    switch (status) {
+      case 'sending':
+        return 'Sending…';
+      case 'sent':
+        return 'Sent ✓';
+      case 'error':
+        return 'Failed — retry';
+      default:
+        return 'Reset Password';
+    }
+  }
 
   return (
     <AdminShell active="users" title="Users">
@@ -120,10 +151,13 @@ export default function UsersPage() {
                   </button>
                 </th>
                 <th className="px-4 py-3 font-medium">Joined</th>
+                <th className="px-4 py-3 font-medium">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {filtered.map((user) => (
+              {filtered.map((user) => {
+                const status = resetStatus[user.id];
+                return (
                 <tr key={user.id} className="border-t border-white/8">
                   <td className="px-4 py-3">
                     <Avatar user={user} />
@@ -142,8 +176,25 @@ export default function UsersPage() {
                   </td>
                   <td className="px-4 py-3 text-white/80">{user.post_count}</td>
                   <td className="px-4 py-3 text-white/40">{formatDate(user.created_at)}</td>
+                  <td className="px-4 py-3">
+                    <button
+                      type="button"
+                      disabled={!user.email || status === 'sending'}
+                      onClick={() => handleResetPassword(user)}
+                      className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
+                        status === 'sent'
+                          ? 'border-emerald-500/40 text-emerald-400'
+                          : status === 'error'
+                          ? 'border-red-500/40 text-red-400'
+                          : 'border-white/15 text-white/70 hover:text-white hover:bg-white/[0.04]'
+                      }`}
+                    >
+                      {resetButtonLabel(status)}
+                    </button>
+                  </td>
                 </tr>
-              ))}
+                );
+              })}
             </tbody>
           </table>
         </div>

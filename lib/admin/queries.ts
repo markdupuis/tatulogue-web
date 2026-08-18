@@ -207,6 +207,29 @@ export async function fetchUsers(): Promise<AdminUser[]> {
   }));
 }
 
+export const PASSWORD_RESET_REDIRECT = 'https://tatulogue.com/admin/reset-password';
+
+export async function sendPasswordReset(email: string, userId: string): Promise<{ ok: boolean; error?: string }> {
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: PASSWORD_RESET_REDIRECT,
+  });
+
+  if (error) return { ok: false, error: error.message };
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const adminId = sessionData.session?.user?.id;
+  if (adminId) {
+    await supabase.from('admin_audit_log').insert({
+      admin_id: adminId,
+      action: 'password_reset_sent',
+      entity_type: 'user',
+      entity_id: userId,
+    });
+  }
+
+  return { ok: true };
+}
+
 export async function fetchArtists(): Promise<ArtistRow[]> {
   // artist_profiles has no timestamp column -- "joined" date comes from users.
   const { data, error } = await supabase
