@@ -230,6 +230,47 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     ],
     mapEmbedQuery: 'Fountain+Square+Tattoo+1104+Prospect+St+Indianapolis+IN+46203',
   },
+  'david-mariscal': {
+    slug: 'david-mariscal',
+    name: 'David Mariscal',
+    type: 'artist',
+    enabled: false, // pending his permission to go live
+    tagline: 'Tattoo artist at Marauder Tattoo Studio',
+    heroImage: '/images/david-mariscal/david-mariscal-headshot.jpg',
+    heroImageAlt: 'David Mariscal tattooing in his studio',
+    bio: [
+      'David Mariscal is a tattoo artist at Marauder Tattoo Studio in Murray, Utah, working primarily in black & grey realism — sugar skull imagery, portraiture, and detailed linework, with color work in the mix too.',
+    ],
+    shopName: 'Marauder Tattoo Studio',
+    instagramHandle: 'maraudertattoo',
+    specialties: ['Black & Grey', 'Realism', 'Portraiture', 'Color'],
+    portfolio: [
+      { src: '/images/david-mariscal/sugar-skull-sleeve.jpg', alt: 'Black and grey sugar skull (Día de los Muertos) sleeve tattoo by David Mariscal', placeholder: false },
+      { src: '/images/david-mariscal/leopard-floral-tattoo.jpg', alt: 'Black and grey leopard portrait with floral tattoo by David Mariscal', placeholder: false },
+      { src: '/images/david-mariscal/joker-portrait.jpg', alt: 'Black and grey Joker portrait tattoo by David Mariscal', placeholder: false },
+      { src: '/images/david-mariscal/vegeta-portrait.jpg', alt: 'Black and grey anime portrait tattoo by David Mariscal', placeholder: false },
+      { src: '/images/david-mariscal/medusa-hand-piece.jpg', alt: 'Black and grey Medusa hand tattoo by David Mariscal', placeholder: false },
+    ],
+    ogImage: '/images/david-mariscal/sugar-skull-sleeve.jpg',
+    ctaHref: 'https://app.tatulogue.com',
+    ctaLabel: 'Follow him on TATULOGUE',
+    utm: { source: 'website', medium: 'organic', campaign: 'artist_david_mariscal' },
+    address: {
+      street: '4700 S 900 E #36',
+      city: 'Murray',
+      state: 'UT',
+      zip: '84117',
+    },
+    phone: '(385) 495-8436',
+    email: null,
+    website: null,
+    hours: null,
+    socials: [
+      { platform: 'instagram', url: 'https://www.instagram.com/maraudertattoo/', label: '@maraudertattoo (studio)' },
+      { platform: 'facebook', url: 'https://www.facebook.com/sawiamtattoos/', label: 'Marauder Tattoo' },
+    ],
+    mapEmbedQuery: 'Marauder+Tattoo+Studio+4700+S+900+E+Murray+UT+84117',
+  },
 };
 
 export function buildCtaUrl(a: ArtistLanding): string {
