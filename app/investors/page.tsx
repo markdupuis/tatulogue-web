@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function InvestorsPage() {
-  const allInvestors = Object.values(ARTISTS);
+  const allInvestors = Object.values(ARTISTS).filter((a) => a.enabled !== false);
   const artists = allInvestors.filter((a) => a.type === 'artist');
   const industry = allInvestors.filter((a) => a.type === 'industry');
 

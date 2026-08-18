@@ -3,12 +3,14 @@ import { notFound } from 'next/navigation';
 import { ARTISTS, buildCtaUrl, getSocialIcon } from '../../../lib/artists';
 
 export function generateStaticParams() {
-  return Object.keys(ARTISTS).map((slug) => ({ slug }));
+  return Object.values(ARTISTS)
+    .filter((a) => a.enabled !== false)
+    .map((a) => ({ slug: a.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const artist = ARTISTS[params.slug];
-  if (!artist) return {};
+  if (!artist || artist.enabled === false) return {};
   const title = `${artist.name} — ${artist.shopName} | Tatulogue`;
   const description = `${artist.tagline}. ${artist.specialties.join(', ')}. Follow ${artist.name} on TATULOGUE.`;
   return {
@@ -28,7 +30,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 
 export default function ArtistPage({ params }: { params: { slug: string } }) {
   const artist = ARTISTS[params.slug];
-  if (!artist) notFound();
+  if (!artist || artist.enabled === false) notFound();
   const ctaUrl = buildCtaUrl(artist);
   const firstName = artist.name.split(' ')[0];
   const fullAddress = `${artist.address.street}, ${artist.address.city}, ${artist.address.state} ${artist.address.zip}`;

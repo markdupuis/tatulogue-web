@@ -12,6 +12,10 @@ export interface ArtistLanding {
   slug: string;
   name: string;
   type: 'artist' | 'industry';
+  // Defaults to true (published) when omitted. Set false to pull a page from
+  // the listing and stop generating its route without deleting the entry —
+  // e.g. while waiting on the artist's permission to go live.
+  enabled?: boolean;
   tagline: string;
   heroImage: string;
   heroImageAlt: string;
@@ -129,6 +133,7 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     slug: 'pony-lawson',
     name: 'Pony Lawson',
     type: 'artist',
+    enabled: false, // pending his permission to go live
     tagline: 'Tattooer, co-founder of Mayday Tattoo Co & Ink Master alum',
     heroImage: '/images/pony-lawson/pony-lawson-headshot.jpg',
     heroImageAlt: 'Pony Lawson headshot',
@@ -181,6 +186,7 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     slug: 'dane-smith',
     name: 'Dane Smith',
     type: 'artist',
+    enabled: false, // pending his permission to go live
     tagline: 'Tattooer, co-owner of Fountain Square Tattoo & Ink Master alum',
     heroImage: '/images/dane-smith/dane-smith-headshot.jpg',
     heroImageAlt: 'Dane Smith headshot',
