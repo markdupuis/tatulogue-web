@@ -242,7 +242,7 @@ export const ARTISTS: Record<string, ArtistLanding> = {
       'David Mariscal is a tattoo artist at Marauder Tattoo Studio in Murray, Utah, working primarily in black & grey realism — sugar skull imagery, portraiture, and detailed linework, with color work in the mix too.',
     ],
     shopName: 'Marauder Tattoo Studio',
-    instagramHandle: 'maraudertattoo',
+    instagramHandle: 'cdavidta2z',
     specialties: ['Black & Grey', 'Realism', 'Portraiture', 'Color'],
     portfolio: [
       { src: '/images/david-mariscal/sugar-skull-sleeve.jpg', alt: 'Black and grey sugar skull (Día de los Muertos) sleeve tattoo by David Mariscal', placeholder: false },
@@ -266,6 +266,7 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     website: null,
     hours: null,
     socials: [
+      { platform: 'instagram', url: 'https://www.instagram.com/cdavidta2z/', label: '@cdavidta2z' },
       { platform: 'instagram', url: 'https://www.instagram.com/maraudertattoo/', label: '@maraudertattoo (studio)' },
       { platform: 'facebook', url: 'https://www.facebook.com/sawiamtattoos/', label: 'Marauder Tattoo' },
     ],
