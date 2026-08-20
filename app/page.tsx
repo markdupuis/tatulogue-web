@@ -23,7 +23,7 @@ const FEATURED_POSTS = [
     slug: 'tattoo-aftercare-guide',
     category: 'Education',
     title: 'Tattoo Aftercare: The Complete Day-by-Day Healing Guide',
-    excerpt: 'Exactly what to do hours 1 through week 4 — wraps, washing, scabbing, and when to actually worry.',
+    excerpt: 'Exactly what to do hours 1 through week 4: wraps, washing, scabbing, and when to actually worry.',
     image: '/images/strip-1-1.jpg',
     alt: 'Healing tattoo aftercare',
   },
@@ -31,7 +31,7 @@ const FEATURED_POSTS = [
     slug: 'tattoo-styles-guide-2026',
     category: 'Education',
     title: 'The 10 Most Popular Tattoo Styles in 2026',
-    excerpt: 'From blackwork to fine-line micro-realism — what people are actually asking for this year, and why.',
+    excerpt: 'From blackwork to fine-line micro-realism: what people are actually asking for this year, and why.',
     image: '/images/strip-1-3.jpg',
     alt: 'Bold traditional tattoo style',
   },
@@ -47,7 +47,7 @@ const FEATURED_POSTS = [
     slug: 'how-much-do-tattoos-cost',
     category: 'Education',
     title: 'How Much Do Tattoos Cost? A Real 2026 Pricing Breakdown',
-    excerpt: 'Hourly vs. flat rates, shop minimums, deposits, and tipping — the numbers nobody posts on their menu.',
+    excerpt: 'Hourly vs. flat rates, shop minimums, deposits, and tipping: the numbers nobody posts on their menu.',
     image: '/images/strip-1-7.jpg',
     alt: 'Tattoo artist at work',
   },
@@ -55,7 +55,7 @@ const FEATURED_POSTS = [
     slug: 'tattoo-pain-chart',
     category: 'Education',
     title: 'The Tattoo Pain Chart: Most & Least Painful Spots',
-    excerpt: 'Ribs, sternum, ankles, inner arm — ranked honestly, plus what actually makes a session hurt more.',
+    excerpt: 'Ribs, sternum, ankles, inner arm: ranked honestly, plus what actually makes a session hurt more.',
     image: '/images/strip-2-2.jpg',
     alt: 'Tattoo on ribcage',
   },
@@ -63,7 +63,7 @@ const FEATURED_POSTS = [
     slug: 'how-tattoos-age',
     category: 'Education',
     title: 'How Tattoos Age: What Actually Happens Over Time',
-    excerpt: 'Why some pieces blow out and others hold for decades — placement, ink density, sun, and skin.',
+    excerpt: 'Why some pieces blow out and others hold for decades: placement, ink density, sun, and skin.',
     image: '/images/strip-2-4.jpg',
     alt: 'Aged tattoo close up',
   },
@@ -86,12 +86,24 @@ const US_STATES = [
 const GRAD_BLUE   = 'linear-gradient(135deg, #2B5876, #4E4376)';
 const GRAD_ENERGY = 'linear-gradient(135deg, #F12711, #F5AF19)';
 
+const APP_STORE_URL = 'https://apps.apple.com/us/app/tatulogue/id6794140876';
+
 export default function Home() {
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', state: '', city: '', accountType: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading]     = useState(false);
+  const [showAppModal, setShowAppModal] = useState(false);
+
+  useEffect(() => {
+    if (!showAppModal) return;
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') setShowAppModal(false);
+    }
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [showAppModal]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
@@ -200,12 +212,13 @@ export default function Home() {
               <a href="/about" className="hover:text-white transition-colors">About</a>
               <a href="/contact" className="hover:text-white transition-colors">Contact</a>
             </div>
-            <a
-              href="#early-access"
+            <button
+              type="button"
+              onClick={() => setShowAppModal(true)}
               className="tl-btn-energy rounded-full px-5 py-2.5 text-sm font-medium text-white shadow-[0_0_30px_-6px_rgba(241,39,17,0.7)]"
             >
-              Get early access
-            </a>
+              Get the App
+            </button>
           </nav>
         </div>
       </header>
@@ -237,9 +250,13 @@ export default function Home() {
             Made for tattooers and tattoo culture.
           </p>
           <div data-animate="" style={{ transitionDelay: '0.24s' }} className="mt-9 flex flex-wrap items-center gap-4">
-            <a href="#early-access" className="group tl-btn-blue rounded-full text-white px-7 py-3.5 font-semibold shadow-[0_0_40px_-10px_rgba(43,88,118,0.9)]">
-              Get early access <span className="inline-block group-hover:translate-x-1 transition-transform">&rarr;</span>
-            </a>
+            <button
+              type="button"
+              onClick={() => setShowAppModal(true)}
+              className="group tl-btn-blue rounded-full text-white px-7 py-3.5 font-semibold shadow-[0_0_40px_-10px_rgba(43,88,118,0.9)]"
+            >
+              Get the App <span className="inline-block group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </button>
             <a href="/blog" className="rounded-full border border-white/20 hover:border-[#F5AF19] hover:text-[#F5AF19] hover:bg-white/5 px-7 py-3.5 font-medium transition-colors">
               Browse articles
             </a>
@@ -264,7 +281,7 @@ export default function Home() {
           </p>
           <p>
             Social media platforms today have become billion-dollar machines that cater only to
-            investors. We believe in People over Profit — and that there&apos;s a better way for social
+            investors. We believe in People over Profit, and that there&apos;s a better way for social
             media to function, by enhancing our lives and giving back to the community.
           </p>
           <p className="font-display font-bold text-2xl sm:text-3xl tracking-[-0.02em] text-white">
@@ -399,7 +416,7 @@ export default function Home() {
               </div>
               <h2 className="font-display font-black text-3xl sm:text-5xl tracking-[-0.03em] leading-[0.95]">The articles are just the start.</h2>
               <p className="mt-5 text-white/55">
-                Get early access to the full Tatulogue platform — profiles, bookings, and a feed built for the craft.
+                Get early access to the full Tatulogue platform: profiles, bookings, and a feed built for the craft.
               </p>
             </div>
 
@@ -490,6 +507,58 @@ export default function Home() {
           <p className="mt-10 text-xs text-white/30">© 2026 Tatulogue. Tattoo culture, education, and the artists shaping it.</p>
         </div>
       </footer>
+
+      {/* ── GET THE APP MODAL ── */}
+      {showAppModal && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="get-app-modal-title"
+        >
+          <div
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            onClick={() => setShowAppModal(false)}
+          />
+          <div className="relative w-full max-w-md tl-surface tl-grain rounded-2xl overflow-hidden bg-[#0c0c14] px-6 sm:px-8 py-8 sm:py-10">
+            <button
+              type="button"
+              onClick={() => setShowAppModal(false)}
+              aria-label="Close"
+              className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors text-xl leading-none"
+            >
+              &times;
+            </button>
+
+            <h2 id="get-app-modal-title" className="font-display font-black text-2xl sm:text-3xl tracking-[-0.02em] text-center">
+              Get the app
+            </h2>
+            <p className="mt-2 text-sm text-white/55 text-center">Pick your platform.</p>
+
+            <div className="mt-8 space-y-4">
+              <a
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setShowAppModal(false)}
+                className="tl-btn-energy flex items-center justify-center gap-3 rounded-xl px-6 py-4 font-semibold text-white transition"
+              >
+                <svg viewBox="0 0 384 512" className="w-6 h-6 fill-current" aria-hidden="true">
+                  <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                </svg>
+                Download on the App Store
+              </a>
+
+              <div className="flex items-center justify-center gap-3 rounded-xl px-6 py-4 font-semibold text-white/50 border border-white/10 cursor-not-allowed select-none">
+                <svg viewBox="0 0 576 512" className="w-6 h-6 fill-current" aria-hidden="true">
+                  <path d="M420.55,301.93a24,24,0,1,1,24-24,24,24,0,0,1-24,24m-265.1,0a24,24,0,1,1,24-24,24,24,0,0,1-24,24m270.7-144.13,47.94-83a10,10,0,1,0-17.27-10h0l-48.54,84.07a301.25,301.25,0,0,0-246.56,0L113.18,64.8a10,10,0,1,0-17.27,10h0l47.94,83C64.53,202.22,8.24,285.55,0,384H576c-8.24-98.45-64.54-181.78-149.85-226.2"/>
+                </svg>
+                Android: Coming Soon
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

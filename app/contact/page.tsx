@@ -99,7 +99,7 @@ export default function ContactPage() {
           <Section title="Early Access">
             <p>
               Not a question, just want in? Join the{' '}
-              <Link href="/#waitlist" className="text-violet-400 hover:text-violet-300">
+              <Link href="/#early-access" className="text-violet-400 hover:text-violet-300">
                 waitlist on our home page
               </Link>
               {' '}to get project updates, newsletters, and early access to the app when it launches.
