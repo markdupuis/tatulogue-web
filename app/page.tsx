@@ -414,9 +414,9 @@ export default function Home() {
                 <img src={AVATAR_CANVAS} alt="Featured reader avatar" className="w-10 h-10 rounded-full object-cover ring-2 ring-[#07070d] -ml-5" />
                 <span className="text-sm text-white/45">artists &amp; collectors already on the list</span>
               </div>
-              <h2 className="font-display font-black text-3xl sm:text-5xl tracking-[-0.03em] leading-[0.95]">The articles are just the start.</h2>
+              <h2 className="font-display font-black text-3xl sm:text-5xl tracking-[-0.03em] leading-[0.95]">Not on iOS, or want in on the business?</h2>
               <p className="mt-5 text-white/55">
-                Get early access to the full Tatulogue platform: profiles, bookings, and a feed built for the craft.
+                Join the Android waitlist, or let us know you&apos;re interested in investing. Fill out the form below.
               </p>
             </div>
 
