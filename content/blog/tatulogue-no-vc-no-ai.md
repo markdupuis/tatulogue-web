@@ -21,11 +21,15 @@ VC money comes with a growth-at-all-costs clock attached to it. Ad load goes up,
 
 We didn't want to build something that ends up there in five years. So the people funding Tatulogue are tattoo artists, shop owners, and industry partners, not venture funds. You can see who's actually backing us on our [investors page](/investors), and we've committed to giving back 50% of all profits to the tattoo community. That's not a marketing line, it's the actual structure of the business.
 
+![A tattoo artist working in a warmly decorated studio surrounded by art](/images/blog/real-tattoo-studio-artist.jpg)
+
 ## Why There's No AI
 
 Tatulogue has a standing rule: no AI content. Protect the art, protect the artist.
 
 That means no AI-generated tattoo designs pushed into your feed, no AI slop crowding out actual work by actual tattooers. Feeds full of synthetic images are already a problem on the platforms artists are stuck using. We're not adding to it. If it's on Tatulogue, a person made it.
+
+![A tattoo artist hand-drawing a design in a studio](/images/blog/real-hand-drawn-tattoo-design.jpg)
 
 ## What This Actually Means for You
 

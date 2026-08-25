@@ -19,6 +19,8 @@ Short-form video is where a lot of tattoo culture already lives: process clips, 
 
 Bangers is Tatulogue's short-form video feed, built specifically for tattoo content. Instead of video getting mixed into a general feed alongside photos and text posts, Bangers gives it its own space, so artists and content creators have somewhere built for exactly that format.
 
+![A tattoo artist filming a tattoo session with a video camera set up in studio](/images/blog/tattoo-video-filming-process.jpg)
+
 ## Why We Built a Separate Space for It
 
 Video behaves differently than a static post. It deserves its own feed instead of getting buried between everything else. Giving Bangers its own section means video content actually gets seen as video content, not scrolled past as noise in a mixed feed.
@@ -26,5 +28,7 @@ Video behaves differently than a static post. It deserves its own feed instead o
 ## Who It's For
 
 If you're an artist who shoots process footage, timelapses, or shop content, Bangers is where that goes. If you're a collector, it's a way to see an artist's actual hand in motion, not just a finished healed photo.
+
+![A film crew setting up lighting to shoot content in a studio](/images/blog/tattoo-content-creator-filming.jpg)
 
 [Get the app](https://apps.apple.com/us/app/tatulogue/id6794140876) and check out Bangers for yourself.

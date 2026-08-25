@@ -29,6 +29,14 @@ Tatulogue's search is built around the three things that actually matter when yo
 
 You're not sifting through an algorithm's idea of what's trending. You're looking for the thing you're actually trying to find.
 
+### A Few of the Styles You Can Search For
+
+![Bold, colorful Japanese-influenced tattoo sleeve with koi and floral motifs](/images/blog/style-neo-traditional-example.jpg)
+
+![A delicate, minimal fine line tattoo on a forearm](/images/blog/style-fine-line-example.jpg)
+
+![A black and grey realism wolf portrait tattoo being inked](/images/blog/style-black-grey-example.jpg)
+
 ## Why This Matters
 
 A search built around style and location means the artist you find is more likely to actually be a fit, someone whose work matches what you're picturing and who's realistically bookable near you. It also means artists doing great, specific work don't need a viral moment to get seen by the right collector.

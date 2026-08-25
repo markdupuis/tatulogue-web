@@ -170,7 +170,8 @@ export default async function BlogPost({ params }: { params: { slug: string } })
               prose-code:text-amber-400 prose-code:bg-zinc-900 prose-code:rounded prose-code:px-1.5 prose-code:text-sm
               prose-hr:border-white/10
               prose-li:text-zinc-300
-              prose-table:text-sm prose-th:text-zinc-300 prose-td:text-zinc-400 prose-thead:border-white/20 prose-tbody:border-white/10"
+              prose-table:text-sm prose-th:text-zinc-300 prose-td:text-zinc-400 prose-thead:border-white/20 prose-tbody:border-white/10
+              prose-img:rounded-xl prose-img:border prose-img:border-white/8"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
         </div>
