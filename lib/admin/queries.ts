@@ -78,6 +78,20 @@ export async function updateReportStatus(id: string, status: ReportStatus): Prom
   await supabase.from('bug_reports').update({ status }).eq('id', id);
 }
 
+export interface BugReportEdits {
+  title: string;
+  description: string;
+  priority: Priority;
+  steps_to_reproduce: string | null;
+  expected_behavior: string | null;
+  actual_behavior: string | null;
+}
+
+export async function updateReport(id: string, edits: BugReportEdits): Promise<boolean> {
+  const { error } = await supabase.from('bug_reports').update(edits).eq('id', id);
+  return !error;
+}
+
 export async function convertBugToRoadmap(report: BugReport): Promise<RoadmapItem | null> {
   const priority = report.priority === 'critical' ? 1 : report.priority === 'high' ? 2 : 3;
   const { data, error } = await supabase

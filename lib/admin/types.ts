@@ -1,4 +1,7 @@
-export type ReportStatus = 'open' | 'resolved' | 'closed';
+// 'resolved' is legacy: existing reports were migrated to 'closed' and it's
+// no longer offered as an action here, but it stays in the type since the
+// Flutter app's own admin screen can still write it.
+export type ReportStatus = 'open' | 'in_progress' | 'resolved' | 'closed';
 export type ReportType = 'bug' | 'feature_request';
 export type Priority = 'low' | 'medium' | 'high' | 'critical';
 
