@@ -27,9 +27,9 @@ This launch only means something if the artists are on it. We're actively lookin
 
 If you know a shop that wants to be featured, or you run one and want the details on getting set up, [reach out to us](/contact). We're also always talking to artists and industry partners about deeper involvement. Take a look at [who's already on board](/investors) if you want a sense of what that looks like.
 
-## Android Is Coming
+## Android Is Live Too
 
-We know. We're working through beta steps on Android right now. No firm date yet, but it's actively in progress, not just on a someday list. If you want to know the second it's ready, [get on the early access list](/#early-access) and we'll let you know.
+Update: it's here. [Tatulogue is now on Google Play](/blog/tatulogue-live-on-google-play) as well, so this isn't an iOS-only thing anymore.
 
 ---
 
