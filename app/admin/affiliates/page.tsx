@@ -5,6 +5,10 @@ import AdminShell from '../../../components/admin/AdminShell';
 import { createAffiliate, fetchAffiliateStats } from '../../../lib/admin/queries';
 import type { AffiliateStat } from '../../../lib/admin/types';
 
+function affiliateLink(code: string): string {
+  return `https://tatulogue.com/get/${code}`;
+}
+
 export default function AffiliatesPage() {
   const [stats, setStats] = useState<AffiliateStat[]>([]);
   const [loading, setLoading] = useState(true);
@@ -12,6 +16,18 @@ export default function AffiliatesPage() {
   const [name, setName] = useState('');
   const [creating, setCreating] = useState(false);
   const [createError, setCreateError] = useState<string | null>(null);
+  const [copiedCode, setCopiedCode] = useState<string | null>(null);
+
+  async function handleCopy(affiliateCode: string) {
+    try {
+      await navigator.clipboard.writeText(affiliateLink(affiliateCode));
+      setCopiedCode(affiliateCode);
+      setTimeout(() => setCopiedCode((c) => (c === affiliateCode ? null : c)), 1500);
+    } catch {
+      // Clipboard API can fail without a secure context / permission --
+      // nothing useful to do beyond leaving the button unchanged.
+    }
+  }
 
   function load() {
     setLoading(true);
@@ -120,6 +136,7 @@ export default function AffiliatesPage() {
                 <tr className="border-b border-white/8 text-left text-xs text-white/40">
                   <th className="px-4 py-3">Code</th>
                   <th className="px-4 py-3">Name</th>
+                  <th className="px-4 py-3">Link</th>
                   <th className="px-4 py-3 text-right">Clicks</th>
                   <th className="px-4 py-3 text-right">Installs</th>
                   <th className="px-4 py-3 text-right">Signups</th>
@@ -131,7 +148,7 @@ export default function AffiliatesPage() {
               <tbody>
                 {stats.length === 0 ? (
                   <tr>
-                    <td colSpan={8} className="px-4 py-8 text-center text-white/30">
+                    <td colSpan={9} className="px-4 py-8 text-center text-white/30">
                       No affiliates yet -- add one above.
                     </td>
                   </tr>
@@ -140,6 +157,15 @@ export default function AffiliatesPage() {
                     <tr key={s.code} className="border-b border-white/5 text-white/80">
                       <td className="px-4 py-3 font-mono text-violet-300">{s.code}</td>
                       <td className="px-4 py-3">{s.name ?? '—'}</td>
+                      <td className="px-4 py-3">
+                        <button
+                          type="button"
+                          onClick={() => handleCopy(s.code)}
+                          className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-white/70 hover:border-white/30 hover:text-white"
+                        >
+                          {copiedCode === s.code ? 'Copied!' : 'Copy link'}
+                        </button>
+                      </td>
                       <td className="px-4 py-3 text-right">{s.clicks}</td>
                       <td className="px-4 py-3 text-right">{s.installs}</td>
                       <td className="px-4 py-3 text-right">{s.signups}</td>
