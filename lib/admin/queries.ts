@@ -1,6 +1,7 @@
 import { supabase } from '../supabase';
 import type {
   AdminUser,
+  AffiliateStat,
   ArtistDocPaths,
   ArtistRow,
   BlogIdea,
@@ -343,6 +344,49 @@ export async function fetchWaitlist(): Promise<WaitlistEntry[]> {
     account_type: row.account_type as string,
     created_at: row.created_at as string,
   }));
+}
+
+export async function fetchAffiliateStats(): Promise<AffiliateStat[]> {
+  const { data: affiliates, error: affiliatesError } = await supabase
+    .from('affiliates')
+    .select('code, name')
+    .order('created_at', { ascending: true });
+
+  if (affiliatesError || !affiliates) return [];
+
+  const { data: events, error: eventsError } = await supabase
+    .from('attribution_events')
+    .select('affiliate_code, event_type, confirmed')
+    .limit(ANALYTICS_ROW_CAP);
+
+  const rows = eventsError || !events ? [] : events;
+
+  return affiliates.map((a: { code: string; name: string | null }): AffiliateStat => {
+    const forCode = rows.filter((r: Record<string, unknown>) => r.affiliate_code === a.code);
+    const clicks = forCode.filter((r: Record<string, unknown>) => r.event_type === 'click').length;
+    const installs = forCode.filter((r: Record<string, unknown>) => r.event_type === 'install').length;
+    const signupRows = forCode.filter((r: Record<string, unknown>) => r.event_type === 'signup');
+    const confirmedSignups = signupRows.filter((r: Record<string, unknown>) => r.confirmed === true).length;
+
+    return {
+      code: a.code,
+      name: a.name,
+      clicks,
+      installs,
+      signups: signupRows.length,
+      confirmedSignups,
+      unconfirmedSignups: signupRows.length - confirmedSignups,
+      conversionPct: clicks > 0 ? (signupRows.length / clicks) * 100 : 0,
+    };
+  });
+}
+
+export async function createAffiliate(code: string, name: string): Promise<boolean> {
+  const { error } = await supabase.from('affiliates').insert({
+    code: code.trim(),
+    name: name.trim() || null,
+  });
+  return !error;
 }
 
 export async function fetchOverviewMetrics(): Promise<OverviewMetrics> {

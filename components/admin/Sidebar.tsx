@@ -21,6 +21,7 @@ const NAV_ITEMS: NavItem[] = [
   { key: 'artists', label: 'Artist Approvals', href: '/admin/artists', icon: '🎨' },
   { key: 'users', label: 'Users', href: '/admin/users', icon: '👥' },
   { key: 'waitlist', label: 'Waitlist', href: '/admin/waitlist', icon: '📋' },
+  { key: 'affiliates', label: 'Affiliates', href: '/admin/affiliates', icon: '🔗' },
   { key: 'analytics', label: 'Analytics', href: '/admin/analytics', icon: '📈' },
 ];
 

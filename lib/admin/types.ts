@@ -140,3 +140,14 @@ export interface WaitlistEntry {
   account_type: string;
   created_at: string;
 }
+
+export interface AffiliateStat {
+  code: string;
+  name: string | null;
+  clicks: number;
+  installs: number;
+  signups: number;
+  confirmedSignups: number;
+  unconfirmedSignups: number;
+  conversionPct: number; // signups / clicks, 0 when clicks is 0
+}
