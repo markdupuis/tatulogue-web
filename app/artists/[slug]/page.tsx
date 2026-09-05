@@ -11,7 +11,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const artist = ARTISTS[params.slug];
   if (!artist || artist.enabled === false) return {};
-  const title = `${artist.name} — ${artist.shopName} | Tatulogue`;
+  const title = `${artist.name} at ${artist.shopName} | Tatulogue`;
   const description = `${artist.tagline}. ${artist.specialties.join(', ')}. Follow ${artist.name} on TATULOGUE.`;
   return {
     title,
@@ -300,7 +300,7 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
               />
               {img.placeholder && (
                 <span className="absolute inset-x-0 bottom-0 bg-black/80 px-2 py-1.5 text-center text-[10px] font-bold uppercase tracking-wider text-[#F5AF19]">
-                  Placeholder — awaiting artist photos
+                  Placeholder, awaiting artist photos
                 </span>
               )}
             </div>
@@ -313,7 +313,7 @@ export default function ArtistPage({ params }: { params: { slug: string } }) {
             Follow <span className="tl-text-grad-blue">{firstName}</span> on TATULOGUE
           </h3>
           <p className="mt-4 text-white/60 max-w-lg mx-auto">
-            Find artists by style and location. Alternative social media for People Over Profit —
+            Find artists by style and location. Alternative social media for People Over Profit,
             made for tattooers and tattoo culture.
           </p>
           <a

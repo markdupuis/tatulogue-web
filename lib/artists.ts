@@ -133,13 +133,12 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     slug: 'pony-lawson',
     name: 'Pony Lawson',
     type: 'artist',
-    enabled: false, // pending his permission to go live
     tagline: 'Tattooer, co-founder of Mayday Tattoo Co & Ink Master alum',
     heroImage: '/images/pony-lawson/pony-lawson-headshot.jpg',
     heroImageAlt: 'Pony Lawson headshot',
     bio: [
       "Pony Lawson is a world-renowned tattoo artist. He's the co-founder of Mayday Tattoo Co, an OG cast member on season 16 of Ink Master, and host of Tattoo Critiques on YouTube. He's also the creator of the original Tattoo Stencil App and Tattoo Palette App.",
-      "With over 20 years of experience, he's best known for realistic tattoos — micro portraits, patches, and metallic pieces. Pony works primarily in Chicago but frequently travels to conventions and guest spots around the world.",
+      "With over 20 years of experience, he's best known for realistic tattoos: micro portraits, patches, and metallic pieces. Pony works primarily in Chicago but frequently travels to conventions and guest spots around the world.",
     ],
     shopName: 'Mayday Tattoo Co',
     instagramHandle: 'ponylawson',
@@ -166,7 +165,7 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     phone: '',
     email: 'info@maydaytattooco.com',
     website: 'https://ponylawson.com',
-    hours: 'By appointment only — no walk-ins',
+    hours: 'By appointment only, no walk-ins',
     socials: [
       { platform: 'instagram', url: 'https://www.instagram.com/ponylawson/', label: '@ponylawson' },
       { platform: 'facebook', url: 'https://www.facebook.com/ponylawsontattoo', label: 'Pony Lawson' },
