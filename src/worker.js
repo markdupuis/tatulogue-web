@@ -90,6 +90,128 @@ function iosInterstitial(code) {
 </html>`;
 }
 
+// Admin blog editor: POST /api/admin/blog/save { slug, content }
+//
+// Post bodies live as markdown files in content/blog/ in this repo (there's
+// no database storage of post content), so "save" means committing the
+// edited file straight to GitHub via its Contents API -- Cloudflare Pages'
+// existing push-to-deploy picks it up from there, same as every other
+// content change to this site. The GitHub token stays server-side; the
+// client only ever holds its own Supabase session token.
+const GITHUB_OWNER = 'markdupuis';
+const GITHUB_REPO = 'tatulogue-web';
+const BLOG_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+async function verifyWebAdmin(authHeader) {
+  if (!authHeader) return false;
+  const token = authHeader.replace(/^Bearer\s+/i, '');
+  if (!token) return false;
+
+  const userResp = await fetch(`${SUPABASE_URL}/auth/v1/user`, {
+    headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${token}` },
+  });
+  if (!userResp.ok) return false;
+  const user = await userResp.json();
+  if (!user?.id) return false;
+
+  const adminResp = await fetch(
+    `${SUPABASE_URL}/rest/v1/web_admins?user_id=eq.${user.id}&select=id`,
+    { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${token}` } }
+  );
+  if (!adminResp.ok) return false;
+  const rows = await adminResp.json();
+  return Array.isArray(rows) && rows.length > 0;
+}
+
+function toBase64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let binary = '';
+  bytes.forEach((b) => { binary += String.fromCharCode(b); });
+  return btoa(binary);
+}
+
+async function handleBlogSave(request, env) {
+  const isAdmin = await verifyWebAdmin(request.headers.get('authorization'));
+  if (!isAdmin) {
+    return new Response(JSON.stringify({ error: 'Not authorized' }), {
+      status: 403,
+      headers: { 'content-type': 'application/json' },
+    });
+  }
+
+  if (!env.GITHUB_TOKEN) {
+    return new Response(JSON.stringify({ error: 'GITHUB_TOKEN is not configured on this Worker' }), {
+      status: 500,
+      headers: { 'content-type': 'application/json' },
+    });
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return new Response(JSON.stringify({ error: 'Invalid JSON body' }), {
+      status: 400,
+      headers: { 'content-type': 'application/json' },
+    });
+  }
+
+  const { slug, content } = body || {};
+  if (typeof slug !== 'string' || !BLOG_SLUG_PATTERN.test(slug)) {
+    return new Response(JSON.stringify({ error: 'Invalid slug' }), {
+      status: 400,
+      headers: { 'content-type': 'application/json' },
+    });
+  }
+  if (typeof content !== 'string' || content.trim().length === 0) {
+    return new Response(JSON.stringify({ error: 'Content cannot be empty' }), {
+      status: 400,
+      headers: { 'content-type': 'application/json' },
+    });
+  }
+
+  const path = `content/blog/${slug}.md`;
+  const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`;
+  const ghHeaders = {
+    Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+    Accept: 'application/vnd.github+json',
+    'User-Agent': 'tatulogue-web-admin',
+  };
+
+  const getResp = await fetch(`${apiUrl}?ref=master`, { headers: ghHeaders });
+  if (!getResp.ok) {
+    return new Response(JSON.stringify({ error: `Post "${slug}" not found in the repo` }), {
+      status: 404,
+      headers: { 'content-type': 'application/json' },
+    });
+  }
+  const existing = await getResp.json();
+
+  const putResp = await fetch(apiUrl, {
+    method: 'PUT',
+    headers: { ...ghHeaders, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      message: `chore(blog): edit ${slug} via admin portal`,
+      content: toBase64(content),
+      sha: existing.sha,
+      branch: 'master',
+    }),
+  });
+
+  if (!putResp.ok) {
+    const errText = await putResp.text();
+    console.error('GitHub commit failed', putResp.status, errText);
+    return new Response(JSON.stringify({ error: 'Failed to save to GitHub' }), {
+      status: 502,
+      headers: { 'content-type': 'application/json' },
+    });
+  }
+
+  return new Response(JSON.stringify({ ok: true }), {
+    headers: { 'content-type': 'application/json' },
+  });
+}
+
 function fallbackPage() {
   return `<!doctype html>
 <html>
@@ -119,6 +241,11 @@ function fallbackPage() {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.pathname === '/api/admin/blog/save' && request.method === 'POST') {
+      return handleBlogSave(request, env);
+    }
+
     const match = url.pathname.match(/^\/get\/([A-Za-z0-9_-]+)\/?$/);
 
     if (match) {

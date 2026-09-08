@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from 'react';
 import AdminShell from '../../../components/admin/AdminShell';
+import EditPostModal from './EditPostModal';
 import {
   createBlogIdea,
   deleteBlogIdea,
@@ -139,9 +140,13 @@ function IdeaCard({ idea, onMove, onSlug, onDelete }: IdeaCardProps) {
   );
 }
 
-function ExistingPostCard({ post }: { post: ExistingPostSummary }) {
+function ExistingPostCard({ post, onEdit }: { post: ExistingPostSummary; onEdit: (post: ExistingPostSummary) => void }) {
   return (
-    <div className="rounded-xl border border-white/8 bg-white/[0.02] p-4">
+    <button
+      type="button"
+      onClick={() => onEdit(post)}
+      className="w-full rounded-xl border border-white/8 bg-white/[0.02] p-4 text-left transition-colors hover:border-violet-500/40 hover:bg-white/[0.04]"
+    >
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-semibold text-white">{post.title}</h3>
         <span className="flex-shrink-0 rounded-full border border-green-400/20 px-2 py-0.5 text-xs text-green-400">
@@ -159,12 +164,13 @@ function ExistingPostCard({ post }: { post: ExistingPostSummary }) {
           href={`/blog/${post.slug}`}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
           className="text-xs text-violet-400 hover:text-violet-300"
         >
           View →
         </a>
       </div>
-    </div>
+    </button>
   );
 }
 
@@ -178,6 +184,7 @@ export default function BlogsClient({ existingPosts }: BlogsClientProps) {
   const [showForm, setShowForm] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState(DEFAULT_FORM);
+  const [editingPost, setEditingPost] = useState<ExistingPostSummary | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -338,7 +345,7 @@ export default function BlogsClient({ existingPosts }: BlogsClientProps) {
                           />
                         ))}
                         {livePosts.map((post) => (
-                          <ExistingPostCard key={post.slug} post={post} />
+                          <ExistingPostCard key={post.slug} post={post} onEdit={setEditingPost} />
                         ))}
                       </>
                     )}
@@ -349,6 +356,14 @@ export default function BlogsClient({ existingPosts }: BlogsClientProps) {
           </div>
         )}
       </section>
+
+      {editingPost && (
+        <EditPostModal
+          slug={editingPost.slug}
+          title={editingPost.title}
+          onClose={() => setEditingPost(null)}
+        />
+      )}
     </AdminShell>
   );
 }
