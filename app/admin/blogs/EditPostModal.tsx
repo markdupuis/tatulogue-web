@@ -46,26 +46,16 @@ export default function EditPostModal({ slug, title, onClose }: EditPostModalPro
     setSaveState('saving');
     setSaveError(null);
     try {
-      const { data } = await supabase.auth.getSession();
-      const token = data.session?.access_token;
-      if (!token) {
-        setSaveError('Your session expired. Please sign in again.');
-        setSaveState('error');
-        return;
-      }
-
-      const res = await fetch('/api/admin/blog/save', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ slug, content }),
+      const { error, response } = await supabase.functions.invoke('commit_blog_post', {
+        body: { slug, content },
       });
 
-      const result = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setSaveError(result.error || 'Save failed');
+      if (error) {
+        // supabase-js puts a generic message on `error` for any non-2xx --
+        // the actual { error: "..." } body this function returns is only
+        // on the raw response.
+        const body = await response?.json().catch(() => null);
+        setSaveError(body?.error || error.message || 'Save failed');
         setSaveState('error');
         return;
       }
