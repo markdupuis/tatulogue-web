@@ -199,10 +199,17 @@ export async function deleteRoadmapItem(id: string): Promise<void> {
 export async function fetchUsers(): Promise<AdminUser[]> {
   const { data, error } = await supabase
     .from('users')
-    .select('id, username, full_name, email, user_type, avatar, created_at')
+    .select('id, username, full_name, user_type, avatar, created_at')
     .order('created_at', { ascending: false });
 
   if (error || !data) return [];
+
+  // Emails no longer live on public.users (readable by every logged-in user);
+  // they moved to user_private, which RLS exposes only to the owner and admins.
+  const { data: privateRows } = await supabase.from('user_private').select('id, email');
+  const emailById = new Map<string, string | null>(
+    (privateRows ?? []).map((p: { id: string; email: string | null }) => [p.id, p.email])
+  );
 
   const { data: postRows } = await supabase.from('posts').select('author_id');
   const postCountByUser = new Map<string, number>();
@@ -214,7 +221,7 @@ export async function fetchUsers(): Promise<AdminUser[]> {
     id: row.id as string,
     username: (row.username as string | null) ?? null,
     full_name: (row.full_name as string | null) ?? null,
-    email: (row.email as string | null) ?? null,
+    email: emailById.get(row.id as string) ?? null,
     user_type: row.user_type as string,
     avatar: (row.avatar as string | null) ?? null,
     created_at: row.created_at as string,
