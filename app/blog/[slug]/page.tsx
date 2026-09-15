@@ -93,6 +93,9 @@ export default async function BlogPost({ params }: { params: { slug: string } })
 
       {/* JSON-LD */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {post.faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(post.faqSchema) }} />
+      )}
 
       {/* Nav */}
       <header className="fixed top-0 inset-x-0 z-50">

@@ -22,6 +22,25 @@ export interface PostMeta {
 
 export interface Post extends PostMeta {
   contentHtml: string;
+  faqSchema: Record<string, unknown> | null;
+}
+
+// Posts end with a ```json fenced FAQPage schema block for search engines,
+// meant to be invisible on the page and injected as its own <script
+// type="application/ld+json"> instead. Without this extraction it was
+// flowing straight through remark and rendering as a visible code block on
+// every post that had one.
+function extractFaqSchema(content: string): { content: string; faqSchema: Record<string, unknown> | null } {
+  const match = content.match(/\n```json\s*\n([\s\S]*?)\n```\s*$/);
+  if (!match) return { content, faqSchema: null };
+
+  try {
+    const parsed = JSON.parse(match[1]);
+    if (parsed?.['@type'] !== 'FAQPage') return { content, faqSchema: null };
+    return { content: content.slice(0, match.index), faqSchema: parsed };
+  } catch {
+    return { content, faqSchema: null };
+  }
 }
 
 function estimateReadTime(content: string): number {
@@ -66,7 +85,8 @@ export async function getPost(slug: string): Promise<Post | null> {
   if (!fs.existsSync(filePath)) return null;
 
   const raw = fs.readFileSync(filePath, 'utf-8');
-  const { data, content } = matter(raw);
+  const { data, content: rawContent } = matter(raw);
+  const { content, faqSchema } = extractFaqSchema(rawContent);
 
   const processed = await remark().use(html, { sanitize: false }).process(content);
 
@@ -91,6 +111,7 @@ export async function getPost(slug: string): Promise<Post | null> {
     featured: data.featured ?? false,
     readTime: data.readTime ?? estimateReadTime(content),
     contentHtml,
+    faqSchema,
   };
 }
 
