@@ -37,6 +37,46 @@ function displayName(a: ArtistRow): string {
   return a.professional_name || a.full_name || a.username || 'Unnamed artist';
 }
 
+function fullAddress(a: ArtistRow): string | null {
+  const cityStateZip = [a.city, a.state, a.zip].filter(Boolean).join(', ');
+  const parts = [a.business_address, cityStateZip, a.country && a.country !== 'US' ? a.country : null].filter(Boolean);
+  return parts.length > 0 ? parts.join(' • ') : null;
+}
+
+interface DetailFieldProps {
+  label: string;
+  value: string | null;
+  href?: string;
+}
+
+function DetailField({ label, value, href }: DetailFieldProps) {
+  if (!value) {
+    return (
+      <div>
+        <p className="text-[10px] uppercase tracking-wider text-white/25">{label}</p>
+        <p className="text-sm text-white/25">Not provided</p>
+      </div>
+    );
+  }
+  return (
+    <div>
+      <p className="text-[10px] uppercase tracking-wider text-white/25">{label}</p>
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-violet-300 underline decoration-violet-300/30 hover:text-violet-200"
+        >
+          {value}
+        </a>
+      ) : (
+        <p className="text-sm text-white/80">{value}</p>
+      )}
+    </div>
+  );
+}
+
 function pill(activeState: boolean): string {
   return `px-4 py-1.5 rounded-full text-sm border transition-colors ${
     activeState
@@ -297,7 +337,18 @@ export default function ArtistApprovalsPage() {
                         </tr>
                         {expanded && (
                           <tr className="border-b border-white/5 bg-white/[0.015]">
-                            <td colSpan={5} className="px-4 py-3">
+                            <td colSpan={5} className="px-4 py-4">
+                              <div className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+                                <DetailField label="Shop / business name" value={a.shop_name} />
+                                <DetailField label="Address" value={fullAddress(a)} />
+                                <DetailField label="Phone" value={a.phone} href={a.phone ? `tel:${a.phone}` : undefined} />
+                                <DetailField label="Email" value={a.email} href={a.email ? `mailto:${a.email}` : undefined} />
+                                <DetailField
+                                  label="Instagram"
+                                  value={a.instagram_handle ? `@${a.instagram_handle}` : null}
+                                  href={a.instagram_handle ? `https://instagram.com/${a.instagram_handle}` : undefined}
+                                />
+                              </div>
                               <div className="flex flex-wrap items-center gap-2">
                                 <span className="text-xs text-white/40">Documents:</span>
                                 {!docs ? (

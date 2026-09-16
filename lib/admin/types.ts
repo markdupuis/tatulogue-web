@@ -118,7 +118,15 @@ export interface ArtistRow {
   full_name: string | null;
   avatar: string | null;
   professional_name: string;
+  shop_name: string | null;
   business_address: string | null;
+  city: string | null;
+  state: string | null;
+  zip: string | null;
+  country: string | null;
+  phone: string | null;
+  email: string | null;
+  instagram_handle: string | null;
   specializations: string[];
   verification_status: VerificationStatus;
   created_at: string | null;

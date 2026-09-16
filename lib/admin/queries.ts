@@ -256,7 +256,9 @@ export async function fetchArtists(): Promise<ArtistRow[]> {
   // artist_profiles has no timestamp column -- "joined" date comes from users.
   const { data, error } = await supabase
     .from('artist_profiles')
-    .select('id, professional_name, business_address, specializations, verification_status');
+    .select(
+      'id, professional_name, shop_name, business_address, city, state, zip, country, phone, instagram_handle, specializations, verification_status'
+    );
 
   if (error || !data) {
     console.error('[fetchArtists] artist_profiles query failed:', error);
@@ -275,10 +277,26 @@ export async function fetchArtists(): Promise<ArtistRow[]> {
     console.error('[fetchArtists] users query failed:', userError);
   }
 
+  // Email lives in user_private, off the main users table, since it's
+  // owner/admin-only -- web admins are allowed to read it (RLS:
+  // user_private_select_self_or_admin), which is exactly the verification
+  // use case here.
+  const { data: emailRows, error: emailError } = await supabase
+    .from('user_private')
+    .select('id, email')
+    .in('id', ids);
+
+  if (emailError) {
+    console.error('[fetchArtists] user_private query failed:', emailError);
+  }
+
   const userById = new Map(
     (userRows ?? []).map(
       (u: { id: string; username: string | null; full_name: string | null; avatar: string | null; created_at: string | null }) => [u.id, u]
     )
+  );
+  const emailById = new Map(
+    (emailRows ?? []).map((u: { id: string; email: string | null }) => [u.id, u.email])
   );
 
   return data
@@ -290,7 +308,15 @@ export async function fetchArtists(): Promise<ArtistRow[]> {
         full_name: user?.full_name ?? null,
         avatar: user?.avatar ?? null,
         professional_name: row.professional_name as string,
+        shop_name: (row.shop_name as string | null) ?? null,
         business_address: (row.business_address as string | null) ?? null,
+        city: (row.city as string | null) ?? null,
+        state: (row.state as string | null) ?? null,
+        zip: (row.zip as string | null) ?? null,
+        country: (row.country as string | null) ?? null,
+        phone: (row.phone as string | null) ?? null,
+        email: emailById.get(row.id as string) ?? null,
+        instagram_handle: (row.instagram_handle as string | null) ?? null,
         specializations: (row.specializations as string[] | null) ?? [],
         verification_status: row.verification_status as VerificationStatus,
         created_at: user?.created_at ?? null,
