@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import Link from 'next/link';
 import AdminShell from '../../../components/admin/AdminShell';
 import { fetchUsers, sendPasswordReset } from '../../../lib/admin/queries';
 import type { AdminUser } from '../../../lib/admin/types';
@@ -75,7 +76,7 @@ export default function UsersPage() {
     const term = search.trim().toLowerCase();
     const matched = term
       ? users.filter((u) =>
-          [u.username, u.full_name, u.email]
+          [u.username, u.full_name, u.email, u.affiliate_code]
             .filter((v): v is string => Boolean(v))
             .some((v) => v.toLowerCase().includes(term))
         )
@@ -119,7 +120,7 @@ export default function UsersPage() {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search username, name, or email…"
+          placeholder="Search username, name, email, or affiliate code…"
           className="w-full max-w-sm rounded-xl border border-white/8 bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-white/40 focus:border-violet-400 focus:outline-none"
         />
         <span className="shrink-0 text-sm text-white/40">
@@ -141,6 +142,7 @@ export default function UsersPage() {
                 <th className="px-4 py-3 font-medium">Name</th>
                 <th className="px-4 py-3 font-medium">Email</th>
                 <th className="px-4 py-3 font-medium">Type</th>
+                <th className="px-4 py-3 font-medium">Affiliate</th>
                 <th className="px-4 py-3 font-medium">
                   <button
                     type="button"
@@ -175,6 +177,21 @@ export default function UsersPage() {
                     </span>
                   </td>
                   <td className="px-4 py-3 text-white/80">{user.post_count}</td>
+                  <td className="px-4 py-3">
+                    {user.affiliate_code ? (
+                      <Link
+                        href="/admin/affiliates"
+                        className={`text-xs font-medium underline decoration-dotted ${
+                          user.affiliate_confirmed ? 'text-emerald-400' : 'text-amber-300'
+                        }`}
+                        title={user.affiliate_confirmed ? 'Confirmed: matched the code detected on install' : 'Unconfirmed: entered code did not match (or nothing was) detected on install'}
+                      >
+                        {user.affiliate_code}
+                      </Link>
+                    ) : (
+                      <span className="text-xs text-white/25">—</span>
+                    )}
+                  </td>
                   <td className="px-4 py-3 text-white/40">{formatDate(user.created_at)}</td>
                   <td className="px-4 py-3">
                     <button

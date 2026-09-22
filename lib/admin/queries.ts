@@ -217,16 +217,38 @@ export async function fetchUsers(): Promise<AdminUser[]> {
     postCountByUser.set(row.author_id, (postCountByUser.get(row.author_id) ?? 0) + 1);
   }
 
-  return data.map((row: Record<string, unknown>): AdminUser => ({
-    id: row.id as string,
-    username: (row.username as string | null) ?? null,
-    full_name: (row.full_name as string | null) ?? null,
-    email: emailById.get(row.id as string) ?? null,
-    user_type: row.user_type as string,
-    avatar: (row.avatar as string | null) ?? null,
-    created_at: row.created_at as string,
-    post_count: postCountByUser.get(row.id as string) ?? 0,
-  }));
+  // Which affiliate (if any) gets credit for this signup. Only 'signup'
+  // events carry a user_id (AttributionService.logSignup in the app) -- and
+  // it only writes a row at all if the "Referred by" field was non-empty at
+  // submission, so most users will show nothing here even when they really
+  // did come from a QR code/link, if that field didn't get filled in.
+  const { data: attributionRows } = await supabase
+    .from('attribution_events')
+    .select('user_id, affiliate_code, confirmed, created_at')
+    .eq('event_type', 'signup')
+    .not('user_id', 'is', null)
+    .order('created_at', { ascending: true });
+  const affiliateByUser = new Map<string, { code: string; confirmed: boolean }>();
+  for (const row of (attributionRows ?? []) as { user_id: string; affiliate_code: string; confirmed: boolean }[]) {
+    // Last one wins if a user somehow has more than one signup event.
+    affiliateByUser.set(row.user_id, { code: row.affiliate_code, confirmed: row.confirmed });
+  }
+
+  return data.map((row: Record<string, unknown>): AdminUser => {
+    const affiliate = affiliateByUser.get(row.id as string);
+    return {
+      id: row.id as string,
+      username: (row.username as string | null) ?? null,
+      full_name: (row.full_name as string | null) ?? null,
+      email: emailById.get(row.id as string) ?? null,
+      user_type: row.user_type as string,
+      avatar: (row.avatar as string | null) ?? null,
+      created_at: row.created_at as string,
+      post_count: postCountByUser.get(row.id as string) ?? 0,
+      affiliate_code: affiliate?.code ?? null,
+      affiliate_confirmed: affiliate?.confirmed ?? false,
+    };
+  });
 }
 
 export const PASSWORD_RESET_REDIRECT = 'https://tatulogue.com/admin/reset-password';

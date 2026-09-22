@@ -54,6 +54,8 @@ export interface AdminUser {
   avatar: string | null;
   created_at: string;
   post_count: number;
+  affiliate_code: string | null;
+  affiliate_confirmed: boolean;
 }
 
 export interface SearchQueryStat {
