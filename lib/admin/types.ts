@@ -45,6 +45,8 @@ export interface TeamMember {
   name: string;
 }
 
+export type AffiliateSource = 'manual' | 'auto' | null;
+
 export interface AdminUser {
   id: string;
   username: string | null;
@@ -56,6 +58,12 @@ export interface AdminUser {
   post_count: number;
   affiliate_code: string | null;
   affiliate_confirmed: boolean;
+  affiliate_source: AffiliateSource;
+}
+
+export interface AffiliateOption {
+  code: string;
+  name: string | null;
 }
 
 export interface SearchQueryStat {

@@ -3,10 +3,17 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import AdminShell from '../../../components/admin/AdminShell';
-import { fetchUsers, sendPasswordReset } from '../../../lib/admin/queries';
-import type { AdminUser } from '../../../lib/admin/types';
+import {
+  clearManualAffiliate,
+  fetchAffiliateOptions,
+  fetchUsers,
+  sendPasswordReset,
+  setManualAffiliate,
+} from '../../../lib/admin/queries';
+import type { AdminUser, AffiliateOption } from '../../../lib/admin/types';
 
 type ResetStatus = 'idle' | 'sending' | 'sent' | 'error';
+type AffiliateSaveStatus = 'idle' | 'saving' | 'error';
 
 const TYPE_CHIP_COLORS: Record<string, string> = {
   admin: 'text-violet-400',
@@ -54,16 +61,20 @@ function Avatar({ user }: { user: AdminUser }) {
 
 export default function UsersPage() {
   const [users, setUsers] = useState<AdminUser[]>([]);
+  const [affiliateOptions, setAffiliateOptions] = useState<AffiliateOption[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [sortByPosts, setSortByPosts] = useState(false);
   const [resetStatus, setResetStatus] = useState<Record<string, ResetStatus>>({});
+  const [editingAffiliateId, setEditingAffiliateId] = useState<string | null>(null);
+  const [affiliateSaveStatus, setAffiliateSaveStatus] = useState<Record<string, AffiliateSaveStatus>>({});
 
   useEffect(() => {
     let active = true;
-    fetchUsers().then((rows) => {
+    Promise.all([fetchUsers(), fetchAffiliateOptions()]).then(([rows, options]) => {
       if (active) {
         setUsers(rows);
+        setAffiliateOptions(options);
         setLoading(false);
       }
     });
@@ -71,6 +82,28 @@ export default function UsersPage() {
       active = false;
     };
   }, []);
+
+  async function handleAffiliateChange(user: AdminUser, newCode: string) {
+    setEditingAffiliateId(null);
+    setAffiliateSaveStatus((prev) => ({ ...prev, [user.id]: 'saving' }));
+
+    const ok = newCode
+      ? await setManualAffiliate(user.id, newCode)
+      : await clearManualAffiliate(user.id);
+
+    if (ok) {
+      setUsers((prev) =>
+        prev.map((u) =>
+          u.id === user.id
+            ? { ...u, affiliate_code: newCode || null, affiliate_confirmed: false, affiliate_source: newCode ? 'manual' : null }
+            : u
+        )
+      );
+      setAffiliateSaveStatus((prev) => ({ ...prev, [user.id]: 'idle' }));
+    } else {
+      setAffiliateSaveStatus((prev) => ({ ...prev, [user.id]: 'error' }));
+    }
+  }
 
   const filtered = useMemo(() => {
     const term = search.trim().toLowerCase();
@@ -126,6 +159,12 @@ export default function UsersPage() {
         <span className="shrink-0 text-sm text-white/40">
           {filtered.length} {filtered.length === 1 ? 'user' : 'users'}
         </span>
+        <Link
+          href="/admin/affiliates"
+          className="shrink-0 text-sm text-violet-300 underline decoration-violet-300/30 hover:text-violet-200"
+        >
+          View affiliate dashboard →
+        </Link>
       </div>
 
       {loading ? (
@@ -176,22 +215,61 @@ export default function UsersPage() {
                       {user.user_type}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-white/80">{user.post_count}</td>
                   <td className="px-4 py-3">
-                    {user.affiliate_code ? (
-                      <Link
-                        href="/admin/affiliates"
-                        className={`text-xs font-medium underline decoration-dotted ${
-                          user.affiliate_confirmed ? 'text-emerald-400' : 'text-amber-300'
-                        }`}
-                        title={user.affiliate_confirmed ? 'Confirmed: matched the code detected on install' : 'Unconfirmed: entered code did not match (or nothing was) detected on install'}
+                    {editingAffiliateId === user.id ? (
+                      <select
+                        autoFocus
+                        defaultValue={user.affiliate_code ?? ''}
+                        onChange={(e) => handleAffiliateChange(user, e.target.value)}
+                        onBlur={() => setEditingAffiliateId(null)}
+                        className="rounded-lg border border-white/15 bg-[#0c0c14] px-2 py-1 text-xs text-white focus:border-violet-400 focus:outline-none"
                       >
-                        {user.affiliate_code}
-                      </Link>
+                        <option value="">— none —</option>
+                        {affiliateOptions.map((opt) => (
+                          <option key={opt.code} value={opt.code}>
+                            {opt.name ? `${opt.code} — ${opt.name}` : opt.code}
+                          </option>
+                        ))}
+                      </select>
                     ) : (
-                      <span className="text-xs text-white/25">—</span>
+                      <button
+                        type="button"
+                        onClick={() => setEditingAffiliateId(user.id)}
+                        disabled={affiliateSaveStatus[user.id] === 'saving'}
+                        className="group flex items-center gap-1.5 text-left"
+                      >
+                        {user.affiliate_code ? (
+                          <span
+                            className={`text-xs font-medium underline decoration-dotted ${
+                              user.affiliate_source === 'manual'
+                                ? 'text-violet-300'
+                                : user.affiliate_confirmed
+                                ? 'text-emerald-400'
+                                : 'text-amber-300'
+                            }`}
+                            title={
+                              user.affiliate_source === 'manual'
+                                ? 'Set manually by an admin'
+                                : user.affiliate_confirmed
+                                ? 'Confirmed: matched the code detected on install'
+                                : 'Unconfirmed: entered code did not match (or nothing was) detected on install'
+                            }
+                          >
+                            {user.affiliate_code}
+                            {user.affiliate_source === 'manual' && ' (manual)'}
+                          </span>
+                        ) : (
+                          <span className="text-xs text-white/25">
+                            {affiliateSaveStatus[user.id] === 'saving' ? 'Saving…' : '— tag —'}
+                          </span>
+                        )}
+                        {affiliateSaveStatus[user.id] === 'error' && (
+                          <span className="text-xs text-red-400">failed</span>
+                        )}
+                      </button>
                     )}
                   </td>
+                  <td className="px-4 py-3 text-white/80">{user.post_count}</td>
                   <td className="px-4 py-3 text-white/40">{formatDate(user.created_at)}</td>
                   <td className="px-4 py-3">
                     <button

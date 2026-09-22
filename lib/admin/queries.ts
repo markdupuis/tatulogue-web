@@ -1,6 +1,7 @@
 import { supabase } from '../supabase';
 import type {
   AdminUser,
+  AffiliateOption,
   AffiliateStat,
   ArtistDocPaths,
   ArtistRow,
@@ -234,21 +235,87 @@ export async function fetchUsers(): Promise<AdminUser[]> {
     affiliateByUser.set(row.user_id, { code: row.affiliate_code, confirmed: row.confirmed });
   }
 
+  // Admin-entered overrides win over whatever (if anything) the app itself
+  // detected -- see manual_affiliate_overrides migration for why this is a
+  // separate table rather than the app's own attribution_events.
+  const { data: overrideRows } = await supabase
+    .from('manual_affiliate_overrides')
+    .select('user_id, affiliate_code');
+  const overrideByUser = new Map<string, string>(
+    (overrideRows ?? []).map((r: { user_id: string; affiliate_code: string }) => [r.user_id, r.affiliate_code])
+  );
+
   return data.map((row: Record<string, unknown>): AdminUser => {
-    const affiliate = affiliateByUser.get(row.id as string);
+    const userId = row.id as string;
+    const manualCode = overrideByUser.get(userId);
+    const auto = affiliateByUser.get(userId);
     return {
-      id: row.id as string,
+      id: userId,
       username: (row.username as string | null) ?? null,
       full_name: (row.full_name as string | null) ?? null,
-      email: emailById.get(row.id as string) ?? null,
+      email: emailById.get(userId) ?? null,
       user_type: row.user_type as string,
       avatar: (row.avatar as string | null) ?? null,
       created_at: row.created_at as string,
-      post_count: postCountByUser.get(row.id as string) ?? 0,
-      affiliate_code: affiliate?.code ?? null,
-      affiliate_confirmed: affiliate?.confirmed ?? false,
+      post_count: postCountByUser.get(userId) ?? 0,
+      affiliate_code: manualCode ?? auto?.code ?? null,
+      affiliate_confirmed: manualCode ? false : (auto?.confirmed ?? false),
+      affiliate_source: manualCode ? 'manual' : auto ? 'auto' : null,
     };
   });
+}
+
+export async function fetchAffiliateOptions(): Promise<AffiliateOption[]> {
+  const { data, error } = await supabase
+    .from('affiliates')
+    .select('code, name')
+    .order('code', { ascending: true });
+  if (error || !data) return [];
+  return data as AffiliateOption[];
+}
+
+async function logAdminAction(action: string, entityId: string): Promise<void> {
+  const { data: sessionData } = await supabase.auth.getSession();
+  const adminId = sessionData.session?.user?.id;
+  if (!adminId) return;
+  await supabase.from('admin_audit_log').insert({
+    admin_id: adminId,
+    action,
+    entity_type: 'user',
+    entity_id: entityId,
+  });
+}
+
+export async function setManualAffiliate(userId: string, affiliateCode: string): Promise<boolean> {
+  const { data: sessionData } = await supabase.auth.getSession();
+  const adminId = sessionData.session?.user?.id;
+  if (!adminId) return false;
+
+  const { error } = await supabase.from('manual_affiliate_overrides').upsert(
+    {
+      user_id: userId,
+      affiliate_code: affiliateCode,
+      set_by: adminId,
+      updated_at: new Date().toISOString(),
+    },
+    { onConflict: 'user_id' }
+  );
+  if (error) {
+    console.error('[setManualAffiliate] failed:', error);
+    return false;
+  }
+  await logAdminAction(`manual_affiliate_set:${affiliateCode}`, userId);
+  return true;
+}
+
+export async function clearManualAffiliate(userId: string): Promise<boolean> {
+  const { error } = await supabase.from('manual_affiliate_overrides').delete().eq('user_id', userId);
+  if (error) {
+    console.error('[clearManualAffiliate] failed:', error);
+    return false;
+  }
+  await logAdminAction('manual_affiliate_cleared', userId);
+  return true;
 }
 
 export const PASSWORD_RESET_REDIRECT = 'https://tatulogue.com/admin/reset-password';
