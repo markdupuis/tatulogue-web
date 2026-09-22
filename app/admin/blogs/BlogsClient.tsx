@@ -316,8 +316,18 @@ export default function BlogsClient({ existingPosts }: BlogsClientProps) {
         ) : (
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {STATUS_ORDER.map((status) => {
-              const columnIdeas = ideas.filter((it) => it.status === status);
               const livePosts = status === 'published' ? existingPosts : [];
+              // Once a "published" idea has a matching real post file, the
+              // idea-tracker row is a stale duplicate of it -- same title,
+              // but no click-to-edit, no live status, nothing actually
+              // wired to it. The real file (ExistingPostCard, which does
+              // open the edit modal) already represents it fully, so hide
+              // the tracker's copy instead of showing a second, dead card
+              // for the same post.
+              const liveSlugs = new Set(livePosts.map((p) => p.slug));
+              const columnIdeas = ideas.filter(
+                (it) => it.status === status && !(status === 'published' && it.published_slug && liveSlugs.has(it.published_slug))
+              );
               const total = columnIdeas.length + livePosts.length;
               return (
                 <div
