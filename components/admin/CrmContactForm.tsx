@@ -184,7 +184,7 @@ export default function CrmContactForm({ initial, owners, defaultOwnerId, submit
             ))}
           </select>
         </Field>
-        <Field label="Owner (who follows up)">
+        <Field label="Sourced by">
           <select className={INPUT_CLASS} value={ownerId} onChange={(e) => setOwnerId(e.target.value)}>
             {owners.map((o) => (
               <option key={o.id} value={o.id}>{o.name}</option>

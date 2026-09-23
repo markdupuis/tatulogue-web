@@ -480,7 +480,7 @@ export default function CrmContactPanel({ contact, owners, onClose, onChanged, o
             </select>
           </label>
           <label>
-            <span className="mb-1 block">Owner</span>
+            <span className="mb-1 block">Sourced by</span>
             <select className={INPUT_CLASS} value={contact.owner_user_id} onChange={(e) => handleQuickPatch({ owner_user_id: e.target.value })}>
               {owners.map((o) => (
                 <option key={o.id} value={o.id}>{o.name}</option>

@@ -188,7 +188,7 @@ export default function CrmPage() {
                 <th className="px-4 py-3 font-medium">Name</th>
                 <th className="px-4 py-3 font-medium">Type</th>
                 <th className="px-4 py-3 font-medium">Stage</th>
-                <th className="px-4 py-3 font-medium">Owner</th>
+                <th className="px-4 py-3 font-medium">Sourced by</th>
                 <th className="px-4 py-3 font-medium">Last contacted</th>
                 <th className="px-4 py-3 font-medium">Next follow-up</th>
               </tr>
