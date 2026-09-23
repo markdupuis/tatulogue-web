@@ -20,6 +20,7 @@ const NAV_ITEMS: NavItem[] = [
   { key: 'blogs', label: 'Blogs', href: '/admin/blogs', icon: '📝' },
   { key: 'artists', label: 'Artist Approvals', href: '/admin/artists', icon: '🎨' },
   { key: 'users', label: 'Users', href: '/admin/users', icon: '👥' },
+  { key: 'crm', label: 'CRM', href: '/admin/crm', icon: '🤝' },
   { key: 'waitlist', label: 'Waitlist', href: '/admin/waitlist', icon: '📋' },
   { key: 'affiliates', label: 'Affiliates', href: '/admin/affiliates', icon: '🔗' },
   { key: 'analytics', label: 'Analytics', href: '/admin/analytics', icon: '📈' },
