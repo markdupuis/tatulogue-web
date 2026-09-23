@@ -150,6 +150,7 @@ export default function ArtistApprovalsPage() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [busyId, setBusyId] = useState<string | null>(null);
   const [viewerDoc, setViewerDoc] = useState<DocViewerState | null>(null);
+  const [docError, setDocError] = useState<string | null>(null);
 
   useEffect(() => {
     load();
@@ -197,8 +198,13 @@ export default function ArtistApprovalsPage() {
 
   async function openDoc(path: string | null, label: string) {
     if (!path) return;
-    const url = await getArtistDocSignedUrl(path);
-    if (url) setViewerDoc({ label, url, isImage: isImagePath(path) });
+    setDocError(null);
+    const result = await getArtistDocSignedUrl(path);
+    if ('error' in result) {
+      setDocError(`${label}: ${result.error}`);
+      return;
+    }
+    setViewerDoc({ label, url: result.url, isImage: isImagePath(path) });
   }
 
   async function decide(artist: ArtistRow, status: VerificationStatus) {
@@ -225,6 +231,11 @@ export default function ArtistApprovalsPage() {
         </p>
       ) : (
         <>
+          {docError && (
+            <p role="alert" className="mb-4 rounded-lg border border-red-400/30 bg-red-400/10 px-4 py-2 text-sm text-red-300">
+              {docError}
+            </p>
+          )}
           <div className="mb-6 flex flex-wrap items-center gap-3">
             <div className="flex flex-wrap gap-2">
               {STATUS_FILTERS.map((f) => (

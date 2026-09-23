@@ -429,12 +429,47 @@ export async function fetchArtistDocPaths(artistId: string): Promise<ArtistDocPa
   };
 }
 
-export async function getArtistDocSignedUrl(path: string): Promise<string | null> {
-  const { data, error } = await supabase.storage
-    .from('verification_docs')
-    .createSignedUrl(path, 3600);
-  if (error || !data) return null;
-  return data.signedUrl;
+const MEDIA_SIGN_ENDPOINT = 'https://app.tatulogue.com/api/media/verification-sign';
+const MEDIA_PUBLIC_BASE_URL = 'https://media.tatulogue.com';
+const DOC_URL_TTL_SECONDS = 3600;
+const LEGACY_BUG_ATTACHMENT_PREFIX = 'docs/';
+const BUG_ATTACHMENT_PREFIX = 'bug-reports/';
+
+export type DocUrlResult = { url: string } | { error: string };
+
+const DOC_URL_ERRORS: Record<number, string> = {
+  401: 'Your admin session was rejected. Sign out and back in, then try again.',
+  403: 'Your account is not allowed to view verification documents.',
+  404: 'This document was not found in storage.',
+};
+
+export async function getArtistDocSignedUrl(path: string): Promise<DocUrlResult> {
+  const { data } = await supabase.auth.getSession();
+  const accessToken = data.session?.access_token;
+  if (!accessToken) return { error: 'You are not signed in. Sign in again to view documents.' };
+
+  const endpoint = `${MEDIA_SIGN_ENDPOINT}?path=${encodeURIComponent(path)}&expiresIn=${DOC_URL_TTL_SECONDS}`;
+  let response: Response;
+  try {
+    response = await fetch(endpoint, { headers: { Authorization: `Bearer ${accessToken}` } });
+  } catch {
+    return { error: 'Could not reach the document service. Check your connection and retry.' };
+  }
+
+  if (!response.ok) {
+    return { error: DOC_URL_ERRORS[response.status] ?? `Document request failed (HTTP ${response.status}).` };
+  }
+  const body = (await response.json().catch(() => null)) as { url?: string } | null;
+  if (!body?.url) return { error: 'The document service returned no link.' };
+  return { url: body.url };
+}
+
+export function getBugAttachmentUrl(attachmentPath: string): string {
+  if (attachmentPath.startsWith('http')) return attachmentPath;
+  const key = attachmentPath.startsWith(LEGACY_BUG_ATTACHMENT_PREFIX)
+    ? BUG_ATTACHMENT_PREFIX + attachmentPath.slice(LEGACY_BUG_ATTACHMENT_PREFIX.length)
+    : attachmentPath;
+  return `${MEDIA_PUBLIC_BASE_URL}/${key}`;
 }
 
 export async function setArtistVerificationStatus(
