@@ -155,6 +155,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
         {post.coverImage && (
           <div className="max-w-4xl mx-auto px-6 my-8">
             <img src={post.coverImage} alt={post.coverAlt ?? post.title}
+              width={1200} height={750} fetchPriority="high" decoding="async"
               className="w-full rounded-2xl object-cover max-h-[480px]" />
           </div>
         )}
