@@ -4,10 +4,12 @@ import { useEffect, useState } from 'react';
 import AdminShell from '../../../components/admin/AdminShell';
 import {
   convertBugToRoadmap,
+  createReport,
   fetchReports,
   updateReport,
   updateReportStatus,
   type BugReportEdits,
+  type NewReport,
 } from '../../../lib/admin/queries';
 import type {
   BugReport,
@@ -46,6 +48,16 @@ const PRIORITY_OPTIONS: Priority[] = ['critical', 'high', 'medium', 'low'];
 
 const inputClass =
   'w-full rounded-lg border border-white/15 bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-white/30 focus:border-violet-400 focus:outline-none';
+
+const EMPTY_NEW_REPORT: NewReport = {
+  title: '',
+  description: '',
+  report_type: 'bug',
+  priority: 'medium',
+  steps_to_reproduce: null,
+  expected_behavior: null,
+  actual_behavior: null,
+};
 
 const ACTIVE_TAB_GRADIENT = 'linear-gradient(135deg,#2B5876,#4E4376)';
 
@@ -92,6 +104,10 @@ export default function BugsPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<BugReportEdits | null>(null);
   const [savingEdit, setSavingEdit] = useState(false);
+  const [showNewForm, setShowNewForm] = useState(false);
+  const [newReport, setNewReport] = useState<NewReport>(EMPTY_NEW_REPORT);
+  const [creating, setCreating] = useState(false);
+  const [createError, setCreateError] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -141,6 +157,21 @@ export default function BugsPage() {
     setSavingEdit(false);
   }
 
+  async function handleCreateReport() {
+    if (!newReport.title.trim() || !newReport.description.trim()) return;
+    setCreating(true);
+    setCreateError(null);
+    const created = await createReport(newReport);
+    if (created) {
+      setReports((prev) => [created, ...prev]);
+      setShowNewForm(false);
+      setNewReport(EMPTY_NEW_REPORT);
+    } else {
+      setCreateError('Could not save. Please try again.');
+    }
+    setCreating(false);
+  }
+
   async function handleConvert(report: BugReport) {
     setConvertingId(report.id);
     const created = await convertBugToRoadmap(report);
@@ -183,26 +214,141 @@ export default function BugsPage() {
         <p className="text-white/40">Loading…</p>
       ) : (
         <>
-          <div className="mb-6 flex flex-wrap gap-2">
-            {TYPE_TABS.map((t) => {
-              const isActive = typeFilter === t;
-              return (
-                <button
-                  key={t}
-                  type="button"
-                  onClick={() => setTypeFilter(t)}
-                  className={`rounded-xl border px-5 py-2 text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'border-transparent text-white'
-                      : 'border-white/8 bg-white/[0.02] text-white/50 hover:border-white/20 hover:text-white/80'
-                  }`}
-                  style={isActive ? { backgroundImage: ACTIVE_TAB_GRADIENT } : undefined}
-                >
-                  {TYPE_TAB_LABELS[t]} ({countOpen(t)})
-                </button>
-              );
-            })}
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
+            <div className="flex flex-wrap gap-2">
+              {TYPE_TABS.map((t) => {
+                const isActive = typeFilter === t;
+                return (
+                  <button
+                    key={t}
+                    type="button"
+                    onClick={() => setTypeFilter(t)}
+                    className={`rounded-xl border px-5 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'border-transparent text-white'
+                        : 'border-white/8 bg-white/[0.02] text-white/50 hover:border-white/20 hover:text-white/80'
+                    }`}
+                    style={isActive ? { backgroundImage: ACTIVE_TAB_GRADIENT } : undefined}
+                  >
+                    {TYPE_TAB_LABELS[t]} ({countOpen(t)})
+                  </button>
+                );
+              })}
+            </div>
+            <button
+              type="button"
+              onClick={() => setShowNewForm((v) => !v)}
+              className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-violet-500"
+            >
+              {showNewForm ? 'Cancel' : '+ New report'}
+            </button>
           </div>
+
+          {showNewForm && (
+            <div className="mb-8 space-y-4 rounded-xl border border-white/8 bg-white/[0.02] p-5">
+              <div className="flex gap-2">
+                {(['bug', 'feature_request'] as const).map((t) => (
+                  <button
+                    key={t}
+                    type="button"
+                    onClick={() => setNewReport({ ...newReport, report_type: t })}
+                    className={pill(newReport.report_type === t)}
+                  >
+                    {TYPE_TAB_LABELS[t]}
+                  </button>
+                ))}
+              </div>
+              <div>
+                <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-white/40">Title</p>
+                <input
+                  type="text"
+                  value={newReport.title}
+                  onChange={(e) => setNewReport({ ...newReport, title: e.target.value })}
+                  placeholder="Short summary"
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-white/40">Description</p>
+                <textarea
+                  value={newReport.description}
+                  onChange={(e) => setNewReport({ ...newReport, description: e.target.value })}
+                  rows={3}
+                  placeholder={newReport.report_type === 'bug' ? "What's broken" : "What you'd like added"}
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-white/40">Priority</p>
+                <select
+                  value={newReport.priority}
+                  onChange={(e) => setNewReport({ ...newReport, priority: e.target.value as Priority })}
+                  className={inputClass}
+                >
+                  {PRIORITY_OPTIONS.map((p) => (
+                    <option key={p} value={p}>{p.charAt(0).toUpperCase() + p.slice(1)}</option>
+                  ))}
+                </select>
+              </div>
+              {newReport.report_type === 'bug' && (
+                <>
+                  <div>
+                    <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-white/40">Steps to reproduce</p>
+                    <textarea
+                      value={newReport.steps_to_reproduce ?? ''}
+                      onChange={(e) => setNewReport({ ...newReport, steps_to_reproduce: e.target.value || null })}
+                      rows={2}
+                      placeholder="Optional"
+                      className={inputClass}
+                    />
+                  </div>
+                  <div>
+                    <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-white/40">Expected behavior</p>
+                    <textarea
+                      value={newReport.expected_behavior ?? ''}
+                      onChange={(e) => setNewReport({ ...newReport, expected_behavior: e.target.value || null })}
+                      rows={2}
+                      placeholder="Optional"
+                      className={inputClass}
+                    />
+                  </div>
+                  <div>
+                    <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-white/40">Actual behavior</p>
+                    <textarea
+                      value={newReport.actual_behavior ?? ''}
+                      onChange={(e) => setNewReport({ ...newReport, actual_behavior: e.target.value || null })}
+                      rows={2}
+                      placeholder="Optional"
+                      className={inputClass}
+                    />
+                  </div>
+                </>
+              )}
+              {createError && <p className="text-sm text-red-400">{createError}</p>}
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  disabled={creating || !newReport.title.trim() || !newReport.description.trim()}
+                  onClick={handleCreateReport}
+                  className="rounded-xl bg-violet-600 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-violet-500 disabled:opacity-50"
+                >
+                  {creating ? 'Saving…' : 'Save report'}
+                </button>
+                <button
+                  type="button"
+                  disabled={creating}
+                  onClick={() => {
+                    setShowNewForm(false);
+                    setNewReport(EMPTY_NEW_REPORT);
+                    setCreateError(null);
+                  }}
+                  className="rounded-xl border border-white/15 px-4 py-1.5 text-sm text-white/60 transition-colors hover:border-white/30 hover:text-white"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
 
           <div className="mb-8 grid grid-cols-3 gap-3 sm:grid-cols-6">
             {stats.map((s) => (
