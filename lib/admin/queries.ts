@@ -94,6 +94,45 @@ export async function updateReport(id: string, edits: BugReportEdits): Promise<b
   return !error;
 }
 
+export interface NewReport {
+  title: string;
+  description: string;
+  report_type: BugReport['report_type'];
+  priority: Priority;
+  steps_to_reproduce: string | null;
+  expected_behavior: string | null;
+  actual_behavior: string | null;
+}
+
+/// Lets an admin add a bug or feature request straight from the portal
+/// instead of only receiving ones filed from the app (#272). Insert RLS only
+/// allows a row's own reporter to create it, so this files it under the
+/// signed-in admin's own account; the `sync-to-github` webhook then picks it
+/// up exactly like an in-app report and opens the GitHub issue.
+export async function createReport(input: NewReport): Promise<BugReport | null> {
+  const { data: sessionData } = await supabase.auth.getSession();
+  const reporterId = sessionData.session?.user.id;
+  if (!reporterId) return null;
+
+  const { data, error } = await supabase
+    .from('bug_reports')
+    .insert({
+      ...input,
+      reporter_id: reporterId,
+      status: 'open',
+      device_info: 'Web: admin portal',
+    })
+    .select('*')
+    .single();
+
+  if (error || !data) return null;
+
+  return {
+    ...data,
+    reporter_username: null,
+  } as BugReport;
+}
+
 export async function convertBugToRoadmap(report: BugReport): Promise<RoadmapItem | null> {
   const priority = report.priority === 'critical' ? 1 : report.priority === 'high' ? 2 : 3;
   const { data, error } = await supabase
