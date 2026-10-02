@@ -112,7 +112,10 @@ export default function CrmPage() {
   }, []);
 
   function handleDeleted(id: string) {
-    setContacts((prev) => prev.filter((c) => c.id !== id));
+    // Mirror the database's ON DELETE SET NULL so a stale link is never re-saved.
+    setContacts((prev) =>
+      prev.filter((c) => c.id !== id).map((c) => (c.shop_contact_id === id ? { ...c, shop_contact_id: null } : c)),
+    );
     setSelectedId(null);
   }
 
@@ -126,6 +129,10 @@ export default function CrmPage() {
     setShowNew(false);
     setSelectedId(created.id);
   }
+
+  const handleShopCreated = useCallback((shop: CrmContact) => {
+    setContacts((prev) => [shop, ...prev]);
+  }, []);
 
   function ownerName(id: string): string {
     return owners.find((o) => o.id === id)?.name ?? '?';
@@ -228,7 +235,13 @@ export default function CrmPage() {
               <h2 className="text-lg font-semibold text-white">New contact</h2>
               <button type="button" onClick={() => setShowNew(false)} className="text-sm text-white/40 hover:text-white">Cancel</button>
             </div>
-            <CrmContactForm owners={owners} defaultOwnerId={adminId} submitLabel="Create contact" onSubmit={handleCreate} />
+            <CrmContactForm
+              owners={owners}
+              defaultOwnerId={adminId}
+              submitLabel="Create contact"
+              onSubmit={handleCreate}
+              onShopCreated={handleShopCreated}
+            />
           </div>
         </div>
       )}
@@ -241,6 +254,8 @@ export default function CrmPage() {
           onClose={() => setSelectedId(null)}
           onChanged={handleChanged}
           onDeleted={handleDeleted}
+          onOpenContact={setSelectedId}
+          onShopCreated={handleShopCreated}
         />
       )}
     </AdminShell>

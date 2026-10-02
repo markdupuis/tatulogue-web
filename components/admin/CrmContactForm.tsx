@@ -11,6 +11,7 @@ import {
   type CrmContactInput,
   type CrmOwner,
 } from '../../lib/admin/crm';
+import CrmShopPicker, { type ShopSelection } from './CrmShopPicker';
 
 interface CrmContactFormProps {
   initial?: CrmContact;
@@ -18,6 +19,7 @@ interface CrmContactFormProps {
   defaultOwnerId: string;
   submitLabel: string;
   onSubmit: (input: CrmContactInput) => Promise<void>;
+  onShopCreated?: (shop: CrmContact) => void;
 }
 
 const INPUT_CLASS =
@@ -53,17 +55,23 @@ function orNull(text: string): string | null {
   return trimmed ? trimmed : null;
 }
 
-export default function CrmContactForm({ initial, owners, defaultOwnerId, submitLabel, onSubmit }: CrmContactFormProps) {
+export default function CrmContactForm({ initial, owners, defaultOwnerId, submitLabel, onSubmit, onShopCreated }: CrmContactFormProps) {
   const [displayName, setDisplayName] = useState(initial?.display_name ?? '');
   const [contactType, setContactType] = useState(initial?.contact_type ?? 'artist');
   const [firstName, setFirstName] = useState(initial?.first_name ?? '');
   const [lastName, setLastName] = useState(initial?.last_name ?? '');
-  const [shopName, setShopName] = useState(initial?.shop_name ?? '');
+  const [shop, setShop] = useState<ShopSelection>({
+    shopName: initial?.shop_name ?? '',
+    shopContactId: initial?.shop_contact_id ?? null,
+  });
   const [roleTitle, setRoleTitle] = useState(initial?.role_title ?? '');
   const [phone, setPhone] = useState(initial?.phone ?? '');
   const [email, setEmail] = useState(initial?.email ?? '');
   const [instagram, setInstagram] = useState(initial?.instagram ?? '');
   const [otherSocials, setOtherSocials] = useState((initial?.other_socials ?? []).join(', '));
+  const [addressLine1, setAddressLine1] = useState(initial?.address_line1 ?? '');
+  const [addressLine2, setAddressLine2] = useState(initial?.address_line2 ?? '');
+  const [postalCode, setPostalCode] = useState(initial?.postal_code ?? '');
   const [city, setCity] = useState(initial?.city ?? '');
   const [state, setState] = useState(initial?.state ?? '');
   const [country, setCountry] = useState(initial?.country ?? 'US');
@@ -80,6 +88,7 @@ export default function CrmContactForm({ initial, owners, defaultOwnerId, submit
   const [tags, setTags] = useState((initial?.tags ?? []).join(', '));
   const [notes, setNotes] = useState(initial?.notes ?? '');
   const [saving, setSaving] = useState(false);
+  const isShop = contactType === 'shop';
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -90,12 +99,16 @@ export default function CrmContactForm({ initial, owners, defaultOwnerId, submit
       contact_type: contactType,
       first_name: orNull(firstName),
       last_name: orNull(lastName),
-      shop_name: orNull(shopName),
+      shop_name: orNull(shop.shopName),
+      shop_contact_id: isShop ? null : shop.shopContactId,
       role_title: orNull(roleTitle),
       phone: orNull(phone),
       email: orNull(email),
       instagram: orNull(instagram.replace(/^@/, '')),
       other_socials: toList(otherSocials),
+      address_line1: orNull(addressLine1),
+      address_line2: orNull(addressLine2),
+      postal_code: orNull(postalCode),
       city: orNull(city),
       state: orNull(state),
       country: country.trim() || 'US',
@@ -134,8 +147,12 @@ export default function CrmContactForm({ initial, owners, defaultOwnerId, submit
         <Field label="Last name">
           <input className={INPUT_CLASS} value={lastName} onChange={(e) => setLastName(e.target.value)} />
         </Field>
-        <Field label="Shop name">
-          <input className={INPUT_CLASS} value={shopName} onChange={(e) => setShopName(e.target.value)} />
+        <Field label={isShop ? 'Shop name' : 'Shop'}>
+          {isShop ? (
+            <input className={INPUT_CLASS} value={shop.shopName} onChange={(e) => setShop({ shopName: e.target.value, shopContactId: null })} />
+          ) : (
+            <CrmShopPicker value={shop} ownerId={ownerId} inputClassName={INPUT_CLASS} onChange={setShop} onShopCreated={onShopCreated} />
+          )}
         </Field>
         <Field label="Role / title">
           <input className={INPUT_CLASS} value={roleTitle} onChange={(e) => setRoleTitle(e.target.value)} />
@@ -155,11 +172,20 @@ export default function CrmContactForm({ initial, owners, defaultOwnerId, submit
       </Group>
 
       <Group title="Location and styles">
+        <Field label="Street address">
+          <input className={INPUT_CLASS} value={addressLine1} onChange={(e) => setAddressLine1(e.target.value)} />
+        </Field>
+        <Field label="Address line 2 (suite, unit)">
+          <input className={INPUT_CLASS} value={addressLine2} onChange={(e) => setAddressLine2(e.target.value)} />
+        </Field>
         <Field label="City">
           <input className={INPUT_CLASS} value={city} onChange={(e) => setCity(e.target.value)} />
         </Field>
         <Field label="State">
           <input className={INPUT_CLASS} value={state} onChange={(e) => setState(e.target.value)} />
+        </Field>
+        <Field label="Postal code">
+          <input className={INPUT_CLASS} value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
         </Field>
         <Field label="Country">
           <input className={INPUT_CLASS} value={country} onChange={(e) => setCountry(e.target.value)} />

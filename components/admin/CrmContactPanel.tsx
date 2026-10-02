@@ -18,6 +18,8 @@ import {
   fetchCrmCommitments,
   fetchCrmContact,
   fetchLinkedUser,
+  fetchShopArtists,
+  formatStreetAddress,
   labelFor,
   linkContactToUser,
   searchAppUsers,
@@ -42,6 +44,8 @@ interface CrmContactPanelProps {
   onClose: () => void;
   onChanged: (contact: CrmContact) => void;
   onDeleted: (id: string) => void;
+  onOpenContact: (id: string) => void;
+  onShopCreated: (shop: CrmContact) => void;
 }
 
 const INPUT_CLASS =
@@ -416,7 +420,52 @@ function LinkedUserCard({ contact, onChanged }: { contact: CrmContact; onChanged
   );
 }
 
-export default function CrmContactPanel({ contact, owners, onClose, onChanged, onDeleted }: CrmContactPanelProps) {
+function ShopArtistsCard({ shopId, onOpenContact }: { shopId: string; onOpenContact: (id: string) => void }) {
+  const [artists, setArtists] = useState<CrmContact[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let active = true;
+    fetchShopArtists(shopId).then((rows) => {
+      if (!active) return;
+      setArtists(rows);
+      setLoading(false);
+    });
+    return () => {
+      active = false;
+    };
+  }, [shopId]);
+
+  return (
+    <div className="rounded-xl border border-white/8 bg-white/[0.02] p-4 text-sm">
+      <div className="mb-2 text-xs font-medium uppercase tracking-wide text-white/40">Artists at this shop</div>
+      {loading ? (
+        <p className="text-white/40">Loading artists…</p>
+      ) : artists.length === 0 ? (
+        <p className="text-white/40">No artists linked yet. Pick this shop in an artist&apos;s Shop field to link them.</p>
+      ) : (
+        <ul className="space-y-1">
+          {artists.map((a) => (
+            <li key={a.id}>
+              <button
+                type="button"
+                onClick={() => onOpenContact(a.id)}
+                className="flex w-full items-center justify-between rounded-lg border border-white/8 px-3 py-2 text-left text-white/80 hover:bg-white/[0.04]"
+              >
+                <span>{a.display_name}</span>
+                <span className="text-xs text-white/40">
+                  {labelFor(a.contact_type)} · {labelFor(a.pipeline_stage)}
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+export default function CrmContactPanel({ contact, owners, onClose, onChanged, onDeleted, onOpenContact, onShopCreated }: CrmContactPanelProps) {
   const [tab, setTab] = useState<Tab>('activity');
 
   const refreshContact = useCallback(async () => {
@@ -441,6 +490,8 @@ export default function CrmContactPanel({ contact, owners, onClose, onChanged, o
   }
 
   const handle = contact.instagram?.replace(/^@/, '');
+  const streetAddress = formatStreetAddress(contact);
+  const isShop = contact.contact_type === 'shop';
   const quickActions = [
     contact.phone && { key: 'call', label: 'Call', href: `tel:${contact.phone}` },
     contact.phone && { key: 'sms', label: 'Text', href: `sms:${contact.phone}` },
@@ -459,9 +510,17 @@ export default function CrmContactPanel({ contact, owners, onClose, onChanged, o
             <h2 className="text-xl font-semibold text-white">{contact.display_name}</h2>
             <p className="text-sm text-white/40">
               {labelFor(contact.contact_type)}
-              {contact.shop_name && ` · ${contact.shop_name}`}
+              {contact.shop_name && ' · '}
+              {contact.shop_name && contact.shop_contact_id ? (
+                <button type="button" onClick={() => onOpenContact(contact.shop_contact_id as string)} className="text-violet-300 hover:underline">
+                  {contact.shop_name}
+                </button>
+              ) : (
+                contact.shop_name
+              )}
               {(contact.city || contact.state) && ` · ${[contact.city, contact.state].filter(Boolean).join(', ')}`}
             </p>
+            {contact.address_line1 && <p className="mt-1 text-sm text-white/60">{streetAddress}</p>}
           </div>
           <button type="button" onClick={onClose} className={GHOST_BUTTON_CLASS}>Close</button>
         </div>
@@ -521,6 +580,12 @@ export default function CrmContactPanel({ contact, owners, onClose, onChanged, o
           <LinkedUserCard contact={contact} onChanged={onChanged} />
         </div>
 
+        {isShop && (
+          <div className="mt-4">
+            <ShopArtistsCard shopId={contact.id} onOpenContact={onOpenContact} />
+          </div>
+        )}
+
         <div className="mt-5 flex gap-1 border-b border-white/8">
           {(['activity', 'details', 'commitments'] as Tab[]).map((t) => (
             <button
@@ -537,7 +602,14 @@ export default function CrmContactPanel({ contact, owners, onClose, onChanged, o
         <div className="mt-4">
           {tab === 'activity' && <ActivityLog contact={contact} owners={owners} onContactRefresh={refreshContact} />}
           {tab === 'details' && (
-            <CrmContactForm initial={contact} owners={owners} defaultOwnerId={contact.owner_user_id} submitLabel="Save changes" onSubmit={handleSave} />
+            <CrmContactForm
+              initial={contact}
+              owners={owners}
+              defaultOwnerId={contact.owner_user_id}
+              submitLabel="Save changes"
+              onSubmit={handleSave}
+              onShopCreated={onShopCreated}
+            />
           )}
           {tab === 'commitments' && <Commitments contactId={contact.id} />}
         </div>

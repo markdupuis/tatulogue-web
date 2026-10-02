@@ -51,6 +51,7 @@ export const COMMITMENT_TYPES = [
 ] as const;
 export const COMMITMENT_STATUSES = ['verbal', 'written', 'signed', 'received', 'withdrawn'] as const;
 export const LIKENESS_PERMISSIONS = ['not_asked', 'asked', 'granted', 'declined'] as const;
+const SHOP_SEARCH_LIMIT = 8;
 
 export type ContactType = (typeof CONTACT_TYPES)[number];
 export type PipelineStage = (typeof PIPELINE_STAGES)[number];
@@ -65,11 +66,15 @@ export interface CrmContact {
   first_name: string | null;
   last_name: string | null;
   shop_name: string | null;
+  shop_contact_id: string | null;
   role_title: string | null;
   phone: string | null;
   email: string | null;
   instagram: string | null;
   other_socials: string[];
+  address_line1: string | null;
+  address_line2: string | null;
+  postal_code: string | null;
   city: string | null;
   state: string | null;
   country: string;
@@ -346,6 +351,41 @@ export async function unlinkContact(contactId: string): Promise<boolean> {
   const { error } = await supabase.rpc('crm_unlink_user', { p_contact_id: contactId });
   if (error) console.error('[unlinkContact] failed:', error);
   return !error;
+}
+
+export function formatStreetAddress(contact: CrmContact): string {
+  const cityLine = [[contact.city, contact.state].filter(Boolean).join(', '), contact.postal_code].filter(Boolean).join(' ');
+  return [contact.address_line1, contact.address_line2, cityLine].filter(Boolean).join(', ');
+}
+
+export async function searchShopContacts(term: string): Promise<CrmContact[]> {
+  const cleaned = term.trim().replace(/[%_\\]/g, (ch) => `\\${ch}`);
+  if (!cleaned) return [];
+  const { data, error } = await supabase
+    .from('crm_contacts')
+    .select('*')
+    .eq('contact_type', 'shop')
+    .ilike('display_name', `%${cleaned}%`)
+    .order('display_name')
+    .limit(SHOP_SEARCH_LIMIT);
+  if (error) {
+    console.error('[searchShopContacts] failed:', error);
+    return [];
+  }
+  return (data ?? []) as CrmContact[];
+}
+
+export async function fetchShopArtists(shopId: string): Promise<CrmContact[]> {
+  const { data, error } = await supabase
+    .from('crm_contacts')
+    .select('*')
+    .eq('shop_contact_id', shopId)
+    .order('display_name');
+  if (error) {
+    console.error('[fetchShopArtists] failed:', error);
+    return [];
+  }
+  return (data ?? []) as CrmContact[];
 }
 
 export async function fetchCrmContact(id: string): Promise<CrmContact | null> {
