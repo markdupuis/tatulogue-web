@@ -4,6 +4,7 @@ import { getAllPostMeta, CATEGORY_LABELS, type PostMeta } from '@/lib/blog';
 import CategoryFilter from './components/CategoryFilter';
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://tatulogue.com/blog' },
   title: 'Articles — Tattoo Education, Artist Spotlights & Trends | Tatulogue',
   description:
     'In-depth guides on tattoo styles, aftercare, artist spotlights, and the latest trends in the tattoo community.',
@@ -33,6 +34,7 @@ function FeaturedCard({ post }: { post: PostMeta }) {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
+    timeZone: 'UTC',
   }).format(new Date(post.date));
 
   return (

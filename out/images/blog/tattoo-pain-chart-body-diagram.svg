@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 800" width="960" height="800" role="img" aria-labelledby="t d">
+<title id="t">Tattoo pain chart body diagram</title>
+<desc id="d">Front and back body diagram colored by how much each tattoo placement hurts. Severe: ribs, spine, sternum, armpit, ankles, shins, hands and feet. High: inner elbow, groin and inner thigh. Moderate-high: inner arm, knee and elbow. Moderate: stomach, shoulder and upper back. Low-moderate: calf. Low: upper arm, outer forearm and outer thigh.</desc>
+<rect width="960" height="800" rx="18" fill="#0c0c14"/>
+<rect x="1" y="1" width="958" height="798" rx="17" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
+<text x="250" y="40" text-anchor="middle" font-size="16" font-weight="700" letter-spacing="3" font-family="Arial, Helvetica, sans-serif" fill="#9fb6dd">FRONT</text>
+<text x="710" y="40" text-anchor="middle" font-size="16" font-weight="700" letter-spacing="3" font-family="Arial, Helvetica, sans-serif" fill="#9fb6dd">BACK</text>
+<ellipse cx="250" cy="95" rx="34" ry="38" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5"></ellipse>
+<polygon points="238.0,130.0 262.0,130.0 262.0,150.0 238.0,150.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<polygon points="188.0,150.0 312.0,150.0 302.0,330.0 288.0,382.0 212.0,382.0 198.0,330.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<polygon points="188.0,152.0 154.0,165.0 138.0,300.0 132.0,430.0 158.0,432.0 170.0,305.0 188.0,200.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<polygon points="247.0,382.0 210.0,382.0 206.0,535.0 214.0,660.0 240.0,660.0 242.0,535.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<ellipse cx="226" cy="690" rx="24" ry="11" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5"></ellipse>
+<polygon points="312.0,152.0 346.0,165.0 362.0,300.0 368.0,430.0 342.0,432.0 330.0,305.0 312.0,200.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<polygon points="253.0,382.0 290.0,382.0 294.0,535.0 286.0,660.0 260.0,660.0 258.0,535.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<ellipse cx="274" cy="690" rx="24" ry="11" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5"></ellipse>
+<polygon points="238.0,160.0 262.0,160.0 262.0,255.0 238.0,255.0" fill="#D1281C" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Sternum: Severe</title></polygon>
+<polygon points="234.0,195.0 206.0,195.0 204.0,305.0 232.0,305.0" fill="#D1281C" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Ribs: Severe</title></polygon>
+<ellipse cx="172" cy="175" rx="17" ry="15" fill="#F5C542" stroke="#07070d" stroke-width="1.5"><title>Shoulder: Moderate</title></ellipse>
+<ellipse cx="197" cy="205" rx="8" ry="9" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Armpit: Severe</title></ellipse>
+<polygon points="168.0,190.0 154.0,190.0 140.0,295.0 150.0,295.0" fill="#3FB68B" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Upper arm (outer): Low</title></polygon>
+<polygon points="186.0,210.0 170.0,210.0 158.0,295.0 172.0,295.0" fill="#F39C34" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Inner arm / bicep: Moderate-high</title></polygon>
+<ellipse cx="162" cy="305" rx="13" ry="9" fill="#E8602C" stroke="#07070d" stroke-width="1.5"><title>Inner elbow: High</title></ellipse>
+<polygon points="150.0,322.0 136.0,322.0 132.0,415.0 144.0,415.0" fill="#3FB68B" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Outer forearm: Low</title></polygon>
+<ellipse cx="146" cy="440" rx="14" ry="16" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Hands / fingers: Severe</title></ellipse>
+<polygon points="246.0,395.0 228.0,392.0 222.0,470.0 242.0,470.0" fill="#E8602C" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Inner thigh: High</title></polygon>
+<polygon points="224.0,400.0 208.0,400.0 206.0,500.0 218.0,500.0" fill="#3FB68B" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Outer thigh: Low</title></polygon>
+<ellipse cx="225" cy="538" rx="17" ry="14" fill="#F39C34" stroke="#07070d" stroke-width="1.5"><title>Knee: Moderate-high</title></ellipse>
+<polygon points="238.0,560.0 214.0,560.0 217.0,640.0 236.0,640.0" fill="#D1281C" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Shins: Severe</title></polygon>
+<ellipse cx="226" cy="655" rx="12" ry="8" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Ankles: Severe</title></ellipse>
+<ellipse cx="226" cy="690" rx="24" ry="11" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Feet / toes: Severe</title></ellipse>
+<polygon points="266.0,195.0 294.0,195.0 296.0,305.0 268.0,305.0" fill="#D1281C" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Ribs: Severe</title></polygon>
+<ellipse cx="328" cy="175" rx="17" ry="15" fill="#F5C542" stroke="#07070d" stroke-width="1.5"><title>Shoulder: Moderate</title></ellipse>
+<ellipse cx="303" cy="205" rx="8" ry="9" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Armpit: Severe</title></ellipse>
+<polygon points="332.0,190.0 346.0,190.0 360.0,295.0 350.0,295.0" fill="#3FB68B" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Upper arm (outer): Low</title></polygon>
+<polygon points="314.0,210.0 330.0,210.0 342.0,295.0 328.0,295.0" fill="#F39C34" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Inner arm / bicep: Moderate-high</title></polygon>
+<ellipse cx="338" cy="305" rx="13" ry="9" fill="#E8602C" stroke="#07070d" stroke-width="1.5"><title>Inner elbow: High</title></ellipse>
+<polygon points="350.0,322.0 364.0,322.0 368.0,415.0 356.0,415.0" fill="#3FB68B" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Outer forearm: Low</title></polygon>
+<ellipse cx="354" cy="440" rx="14" ry="16" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Hands / fingers: Severe</title></ellipse>
+<polygon points="254.0,395.0 272.0,392.0 278.0,470.0 258.0,470.0" fill="#E8602C" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Inner thigh: High</title></polygon>
+<polygon points="276.0,400.0 292.0,400.0 294.0,500.0 282.0,500.0" fill="#3FB68B" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Outer thigh: Low</title></polygon>
+<ellipse cx="275" cy="538" rx="17" ry="14" fill="#F39C34" stroke="#07070d" stroke-width="1.5"><title>Knee: Moderate-high</title></ellipse>
+<polygon points="262.0,560.0 286.0,560.0 283.0,640.0 264.0,640.0" fill="#D1281C" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Shins: Severe</title></polygon>
+<ellipse cx="274" cy="655" rx="12" ry="8" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Ankles: Severe</title></ellipse>
+<ellipse cx="274" cy="690" rx="24" ry="11" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Feet / toes: Severe</title></ellipse>
+<polygon points="222.0,312.0 278.0,312.0 276.0,372.0 224.0,372.0" fill="#F5C542" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Stomach: Moderate</title></polygon>
+<ellipse cx="250" cy="392" rx="12" ry="9" fill="#E8602C" stroke="#07070d" stroke-width="1.5"><title>Groin: High</title></ellipse>
+<ellipse cx="710" cy="95" rx="34" ry="38" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5"></ellipse>
+<polygon points="698.0,130.0 722.0,130.0 722.0,150.0 698.0,150.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<polygon points="648.0,150.0 772.0,150.0 762.0,330.0 748.0,382.0 672.0,382.0 658.0,330.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<polygon points="648.0,152.0 614.0,165.0 598.0,300.0 592.0,430.0 618.0,432.0 630.0,305.0 648.0,200.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<polygon points="707.0,382.0 670.0,382.0 666.0,535.0 674.0,660.0 700.0,660.0 702.0,535.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<ellipse cx="686" cy="690" rx="24" ry="11" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5"></ellipse>
+<polygon points="772.0,152.0 806.0,165.0 822.0,300.0 828.0,430.0 802.0,432.0 790.0,305.0 772.0,200.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<polygon points="713.0,382.0 750.0,382.0 754.0,535.0 746.0,660.0 720.0,660.0 718.0,535.0" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"></polygon>
+<ellipse cx="734" cy="690" rx="24" ry="11" fill="#2a2a3a" stroke="#07070d" stroke-width="1.5"></ellipse>
+<polygon points="658.0,156.0 762.0,156.0 756.0,255.0 664.0,255.0" fill="#F5C542" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Upper back: Moderate</title></polygon>
+<polygon points="705.0,150.0 715.0,150.0 715.0,380.0 705.0,380.0" fill="#D1281C" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Spine: Severe</title></polygon>
+<ellipse cx="632" cy="175" rx="17" ry="15" fill="#F5C542" stroke="#07070d" stroke-width="1.5"><title>Shoulder: Moderate</title></ellipse>
+<polygon points="632.0,192.0 612.0,192.0 600.0,295.0 620.0,295.0" fill="#3FB68B" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Upper arm (outer): Low</title></polygon>
+<ellipse cx="612" cy="305" rx="13" ry="9" fill="#F39C34" stroke="#07070d" stroke-width="1.5"><title>Elbow: Moderate-high</title></ellipse>
+<polygon points="616.0,322.0 596.0,322.0 592.0,415.0 610.0,415.0" fill="#3FB68B" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Outer forearm: Low</title></polygon>
+<ellipse cx="606" cy="440" rx="14" ry="16" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Hands / fingers: Severe</title></ellipse>
+<ellipse cx="686" cy="538" rx="17" ry="12" fill="#F39C34" stroke="#07070d" stroke-width="1.5"><title>Back of knee: Moderate-high</title></ellipse>
+<polygon points="698.0,560.0 674.0,560.0 676.0,640.0 696.0,640.0" fill="#9ACD5A" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Calf: Low-moderate</title></polygon>
+<ellipse cx="686" cy="655" rx="12" ry="8" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Ankles: Severe</title></ellipse>
+<ellipse cx="686" cy="690" rx="24" ry="11" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Feet / toes: Severe</title></ellipse>
+<ellipse cx="788" cy="175" rx="17" ry="15" fill="#F5C542" stroke="#07070d" stroke-width="1.5"><title>Shoulder: Moderate</title></ellipse>
+<polygon points="788.0,192.0 808.0,192.0 820.0,295.0 800.0,295.0" fill="#3FB68B" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Upper arm (outer): Low</title></polygon>
+<ellipse cx="808" cy="305" rx="13" ry="9" fill="#F39C34" stroke="#07070d" stroke-width="1.5"><title>Elbow: Moderate-high</title></ellipse>
+<polygon points="804.0,322.0 824.0,322.0 828.0,415.0 810.0,415.0" fill="#3FB68B" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Outer forearm: Low</title></polygon>
+<ellipse cx="814" cy="440" rx="14" ry="16" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Hands / fingers: Severe</title></ellipse>
+<ellipse cx="734" cy="538" rx="17" ry="12" fill="#F39C34" stroke="#07070d" stroke-width="1.5"><title>Back of knee: Moderate-high</title></ellipse>
+<polygon points="722.0,560.0 746.0,560.0 744.0,640.0 724.0,640.0" fill="#9ACD5A" stroke="#07070d" stroke-width="1.5" stroke-linejoin="round"><title>Calf: Low-moderate</title></polygon>
+<ellipse cx="734" cy="655" rx="12" ry="8" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Ankles: Severe</title></ellipse>
+<ellipse cx="734" cy="690" rx="24" ry="11" fill="#D1281C" stroke="#07070d" stroke-width="1.5"><title>Feet / toes: Severe</title></ellipse>
+<line x1="172" y1="168" x2="106" y2="163" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="172" cy="168" r="2.6" fill="#ffffff"/>
+<text x="100" y="168" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Shoulder</text>
+<line x1="250" y1="200" x2="106" y2="195" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="250" cy="200" r="2.6" fill="#ffffff"/>
+<text x="100" y="200" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Sternum</text>
+<line x1="197" y1="205" x2="106" y2="219" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="197" cy="205" r="2.6" fill="#ffffff"/>
+<text x="100" y="224" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Armpit</text>
+<line x1="220" y1="250" x2="106" y2="245" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="220" cy="250" r="2.6" fill="#ffffff"/>
+<text x="100" y="250" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Ribs</text>
+<line x1="178" y1="250" x2="106" y2="269" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="178" cy="250" r="2.6" fill="#ffffff"/>
+<text x="100" y="274" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Inner arm</text>
+<line x1="162" y1="306" x2="106" y2="301" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="162" cy="306" r="2.6" fill="#ffffff"/>
+<text x="100" y="306" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Inner elbow</text>
+<line x1="230" y1="340" x2="106" y2="335" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="230" cy="340" r="2.6" fill="#ffffff"/>
+<text x="100" y="340" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Stomach</text>
+<line x1="146" y1="440" x2="106" y2="435" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="146" cy="440" r="2.6" fill="#ffffff"/>
+<text x="100" y="440" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Hands</text>
+<line x1="346" y1="240" x2="394" y2="235" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="346" cy="240" r="2.6" fill="#ffffff"/>
+<text x="400" y="240" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Upper arm</text>
+<line x1="358" y1="370" x2="394" y2="365" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="358" cy="370" r="2.6" fill="#ffffff"/>
+<text x="400" y="370" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Forearm</text>
+<line x1="250" y1="392" x2="394" y2="389" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="250" cy="392" r="2.6" fill="#ffffff"/>
+<text x="400" y="394" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Groin</text>
+<line x1="268" y1="430" x2="394" y2="425" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="268" cy="430" r="2.6" fill="#ffffff"/>
+<text x="400" y="430" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Inner thigh</text>
+<line x1="284" y1="455" x2="394" y2="450" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="284" cy="455" r="2.6" fill="#ffffff"/>
+<text x="400" y="455" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Outer thigh</text>
+<line x1="275" y1="538" x2="394" y2="533" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="275" cy="538" r="2.6" fill="#ffffff"/>
+<text x="400" y="538" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Knee</text>
+<line x1="275" y1="610" x2="394" y2="605" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="275" cy="610" r="2.6" fill="#ffffff"/>
+<text x="400" y="610" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Shins / ankles</text>
+<line x1="280" y1="692" x2="394" y2="687" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="280" cy="692" r="2.6" fill="#ffffff"/>
+<text x="400" y="692" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Feet</text>
+<line x1="632" y1="168" x2="566" y2="163" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="632" cy="168" r="2.6" fill="#ffffff"/>
+<text x="560" y="168" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Shoulder</text>
+<line x1="680" y1="205" x2="566" y2="200" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="680" cy="205" r="2.6" fill="#ffffff"/>
+<text x="560" y="205" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Upper back</text>
+<line x1="622" y1="245" x2="566" y2="240" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="622" cy="245" r="2.6" fill="#ffffff"/>
+<text x="560" y="245" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Upper arm</text>
+<line x1="612" y1="306" x2="566" y2="301" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="612" cy="306" r="2.6" fill="#ffffff"/>
+<text x="560" y="306" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Elbow</text>
+<line x1="602" y1="370" x2="566" y2="365" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="602" cy="370" r="2.6" fill="#ffffff"/>
+<text x="560" y="370" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Outer forearm</text>
+<line x1="606" y1="440" x2="566" y2="435" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="606" cy="440" r="2.6" fill="#ffffff"/>
+<text x="560" y="440" text-anchor="end" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Hands</text>
+<line x1="710" y1="290" x2="854" y2="285" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="710" cy="290" r="2.6" fill="#ffffff"/>
+<text x="860" y="290" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Spine</text>
+<line x1="734" y1="538" x2="854" y2="533" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="734" cy="538" r="2.6" fill="#ffffff"/>
+<text x="860" y="538" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Back of knee</text>
+<line x1="734" y1="600" x2="854" y2="595" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="734" cy="600" r="2.6" fill="#ffffff"/>
+<text x="860" y="600" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Calf</text>
+<line x1="734" y1="656" x2="854" y2="651" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="734" cy="656" r="2.6" fill="#ffffff"/>
+<text x="860" y="656" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Ankles</text>
+<line x1="740" y1="692" x2="854" y2="687" stroke="#8a8aa0" stroke-width="1" opacity="0.7"/>
+<circle cx="740" cy="692" r="2.6" fill="#ffffff"/>
+<text x="860" y="692" text-anchor="start" font-size="15" font-family="Arial, Helvetica, sans-serif" fill="#e8e8f0">Feet</text>
+<rect x="120" y="745" width="18" height="18" rx="4" fill="#D1281C"/>
+<text x="145" y="759" font-size="14" font-family="Arial, Helvetica, sans-serif" fill="#d8d8e4">Severe</text>
+<rect x="248" y="745" width="18" height="18" rx="4" fill="#E8602C"/>
+<text x="273" y="759" font-size="14" font-family="Arial, Helvetica, sans-serif" fill="#d8d8e4">High</text>
+<rect x="376" y="745" width="18" height="18" rx="4" fill="#F39C34"/>
+<text x="401" y="759" font-size="14" font-family="Arial, Helvetica, sans-serif" fill="#d8d8e4">Moderate-high</text>
+<rect x="504" y="745" width="18" height="18" rx="4" fill="#F5C542"/>
+<text x="529" y="759" font-size="14" font-family="Arial, Helvetica, sans-serif" fill="#d8d8e4">Moderate</text>
+<rect x="632" y="745" width="18" height="18" rx="4" fill="#9ACD5A"/>
+<text x="657" y="759" font-size="14" font-family="Arial, Helvetica, sans-serif" fill="#d8d8e4">Low-moderate</text>
+<rect x="760" y="745" width="18" height="18" rx="4" fill="#3FB68B"/>
+<text x="785" y="759" font-size="14" font-family="Arial, Helvetica, sans-serif" fill="#d8d8e4">Low</text>
+<text x="480.0" y="785" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" fill="#8a8aa0">Grey areas are not ranked. Pain is subjective: tolerance, artist and session length all shift it.</text>
+</svg>

@@ -1,8 +1,9 @@
 ---
 title: "Micro Realism Tattoos: Are They Really Booked Out, and Does Tiny Detail Blur?"
+seoTitle: "Micro Realism Tattoos: Do They Blur Over Time?"
 description: "A micro realism tattoo looks like a photograph the size of a coin. Here is what named artists and a dermatologist say about demand, waiting lists, and whether tiny detail blurs."
 date: 2026-10-05
-author: Tatulogue Team
+author: Mark Dupuis
 category: trends
 tags: [micro-realism, micro-realism-tattoo, tattoo-aging, tattoo-trends, fine-line, booking-a-tattoo]
 featured: false

@@ -2,7 +2,8 @@
 title: "When Not to Use a Second-Skin Bandage on Your New Tattoo"
 description: "Second-skin bandages like Saniderm work great for most people, but not everyone. Here's how to patch-test first, spot a reaction early, and know when to skip it."
 date: 2026-09-14
-author: Eric
+dateModified: 2026-10-05
+author: Eric Marshall
 category: education
 tags: [aftercare, second-skin, saniderm, healing, tattoo-care]
 featured: false
@@ -11,7 +12,7 @@ coverAlt: "A tattoo artist applying a second-skin adhesive bandage to a client's
 readTime: 5
 ---
 
-You just got tattooed, the artist smooths a second-skin bandage over it, and you're told to leave it on for three to five days. For most people that's the easiest aftercare there is. For some people, it's the start of a rash that has nothing to do with the tattoo itself.
+You just got tattooed, the artist smooths a second-skin bandage over it, and you're told to leave it on for three to five days. For most people that's the easiest aftercare there is. For some people, it's the start of a rash that has nothing to do with the tattoo itself. This post covers one piece of aftercare; the full routine is in our [tattoo aftercare guide](/blog/tattoo-aftercare-guide).
 
 I've watched this play out a lot of times. Here's when second-skin makes sense, when it doesn't, and how to tell the difference before it becomes a problem.
 

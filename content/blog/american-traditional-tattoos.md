@@ -2,7 +2,7 @@
 title: "American Traditional Tattoos: Why Bold Still Holds"
 description: "American traditional tattoos age better than almost anything: bold outlines, limited palette, solid fills. Here's the history, the motifs, and how to find a trad artist."
 date: 2026-06-04
-author: Tatulogue Team
+author: Eric Marshall
 category: education
 tags: [american-traditional, trad-tattoos, sailor-jerry, tattoo-styles, flash]
 featured: false

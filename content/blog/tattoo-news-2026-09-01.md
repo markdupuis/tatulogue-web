@@ -2,13 +2,14 @@
 title: "This Week in Tattoo News"
 description: "A sourced, no-opinion roundup of what's happening in tattoo culture right now: Nancy Mace's nine tattoos, a new Guinness World Record, a Colorado convention recap, and what's coming to Amsterdam and London this weekend."
 date: 2026-09-01
-author: Tatulogue Team
+author: Charlie Padilla
 category: trends
 tags: [tattoo-news, trending, tattoo-culture, industry-news, tattoo-conventions]
 featured: false
 coverImage: "/images/blog/tattoo-news-2026-09-01.jpg"
 coverAlt: "A woman with a large black and grey back tattoo seen from behind in a crowd"
 readTime: 4
+noindexAfterDays: 60
 ---
 
 Here's what's actually happening in tattoo culture this week: no takes, just what's happening, with sources.

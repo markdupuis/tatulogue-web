@@ -1,8 +1,9 @@
 ---
 title: "How Tattoos Age: What Actually Happens to Your Ink Over Time"
+seoTitle: "How Tattoos Age: What Happens to Ink Over Time"
 description: "Packed black holds. Tiny fine line doesn't. Here's the honest breakdown of how different styles and placements age, and what to look for before you book."
 date: 2026-05-28
-author: Tatulogue Team
+author: Eric Marshall
 category: education
 tags: [tattoo-aging, healed-tattoos, tattoo-longevity, blackwork, fine-line]
 featured: false

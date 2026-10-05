@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ARTISTS } from '../../lib/artists';
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://tatulogue.com/investors' },
   title: 'Investors — Tatulogue',
   description: 'Meet the investors behind Tatulogue — tattoo artists and industry partners shaping the future of tattoo culture.',
   openGraph: {

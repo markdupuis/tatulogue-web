@@ -1,8 +1,10 @@
 ---
 title: "Tattoo Trends 2026: What Collectors Are Actually Booking Right Now"
+seoTitle: "Tattoo Trends 2026: What Collectors Are Booking Now"
 description: "Blackwork keeps growing. Fine line demand outpaces supply of artists who can execute it. Here's what's actually moving in 2026, and what to avoid."
 date: 2026-05-28
-author: Tatulogue Team
+dateModified: 2026-10-05
+author: Charlie Padilla
 category: trends
 tags: [tattoo-trends, 2026, blackwork, fine-line, collector]
 featured: false
@@ -17,7 +19,7 @@ readTime: 8
 
 Most people looking up tattoo trends 2026 want one of two things: validation that what they like is popular right now, or a cheat sheet for what not to get. This post is for neither.
 
-It's for collectors who want to understand what's actually moving: where demand is concentrated, where the craft gaps are, and which styles are getting booked because they hold up versus which ones are riding a wave that's already breaking. There's a difference between what floods your explore page and what experienced collectors are walking out of shops with. That gap is worth paying attention to.
+It's for collectors who want to understand what's actually moving: where demand is concentrated, where the craft gaps are, and which styles are getting booked because they hold up versus which ones are riding a wave that's already breaking. There's a difference between what floods your explore page and what experienced collectors are walking out of shops with. That gap is worth paying attention to. For plain definitions of each style, see our [tattoo styles guide](/blog/tattoo-styles-guide-2026). For the business side, see [what the data says about the tattoo industry in 2026](/blog/tattoo-industry-2026).
 
 ---
 
@@ -77,7 +79,7 @@ Five years ago, a patchwork sleeve often meant someone had accumulated a bunch o
 
 It's a different philosophy than the unified concept sleeve. Neither is wrong. But the intentional patchwork approach has picked up serious cultural traction because it reflects how collectors actually collect: piece by piece, artist to artist, experience to experience. You're not designing a graphic; you're documenting a body of work.
 
-If you're [building a sleeve or larger collection](/blog/tattoo-styles-guide-2026), knowing whether you're going unified concept or intentional patchwork before you start matters. It changes every decision from here out.
+If you're building a sleeve or larger collection, knowing whether you're going unified concept or intentional patchwork before you start matters. It changes every decision from here out.
 
 ---
 

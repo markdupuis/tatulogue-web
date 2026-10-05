@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://tatulogue.com/about' },
   title: 'About | Tatulogue',
   description:
     'Tatulogue is a social platform that connects clients and enthusiasts with their local tattoo artists — find a tattooer by style and location, in one touch.',

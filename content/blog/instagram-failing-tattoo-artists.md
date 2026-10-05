@@ -1,8 +1,9 @@
 ---
 title: "Why Instagram Is Failing Tattoo Artists: And What the Alternative Looks Like"
+seoTitle: "Why Instagram Is Failing Tattoo Artists"
 description: "Algorithm reach is down. Waitlists are shrinking. The platform that runs on engagement doesn't care about connecting the right collector with the right artist."
 date: 2026-05-28
-author: Tatulogue Team
+author: Mark Dupuis
 category: about
 tags: [instagram, tattoo-artist, tatulogue, tattoo-booking, social-media]
 featured: false

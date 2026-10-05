@@ -1,8 +1,9 @@
 ---
 title: "Japanese Tattoo History and Iconography: What the Symbols Actually Mean"
+seoTitle: "Japanese Tattoo Meanings and Symbols"
 description: "Koi aren't just fish. Dragons aren't just dragons. Japanese tattooing has centuries of visual language behind it: here's what it means and how to work with it."
 date: 2026-05-28
-author: Tatulogue Team
+author: Eric Marshall
 category: education
 tags: [japanese-tattoo, irezumi, tebori, tattoo-styles, iconography]
 featured: false

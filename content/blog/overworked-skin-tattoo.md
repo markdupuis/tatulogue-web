@@ -1,8 +1,9 @@
 ---
 title: "Overworked Skin: What It Is, How to Spot It, and Why It Ruins Tattoos"
+seoTitle: "Overworked Skin Tattoo: Signs and Causes"
 description: "Too many passes. Too much detail. Skin that looks like it's been chewed up. Overworked skin is permanent: here's how to spot it before it's in your skin."
 date: 2026-05-28
-author: Tatulogue Team
+author: Eric Marshall
 category: education
 tags: [overworked-skin, tattoo-quality, realism, artist-vetting, healed-tattoos]
 featured: false

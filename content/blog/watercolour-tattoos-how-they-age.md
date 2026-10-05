@@ -2,7 +2,7 @@
 title: "Watercolour Tattoos: The Honest Guide to How They Age"
 description: "The look that made you want it is usually the first thing to fade. Here's what watercolour tattoos actually look like years later, and what to do about it."
 date: 2026-05-28
-author: Tatulogue Team
+author: Eric Marshall
 category: education
 tags: [watercolour-tattoo, tattoo-aging, tattoo-styles, longevity]
 featured: false

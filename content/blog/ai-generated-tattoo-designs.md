@@ -1,8 +1,9 @@
 ---
 title: "Why You Shouldn't Bring an AI Generated Tattoo Design to Your Artist"
+seoTitle: "Why You Shouldn't Bring an AI Tattoo Design to Your Artist"
 description: "AI generated tattoo designs look sharp on a screen and fall apart on skin. Here's why the gap between a prompt and a real tattoo is bigger than it looks, and what to bring instead."
 date: 2026-09-22
-author: Tatulogue Team
+author: Mark Dupuis
 category: trends
 tags: [ai-tattoos, tattoo-design, tattoo-artists, tattoo-consultation, tattoo-trends]
 featured: false

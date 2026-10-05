@@ -1,8 +1,10 @@
 ---
 title: "Tattoo Healing Stages: What's Actually Happening Week by Week"
+seoTitle: "Tattoo Healing Stages: What Happens Week by Week"
 description: "Day 3 looks rough. Week 2 looks milky. Week 6 is when it's actually healed. Here's what's happening at each stage and what to watch for."
 date: 2026-05-28
-author: Tatulogue Team
+dateModified: 2026-10-05
+author: Eric Marshall
 category: education
 tags: [tattoo-healing, aftercare, new-tattoo, healing-stages]
 featured: false
@@ -17,7 +19,7 @@ readTime: 8
 
 It's day three. Your piece is red around the edges, ink looks patchy, and there's this weird film forming across the surface. You're spiraling a little. Is it infected? Did your artist mess up? Is it supposed to look like this?
 
-Yes. It's supposed to look like this.
+Yes. It's supposed to look like this. This post covers what's happening at each stage; for the full care routine, start with our [tattoo aftercare guide](/blog/tattoo-aftercare-guide).
 
 Tattoo healing stages confuse people because nobody tells you the whole arc before you sit down. You get the basics: wrap it, moisturize it, stay out of the sun, but the week-by-week reality of how skin actually repairs itself after a tattoo session is almost never explained. So the milky phase hits at week two and people panic. They start picking. They book a touch-up too early. They wreck the work.
 

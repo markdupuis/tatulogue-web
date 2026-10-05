@@ -2,7 +2,7 @@
 title: "Nostalgia Tattoos: Why 70s to Early-2000s Imagery Is Back"
 description: "Nostalgia tattoos are pulling from the 70s through the early 2000s. Why it's happening, what ages well, how to handle tribal designs with respect, and how to brief your artist."
 date: 2026-10-05
-author: Tatulogue Team
+author: Charlie Padilla
 category: trends
 tags: [nostalgia-tattoos, y2k-tattoos, retro-tattoos, tribal-tattoos, tattoo-trends]
 featured: false

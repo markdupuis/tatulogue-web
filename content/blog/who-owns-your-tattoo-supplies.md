@@ -1,8 +1,9 @@
 ---
 title: "Who Actually Owns Your Tattoo Supplies? The Rollup Nobody Talks About"
+seoTitle: "Who Owns Your Tattoo Supplies?"
 description: "Two holding companies now own a huge share of the tattoo supply brands artists use daily, from Kingpin and TATSoul to World Famous and FK Irons. Here's what's actually documented, and why it matters."
 date: 2026-09-14
-author: Eric
+author: Eric Marshall
 category: education
 tags: [tattoo-industry, private-equity, independent, supplies, business]
 featured: false

@@ -1,8 +1,9 @@
 ---
 title: "Tattoo Cover-Ups: What's Actually Possible (and What Isn't)"
+seoTitle: "Tattoo Cover-Ups: What's Possible and What Isn't"
 description: "A good tattoo cover up isn't magic: it's denser, darker ink over old work. Here's what hides, what needs laser first, and how to vet a real cover-up artist."
 date: 2026-06-01
-author: Tatulogue Team
+author: Eric Marshall
 category: education
 tags: [tattoo-cover-up, blastover, tattoo-removal, blackwork, tattoo-regret]
 featured: false

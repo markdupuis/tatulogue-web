@@ -1,8 +1,9 @@
 ---
 title: "How to Search for a Tattoo Artist by Style, Location, and Content"
+seoTitle: "How to Search for a Tattoo Artist by Style and Location"
 description: "No more endless scrolling or hoping for a good recommendation. Here's how Tatulogue's search actually works: by style, location, and content."
 date: 2026-08-25
-author: Tatulogue Team
+author: Mark Dupuis
 category: education
 tags: [tatulogue, search, find-a-tattoo-artist, tattoo-styles, app-features]
 featured: false

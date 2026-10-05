@@ -1,8 +1,9 @@
 ---
 title: "Tattoo Ink Regulation: What the FDA and State Rules Actually Require"
+seoTitle: "Tattoo Ink Regulation: FDA and State Rules"
 description: "Tattoo ink regulation explained: what FDA's 2024 guidance covers, who it applies to, how state rules differ, and what to ask your artist before you sit down."
 date: 2026-10-05
-author: Tatulogue Team
+author: Mark Dupuis
 category: education
 tags: [tattoo-ink, tattoo-safety, tattoo-regulation, fda, tattoo-health]
 featured: false

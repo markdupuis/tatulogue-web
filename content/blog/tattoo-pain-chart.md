@@ -1,8 +1,10 @@
 ---
 title: "Tattoo Pain Chart: The Most and Least Painful Spots to Get Tattooed"
+seoTitle: "Tattoo Pain Chart: Most and Least Painful Spots"
 description: "A no-nonsense tattoo pain chart ranking placements from brutal to barely-there: ribs, spine, hands, forearm, thigh, and exactly why each one hurts."
 date: 2026-05-30
-author: Tatulogue Team
+dateModified: 2026-10-05
+author: Eric Marshall
 category: education
 tags: [tattoo-pain, tattoo-pain-chart, tattoo-placement, first-tattoo, pain-management]
 featured: false
@@ -68,6 +70,10 @@ This tier is where fine, delicate work gets risky. Not just for pain but for lon
 ## Tattoo Pain Chart: Placement Ranked
 
 Here's the quick-reference version. Pain is subjective: your tolerance, the artist's hand speed, the session length, and how packed the work is all shift it, but the ranking holds up across almost every chart and every artist you'll ask.
+
+![Front and back body diagram colored by tattoo pain level: ribs, spine, sternum, armpit, ankles, shins, hands and feet in red as the most painful, with upper arm, outer forearm and outer thigh in green as the least painful](/images/blog/tattoo-pain-chart-body-diagram.svg)
+
+The same ranking as a table:
 
 | Placement | Pain level | Why |
 |---|---|---|

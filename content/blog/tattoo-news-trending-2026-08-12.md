@@ -1,14 +1,16 @@
 ---
 title: "Tattoo News Right Now: What's Trending in the Shops and On the Feed"
+seoTitle: "Tattoo News: What's Trending in Shops and on the Feed"
 description: "A sourced, no-opinion roundup of what's trending in tattoo culture right now: Seattle's raccoon flash boom, a memecoin bounty backlash, Alysa Liu's tattoo controversy, and more."
 date: 2026-08-12
-author: Tatulogue Team
+author: Charlie Padilla
 category: trends
 tags: [tattoo-news, trending, tattoo-culture, industry-news, viral-tattoos]
 featured: false
 coverImage: "/images/blog/tattoo-news-trending-2026-08-12.jpg"
 coverAlt: "Hands browsing a social media feed on a smartphone"
 readTime: 5
+noindexAfterDays: 60
 ---
 
 Here's tattoo news that's currently trending: no takes, just what's happening, with sources.

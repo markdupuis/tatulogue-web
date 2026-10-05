@@ -2,7 +2,7 @@
 title: "How to Vet a Tattoo Artist Before You Book"
 description: "How to choose a tattoo artist without getting burned: reading healed portfolios, spotting scratcher red flags, checking shop hygiene, and the consult questions that matter."
 date: 2026-06-02
-author: Tatulogue Team
+author: Charlie Padilla
 category: education
 tags: [choosing-a-tattoo-artist, tattoo-red-flags, tattoo-portfolio, booking, scratcher]
 featured: false

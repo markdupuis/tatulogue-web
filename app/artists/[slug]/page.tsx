@@ -16,6 +16,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return {
     title,
     description,
+    alternates: { canonical: `https://tatulogue.com/artists/${artist.slug}` },
     openGraph: {
       title,
       description,

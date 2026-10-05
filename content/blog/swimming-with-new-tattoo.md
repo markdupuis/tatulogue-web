@@ -1,8 +1,10 @@
 ---
 title: "Swimming With a New Tattoo: When It's Safe and When It Destroys the Work"
+seoTitle: "Swimming With a New Tattoo: When It's Safe"
 description: "Chlorine kills color. Ocean water brings bacteria. Here's the actual timeline for when you can swim, and what happens to the piece if you go too early."
 date: 2026-05-28
-author: Tatulogue Team
+dateModified: 2026-10-05
+author: Eric Marshall
 category: education
 tags: [tattoo-aftercare, swimming, new-tattoo, healing]
 featured: false
@@ -15,7 +17,7 @@ readTime: 7
 
 ---
 
-You just got tattooed. Decent session, piece looks clean, artist was happy with it. And you've got a beach trip in two weeks.
+You just got tattooed. Decent session, piece looks clean, artist was happy with it. And you've got a beach trip in two weeks. For everything else about caring for it, start with our [tattoo aftercare guide](/blog/tattoo-aftercare-guide).
 
 You're already doing the mental math. *It'll be mostly healed by then, right? I'll just keep it dry.* Maybe you've been googling waterproof bandage options. Maybe somebody in a forum told you two weeks is fine.
 

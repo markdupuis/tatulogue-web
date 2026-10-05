@@ -1,8 +1,9 @@
 ---
 title: "Fall 2026 Tattoo Conventions: Where to Go and What to Expect"
+seoTitle: "Fall 2026 Tattoo Conventions: Dates, Venues and Tickets"
 description: "Ten tattoo conventions are still coming up this fall, from Connecticut to Miami to Brussels. Dates, venues and ticket info, checked against each show's own site."
 date: 2026-10-05
-author: Tatulogue Team
+author: Charlie Padilla
 category: culture
 tags: [tattoo-conventions-2026, tattoo-conventions, tattoo-convention-guide, fall-2026, tattoo-events]
 featured: false

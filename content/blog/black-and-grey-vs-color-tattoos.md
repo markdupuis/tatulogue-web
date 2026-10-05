@@ -1,8 +1,9 @@
 ---
 title: "Black and Grey vs Color Tattoos: How to Actually Choose"
+seoTitle: "Black and Grey vs Color Tattoos: How to Choose"
 description: "Black and grey vs color tattoos: the honest breakdown of aging, skin tone, cost, and which styles suit which. What holds, what fades, and how to decide before you book."
 date: 2026-06-02
-author: Tatulogue Team
+author: Eric Marshall
 category: education
 tags: [black-and-grey, color-tattoos, tattoo-styles, tattoo-aging, realism]
 featured: false

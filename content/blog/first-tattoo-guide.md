@@ -2,7 +2,7 @@
 title: "Getting Your First Tattoo: What Nobody Tells First-Timers"
 description: "A no-fluff first tattoo guide: pick an idea that holds, vet the right artist, survive consultation and deposits, and know what shop day actually looks like."
 date: 2026-05-31
-author: Tatulogue Team
+author: Charlie Padilla
 category: education
 tags: [first-tattoo, first-tattoo-guide, tattoo-tips, tattoo-consultation, beginners]
 featured: false

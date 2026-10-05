@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://tatulogue.com/delete-account' },
   title: 'Delete Your Account | Tatulogue',
   description: 'How to request deletion of your Tatulogue account and data.',
 };

@@ -1,8 +1,9 @@
 ---
 title: "Tattoo Scams: How Fake Artist Accounts Steal Deposits (and How to Avoid Them)"
+seoTitle: "Tattoo Scams: How Fake Artist Accounts Steal Deposits"
 description: "Tattoo scams are rising: fake accounts copy a real artist's portfolio, then collect deposits for appointments that don't exist. Here's how they work and how to verify before you pay."
 date: 2026-09-26
-author: Tatulogue Team
+author: Mark Dupuis
 category: education
 tags: [tattoo-scams, tattoo-safety, tattoo-deposits, fake-artist-accounts, booking-a-tattoo]
 featured: false

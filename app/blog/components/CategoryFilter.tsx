@@ -38,6 +38,7 @@ function PostCard({ post }: { post: PostMeta }) {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
+    timeZone: 'UTC',
   }).format(new Date(post.date));
 
   return (

@@ -1,8 +1,9 @@
 ---
 title: "Artist Spotlight: Meet the Tattoo Artists Building on Tatulogue"
+seoTitle: "Artist Spotlight: Tattoo Artists Building on Tatulogue"
 description: "We're starting a series to tell the stories behind the artists: the paths they took, the styles they developed, and the work they're most proud of."
 date: 2026-05-18
-author: Tatulogue Team
+author: Charlie Padilla
 category: spotlight
 tags: [artist-spotlight, tatulogue-artists, tattoo-artist, community]
 featured: false

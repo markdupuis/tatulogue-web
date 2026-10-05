@@ -2,7 +2,7 @@
 title: "Why Tatulogue Won't Take VC Money (and Has No AI)"
 description: "It's written into our operator agreement: no venture capital, no big corporate money. Only investment from inside the tattoo industry. Here's why."
 date: 2026-08-25
-author: Tatulogue Team
+author: Charlie Padilla
 category: about
 tags: [tatulogue, mission, no-ai, investors, tattoo-community]
 featured: false

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: { canonical: 'https://tatulogue.com/privacy' },
   title: 'Privacy Policy | Tatulogue',
   description: 'Privacy Policy for Tatulogue — how we collect, use, and protect your information.',
 };

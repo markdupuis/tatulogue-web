@@ -1,8 +1,9 @@
 ---
 title: "Tatulogue vs Booksy vs StyleSeat: Which Tattoo Booking Platform Is Actually Built for This"
+seoTitle: "Tatulogue vs Booksy vs StyleSeat for Tattoo Artists"
 description: "Booksy and StyleSeat are scheduling tools that work fine for nail salons. Tatulogue is built for how the tattoo industry actually works. Here's the difference."
 date: 2026-05-28
-author: Tatulogue Team
+author: Mark Dupuis
 category: about
 tags: [tattoo-booking, tatulogue, booksy, styleseat, tattoo-platform]
 featured: false

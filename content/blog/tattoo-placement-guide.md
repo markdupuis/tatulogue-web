@@ -1,8 +1,9 @@
 ---
 title: "Tattoo Placement Guide: Reading Body Flow Before You Commit"
+seoTitle: "Tattoo Placement Guide: Reading Body Flow"
 description: "A tattoo placement guide for collectors: how placement drives flow, aging, and stretch, which spots hold detail, and how artists map a design to the body."
 date: 2026-06-03
-author: Tatulogue Team
+author: Eric Marshall
 category: education
 tags: [tattoo-placement, body-flow, sleeve, tattoo-planning, patchwork]
 featured: false

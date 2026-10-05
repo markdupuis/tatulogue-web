@@ -1,8 +1,9 @@
 ---
 title: "Is the Tattoo Industry in a Recession? What the Data Actually Says"
+seoTitle: "Is the Tattoo Industry in a Recession? What Data Shows"
 description: "Artists say business is slow. We pulled federal payroll data and industry estimates to see if the tattoo industry is shrinking in 2026. Here's what holds up."
 date: 2026-10-05
-author: Tatulogue Team
+author: Charlie Padilla
 category: culture
 tags: [tattoo-industry-2026, tattoo-industry, tattoo-recession, tattoo-business, tattoo-shops]
 featured: false
@@ -19,7 +20,7 @@ Some artists say books are slow, walk-ins are down and shops are closing. Others
 
 Then you read the other side and it's market-research headlines about a booming tattoo economy. Both camps usually skip the part where they show their numbers.
 
-So we went looking for numbers. Real ones, from sources you can open yourself. Here's what's solid, what's soft, and what nobody has measured.
+So we went looking for numbers. Real ones, from sources you can open yourself. Here's what's solid, what's soft, and what nobody has measured. This is the business side. For what collectors are getting, see [tattoo trends 2026](/blog/tattoo-trends-2026), and for style definitions, the [tattoo styles guide](/blog/tattoo-styles-guide-2026).
 
 ---
 

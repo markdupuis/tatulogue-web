@@ -1,0 +1,43 @@
+# Tatulogue
+
+> Tatulogue (tatulogue.com) is a social platform built for tattoo artists and collectors. Discover artists by style and location and share work.
+
+## Key pages
+- What is Tatulogue: https://tatulogue.com/blog/what-is-tatulogue
+- Blog: https://tatulogue.com/blog
+- Changelog: https://tatulogue.com/changelog
+
+## Guides
+- Micro Realism Tattoos: Are They Really Booked Out, and Does Tiny Detail Blur?: https://tatulogue.com/blog/micro-realism-tattoos
+- Nostalgia Tattoos: Why 70s to Early-2000s Imagery Is Back: https://tatulogue.com/blog/nostalgia-tattoos
+- Fall 2026 Tattoo Conventions: Where to Go and What to Expect: https://tatulogue.com/blog/tattoo-conventions-fall-2026
+- Is the Tattoo Industry in a Recession? What the Data Actually Says: https://tatulogue.com/blog/tattoo-industry-2026
+- Tattoo Ink Regulation: What the FDA and State Rules Actually Require: https://tatulogue.com/blog/tattoo-ink-regulation
+- Tattoo Scams: How Fake Artist Accounts Steal Deposits (and How to Avoid Them): https://tatulogue.com/blog/tattoo-scams-fake-artist-accounts
+- Why You Shouldn't Bring an AI Generated Tattoo Design to Your Artist: https://tatulogue.com/blog/ai-generated-tattoo-designs
+- Are Tattoos Linked to Lymphoma? What the Actual Research Says: https://tatulogue.com/blog/tattoos-and-lymphoma-risk
+- When Not to Use a Second-Skin Bandage on Your New Tattoo: https://tatulogue.com/blog/second-skin-bandage-when-not-to-use
+- Who Actually Owns Your Tattoo Supplies? The Rollup Nobody Talks About: https://tatulogue.com/blog/who-owns-your-tattoo-supplies
+- How to Search for a Tattoo Artist by Style, Location, and Content: https://tatulogue.com/blog/search-tattoo-artists-by-style-location
+- Why Tatulogue Won't Take VC Money (and Has No AI): https://tatulogue.com/blog/tatulogue-no-vc-no-ai
+- American Traditional Tattoos: Why Bold Still Holds: https://tatulogue.com/blog/american-traditional-tattoos
+- Tattoo Placement Guide: Reading Body Flow Before You Commit: https://tatulogue.com/blog/tattoo-placement-guide
+- Black and Grey vs Color Tattoos: How to Actually Choose: https://tatulogue.com/blog/black-and-grey-vs-color-tattoos
+- How to Vet a Tattoo Artist Before You Book: https://tatulogue.com/blog/how-to-vet-a-tattoo-artist
+- Tattoo Cover-Ups: What's Actually Possible (and What Isn't): https://tatulogue.com/blog/tattoo-cover-ups
+- Getting Your First Tattoo: What Nobody Tells First-Timers: https://tatulogue.com/blog/first-tattoo-guide
+- Tattoo Pain Chart: The Most and Least Painful Spots to Get Tattooed: https://tatulogue.com/blog/tattoo-pain-chart
+- How Much Do Tattoos Cost? A Real 2026 Pricing Breakdown: https://tatulogue.com/blog/how-much-do-tattoos-cost
+- How Tattoos Age: What Actually Happens to Your Ink Over Time: https://tatulogue.com/blog/how-tattoos-age
+- Why Instagram Is Failing Tattoo Artists: And What the Alternative Looks Like: https://tatulogue.com/blog/instagram-failing-tattoo-artists
+- Japanese Tattoo History and Iconography: What the Symbols Actually Mean: https://tatulogue.com/blog/japanese-tattoo-history-iconography
+- Overworked Skin: What It Is, How to Spot It, and Why It Ruins Tattoos: https://tatulogue.com/blog/overworked-skin-tattoo
+- Swimming With a New Tattoo: When It's Safe and When It Destroys the Work: https://tatulogue.com/blog/swimming-with-new-tattoo
+- Tattoo Healing Stages: What's Actually Happening Week by Week: https://tatulogue.com/blog/tattoo-healing-stages
+- Tattoo Trends 2026: What Collectors Are Actually Booking Right Now: https://tatulogue.com/blog/tattoo-trends-2026
+- Tatulogue vs Booksy vs StyleSeat: Which Tattoo Booking Platform Is Actually Built for This: https://tatulogue.com/blog/tatulogue-vs-booksy-vs-styleseat
+- Watercolour Tattoos: The Honest Guide to How They Age: https://tatulogue.com/blog/watercolour-tattoos-how-they-age
+- Artist Spotlight: Meet the Tattoo Artists Building on Tatulogue: https://tatulogue.com/blog/artist-spotlight-series
+- Fine Line Tattoos: Everything You Need to Know Before You Book: https://tatulogue.com/blog/fine-line-tattoos-complete-guide
+- The 10 Most Popular Tattoo Styles in 2026 (And How to Find the Right Artist): https://tatulogue.com/blog/tattoo-styles-guide-2026
+- Tattoo Aftercare: The Complete Day-by-Day Healing Guide: https://tatulogue.com/blog/tattoo-aftercare-guide

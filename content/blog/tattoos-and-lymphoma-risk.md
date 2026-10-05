@@ -1,8 +1,9 @@
 ---
 title: "Are Tattoos Linked to Lymphoma? What the Actual Research Says"
+seoTitle: "Are Tattoos Linked to Lymphoma? What Research Says"
 description: "A 2024 Swedish study raised the question of tattoos and lymphoma risk. Here's what the study actually found, why researchers pushed back on the framing, and what's still unclear."
 date: 2026-09-22
-author: Tatulogue Team
+author: Eric Marshall
 category: education
 tags: [tattoo-safety, tattoo-health, tattoo-ink, tattoo-aftercare, tattoo-research]
 featured: false
