@@ -270,6 +270,44 @@ export const ARTISTS: Record<string, ArtistLanding> = {
     ],
     mapEmbedQuery: 'Marauder+Tattoo+Studio+4700+S+900+E+Murray+UT+84117',
   },
+  'adam-harper': {
+    slug: 'adam-harper',
+    name: 'Adam Harper',
+    type: 'artist',
+    tagline: 'Tattoo artist in Pocatello, Idaho',
+    heroImage: '/images/adam-harper/adam-harper-headshot.jpg',
+    heroImageAlt: 'Adam Harper standing in front of a painted brick wall',
+    bio: [
+      "Adam Harper is a tattoo artist at Ty's Tattoos in Pocatello, Idaho.",
+      'His portfolio leans black & grey realism: animals, portraits, and large back pieces.',
+    ],
+    shopName: "Ty's Tattoos",
+    instagramHandle: 'adamharpertattoos',
+    specialties: ['Black & Grey', 'Realism'],
+    portfolio: [
+      { src: '/images/adam-harper/tiger-and-cub.webp', alt: 'Black and grey realistic tiger and cub tattoo on a thigh by Adam Harper', placeholder: false },
+      { src: '/images/adam-harper/zombie-tree-back-piece.webp', alt: 'Black and grey back piece of a woman with a decaying skull face beside a bare tree and an elk by Adam Harper', placeholder: false },
+      { src: '/images/adam-harper/hummingbird.webp', alt: 'Black and grey realistic hummingbird in flight tattooed on an upper arm by Adam Harper', placeholder: false },
+    ],
+    ogImage: '/images/adam-harper/tiger-and-cub.webp',
+    ctaHref: 'https://app.tatulogue.com',
+    ctaLabel: 'Follow Adam on TATULOGUE',
+    utm: { source: 'website', medium: 'organic', campaign: 'artist_adam_harper' },
+    address: {
+      street: '191 Jefferson Ave',
+      city: 'Pocatello',
+      state: 'ID',
+      zip: '83201',
+    },
+    phone: '(208) 380-8704',
+    email: 'adamharpertattoos@gmail.com',
+    website: null,
+    hours: null,
+    socials: [
+      { platform: 'instagram', url: 'https://www.instagram.com/adamharpertattoos/', label: '@adamharpertattoos' },
+    ],
+    mapEmbedQuery: "Ty's+Tattoos+191+Jefferson+Ave+Pocatello+ID+83201",
+  },
 };
 
 export function buildCtaUrl(a: ArtistLanding): string {
