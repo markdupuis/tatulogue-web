@@ -388,6 +388,106 @@ export async function fetchShopArtists(shopId: string): Promise<CrmContact[]> {
   return (data ?? []) as CrmContact[];
 }
 
+/** Finds a CRM contact already tied to this app user, by linked user id or by email. */
+export async function findCrmContactForUser(userId: string, email: string | null): Promise<CrmContact | null> {
+  const { data: linked, error } = await supabase
+    .from('crm_contacts')
+    .select('*')
+    .eq('linked_user_id', userId)
+    .limit(1)
+    .maybeSingle();
+  if (error) console.error('[findCrmContactForUser] linked lookup failed:', error);
+  if (linked) return linked as CrmContact;
+  if (!email) return null;
+
+  const escaped = email.trim().replace(/[%_\\]/g, (ch) => `\\${ch}`);
+  const { data: byEmail, error: emailError } = await supabase
+    .from('crm_contacts')
+    .select('*')
+    .ilike('email', escaped)
+    .limit(1)
+    .maybeSingle();
+  if (emailError) console.error('[findCrmContactForUser] email lookup failed:', emailError);
+  return (byEmail as CrmContact | null) ?? null;
+}
+
+export interface CrmUserSource {
+  id: string;
+  username: string | null;
+  full_name: string | null;
+  email: string | null;
+  user_type: string;
+}
+
+interface ArtistProfileForCrm {
+  professional_name: string | null;
+  shop_name: string | null;
+  business_address: string | null;
+  city: string | null;
+  state: string | null;
+  zip: string | null;
+  country: string | null;
+  phone: string | null;
+  instagram_handle: string | null;
+  specializations: string[] | null;
+}
+
+const CONVERTED_USER_TYPES = ['artist', 'canvas', 'enthusiast', 'admin'];
+
+async function fetchArtistProfileForCrm(userId: string): Promise<ArtistProfileForCrm | null> {
+  const { data, error } = await supabase
+    .from('artist_profiles')
+    .select('professional_name, shop_name, business_address, city, state, zip, country, phone, instagram_handle, specializations')
+    .eq('id', userId)
+    .maybeSingle();
+  if (error) console.error('[fetchArtistProfileForCrm] failed:', error);
+  return (data as ArtistProfileForCrm | null) ?? null;
+}
+
+/**
+ * Builds a new CRM contact from an app user, copying what the admin view can
+ * see: name, email, user type, a profile link, and the artist profile's shop,
+ * address, phone, Instagram and styles when the user has one. The contact is
+ * linked to the user so it counts as converted and is not added twice.
+ */
+export async function buildCrmContactFromUser(
+  user: CrmUserSource,
+  ownerId: string,
+  profileUrl: string,
+): Promise<CrmContactInput> {
+  const profile = await fetchArtistProfileForCrm(user.id);
+  const [firstName, ...rest] = (user.full_name ?? '').trim().split(/\s+/).filter(Boolean);
+  const noteLines = [
+    'Added from the admin Users page.',
+    user.username ? `Username: @${user.username}` : null,
+    `User type: ${labelFor(user.user_type)}`,
+    `Profile: ${profileUrl}`,
+  ].filter(Boolean);
+
+  return {
+    display_name: profile?.professional_name || user.full_name || user.username || 'Unnamed user',
+    contact_type: user.user_type === 'artist' ? 'artist' : 'other',
+    owner_user_id: ownerId,
+    first_name: firstName ?? null,
+    last_name: rest.length ? rest.join(' ') : null,
+    email: user.email,
+    shop_name: profile?.shop_name ?? null,
+    address_line1: profile?.business_address ?? null,
+    city: profile?.city ?? null,
+    state: profile?.state ?? null,
+    postal_code: profile?.zip ?? null,
+    country: profile?.country || 'US',
+    phone: profile?.phone ?? null,
+    instagram: profile?.instagram_handle?.replace(/^@/, '') || null,
+    styles: profile?.specializations ?? [],
+    linked_user_id: user.id,
+    linked_at: new Date().toISOString(),
+    link_method: 'manual',
+    converted_user_type: CONVERTED_USER_TYPES.includes(user.user_type) ? user.user_type : null,
+    notes: noteLines.join('\n'),
+  };
+}
+
 export async function fetchCrmContact(id: string): Promise<CrmContact | null> {
   const { data, error } = await supabase.from('crm_contacts').select('*').eq('id', id).maybeSingle();
   if (error) console.error('[fetchCrmContact] failed:', error);

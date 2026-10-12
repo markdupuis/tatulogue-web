@@ -199,6 +199,11 @@ function ActivityLog({ contact, owners, onContactRefresh }: { contact: CrmContac
         </div>
       </form>
 
+      <div className="text-xs text-white/50">
+        <span className="mb-1 block">Next follow-up</span>
+        <div className="text-sm text-white/80">{formatDate(contact.next_follow_up_at)}</div>
+      </div>
+
       {loading ? (
         <p className="text-sm text-white/40">Loading activity…</p>
       ) : activities.length === 0 ? (
@@ -549,10 +554,6 @@ export default function CrmContactPanel({ contact, owners, onClose, onChanged, o
           <div>
             <span className="mb-1 block">Last contacted</span>
             <div className="py-2 text-sm text-white/80">{contact.last_contacted_at ? formatDate(contact.last_contacted_at) : 'Never'}</div>
-          </div>
-          <div>
-            <span className="mb-1 block">Next follow-up</span>
-            <div className="py-2 text-sm text-white/80">{formatDate(contact.next_follow_up_at)}</div>
           </div>
         </div>
 

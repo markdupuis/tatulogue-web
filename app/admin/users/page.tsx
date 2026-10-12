@@ -3,6 +3,13 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import AdminShell from '../../../components/admin/AdminShell';
+import { appProfileUrl } from '../../../lib/admin/app-links';
+import {
+  buildCrmContactFromUser,
+  createCrmContact,
+  findCrmContactForUser,
+  getCurrentAdminId,
+} from '../../../lib/admin/crm';
 import {
   clearManualAffiliate,
   fetchAffiliateOptions,
@@ -14,6 +21,7 @@ import type { AdminUser, AffiliateOption } from '../../../lib/admin/types';
 
 type ResetStatus = 'idle' | 'sending' | 'sent' | 'error';
 type AffiliateSaveStatus = 'idle' | 'saving' | 'error';
+type CrmAddStatus = 'adding' | 'added' | 'exists' | 'error';
 
 const TYPE_CHIP_COLORS: Record<string, string> = {
   admin: 'text-violet-400',
@@ -59,6 +67,33 @@ function Avatar({ user }: { user: AdminUser }) {
   );
 }
 
+function CrmAddControl({ status, onAdd }: { status: CrmAddStatus | undefined; onAdd: () => void }) {
+  if (status === 'added' || status === 'exists') {
+    return (
+      <span className={`text-xs ${status === 'added' ? 'text-emerald-400' : 'text-amber-300'}`}>
+        {status === 'added' ? 'Added to CRM. ' : 'Already in CRM. '}
+        <Link href="/admin/crm" className="underline decoration-current/30 hover:text-white">
+          Open CRM
+        </Link>
+      </span>
+    );
+  }
+  return (
+    <button
+      type="button"
+      disabled={status === 'adding'}
+      onClick={onAdd}
+      className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
+        status === 'error'
+          ? 'border-red-500/40 text-red-400'
+          : 'border-white/15 text-white/70 hover:text-white hover:bg-white/[0.04]'
+      }`}
+    >
+      {status === 'adding' ? 'Adding…' : status === 'error' ? 'Failed, retry' : 'Add to CRM'}
+    </button>
+  );
+}
+
 export default function UsersPage() {
   const [users, setUsers] = useState<AdminUser[]>([]);
   const [affiliateOptions, setAffiliateOptions] = useState<AffiliateOption[]>([]);
@@ -68,6 +103,7 @@ export default function UsersPage() {
   const [resetStatus, setResetStatus] = useState<Record<string, ResetStatus>>({});
   const [editingAffiliateId, setEditingAffiliateId] = useState<string | null>(null);
   const [affiliateSaveStatus, setAffiliateSaveStatus] = useState<Record<string, AffiliateSaveStatus>>({});
+  const [crmStatus, setCrmStatus] = useState<Record<string, CrmAddStatus>>({});
 
   useEffect(() => {
     let active = true;
@@ -131,6 +167,23 @@ export default function UsersPage() {
         setResetStatus((prev) => ({ ...prev, [user.id]: 'idle' }));
       }, 4000);
     }
+  }
+
+  async function handleAddToCrm(user: AdminUser) {
+    setCrmStatus((prev) => ({ ...prev, [user.id]: 'adding' }));
+    const existing = await findCrmContactForUser(user.id, user.email);
+    if (existing) {
+      setCrmStatus((prev) => ({ ...prev, [user.id]: 'exists' }));
+      return;
+    }
+    const adminId = await getCurrentAdminId();
+    if (!adminId) {
+      setCrmStatus((prev) => ({ ...prev, [user.id]: 'error' }));
+      return;
+    }
+    const input = await buildCrmContactFromUser(user, adminId, appProfileUrl(user.id));
+    const created = await createCrmContact(input);
+    setCrmStatus((prev) => ({ ...prev, [user.id]: created ? 'added' : 'error' }));
   }
 
   function resetButtonLabel(status: ResetStatus | undefined): string {
@@ -201,10 +254,30 @@ export default function UsersPage() {
                 return (
                 <tr key={user.id} className="border-t border-white/8">
                   <td className="px-4 py-3">
-                    <Avatar user={user} />
+                    <a
+                      href={appProfileUrl(user.id)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Open profile in a new tab"
+                      className="inline-block"
+                    >
+                      <Avatar user={user} />
+                    </a>
                   </td>
                   <td className="px-4 py-3 text-white/80">
-                    {user.username ? `@${user.username}` : '—'}
+                    {user.username ? (
+                      <a
+                        href={appProfileUrl(user.id)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Open profile in a new tab"
+                        className="hover:text-violet-300 hover:underline"
+                      >
+                        @{user.username}
+                      </a>
+                    ) : (
+                      '—'
+                    )}
                   </td>
                   <td className="px-4 py-3 text-white/80">{user.full_name || '—'}</td>
                   <td className="px-4 py-3 text-white/60">{user.email || '—'}</td>
@@ -272,20 +345,26 @@ export default function UsersPage() {
                   <td className="px-4 py-3 text-white/80">{user.post_count}</td>
                   <td className="px-4 py-3 text-white/40">{formatDate(user.created_at)}</td>
                   <td className="px-4 py-3">
-                    <button
-                      type="button"
-                      disabled={!user.email || status === 'sending'}
-                      onClick={() => handleResetPassword(user)}
-                      className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
-                        status === 'sent'
-                          ? 'border-emerald-500/40 text-emerald-400'
-                          : status === 'error'
-                          ? 'border-red-500/40 text-red-400'
-                          : 'border-white/15 text-white/70 hover:text-white hover:bg-white/[0.04]'
-                      }`}
-                    >
-                      {resetButtonLabel(status)}
-                    </button>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <button
+                        type="button"
+                        disabled={!user.email || status === 'sending'}
+                        onClick={() => handleResetPassword(user)}
+                        className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
+                          status === 'sent'
+                            ? 'border-emerald-500/40 text-emerald-400'
+                            : status === 'error'
+                            ? 'border-red-500/40 text-red-400'
+                            : 'border-white/15 text-white/70 hover:text-white hover:bg-white/[0.04]'
+                        }`}
+                      >
+                        {resetButtonLabel(status)}
+                      </button>
+                      <CrmAddControl
+                        status={crmStatus[user.id]}
+                        onAdd={() => handleAddToCrm(user)}
+                      />
+                    </div>
                   </td>
                 </tr>
                 );

@@ -2,6 +2,7 @@
 
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import AdminShell from '../../../components/admin/AdminShell';
+import { appProfileUrl } from '../../../lib/admin/app-links';
 import {
   fetchArtistDocPaths,
   fetchArtists,
@@ -285,7 +286,14 @@ export default function ArtistApprovalsPage() {
                           onClick={() => toggleExpand(a.id)}
                         >
                           <td className="px-4 py-3">
-                            <div className="flex items-center gap-3">
+                            <a
+                              href={appProfileUrl(a.id)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              title="Open profile in a new tab"
+                              className="group inline-flex items-center gap-3"
+                            >
                               {a.avatar ? (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img src={a.avatar} alt="" className="h-8 w-8 rounded-full object-cover" />
@@ -293,10 +301,10 @@ export default function ArtistApprovalsPage() {
                                 <div className="h-8 w-8 rounded-full bg-white/10" />
                               )}
                               <div>
-                                <p className="font-medium text-white">{displayName(a)}</p>
-                                <p className="text-xs text-white/40">@{a.username ?? 'unknown'}</p>
+                                <p className="font-medium text-white group-hover:underline">{displayName(a)}</p>
+                                <p className="text-xs text-white/40 group-hover:text-violet-300">@{a.username ?? 'unknown'}</p>
                               </div>
-                            </div>
+                            </a>
                           </td>
                           <td className="px-4 py-3 text-white/60">
                             {a.specializations.length > 0 ? a.specializations.join(' • ') : '—'}
