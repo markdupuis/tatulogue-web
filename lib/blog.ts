@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
 import html from 'remark-html';
 
 export type Section = 'blog' | 'changelog';
@@ -119,7 +120,7 @@ export async function getPost(slug: string, section: Section = 'blog'): Promise<
   const { data, content: rawContent } = matter(raw);
   const { content, faqSchema } = extractFaqSchema(rawContent);
 
-  const processed = await remark().use(html, { sanitize: false }).process(content);
+  const processed = await remark().use(remarkGfm).use(html, { sanitize: false }).process(content);
 
   // Open external links in a new tab; internal links stay in-page
   const contentHtml = processed

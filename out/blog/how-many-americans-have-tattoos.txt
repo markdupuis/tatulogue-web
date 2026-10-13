@@ -1,0 +1,245 @@
+3:I[4707,[],""]
+5:I[6423,[],""]
+4:["slug","how-many-americans-have-tattoos","d"]
+0:["HhBv-yKJCoSbNhgdWKLhF",[[["",{"children":["blog",{"children":[["slug","how-many-americans-have-tattoos","d"],{"children":["__PAGE__?{\"slug\":\"how-many-americans-have-tattoos\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","how-many-americans-have-tattoos","d"],{"children":["__PAGE__",{},[["$L1","$L2",null],null],null]},[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/43177ee4f53d558e.css","precedence":"next","crossOrigin":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","script",null,{"async":true,"src":"https://www.googletagmanager.com/gtag/js?id=G-HL4LNZVQ6Y"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              window.dataLayer = window.dataLayer || [];\n              function gtag(){dataLayer.push(arguments);}\n              gtag('js', new Date());\n              gtag('config', 'G-HL4LNZVQ6Y');\n            "}}]]}],["$","body",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[]}]}]]}]],null],null],["$L6",null]]]]
+9:I[2972,["972","static/chunks/972-5c284b917350a93b.js","308","static/chunks/app/blog/%5Bslug%5D/page-5dcdf1cdbbc614b1.js"],""]
+7:T427,{"@context":"https://schema.org","@type":"Article","headline":"How Many People Have Tattoos? What Pew's Data Actually Shows","description":"How many people have tattoos in the US? Pew found 32% of adults, while two newer polls say about 25%. Here is the breakdown by age, gender, income and more.","author":{"@type":"Person","name":"Charlie Padilla","jobTitle":"Founder","url":"https://tatulogue.com/authors/charlie-padilla","image":"https://tatulogue.com/images/team-charlie.jpg","worksFor":{"@type":"Organization","name":"Tatulogue","url":"https://tatulogue.com"}},"publisher":{"@type":"Organization","name":"Tatulogue","url":"https://tatulogue.com","logo":{"@type":"ImageObject","url":"https://tatulogue.com/logo.svg"}},"datePublished":"2026-10-13T00:00:00.000Z","dateModified":"2026-10-13T00:00:00.000Z","image":["https://tatulogue.com/images/blog/how-many-americans-have-tattoos.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://tatulogue.com/blog/how-many-americans-have-tattoos"},"url":"https://tatulogue.com/blog/how-many-americans-have-tattoos"}8:T775,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many people have tattoos in the US?","acceptedAnswer":{"@type":"Answer","text":"Pew Research Center found in July 2023 that 32% of US adults have at least one tattoo and 22% have more than one. Later polls were lower: AARP, run through Ipsos, found 25% in December 2024, and YouGov found 24% in spring 2025. Differences in method make a range of roughly 24% to 32% the honest answer."}},{"@type":"Question","name":"Who is most likely to have a tattoo?","acceptedAnswer":{"@type":"Answer","text":"In Pew's 2023 data, adults ages 30 to 49 are the most tattooed age group at 46%, and women are more likely than men (38% versus 27%). Women ages 18 to 29 and 30 to 49 were at 56% and 53%. Lower-income adults (43%) were also tattooed more than upper-income adults (21%)."}},{"@type":"Question","name":"Are tattoos more common in cities than in rural areas?","acceptedAnswer":{"@type":"Answer","text":"Not in Pew's survey. It reported that roughly a third of adults in urban, suburban and rural areas have a tattoo. Geography did not show up as a big divide in that data."}},{"@type":"Question","name":"What percentage of people regret their tattoos?","acceptedAnswer":{"@type":"Answer","text":"Pew found 24% of tattooed adults say they ever regret getting a tattoo or any of their tattoos, and 76% do not. The question covers any regret about any tattoo, so it doesn't measure how serious the regret is or whether anyone had one removed."}},{"@type":"Question","name":"Have tattoos become more common since 2010?","acceptedAnswer":{"@type":"Answer","text":"We can't say from Pew's data. Pew reported 23% in a 2010 phone survey, but it says that result is not directly comparable to its 2023 online survey because the mode and question wording changed. The two numbers should not be treated as a clean trend line."}}]}a:T3958,<blockquote>
+<p><strong>TL;DR:</strong> Pew Research Center's July 2023 survey found 32% of US adults have a tattoo and 22% have more than one. People in their 30s and 40s lead, women outpace men, and lower-income adults are tattooed far more often than upper-income ones. Two newer polls landed closer to 25%, so treat any single number as a range.</p>
+</blockquote>
+<hr>
+<p>Count the forearms next time you're in line for coffee. Somebody has ink. Probably more than one somebody.</p>
+<p>So how many people have tattoos, really? It depends who you ask and how they asked. Every "X% of Americans" headline you've seen traces back to a survey with a specific sample, a specific question, and a specific month.</p>
+<p>We went to the source. Pew Research Center's 2023 survey is the most detailed national look we found, and it's worth reading past the headline. We also opened two newer polls, from late 2024 and early 2025, that give lower numbers.</p>
+<p>Here's what the data says, what it doesn't, and how to read it without fooling yourself. We'll cover who gets tattooed, why they say they did it, and how many wish they hadn't.</p>
+<hr>
+<h2>So how many people have tattoos?</h2>
+<p>About one in three US adults, according to the best-known recent survey. <a href="https://www.pewresearch.org/short-reads/2023/08/15/32-of-americans-have-a-tattoo-including-22-who-have-more-than-one/" target="_blank" rel="noopener noreferrer">Pew Research Center</a> found that 32% of adults have at least one tattoo, and 22% have more than one. That means roughly 11% have exactly one.</p>
+<p>Pew surveyed 8,480 adults from July 10 to 16, 2023, using its American Trends Panel, which it recruits through random sampling of residential addresses. Pew's <a href="https://www.pewresearch.org/wp-content/uploads/2023/08/SR_23.08.15_Tattoos_topline.pdf" target="_blank" rel="noopener noreferrer">topline document</a> lists a margin of error of 1.5 percentage points for the full sample. The exact question was whether you currently have any tattoos.</p>
+<p>Pew also notes that a 2010 phone survey put the figure at 23%. Pew itself says that older result is not directly comparable, because the survey mode and question wording changed. So don't build a "tattoos jumped nine points" story on it.</p>
+<hr>
+<h2>Who gets tattooed? The Pew breakdown</h2>
+<p>Pew reported the share with at least one tattoo across a long list of groups. Here are the ones most useful for understanding the picture.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Share with at least one tattoo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All adults</td>
+<td>32%</td>
+</tr>
+<tr>
+<td>Under 30</td>
+<td>41%</td>
+</tr>
+<tr>
+<td>Ages 30 to 49</td>
+<td>46%</td>
+</tr>
+<tr>
+<td>Ages 50 to 64</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>Ages 65 and up</td>
+<td>13%</td>
+</tr>
+<tr>
+<td>Women</td>
+<td>38%</td>
+</tr>
+<tr>
+<td>Men</td>
+<td>27%</td>
+</tr>
+<tr>
+<td>Women ages 18 to 29</td>
+<td>56%</td>
+</tr>
+<tr>
+<td>Women ages 30 to 49</td>
+<td>53%</td>
+</tr>
+<tr>
+<td>Lower income</td>
+<td>43%</td>
+</tr>
+<tr>
+<td>Middle income</td>
+<td>31%</td>
+</tr>
+<tr>
+<td>Upper income</td>
+<td>21%</td>
+</tr>
+<tr>
+<td>Some college or less</td>
+<td>37%</td>
+</tr>
+<tr>
+<td>Bachelor's degree</td>
+<td>24%</td>
+</tr>
+<tr>
+<td>Postgraduate degree</td>
+<td>21%</td>
+</tr>
+<tr>
+<td>Black adults</td>
+<td>39%</td>
+</tr>
+<tr>
+<td>Hispanic adults</td>
+<td>35%</td>
+</tr>
+<tr>
+<td>White adults</td>
+<td>32%</td>
+</tr>
+<tr>
+<td>Asian adults</td>
+<td>14%</td>
+</tr>
+<tr>
+<td>Religiously unaffiliated</td>
+<td>41%</td>
+</tr>
+<tr>
+<td>Religiously affiliated</td>
+<td>29%</td>
+</tr>
+<tr>
+<td>Lesbian, gay or bisexual adults</td>
+<td>51%</td>
+</tr>
+<tr>
+<td>Straight adults</td>
+<td>31%</td>
+</tr>
+</tbody>
+</table>
+<p>Source: Pew Research Center, July 2023. Pew defines middle income as two-thirds to double the median family income of its panelists, with lower and upper falling below and above that range.</p>
+<p><img loading="lazy" decoding="async" width="1200" height="800" style="max-width:min(100%,840px)" src="/images/blog/how-many-americans-have-tattoos-1.jpg" alt="Woman seen from behind in a city crowd with a small tattoo between her shoulder blades"></p>
+<hr>
+<h2>What stands out in the numbers</h2>
+<p><strong>The peak is 30 to 49, not the youngest group.</strong> Under-30s sit at 41%, but adults 30 to 49 hit 46%. Our guess, not Pew's: collections take years and money to build. The drop after 50 is steep, from 25% at 50 to 64 down to 13% at 65 and up.</p>
+<p><strong>Women lead men by 11 points.</strong> Women are at 38%, men at 27%. Among women under 50 it's more than half.</p>
+<p><strong>Income runs the opposite way you might guess.</strong> Lower-income adults (43%) are tattooed at about double the rate of upper-income adults (21%). Education follows the same direction. Pew reports the numbers but doesn't explain why, and we won't pretend to.</p>
+<p><strong>Place barely matters.</strong> Pew says roughly a third of people in urban, suburban and rural areas have a tattoo. If you picture tattoos as a big-city thing, the data disagrees.</p>
+<p>If you're thinking about cost, our guide on <a href="/blog/how-much-do-tattoos-cost">how much tattoos cost</a> covers the money side of building a collection.</p>
+<hr>
+<h2>Why do people get tattoos?</h2>
+<p>Most tattooed adults say it's about someone or something they want to keep. Among tattooed adults, 69% told Pew they got a tattoo to remember or honor someone or something. For 47%, a major reason was exactly that.</p>
+<p>Pew asked about three motives, and each respondent could say yes to more than one:</p>
+<table>
+<thead>
+<tr>
+<th>Reason</th>
+<th>Share of tattooed adults (major or minor)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>To remember or honor someone or something</td>
+<td>69%</td>
+</tr>
+<tr>
+<td>To make a statement about what I believe</td>
+<td>47%</td>
+</tr>
+<tr>
+<td>To improve my personal appearance</td>
+<td>32%</td>
+</tr>
+</tbody>
+</table>
+<p>Women were more likely than men to cite remembering or honoring someone (73% versus 63%). Pew found the "statement about beliefs" motive was highest among Black tattooed adults at 56%.</p>
+<p>Notice what's at the bottom. Looking better is the smallest of the three reasons Pew offered. Keep in mind Pew gave respondents only these three options. A different list could have produced a different ranking.</p>
+<p><img loading="lazy" decoding="async" width="1200" height="800" style="max-width:min(100%,840px)" src="/images/blog/how-many-americans-have-tattoos-2.jpg" alt="Woman in a gray dress with arms crossed, both forearms covered in tattoos"></p>
+<hr>
+<h2>Do people regret their tattoos?</h2>
+<p>Most don't. Pew found 24% of tattooed adults say they ever regret getting a tattoo, which means 76% don't.</p>
+<p>The question was whether you "ever" regret your tattoo or any of your tattoos. That's a low bar. Someone who loves nine pieces and winces at one blurry first tattoo counts as a yes. Pew doesn't tell us how strong the regret is, whether it led to removal, or which piece was the problem.</p>
+<p>By group, Pew reported about 30% for Hispanic tattooed adults, 23% for White and 21% for Black tattooed adults. Among those with a bachelor's degree or more, it was 19%.</p>
+<p>If you're in that 24%, you have options. See our guides to <a href="/blog/tattoo-cover-ups">tattoo cover-ups</a> and <a href="/blog/laser-tattoo-removal-guide">laser tattoo removal</a>. If you haven't gotten your first one yet, the <a href="/blog/first-tattoo-guide">first tattoo guide</a> is where to start.</p>
+<hr>
+<h2>What about the people without tattoos?</h2>
+<p>Among adults with no tattoo, Pew found 85% say they are not too or not at all likely to get one. Another 9% say somewhat likely, and 6% say extremely or very likely.</p>
+<p>Age matters here. Among untattooed adults under 30, 19% said they were extremely or very likely to get one. That falls to 7% at 30 to 49, 2% at 50 to 64, and 1% at 65 and up.</p>
+<p>Attitudes are a separate question. Of untattooed adults, 66% said seeing a tattoo gives them neither a positive nor negative impression of the person. 29% said more negative than positive and 5% said more positive. Among all adults, 80% said society has become more accepting of tattoos over roughly the past 20 years.</p>
+<hr>
+<h2>Do newer surveys agree with Pew?</h2>
+<p>Not exactly. Pew's survey is from 2023, so we looked for anything newer. We found two polls we could open and check. We did not find a newer Pew tattoo survey.</p>
+<table>
+<thead>
+<tr>
+<th>Survey</th>
+<th>Fieldwork</th>
+<th>Sample</th>
+<th>Share with a tattoo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.pewresearch.org/short-reads/2023/08/15/32-of-americans-have-a-tattoo-including-22-who-have-more-than-one/" target="_blank" rel="noopener noreferrer">Pew Research Center</a></td>
+<td>July 10 to 16, 2023</td>
+<td>8,480 US adults, random-address-recruited panel</td>
+<td>32%</td>
+</tr>
+<tr>
+<td><a href="https://www.aarp.org/pri/topics/social-leisure/body-modifications-tattoos/" target="_blank" rel="noopener noreferrer">AARP, run through Ipsos</a></td>
+<td>December 12 to 19, 2024</td>
+<td>3,076 US adults, Ipsos KnowledgePanel</td>
+<td>25%</td>
+</tr>
+<tr>
+<td><a href="https://yougov.com/en-us/articles/52074-americans-have-become-more-favorable-toward-tattoos-in-past-decade-poll" target="_blank" rel="noopener noreferrer">YouGov</a></td>
+<td>March 31 to April 2, 2025</td>
+<td>1,115 US adult citizens, opt-in online panel</td>
+<td>24%</td>
+</tr>
+</tbody>
+</table>
+<p>YouGov reports a margin of error of about 4 points. AARP's page didn't report one.</p>
+<p>Both newer numbers are lower than Pew's. Does that mean tattoos got less popular in a year or two? We doubt it, and nothing in these sources says so. Different panels, different weighting, and different wording can easily move a result by several points. Pew itself says even its own 2010 and 2023 numbers can't be lined up.</p>
+<p>YouGov's age breakdown also doesn't line up neatly with Pew's. It groups people differently, and it found younger adults at 25% versus about a third of adults 30 to 44. Even so, both surveys put the 30s and 40s at the top. And YouGov found women at 30% and men at 19%, so the gender gap shows up there too.</p>
+<p><img loading="lazy" decoding="async" width="933" height="1400" style="max-width:min(100%,373px)" src="/images/blog/how-many-americans-have-tattoos-3.jpg" alt="Man with arms crossed, a backpack and a tattoo on his forearm, standing at a crowded outdoor event"></p>
+<hr>
+<h2>How to read these percentages without fooling yourself</h2>
+<p>Short version: treat "32%" as "somewhere around a quarter to a third, depending on the survey."</p>
+<ul>
+<li><strong>It's self-reported.</strong> Nobody checked skin. People answered a survey question, and Pew's wording was whether they currently have any tattoos.</li>
+<li><strong>It's one survey per number.</strong> Pew 2023 is one snapshot, and the other two are separate snapshots with different methods.</li>
+<li><strong>Subgroups are noisier.</strong> Pew's 1.5 point margin applies to the full sample. Numbers for a smaller slice, like women under 30, carry a bigger margin. Pew said the sample of tattooed Asian Americans was too small to analyze for some of its questions.</li>
+<li><strong>"At least one" hides a lot.</strong> A single small tattoo and a full bodysuit both count as yes. These numbers say nothing about size, style or placement.</li>
+<li><strong>Percentages of adults only.</strong> None of this covers teenagers.</li>
+<li><strong>Correlation isn't explanation.</strong> Pew shows who is tattooed, not why those groups differ.</li>
+</ul>
+<p>Want the business side instead of the demographic side? Our <a href="/blog/tattoo-industry-2026">tattoo industry breakdown</a> looks at the market, and <a href="/blog/tattoo-trends-2026">tattoo trends for 2026</a> covers what people are actually asking for.</p>
+<hr>
+<h2>What we take from it</h2>
+<p>Our own read, not a Pew finding: the "tattoos are mainstream" line is true, but it's too tidy. The data shows a big, varied crowd. It's not one demographic, it's not one city, and it's not mostly about looking cool.</p>
+<p>The reasons are the part that sticks. In Pew's data, most tattooed adults say they got one to hold on to someone or something. That's worth remembering when you're picking a design.</p>
+<hr>
+<h2>Conclusion</h2>
+<p>Roughly a quarter to a third of US adults have a tattoo, depending on whether you trust Pew's 2023 number (32%) or the lower late-2024 and 2025 polls (about 25%). Either way, you are not an outlier.</p>
+<p>The bigger takeaways: the 30 to 49 group is the most tattooed in Pew's data, women lead men, lower-income adults are tattooed more than upper-income adults, and most people with ink don't regret it. In Pew's list, memory and meaning rank above appearance as a reason.</p>
+<p>Thinking about your next one? Pick the artist before the design. You can browse artists by style on <a href="https://app.tatulogue.com" target="_blank" rel="noopener noreferrer">Tatulogue</a> and see who actually does the kind of work you want.</p>
+<hr>
+<h2>FAQ</h2>
+<h3>How many people have tattoos in the US?</h3>
+<p>Pew Research Center found in July 2023 that 32% of US adults have at least one tattoo and 22% have more than one. Later polls were lower: AARP, run through Ipsos, found 25% in December 2024, and YouGov found 24% in spring 2025. Differences in method make a range of roughly 24% to 32% the honest answer.</p>
+<h3>Who is most likely to have a tattoo?</h3>
+<p>In Pew's 2023 data, adults ages 30 to 49 are the most tattooed age group at 46%, and women are more likely than men (38% versus 27%). Women ages 18 to 29 and 30 to 49 were at 56% and 53%. Lower-income adults (43%) were also tattooed more than upper-income adults (21%).</p>
+<h3>Are tattoos more common in cities than in rural areas?</h3>
+<p>Not in Pew's survey. It reported that roughly a third of adults in urban, suburban and rural areas have a tattoo. Geography did not show up as a big divide in that data.</p>
+<h3>What percentage of people regret their tattoos?</h3>
+<p>Pew found 24% of tattooed adults say they ever regret getting a tattoo or any of their tattoos, and 76% do not. The question covers any regret about any tattoo, so it doesn't measure how serious the regret is or whether anyone had one removed.</p>
+<h3>Have tattoos become more common since 2010?</h3>
+<p>We can't say from Pew's data. Pew reported 23% in a 2010 phone survey, but it says that result is not directly comparable to its 2023 online survey because the mode and question wording changed. The two numbers should not be treated as a clean trend line.</p>
+2:["$","main",null,{"className":"min-h-screen antialiased font-body","style":{"backgroundColor":"#07070d"},"children":[["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,600;0,800;0,900;1,800&family=Space+Grotesk:wght@300;400;500;700&display=swap","rel":"stylesheet"}],["$","style",null,{"children":"\n  .font-display { font-family: 'Archivo', system-ui, sans-serif; }\n  .font-body { font-family: 'Space Grotesk', system-ui, sans-serif; }\n  .tl-btn-energy { background: linear-gradient(135deg, #F12711, #F5AF19); transition: filter .35s ease; }\n  .tl-btn-energy:hover { filter: brightness(1.08) saturate(1.1); }\n"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$7"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$8"}}],["$","header",null,{"className":"fixed top-0 inset-x-0 z-50","children":["$","div",null,{"className":"backdrop-blur-xl bg-[#07070d]/60 border-b border-white/[0.08]","children":["$","nav",null,{"className":"max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between","children":[["$","$L9",null,{"href":"/","className":"font-display font-black tracking-[-0.04em] text-xl sm:text-2xl","children":"TATULOGUE"}],["$","div",null,{"className":"hidden md:flex items-center gap-9 text-sm text-white/60","children":[["$","$L9",null,{"href":"/blog","className":"hover:text-white transition-colors","children":"Articles"}],["$","$L9",null,{"href":"/investors","className":"hover:text-white transition-colors","children":"Investors"}],["$","$L9",null,{"href":"/store","className":"hover:text-white transition-colors","children":"Store"}],["$","$L9",null,{"href":"/about","className":"hover:text-white transition-colors","children":"About"}],["$","$L9",null,{"href":"/contact","className":"hover:text-white transition-colors","children":"Contact"}]]}],["$","a",null,{"href":"https://app.tatulogue.com","className":"tl-btn-energy rounded-full px-5 py-2.5 text-sm font-medium text-white shadow-[0_0_30px_-6px_rgba(241,39,17,0.7)]","children":"Join Tatulogue"}]]}]}]}],["$","article",null,{"children":[["$","header",null,{"className":"pt-28 pb-10 border-b border-white/[0.08]","children":["$","div",null,{"className":"max-w-3xl mx-auto px-6","children":[["$","p",null,{"className":"text-xs tracking-[0.3em] font-medium mb-5","style":{"background":"linear-gradient(135deg, #4E4376, #2B5876)","WebkitBackgroundClip":"text","backgroundClip":"text","color":"transparent"},"children":"ARTICLES"}],["$","div",null,{"className":"flex items-center gap-3 mb-6","children":[["$","$L9",null,{"href":"/blog?category=culture","className":"px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest border bg-zinc-800/50 text-zinc-300 border-zinc-700/50","children":"culture"}],["$","span",null,{"className":"text-zinc-500 text-sm","children":[9," min read"]}]]}],["$","h1",null,{"className":"text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] mb-5","children":"How Many People Have Tattoos? What Pew's Data Actually Shows"}],["$","p",null,{"className":"text-zinc-400 text-xl leading-relaxed mb-6","children":"How many people have tattoos in the US? Pew found 32% of adults, while two newer polls say about 25%. Here is the breakdown by age, gender, income and more."}],["$","div",null,{"className":"flex flex-wrap items-center gap-2 text-sm text-zinc-500","children":[["$","$L9",null,{"href":"/authors/charlie-padilla","className":"text-zinc-300 font-medium hover:text-white transition-colors","children":"Charlie Padilla"}],["$","span",null,{"children":"·"}],["$","time",null,{"dateTime":"2026-10-13T00:00:00.000Z","children":"October 13, 2026"}],false]}]]}]}],["$","div",null,{"className":"max-w-4xl mx-auto px-6 my-8","children":["$","img",null,{"src":"/images/blog/how-many-americans-have-tattoos.jpg","alt":"Woman seen from behind in a city crowd with a small tattoo between her shoulder blades","width":1200,"height":750,"fetchPriority":"high","decoding":"async","className":"w-full rounded-2xl object-cover max-h-[480px]"}]}],["$","div",null,{"className":"max-w-3xl mx-auto px-6 py-10","children":["$","div",null,{"className":"prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-zinc-300 prose-p:leading-relaxed prose-a:text-[#8ea4cf] prose-a:no-underline hover:prose-a:text-[#b9c6e6] prose-strong:text-white prose-strong:font-semibold prose-blockquote:border-l-[#4E4376] prose-blockquote:bg-[#2B5876]/15 prose-blockquote:rounded-r-lg prose-blockquote:py-1 prose-code:text-amber-400 prose-code:bg-zinc-900 prose-code:rounded prose-code:px-1.5 prose-code:text-sm prose-hr:border-white/10 prose-li:text-zinc-300 prose-table:text-sm [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto prose-th:text-zinc-300 prose-td:text-zinc-400 prose-thead:border-white/20 prose-tbody:border-white/10 prose-img:mx-auto prose-img:h-auto prose-img:rounded-xl prose-img:border prose-img:border-white/8","dangerouslySetInnerHTML":{"__html":"$a"}}]}],["$","div",null,{"className":"max-w-3xl mx-auto px-6 pb-8 flex flex-wrap gap-2","children":[["$","span","tattoo-statistics",{"className":"px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] text-zinc-400 text-xs","children":["#","tattoo-statistics"]}],["$","span","pew-research",{"className":"px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] text-zinc-400 text-xs","children":["#","pew-research"]}],["$","span","tattoo-demographics",{"className":"px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] text-zinc-400 text-xs","children":["#","tattoo-demographics"]}],["$","span","tattoo-regret",{"className":"px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] text-zinc-400 text-xs","children":["#","tattoo-regret"]}]]}],["$","aside",null,{"className":"max-w-3xl mx-auto px-6 pb-10","aria-label":"About the author","children":["$","div",null,{"className":"flex gap-5 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5","children":[["$","img",null,{"src":"/images/team-charlie.jpg","alt":"Portrait of Charlie Padilla","width":72,"height":72,"loading":"lazy","decoding":"async","className":"h-[72px] w-[72px] rounded-full object-cover flex-shrink-0"}],["$","div",null,{"children":[["$","p",null,{"className":"text-xs uppercase tracking-widest text-zinc-500 mb-1","children":"Written by"}],["$","p",null,{"className":"font-semibold text-white","children":[["$","$L9",null,{"href":"/authors/charlie-padilla","className":"hover:text-[#b9c6e6] transition-colors","children":"Charlie Padilla"}],["$","span",null,{"className":"text-zinc-500 font-normal","children":[", ","Founder"]}]]}],["$","p",null,{"className":"text-sm text-zinc-400 leading-relaxed mt-2","children":"Charlie Padilla is the founder of Tatulogue. He previously worked at Pinterest, Reddit and AdRoll, with a background in marketing, business consulting and sales. He leads strategy, marketing, product direction and partnerships."}],["$","$L9",null,{"href":"/authors/charlie-padilla","className":"inline-block mt-3 text-sm text-[#8ea4cf] hover:text-[#b9c6e6] transition-colors","children":["More from ","Charlie"," →"]}]]}]]}]}]]}],["$","section",null,{"className":"border-t border-b border-white/[0.08] py-14 my-8","style":{"backgroundColor":"#0c0c14"},"children":["$","div",null,{"className":"max-w-3xl mx-auto px-6 relative","children":[["$","div",null,{"className":"absolute inset-0 pointer-events-none overflow-hidden","aria-hidden":true,"children":["$","div",null,{"className":"absolute -right-10 top-0 w-48 h-48 rounded-full blur-3xl","style":{"background":"radial-gradient(circle, rgba(241,39,17,0.18), rgba(245,175,25,0.08) 55%, transparent 75%)"}}]}],["$","div",null,{"className":"relative","children":[["$","h2",null,{"className":"text-2xl md:text-3xl font-bold mb-3","children":"Ready to find your next tattoo artist?"}],["$","p",null,{"className":"text-zinc-400 mb-6 leading-relaxed max-w-md","children":"Discover artists by style and location, browse portfolios, and follow your tattoo journey on Tatulogue."}],["$","$L9",null,{"href":"https://app.tatulogue.com","target":"_blank","rel":"noopener","className":"inline-flex px-7 py-3.5 rounded-full font-semibold text-sm text-white transition-[filter] hover:brightness-110","style":{"background":"linear-gradient(135deg, #F12711, #F5AF19)","boxShadow":"0 0 40px -8px rgba(241,39,17,0.8)"},"children":"Open Tatulogue →"}]]}]]}]}],["$","section",null,{"className":"max-w-6xl mx-auto px-6 pb-16","children":[["$","p",null,{"className":"text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6","children":"More from culture"}],["$","div",null,{"className":"grid grid-cols-1 sm:grid-cols-3 gap-5","children":[["$","$L9","tattoo-conventions-winter-2026",{"href":"/blog/tattoo-conventions-winter-2026","className":"group block rounded-xl border border-white/[0.08] bg-white/[0.03] p-5 hover:border-[#4E4376]/55 transition-all hover:-translate-y-0.5","children":[["$","p",null,{"className":"text-zinc-500 text-xs mb-2","children":"Oct 13, 2026"}],["$","h3",null,{"className":"font-semibold leading-snug mb-2 transition-colors line-clamp-2 group-hover:text-[#b9c6e6]","children":"Winter 2026-27 Tattoo Conventions: November 2026 Dates, Venues and What to Expect"}],["$","p",null,{"className":"text-zinc-400 text-sm line-clamp-2 leading-relaxed","children":"Tattoo conventions November 2026 through February 2027: 30 shows with dates, venues and ticket prices, each one checked on the organizer's own website."}]]}],["$","$L9","tattoo-conventions-fall-2026",{"href":"/blog/tattoo-conventions-fall-2026","className":"group block rounded-xl border border-white/[0.08] bg-white/[0.03] p-5 hover:border-[#4E4376]/55 transition-all hover:-translate-y-0.5","children":[["$","p",null,{"className":"text-zinc-500 text-xs mb-2","children":"Oct 5, 2026"}],["$","h3",null,{"className":"font-semibold leading-snug mb-2 transition-colors line-clamp-2 group-hover:text-[#b9c6e6]","children":"Fall 2026 Tattoo Conventions: Where to Go and What to Expect"}],["$","p",null,{"className":"text-zinc-400 text-sm line-clamp-2 leading-relaxed","children":"Ten tattoo conventions are still coming up this fall, from Connecticut to Miami to Brussels. Dates, venues and ticket info, checked against each show's own site."}]]}],["$","$L9","tattoo-industry-2026",{"href":"/blog/tattoo-industry-2026","className":"group block rounded-xl border border-white/[0.08] bg-white/[0.03] p-5 hover:border-[#4E4376]/55 transition-all hover:-translate-y-0.5","children":[["$","p",null,{"className":"text-zinc-500 text-xs mb-2","children":"Oct 5, 2026"}],["$","h3",null,{"className":"font-semibold leading-snug mb-2 transition-colors line-clamp-2 group-hover:text-[#b9c6e6]","children":"Is the Tattoo Industry in a Recession? What the Data Actually Says"}],["$","p",null,{"className":"text-zinc-400 text-sm line-clamp-2 leading-relaxed","children":"Artists say business is slow. We pulled federal payroll data and industry estimates to see if the tattoo industry is shrinking in 2026. Here's what holds up."}]]}]]}]]}],["$","footer",null,{"className":"border-t border-white/[0.08]","children":["$","div",null,{"className":"max-w-7xl mx-auto px-5 sm:px-8 py-14","children":[["$","div",null,{"className":"flex flex-col md:flex-row md:items-center justify-between gap-8","children":[["$","$L9",null,{"href":"/","className":"font-display font-black tracking-[-0.04em] text-2xl","children":"TATULOGUE"}],["$","nav",null,{"className":"flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/50","children":[["$","$L9",null,{"href":"/blog","className":"hover:text-white transition-colors","children":"Articles"}],["$","$L9",null,{"href":"/changelog","className":"hover:text-white transition-colors","children":"Changelog"}],["$","$L9",null,{"href":"/investors","className":"hover:text-white transition-colors","children":"Investors"}],["$","$L9",null,{"href":"/store","className":"hover:text-white transition-colors","children":"Store"}],["$","$L9",null,{"href":"/about","className":"hover:text-white transition-colors","children":"About"}],["$","$L9",null,{"href":"/contact","className":"hover:text-white transition-colors","children":"Contact"}],["$","$L9",null,{"href":"/privacy","className":"hover:text-white transition-colors","children":"Privacy"}],["$","$L9",null,{"href":"/terms","className":"hover:text-white transition-colors","children":"Terms"}]]}]]}],["$","p",null,{"className":"mt-10 text-xs text-white/30","children":"© 2026 Tatulogue. Tattoo culture, education, and the artists shaping it."}]]}]}]]}]
+6:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"How Many People Have Tattoos? What Pew's Data Shows"}],["$","meta","3",{"name":"description","content":"How many people have tattoos in the US? Pew found 32% of adults, while two newer polls say about 25%. Here is the breakdown by age, gender, income and more."}],["$","link","4",{"rel":"canonical","href":"https://tatulogue.com/blog/how-many-americans-have-tattoos"}],["$","meta","5",{"property":"og:title","content":"How Many People Have Tattoos? What Pew's Data Shows"}],["$","meta","6",{"property":"og:description","content":"How many people have tattoos in the US? Pew found 32% of adults, while two newer polls say about 25%. Here is the breakdown by age, gender, income and more."}],["$","meta","7",{"property":"og:url","content":"https://tatulogue.com/blog/how-many-americans-have-tattoos"}],["$","meta","8",{"property":"og:image","content":"https://tatulogue.com/images/blog/how-many-americans-have-tattoos.jpg"}],["$","meta","9",{"property":"og:type","content":"article"}],["$","meta","10",{"property":"article:published_time","content":"2026-10-13T00:00:00.000Z"}],["$","meta","11",{"property":"article:modified_time","content":"2026-10-13T00:00:00.000Z"}],["$","meta","12",{"property":"article:author","content":"https://tatulogue.com/authors/charlie-padilla"}],["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","14",{"name":"twitter:title","content":"How Many People Have Tattoos? What Pew's Data Shows"}],["$","meta","15",{"name":"twitter:description","content":"How many people have tattoos in the US? Pew found 32% of adults, while two newer polls say about 25%. Here is the breakdown by age, gender, income and more."}],["$","meta","16",{"name":"twitter:image","content":"https://tatulogue.com/images/blog/how-many-americans-have-tattoos.jpg"}]]
+1:null
