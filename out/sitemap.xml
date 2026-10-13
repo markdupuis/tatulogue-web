@@ -38,7 +38,7 @@
 </url>
 <url>
 <loc>https://tatulogue.com/changelog</loc>
-<lastmod>2026-09-18T00:00:00.000Z</lastmod>
+<lastmod>2026-10-13T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.4</priority>
 </url>
@@ -311,6 +311,12 @@
 <lastmod>2026-10-05T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
+</url>
+<url>
+<loc>https://tatulogue.com/changelog/patch-notes-1-0-13</loc>
+<lastmod>2026-10-13T00:00:00.000Z</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
 </url>
 <url>
 <loc>https://tatulogue.com/changelog/patch-notes-1-0-12</loc>
