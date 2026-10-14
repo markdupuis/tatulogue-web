@@ -11,9 +11,9 @@ coverAlt: "Tatulogue Patch Notes 1.0.13 graphic on a dark background"
 readTime: 3
 ---
 
-Release 1.0.13 is bigger than the last few: better profiles, easier photo browsing, a proper Apple sign-in, and real phone notifications for the first time. As of October 13, 2026, 1.0.13 is submitted for iPhone and Android and waiting on store approval. Here's what's in it, and what's already live without an update.
+Release 1.0.13 is bigger than the last few: better profiles, easier photo browsing, a proper Apple sign-in, and real phone notifications for the first time. 1.0.13 is live on the App Store and Google Play now. Here's what's in it, and what came with it without a separate update.
 
-## In the 1.0.13 update (iPhone and Android, waiting for store approval)
+## In the 1.0.13 update (iPhone and Android)
 
 **Profile links.** Add up to 10 links to your profile. They now save and show properly.
 
@@ -25,9 +25,9 @@ Release 1.0.13 is bigger than the last few: better profiles, easier photo browsi
 
 **Push notifications.** Real phone notifications, set up for the first time.
 
-## Over-the-air updates on 1.0.13 (already published)
+## Over-the-air updates on 1.0.13
 
-These apply automatically when someone installs 1.0.13, so there's nothing extra to download.
+These apply automatically once you're on 1.0.13, so there's nothing extra to download.
 
 **Follow back.** A button in notifications and on your followers list.
 
@@ -37,7 +37,7 @@ These apply automatically when someone installs 1.0.13, so there's nothing extra
 
 **Android ads.** Turned back on with a real ad unit. Ads start showing once Google finishes reviewing the AdMob app, which takes 2 to 3 days.
 
-## Server side (already live, no update needed)
+## Server side (live, no update needed)
 
 **Push notifications go out for likes, comments, follows, messages, mentions and admin approvals.**
 
