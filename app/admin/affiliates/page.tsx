@@ -4,6 +4,13 @@ import { useEffect, useState, type FormEvent } from 'react';
 import AdminShell from '../../../components/admin/AdminShell';
 import { createAffiliate, fetchAffiliateStats } from '../../../lib/admin/queries';
 import type { AffiliateStat } from '../../../lib/admin/types';
+import {
+  downloadDataUrl,
+  generateQrDataUrl,
+  qrFilename,
+  readGeneratedCodes,
+  rememberGeneratedCode,
+} from '../../../lib/admin/qr';
 
 function affiliateLink(code: string): string {
   return `https://tatulogue.com/get/${code}`;
@@ -17,6 +24,8 @@ export default function AffiliatesPage() {
   const [creating, setCreating] = useState(false);
   const [createError, setCreateError] = useState<string | null>(null);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
+  const [qrImages, setQrImages] = useState<Record<string, string>>({});
+  const [qrBusyCode, setQrBusyCode] = useState<string | null>(null);
 
   async function handleCopy(affiliateCode: string) {
     try {
@@ -26,6 +35,17 @@ export default function AffiliatesPage() {
     } catch {
       // Clipboard API can fail without a secure context / permission --
       // nothing useful to do beyond leaving the button unchanged.
+    }
+  }
+
+  async function handleGenerateQr(affiliateCode: string) {
+    setQrBusyCode(affiliateCode);
+    try {
+      const dataUrl = await generateQrDataUrl(affiliateLink(affiliateCode));
+      setQrImages((images) => ({ ...images, [affiliateCode]: dataUrl }));
+      rememberGeneratedCode(affiliateCode);
+    } finally {
+      setQrBusyCode(null);
     }
   }
 
@@ -40,6 +60,17 @@ export default function AffiliatesPage() {
   useEffect(() => {
     load();
   }, []);
+
+  // Rows whose QR was generated in an earlier visit go straight back to "Download".
+  useEffect(() => {
+    const known = new Set(stats.map((s) => s.code));
+    const remembered = readGeneratedCodes().filter((c) => known.has(c));
+    remembered.forEach((c) => {
+      generateQrDataUrl(affiliateLink(c)).then((dataUrl) =>
+        setQrImages((images) => ({ ...images, [c]: dataUrl }))
+      );
+    });
+  }, [stats]);
 
   async function handleCreate(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -137,6 +168,7 @@ export default function AffiliatesPage() {
                   <th className="px-4 py-3">Code</th>
                   <th className="px-4 py-3">Name</th>
                   <th className="px-4 py-3">Link</th>
+                  <th className="px-4 py-3">QR code</th>
                   <th className="px-4 py-3 text-right">Clicks</th>
                   <th className="px-4 py-3 text-right">Installs</th>
                   <th className="px-4 py-3 text-right">Signups</th>
@@ -148,7 +180,7 @@ export default function AffiliatesPage() {
               <tbody>
                 {stats.length === 0 ? (
                   <tr>
-                    <td colSpan={9} className="px-4 py-8 text-center text-white/30">
+                    <td colSpan={10} className="px-4 py-8 text-center text-white/30">
                       No affiliates yet -- add one above.
                     </td>
                   </tr>
@@ -165,6 +197,26 @@ export default function AffiliatesPage() {
                         >
                           {copiedCode === s.code ? 'Copied!' : 'Copy link'}
                         </button>
+                      </td>
+                      <td className="px-4 py-3">
+                        {qrImages[s.code] ? (
+                          <button
+                            type="button"
+                            onClick={() => downloadDataUrl(qrImages[s.code], qrFilename(s.code))}
+                            className="rounded-lg border border-violet-400/40 bg-violet-500/10 px-3 py-1.5 text-xs text-violet-200 hover:border-violet-300 hover:text-white"
+                          >
+                            Download QR
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => handleGenerateQr(s.code)}
+                            disabled={qrBusyCode === s.code}
+                            className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-white/70 hover:border-white/30 hover:text-white disabled:opacity-60"
+                          >
+                            {qrBusyCode === s.code ? 'Generating…' : 'Generate QR'}
+                          </button>
+                        )}
                       </td>
                       <td className="px-4 py-3 text-right">{s.clicks}</td>
                       <td className="px-4 py-3 text-right">{s.installs}</td>
