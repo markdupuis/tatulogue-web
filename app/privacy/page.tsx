@@ -45,7 +45,7 @@ export default function PrivacyPage() {
       <div className="max-w-3xl mx-auto px-6 pt-28 pb-16">
         <h1 className="text-4xl font-black mb-2">Privacy Policy</h1>
         <p className="text-white/40 text-sm mb-2">TATULOGUE, LLC | State of Utah</p>
-        <p className="text-white/30 text-xs mb-12">Last updated: April 16, 2026</p>
+        <p className="text-white/30 text-xs mb-12">Last updated: October 26, 2026</p>
 
         <div className="space-y-10 text-white/70 leading-relaxed text-sm">
           <p>
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
                 <li><strong className="text-white/80">Profile Information:</strong> Profile photo, bio, location, tattoo style preferences, social media handles, and portfolio images.</li>
                 <li><strong className="text-white/80">User Content:</strong> Artwork, photographs, videos, design files, written descriptions, comments, messages, and other content you post.</li>
                 <li><strong className="text-white/80">Communications:</strong> Name, email, and content of your messages when you contact us for support.</li>
-                <li><strong className="text-white/80">Waitlist:</strong> Email address if you sign up for early access.</li>
+                <li><strong className="text-white/80">Investor Interest:</strong> Name, email address, state, and city if you fill out the investor interest form on our home page.</li>
               </ul>
             </SubSection>
             <SubSection title="1.2 Information Collected Automatically">

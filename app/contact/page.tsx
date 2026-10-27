@@ -61,7 +61,7 @@ export default function ContactPage() {
               <a href="mailto:charlie@tatulogue.com" className="text-violet-400 hover:text-violet-300">
                 charlie@tatulogue.com
               </a>
-              . This is the best address for anything related to your account, the waitlist, or
+              . This is the best address for anything related to your account, investing, or
               using the platform.
             </p>
           </Section>
@@ -97,13 +97,13 @@ export default function ContactPage() {
             </address>
           </Section>
 
-          <Section title="Early Access">
+          <Section title="Investing">
             <p>
-              Not a question, just want in? Join the{' '}
-              <Link href="/#early-access" className="text-violet-400 hover:text-violet-300">
-                waitlist on our home page
+              Interested in investing in Tatulogue? Fill out the{' '}
+              <Link href="/#invest" className="text-violet-400 hover:text-violet-300">
+                form on our home page
               </Link>
-              {' '}to get project updates, newsletters, and early access to the app when it launches.
+              {' '}and we&apos;ll be in touch.
             </p>
           </Section>
 

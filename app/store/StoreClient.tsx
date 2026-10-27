@@ -24,6 +24,8 @@ export interface Product {
 }
 
 const GRAD_BLUE = 'linear-gradient(135deg, #2B5876, #4E4376)';
+const APP_STORE_URL = 'https://apps.apple.com/us/app/tatulogue/id6794140876';
+const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.tatulogue.app';
 const ZIP_PATTERN = /^\d{5}(-\d{4})?$/;
 const SHIPPING_STORAGE_KEY = 'tatu_ship_v1';
 
@@ -211,15 +213,25 @@ function ComingSoonHero() {
           Merch drop coming soon.
         </h1>
         <p className="mt-7 max-w-xl text-base sm:text-lg text-white/60 leading-relaxed">
-          Tees, hoodies, and hats made for the chair and the street. The first run is in the works —
-          get on the list and you&apos;ll hear about it first.
+          Tees, hoodies, and hats made for the chair and the street. The first run is in the works.
+          Get the app and you&apos;ll hear about it first.
         </p>
         <div className="mt-9 flex flex-wrap items-center gap-4">
           <a
-            href="/#early-access"
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="tl-btn-energy rounded-full px-7 py-3.5 font-semibold text-white shadow-[0_0_40px_-10px_rgba(241,39,17,0.8)]"
           >
-            Get notified
+            App Store
+          </a>
+          <a
+            href={GOOGLE_PLAY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tl-btn-energy rounded-full px-7 py-3.5 font-semibold text-white shadow-[0_0_40px_-10px_rgba(241,39,17,0.8)]"
+          >
+            Google Play
           </a>
           <a
             href="/blog"

@@ -5,19 +5,21 @@ import AdminShell from '../../../components/admin/AdminShell';
 import { fetchWaitlist } from '../../../lib/admin/queries';
 import type { WaitlistEntry } from '../../../lib/admin/types';
 
-type AccountFilter = 'all' | 'artist' | 'enthusiast';
+type AccountFilter = 'all' | 'artist' | 'enthusiast' | 'investor';
 
-const ACCOUNT_FILTERS: AccountFilter[] = ['all', 'artist', 'enthusiast'];
+const ACCOUNT_FILTERS: AccountFilter[] = ['all', 'artist', 'enthusiast', 'investor'];
 
 const ACCOUNT_LABELS: Record<AccountFilter, string> = {
   all: 'All',
   artist: 'Artists',
   enthusiast: 'Enthusiasts',
+  investor: 'Investors',
 };
 
 const ACCOUNT_BADGE: Record<string, string> = {
   artist: 'text-violet-300 bg-violet-400/10 border-violet-400/20',
   enthusiast: 'text-amber-300 bg-amber-400/10 border-amber-400/20',
+  investor: 'text-emerald-300 bg-emerald-400/10 border-emerald-400/20',
 };
 
 function pill(activeState: boolean): string {
@@ -85,11 +87,13 @@ export default function WaitlistPage() {
   const stats = useMemo(() => {
     const artists = entries.filter((e) => e.account_type === 'artist').length;
     const enthusiasts = entries.filter((e) => e.account_type === 'enthusiast').length;
+    const investors = entries.filter((e) => e.account_type === 'investor').length;
     const states = new Set(entries.map((e) => e.state).filter(Boolean)).size;
     return [
       { label: 'Total', value: entries.length, color: 'text-white' },
       { label: 'Artists', value: artists, color: 'text-violet-300' },
       { label: 'Enthusiasts', value: enthusiasts, color: 'text-amber-300' },
+      { label: 'Investors', value: investors, color: 'text-emerald-300' },
       { label: 'States', value: states, color: 'text-white/60' },
     ];
   }, [entries]);
@@ -111,7 +115,7 @@ export default function WaitlistPage() {
         <p className="text-white/40">Loading…</p>
       ) : (
         <>
-          <div className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-5">
             {stats.map((s) => (
               <div
                 key={s.label}

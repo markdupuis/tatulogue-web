@@ -94,10 +94,13 @@ const GRAD_BLUE   = 'linear-gradient(135deg, #2B5876, #4E4376)';
 const GRAD_ENERGY = 'linear-gradient(135deg, #F12711, #F5AF19)';
 
 const APP_STORE_URL = 'https://apps.apple.com/us/app/tatulogue/id6794140876';
+const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.tatulogue.app';
+// The waitlist table's account_type check allows 'investor' for this form.
+const INVESTOR_ACCOUNT_TYPE = 'investor';
 
 export default function HomeClient() {
   const [form, setForm] = useState({
-    firstName: '', lastName: '', email: '', state: '', city: '', accountType: '',
+    firstName: '', lastName: '', email: '', state: '', city: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading]     = useState(false);
@@ -148,14 +151,14 @@ export default function HomeClient() {
             email:        form.email,
             state:        form.state,
             city:         form.city,
-            account_type: form.accountType,
+            account_type: INVESTOR_ACCOUNT_TYPE,
           }),
         }
       );
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setSubmitted(true);
     } catch (err) {
-      console.error('Waitlist submit failed:', err);
+      console.error('Investor interest submit failed:', err);
       alert('Something went wrong. Please try again.');
     } finally {
       setLoading(false);
@@ -409,8 +412,8 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* ── EARLY ACCESS — waitlist form (secondary; hero CTAs link here) ── */}
-      <section id="early-access" className="max-w-7xl mx-auto px-5 sm:px-8 pb-24 sm:pb-32">
+      {/* ── INVESTOR INTEREST form ── */}
+      <section id="invest" className="max-w-7xl mx-auto px-5 sm:px-8 pb-24 sm:pb-32">
         <div data-animate="" className="relative tl-surface rounded-2xl overflow-hidden tl-grain px-6 sm:px-12 py-14 sm:py-20">
           <div
             className="absolute -top-24 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] blur-[120px] rounded-full pointer-events-none"
@@ -421,19 +424,19 @@ export default function HomeClient() {
               <div className="flex items-center justify-center gap-3 mb-6">
                 <img src={AVATAR_ARTIST} alt="Featured artist avatar" className="w-10 h-10 rounded-full object-cover ring-2 ring-[#07070d]" />
                 <img src={AVATAR_CANVAS} alt="Featured reader avatar" className="w-10 h-10 rounded-full object-cover ring-2 ring-[#07070d] -ml-5" />
-                <span className="text-sm text-white/45">artists &amp; collectors already on the list</span>
+                <span className="text-sm text-white/45">built with artists &amp; collectors</span>
               </div>
-              <h2 className="font-display font-black text-3xl sm:text-5xl tracking-[-0.03em] leading-[0.95]">Not on iOS, or want in on the business?</h2>
+              <h2 className="font-display font-black text-3xl sm:text-5xl tracking-[-0.03em] leading-[0.95]">Want in on the business?</h2>
               <p className="mt-5 text-white/55">
-                Join the Android waitlist, or let us know you&apos;re interested in investing. Fill out the form below.
+                Interested in investing in Tatulogue? Tell us a little about you and we&apos;ll be in touch.
               </p>
             </div>
 
             {submitted ? (
               <div className="rounded-2xl border border-[#2B5876]/50 bg-[#2B5876]/15 p-10 text-center">
                 <div className="text-4xl mb-3">🎉</div>
-                <p className="font-bold text-lg text-white">You&apos;re on the list!</p>
-                <p className="text-white/55 text-sm mt-1">We&apos;ll reach out when we&apos;re ready for you.</p>
+                <p className="font-bold text-lg text-white">Thanks, we got it!</p>
+                <p className="text-white/55 text-sm mt-1">We&apos;ll be in touch soon.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -476,21 +479,10 @@ export default function HomeClient() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-white/60 text-sm mb-1.5">
-                    Which account type are you most interested in? <span className="text-[#F12711]">*</span>
-                  </label>
-                  <select name="accountType" required value={form.accountType} onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-[#13131c] border border-white/15 focus:border-[#F5AF19] focus:outline-none text-white">
-                    <option value="" disabled>Select…</option>
-                    <option value="artist">Tattoo Artist (I&apos;m a licensed tattoo artist)</option>
-                    <option value="enthusiast">Enthusiast (I&apos;m a potential client or tattoo enthusiast)</option>
-                  </select>
-                </div>
 
                 <button type="submit" disabled={loading}
                   className="tl-btn-energy w-full py-4 rounded-xl text-white font-bold transition disabled:opacity-60 mt-2 shadow-[0_0_30px_-8px_rgba(241,39,17,0.7)]">
-                  {loading ? 'Submitting…' : 'Get early access'}
+                  {loading ? 'Sending…' : 'Get in touch'}
                 </button>
               </form>
             )}
@@ -558,12 +550,18 @@ export default function HomeClient() {
                 Download on the App Store
               </a>
 
-              <div className="flex items-center justify-center gap-3 rounded-xl px-6 py-4 font-semibold text-white/50 border border-white/10 cursor-not-allowed select-none">
+              <a
+                href={GOOGLE_PLAY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setShowAppModal(false)}
+                className="tl-btn-blue flex items-center justify-center gap-3 rounded-xl px-6 py-4 font-semibold text-white transition"
+              >
                 <svg viewBox="0 0 576 512" className="w-6 h-6 fill-current" aria-hidden="true">
                   <path d="M420.55,301.93a24,24,0,1,1,24-24,24,24,0,0,1-24,24m-265.1,0a24,24,0,1,1,24-24,24,24,0,0,1-24,24m270.7-144.13,47.94-83a10,10,0,1,0-17.27-10h0l-48.54,84.07a301.25,301.25,0,0,0-246.56,0L113.18,64.8a10,10,0,1,0-17.27,10h0l47.94,83C64.53,202.22,8.24,285.55,0,384H576c-8.24-98.45-64.54-181.78-149.85-226.2"/>
                 </svg>
-                Android: Coming Soon
-              </div>
+                Get it on Google Play
+              </a>
             </div>
           </div>
         </div>
