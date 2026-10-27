@@ -268,9 +268,15 @@ function ProductGrid({ products, onSelect }: { products: Product[]; onSelect: (p
             onClick={() => onSelect(product)}
             className="tl-card group tl-surface rounded-2xl overflow-hidden flex flex-col text-left"
           >
-            <div className="relative aspect-square overflow-hidden bg-white/[0.02]">
+            {/* product.thumbnail is the transparent print file (logo only), so the
+                card shows the garment mockup; the lighter backdrop keeps black
+                garments visible against the dark card. */}
+            <div
+              className="relative aspect-square overflow-hidden"
+              style={{ background: 'radial-gradient(circle at 50% 40%, #3a3a46, #1c1c24 75%)' }}
+            >
               <img
-                src={product.thumbnail}
+                src={product.variants[0]?.image || product.thumbnail}
                 alt={product.name}
                 loading="lazy"
                 className="tl-card-img w-full h-full object-cover"

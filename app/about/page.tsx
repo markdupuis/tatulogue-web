@@ -45,13 +45,6 @@ const TEAM = [
     credentials: 'Ex-Pinterest, Ex-Reddit, Ex-AdRoll. Marketing & business consulting, sales.',
   },
   {
-    name: 'Eric Marshall',
-    role: 'Co-Founder',
-    img: '/images/team-eric.jpg',
-    focus: 'Creative Strategy & Design · Operations',
-    credentials: 'Tattoo-industry veteran. CEO of SecondSkin Tattoo Aftercare.',
-  },
-  {
     name: 'Mark Dupuis',
     role: 'Co-Founder',
     img: '/images/team-mark.jpg',
@@ -186,7 +179,7 @@ export default function AboutPage() {
         </p>
         <h2 className="text-3xl sm:text-4xl font-black mb-10">The Team</h2>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 max-w-4xl">
           {TEAM.map((member) => (
             <div
               key={member.name}

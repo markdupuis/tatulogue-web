@@ -10,15 +10,15 @@ export interface Author {
   image: string;
 }
 
-// Bios reuse the wording already published on /about (TEAM in app/about/page.tsx).
+// Founder bios reuse the wording published on /about (TEAM in app/about/page.tsx).
 export const AUTHORS: Record<string, Author> = {
   'eric-marshall': {
     slug: 'eric-marshall',
     name: 'Eric Marshall',
-    jobTitle: 'Co-Founder',
-    focus: 'Creative Strategy & Design · Operations',
+    jobTitle: 'Contributor',
+    focus: 'Tattoo Industry',
     credentials: 'Tattoo-industry veteran. CEO of SecondSkin Tattoo Aftercare.',
-    bio: 'Eric Marshall is a co-founder of Tatulogue and a tattoo-industry veteran. He is also the CEO of SecondSkin Tattoo Aftercare. At Tatulogue he works on creative strategy, design and operations.',
+    bio: 'Eric Marshall is a tattoo-industry veteran and the CEO of SecondSkin Tattoo Aftercare. He writes about aftercare, healing and tattoo styles for Tatulogue.',
     image: '/images/team-eric.jpg',
   },
   'charlie-padilla': {
