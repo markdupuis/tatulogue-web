@@ -118,10 +118,13 @@ The wrap creates a sealed, moist environment over the fresh piece. That fluid po
 
 Standard protocol for most second skin applications:
 
-- **First wrap**: left on for 24–48 hours (some artists go up to 72 for larger pieces)
+- **Fluid under the wrap**: a buildup of plasma in the first 24–36 hours is normal
+- **Changing it**: if fluid pools, change the wrap only inside the first 36 hours. After that the tattoo has started to heal, so leave it on
+- **Total wear**: up to seven days, unless your artist tells you less
 - **Remove carefully**: in the shower, pulling back slowly against the skin, not straight up
-- **Second application** (if your artist uses two rounds): worn for three to five days
 - **After removal**: the tattoo is still fresh, still healing: start your regular aftercare routine
+
+For the full step-by-step, see our guide on [how to apply SecondSkin](/blog/how-to-apply-secondskin).
 
 A few things that trip people up with second skin: if the seal breaks, remove the wrap. A compromised seal lets bacteria in and traps it. Also, some people react to the adhesive: redness at the border of the wrap is usually just irritation from the adhesive, not infection. It clears fast once the wrap is off.
 
