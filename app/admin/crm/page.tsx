@@ -4,6 +4,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import AdminShell from '../../../components/admin/AdminShell';
 import CrmContactForm from '../../../components/admin/CrmContactForm';
 import CrmContactPanel from '../../../components/admin/CrmContactPanel';
+import SortableHeader from '../../../components/admin/SortableHeader';
+import TableFilterButton from '../../../components/admin/TableFilterButton';
 import {
   CONTACT_TYPES,
   PIPELINE_STAGES,
@@ -17,6 +19,10 @@ import {
   type CrmContactInput,
   type CrmOwner,
 } from '../../../lib/admin/crm';
+import type { TableColumn } from '../../../lib/admin/table-controls';
+import { useTableControls } from '../../../lib/admin/useTableControls';
+
+const TH_CLASS = 'px-4 py-3 font-medium';
 
 const STAGE_COLORS: Record<string, string> = {
   new: 'bg-white/10 text-white/70',
@@ -91,7 +97,7 @@ export default function CrmPage() {
     return { total: scoped.length, contacted, converted, verified, pct };
   }, [scoped]);
 
-  const filtered = useMemo(() => {
+  const quickFiltered = useMemo(() => {
     const term = search.trim().toLowerCase();
     return scoped.filter((c) => {
       if (typeFilter && c.contact_type !== typeFilter) return false;
@@ -104,6 +110,21 @@ export default function CrmPage() {
         .some((v) => v.toLowerCase().includes(term));
     });
   }, [scoped, search, typeFilter, stageFilter, overdueOnly, convertedOnly]);
+
+  const columns = useMemo<TableColumn<CrmContact>[]>(() => {
+    const ownerNameById = new Map(owners.map((o) => [o.id, o.name]));
+    return [
+      { key: 'name', label: 'Name', kind: 'text', getValue: (c) => c.display_name },
+      { key: 'shop', label: 'Shop', kind: 'text', getValue: (c) => c.shop_name },
+      { key: 'type', label: 'Type', kind: 'choice', getValue: (c) => labelFor(c.contact_type) },
+      { key: 'stage', label: 'Stage', kind: 'choice', getValue: (c) => labelFor(c.pipeline_stage) },
+      { key: 'owner', label: 'Sourced by', kind: 'choice', getValue: (c) => ownerNameById.get(c.owner_user_id) ?? '?' },
+      { key: 'last_contacted', label: 'Last contacted', kind: 'date', getValue: (c) => c.last_contacted_at },
+      { key: 'next_follow_up', label: 'Next follow-up', kind: 'date', getValue: (c) => c.next_follow_up_at },
+    ];
+  }, [owners]);
+  const table = useTableControls(quickFiltered, columns);
+  const filtered = table.rows;
 
   const selected = contacts.find((c) => c.id === selectedId) ?? null;
 
@@ -154,6 +175,14 @@ export default function CrmPage() {
           placeholder="Search name, shop, Instagram or email…"
           className="w-full max-w-sm rounded-xl border border-white/8 bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-white/40 focus:border-violet-400 focus:outline-none"
         />
+        <TableFilterButton
+          columns={columns}
+          rows={scoped}
+          rules={table.rules}
+          onRulesChange={table.setRules}
+          matchMode={table.matchMode}
+          onMatchModeChange={table.setMatchMode}
+        />
         <button type="button" onClick={() => setMineOnly((v) => !v)} className={chipClass(mineOnly)}>Mine</button>
         <button type="button" onClick={() => setOverdueOnly((v) => !v)} className={chipClass(overdueOnly)}>Overdue</button>
         <button type="button" onClick={() => setConvertedOnly((v) => !v)} className={chipClass(convertedOnly)}>Converted</button>
@@ -192,12 +221,24 @@ export default function CrmPage() {
           <table className="w-full text-left text-sm">
             <thead className="bg-white/[0.03] text-xs uppercase text-white/40">
               <tr>
-                <th className="px-4 py-3 font-medium">Name</th>
-                <th className="px-4 py-3 font-medium">Type</th>
-                <th className="px-4 py-3 font-medium">Stage</th>
-                <th className="px-4 py-3 font-medium">Sourced by</th>
-                <th className="px-4 py-3 font-medium">Last contacted</th>
-                <th className="px-4 py-3 font-medium">Next follow-up</th>
+                <SortableHeader columnKey="name" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Name
+                </SortableHeader>
+                <SortableHeader columnKey="type" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Type
+                </SortableHeader>
+                <SortableHeader columnKey="stage" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Stage
+                </SortableHeader>
+                <SortableHeader columnKey="owner" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Sourced by
+                </SortableHeader>
+                <SortableHeader columnKey="last_contacted" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Last contacted
+                </SortableHeader>
+                <SortableHeader columnKey="next_follow_up" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Next follow-up
+                </SortableHeader>
               </tr>
             </thead>
             <tbody>

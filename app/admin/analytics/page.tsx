@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import AdminShell from '../../../components/admin/AdminShell';
+import SortableHeader from '../../../components/admin/SortableHeader';
+import TableFilterButton from '../../../components/admin/TableFilterButton';
 import {
   fetchBangers,
   fetchEventCounts,
@@ -15,6 +17,8 @@ import type {
   ScreenVisitStat,
   SearchQueryStat,
 } from '../../../lib/admin/types';
+import type { TableColumn } from '../../../lib/admin/table-controls';
+import { useTableControls } from '../../../lib/admin/useTableControls';
 
 const SEARCH_LIMIT = 50;
 const SEARCH_DISPLAY = 25;
@@ -27,6 +31,16 @@ const AUTHOR_CHIP_COLORS: Record<string, string> = {
 };
 
 const DEFAULT_AUTHOR_COLOR = 'text-white/40';
+
+const POST_COLUMNS: TableColumn<PostStat>[] = [
+  { key: 'title', label: 'Title', kind: 'text', getValue: (p) => p.title },
+  { key: 'author', label: 'Author', kind: 'choice', getValue: (p) => p.author_type },
+  { key: 'likes', label: 'Likes', kind: 'number', getValue: (p) => p.likes },
+  { key: 'comments', label: 'Comments', kind: 'number', getValue: (p) => p.comments },
+  { key: 'date', label: 'Date', kind: 'date', getValue: (p) => p.created_at },
+];
+
+const TH_CLASS = 'px-4 py-3 font-medium';
 const SECTION_HEADER = 'text-sm font-semibold text-white/40 uppercase tracking-wider mb-3';
 const CARD = 'rounded-xl border border-white/8 bg-white/[0.03] p-4';
 
@@ -68,6 +82,7 @@ export default function AnalyticsPage() {
   const [screens, setScreens] = useState<ScreenVisitStat[]>([]);
   const [posts, setPosts] = useState<PostStat[]>([]);
   const [bangers, setBangers] = useState<PostStat[]>([]);
+  const postTable = useTableControls(posts, POST_COLUMNS);
 
   useEffect(() => {
     let active = true;
@@ -156,23 +171,47 @@ export default function AnalyticsPage() {
 
       {/* 3. Top posts */}
       <Section>
-        <h2 className={SECTION_HEADER}>Top posts</h2>
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <h2 className={`${SECTION_HEADER} !mb-0`}>Top posts</h2>
+          {posts.length > 0 && (
+            <TableFilterButton
+              columns={POST_COLUMNS}
+              rows={posts}
+              rules={postTable.rules}
+              onRulesChange={postTable.setRules}
+              matchMode={postTable.matchMode}
+              onMatchModeChange={postTable.setMatchMode}
+            />
+          )}
+        </div>
         {posts.length === 0 ? (
           <p className="text-white/40">No posts yet.</p>
+        ) : postTable.rows.length === 0 ? (
+          <p className="text-white/40">No posts match these filters.</p>
         ) : (
           <div className="overflow-hidden rounded-xl border border-white/8">
             <table className="w-full text-left text-sm">
               <thead className="bg-white/[0.03] text-xs uppercase text-white/40">
                 <tr>
-                  <th className="px-4 py-3 font-medium">Title</th>
-                  <th className="px-4 py-3 font-medium">Author</th>
-                  <th className="px-4 py-3 font-medium">❤</th>
-                  <th className="px-4 py-3 font-medium">💬</th>
-                  <th className="px-4 py-3 font-medium">Date</th>
+                  <SortableHeader columnKey="title" sort={postTable.sort} onSort={postTable.toggleSort} className={TH_CLASS}>
+                    Title
+                  </SortableHeader>
+                  <SortableHeader columnKey="author" sort={postTable.sort} onSort={postTable.toggleSort} className={TH_CLASS}>
+                    Author
+                  </SortableHeader>
+                  <SortableHeader columnKey="likes" sort={postTable.sort} onSort={postTable.toggleSort} className={TH_CLASS}>
+                    ❤
+                  </SortableHeader>
+                  <SortableHeader columnKey="comments" sort={postTable.sort} onSort={postTable.toggleSort} className={TH_CLASS}>
+                    💬
+                  </SortableHeader>
+                  <SortableHeader columnKey="date" sort={postTable.sort} onSort={postTable.toggleSort} className={TH_CLASS}>
+                    Date
+                  </SortableHeader>
                 </tr>
               </thead>
               <tbody>
-                {posts.map((post) => (
+                {postTable.rows.map((post) => (
                   <tr key={post.id} className="border-t border-white/8">
                     <td className="max-w-xs truncate px-4 py-3 text-white/80">{post.title}</td>
                     <td className="px-4 py-3">

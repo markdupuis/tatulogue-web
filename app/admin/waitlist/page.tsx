@@ -2,8 +2,12 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import AdminShell from '../../../components/admin/AdminShell';
+import SortableHeader from '../../../components/admin/SortableHeader';
+import TableFilterButton from '../../../components/admin/TableFilterButton';
 import { fetchWaitlist } from '../../../lib/admin/queries';
 import type { WaitlistEntry } from '../../../lib/admin/types';
+import type { TableColumn } from '../../../lib/admin/table-controls';
+import { useTableControls } from '../../../lib/admin/useTableControls';
 
 type AccountFilter = 'all' | 'artist' | 'enthusiast' | 'investor';
 
@@ -33,6 +37,17 @@ function pill(activeState: boolean): string {
 function fullName(entry: WaitlistEntry): string {
   return [entry.first_name, entry.last_name].filter(Boolean).join(' ').trim();
 }
+
+const WAITLIST_COLUMNS: TableColumn<WaitlistEntry>[] = [
+  { key: 'name', label: 'Name', kind: 'text', getValue: (e) => fullName(e) },
+  { key: 'email', label: 'Email', kind: 'text', getValue: (e) => e.email },
+  { key: 'location', label: 'Location', kind: 'text', getValue: (e) => [e.city, e.state].filter(Boolean).join(', ') },
+  { key: 'state', label: 'State', kind: 'choice', getValue: (e) => e.state },
+  { key: 'type', label: 'Type', kind: 'choice', getValue: (e) => e.account_type },
+  { key: 'joined', label: 'Joined', kind: 'date', getValue: (e) => e.created_at },
+];
+
+const TH_CLASS = 'px-4 py-3 font-semibold';
 
 function toCsv(entries: WaitlistEntry[]): string {
   const header = ['First name', 'Last name', 'Email', 'City', 'State', 'Account type', 'Joined'];
@@ -71,7 +86,7 @@ export default function WaitlistPage() {
     };
   }, []);
 
-  const filtered = useMemo(() => {
+  const quickFiltered = useMemo(() => {
     const query = search.trim().toLowerCase();
     return entries.filter((e) => {
       const matchAccount = accountFilter === 'all' || e.account_type === accountFilter;
@@ -83,6 +98,8 @@ export default function WaitlistPage() {
       return haystack.includes(query);
     });
   }, [entries, accountFilter, search]);
+  const table = useTableControls(quickFiltered, WAITLIST_COLUMNS);
+  const filtered = table.rows;
 
   const stats = useMemo(() => {
     const artists = entries.filter((e) => e.account_type === 'artist').length;
@@ -148,6 +165,14 @@ export default function WaitlistPage() {
                 placeholder="Search name, email, location…"
                 className="w-full max-w-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-white/30 focus:border-white/30 focus:outline-none"
               />
+              <TableFilterButton
+                columns={WAITLIST_COLUMNS}
+                rows={entries}
+                rules={table.rules}
+                onRulesChange={table.setRules}
+                matchMode={table.matchMode}
+                onMatchModeChange={table.setMatchMode}
+              />
               <button
                 type="button"
                 onClick={handleExport}
@@ -168,11 +193,21 @@ export default function WaitlistPage() {
               <table className="w-full min-w-[640px] text-left text-sm">
                 <thead>
                   <tr className="border-b border-white/8 text-xs uppercase tracking-wider text-white/40">
-                    <th className="px-4 py-3 font-semibold">Name</th>
-                    <th className="px-4 py-3 font-semibold">Email</th>
-                    <th className="px-4 py-3 font-semibold">Location</th>
-                    <th className="px-4 py-3 font-semibold">Type</th>
-                    <th className="px-4 py-3 font-semibold">Joined</th>
+                    <SortableHeader columnKey="name" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                      Name
+                    </SortableHeader>
+                    <SortableHeader columnKey="email" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                      Email
+                    </SortableHeader>
+                    <SortableHeader columnKey="location" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                      Location
+                    </SortableHeader>
+                    <SortableHeader columnKey="type" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                      Type
+                    </SortableHeader>
+                    <SortableHeader columnKey="joined" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                      Joined
+                    </SortableHeader>
                   </tr>
                 </thead>
                 <tbody>

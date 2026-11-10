@@ -2,6 +2,8 @@
 
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import AdminShell from '../../../components/admin/AdminShell';
+import SortableHeader from '../../../components/admin/SortableHeader';
+import TableFilterButton from '../../../components/admin/TableFilterButton';
 import { appProfileUrl } from '../../../lib/admin/app-links';
 import {
   fetchArtistDocPaths,
@@ -10,6 +12,8 @@ import {
   setArtistVerificationStatus,
 } from '../../../lib/admin/queries';
 import type { ArtistDocPaths, ArtistRow, VerificationStatus } from '../../../lib/admin/types';
+import type { TableColumn } from '../../../lib/admin/table-controls';
+import { useTableControls } from '../../../lib/admin/useTableControls';
 
 type StatusFilter = 'all' | VerificationStatus;
 
@@ -37,6 +41,17 @@ const DOC_LABELS: { key: keyof ArtistDocPaths; label: string }[] = [
 function displayName(a: ArtistRow): string {
   return a.professional_name || a.full_name || a.username || 'Unnamed artist';
 }
+
+const ARTIST_COLUMNS: TableColumn<ArtistRow>[] = [
+  { key: 'artist', label: 'Artist', kind: 'text', getValue: (a) => displayName(a) },
+  { key: 'username', label: 'Username', kind: 'text', getValue: (a) => a.username },
+  { key: 'location', label: 'Location', kind: 'text', getValue: (a) => a.business_address },
+  { key: 'specializations', label: 'Specializations', kind: 'text', getValue: (a) => a.specializations.join(', ') },
+  { key: 'status', label: 'Status', kind: 'choice', getValue: (a) => a.verification_status },
+  { key: 'joined', label: 'Joined', kind: 'date', getValue: (a) => a.created_at },
+];
+
+const TH_CLASS = 'px-4 py-3 font-semibold';
 
 function fullAddress(a: ArtistRow): string | null {
   const cityStateZip = [a.city, a.state, a.zip].filter(Boolean).join(', ');
@@ -166,7 +181,7 @@ export default function ArtistApprovalsPage() {
     setLoading(false);
   }
 
-  const filtered = useMemo(() => {
+  const quickFiltered = useMemo(() => {
     const query = search.trim().toLowerCase();
     return artists.filter((a) => {
       const matchStatus = statusFilter === 'all' || a.verification_status === statusFilter;
@@ -178,6 +193,8 @@ export default function ArtistApprovalsPage() {
       return haystack.includes(query);
     });
   }, [artists, statusFilter, search]);
+  const table = useTableControls(quickFiltered, ARTIST_COLUMNS);
+  const filtered = table.rows;
 
   const counts = useMemo(() => {
     return {
@@ -250,7 +267,15 @@ export default function ArtistApprovalsPage() {
                 </button>
               ))}
             </div>
-            <div className="flex flex-1 justify-end">
+            <div className="flex flex-1 justify-end gap-3">
+              <TableFilterButton
+                columns={ARTIST_COLUMNS}
+                rows={artists}
+                rules={table.rules}
+                onRulesChange={table.setRules}
+                matchMode={table.matchMode}
+                onMatchModeChange={table.setMatchMode}
+              />
               <input
                 type="text"
                 value={search}
@@ -268,10 +293,18 @@ export default function ArtistApprovalsPage() {
               <table className="w-full min-w-[720px] text-left text-sm">
                 <thead>
                   <tr className="border-b border-white/8 text-xs uppercase tracking-wider text-white/40">
-                    <th className="px-4 py-3 font-semibold">Artist</th>
-                    <th className="px-4 py-3 font-semibold">Specializations</th>
-                    <th className="px-4 py-3 font-semibold">Status</th>
-                    <th className="px-4 py-3 font-semibold">Joined</th>
+                    <SortableHeader columnKey="artist" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                      Artist
+                    </SortableHeader>
+                    <SortableHeader columnKey="specializations" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                      Specializations
+                    </SortableHeader>
+                    <SortableHeader columnKey="status" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                      Status
+                    </SortableHeader>
+                    <SortableHeader columnKey="joined" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                      Joined
+                    </SortableHeader>
                     <th className="px-4 py-3 font-semibold">Actions</th>
                   </tr>
                 </thead>

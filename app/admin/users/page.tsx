@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import AdminShell from '../../../components/admin/AdminShell';
+import SortableHeader from '../../../components/admin/SortableHeader';
+import TableFilterButton from '../../../components/admin/TableFilterButton';
 import { appProfileUrl } from '../../../lib/admin/app-links';
 import {
   buildCrmContactFromUser,
@@ -17,7 +19,9 @@ import {
   sendPasswordReset,
   setManualAffiliate,
 } from '../../../lib/admin/queries';
+import type { TableColumn } from '../../../lib/admin/table-controls';
 import type { AdminUser, AffiliateOption } from '../../../lib/admin/types';
+import { useTableControls } from '../../../lib/admin/useTableControls';
 
 type ResetStatus = 'idle' | 'sending' | 'sent' | 'error';
 type AffiliateSaveStatus = 'idle' | 'saving' | 'error';
@@ -29,6 +33,18 @@ const TYPE_CHIP_COLORS: Record<string, string> = {
 };
 
 const DEFAULT_TYPE_COLOR = 'text-white/40';
+
+const USER_COLUMNS: TableColumn<AdminUser>[] = [
+  { key: 'username', label: 'Username', kind: 'text', getValue: (u) => u.username },
+  { key: 'full_name', label: 'Name', kind: 'text', getValue: (u) => u.full_name },
+  { key: 'email', label: 'Email', kind: 'text', getValue: (u) => u.email },
+  { key: 'user_type', label: 'Type', kind: 'choice', getValue: (u) => u.user_type },
+  { key: 'affiliate_code', label: 'Affiliate', kind: 'choice', getValue: (u) => u.affiliate_code },
+  { key: 'post_count', label: 'Posts', kind: 'number', getValue: (u) => u.post_count },
+  { key: 'created_at', label: 'Joined', kind: 'date', getValue: (u) => u.created_at },
+];
+
+const TH_CLASS = 'px-4 py-3 font-medium';
 
 function typeColor(userType: string): string {
   return TYPE_CHIP_COLORS[userType] ?? DEFAULT_TYPE_COLOR;
@@ -99,7 +115,6 @@ export default function UsersPage() {
   const [affiliateOptions, setAffiliateOptions] = useState<AffiliateOption[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
-  const [sortByPosts, setSortByPosts] = useState(false);
   const [resetStatus, setResetStatus] = useState<Record<string, ResetStatus>>({});
   const [editingAffiliateId, setEditingAffiliateId] = useState<string | null>(null);
   const [affiliateSaveStatus, setAffiliateSaveStatus] = useState<Record<string, AffiliateSaveStatus>>({});
@@ -141,18 +156,17 @@ export default function UsersPage() {
     }
   }
 
-  const filtered = useMemo(() => {
+  const searched = useMemo(() => {
     const term = search.trim().toLowerCase();
-    const matched = term
-      ? users.filter((u) =>
-          [u.username, u.full_name, u.email, u.affiliate_code]
-            .filter((v): v is string => Boolean(v))
-            .some((v) => v.toLowerCase().includes(term))
-        )
-      : users;
-    if (!sortByPosts) return matched;
-    return [...matched].sort((a, b) => b.post_count - a.post_count);
-  }, [users, search, sortByPosts]);
+    if (!term) return users;
+    return users.filter((u) =>
+      [u.username, u.full_name, u.email, u.affiliate_code]
+        .filter((v): v is string => Boolean(v))
+        .some((v) => v.toLowerCase().includes(term))
+    );
+  }, [users, search]);
+  const table = useTableControls(searched, USER_COLUMNS);
+  const filtered = table.rows;
 
   async function handleResetPassword(user: AdminUser) {
     if (!user.email) return;
@@ -209,6 +223,14 @@ export default function UsersPage() {
           placeholder="Search username, name, email, or affiliate code…"
           className="w-full max-w-sm rounded-xl border border-white/8 bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-white/40 focus:border-violet-400 focus:outline-none"
         />
+        <TableFilterButton
+          columns={USER_COLUMNS}
+          rows={users}
+          rules={table.rules}
+          onRulesChange={table.setRules}
+          matchMode={table.matchMode}
+          onMatchModeChange={table.setMatchMode}
+        />
         <span className="shrink-0 text-sm text-white/40">
           {filtered.length} {filtered.length === 1 ? 'user' : 'users'}
         </span>
@@ -230,21 +252,27 @@ export default function UsersPage() {
             <thead className="bg-white/[0.03] text-xs uppercase text-white/40">
               <tr>
                 <th className="px-4 py-3 font-medium">Avatar</th>
-                <th className="px-4 py-3 font-medium">Username</th>
-                <th className="px-4 py-3 font-medium">Name</th>
-                <th className="px-4 py-3 font-medium">Email</th>
-                <th className="px-4 py-3 font-medium">Type</th>
-                <th className="px-4 py-3 font-medium">Affiliate</th>
-                <th className="px-4 py-3 font-medium">
-                  <button
-                    type="button"
-                    onClick={() => setSortByPosts((v) => !v)}
-                    className="uppercase hover:text-white"
-                  >
-                    Posts {sortByPosts ? '↓' : ''}
-                  </button>
-                </th>
-                <th className="px-4 py-3 font-medium">Joined</th>
+                <SortableHeader columnKey="username" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Username
+                </SortableHeader>
+                <SortableHeader columnKey="full_name" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Name
+                </SortableHeader>
+                <SortableHeader columnKey="email" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Email
+                </SortableHeader>
+                <SortableHeader columnKey="user_type" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Type
+                </SortableHeader>
+                <SortableHeader columnKey="affiliate_code" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Affiliate
+                </SortableHeader>
+                <SortableHeader columnKey="post_count" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Posts
+                </SortableHeader>
+                <SortableHeader columnKey="created_at" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                  Joined
+                </SortableHeader>
                 <th className="px-4 py-3 font-medium">Actions</th>
               </tr>
             </thead>

@@ -2,8 +2,12 @@
 
 import { useEffect, useState, type FormEvent } from 'react';
 import AdminShell from '../../../components/admin/AdminShell';
+import SortableHeader from '../../../components/admin/SortableHeader';
+import TableFilterButton from '../../../components/admin/TableFilterButton';
 import { createAffiliate, fetchAffiliateStats } from '../../../lib/admin/queries';
+import type { TableColumn } from '../../../lib/admin/table-controls';
 import type { AffiliateStat } from '../../../lib/admin/types';
+import { useTableControls } from '../../../lib/admin/useTableControls';
 import {
   downloadDataUrl,
   generateQrDataUrl,
@@ -16,8 +20,23 @@ function affiliateLink(code: string): string {
   return `https://tatulogue.com/get/${code}`;
 }
 
+const AFFILIATE_COLUMNS: TableColumn<AffiliateStat>[] = [
+  { key: 'code', label: 'Code', kind: 'text', getValue: (s) => s.code },
+  { key: 'name', label: 'Name', kind: 'text', getValue: (s) => s.name },
+  { key: 'clicks', label: 'Clicks', kind: 'number', getValue: (s) => s.clicks },
+  { key: 'installs', label: 'Installs', kind: 'number', getValue: (s) => s.installs },
+  { key: 'signups', label: 'Signups', kind: 'number', getValue: (s) => s.signups },
+  { key: 'confirmed', label: 'Confirmed', kind: 'number', getValue: (s) => s.confirmedSignups },
+  { key: 'unconfirmed', label: 'Unconfirmed', kind: 'number', getValue: (s) => s.unconfirmedSignups },
+  { key: 'conversion', label: 'Conversion %', kind: 'number', getValue: (s) => s.conversionPct },
+];
+
+const TH_CLASS = 'px-4 py-3';
+const TH_RIGHT_CLASS = 'px-4 py-3 text-right';
+
 export default function AffiliatesPage() {
   const [stats, setStats] = useState<AffiliateStat[]>([]);
+  const table = useTableControls(stats, AFFILIATE_COLUMNS);
   const [loading, setLoading] = useState(true);
   const [code, setCode] = useState('');
   const [name, setName] = useState('');
@@ -161,31 +180,61 @@ export default function AffiliatesPage() {
             </p>
           </form>
 
+          <div className="mb-3 flex items-center gap-3">
+            <TableFilterButton
+              columns={AFFILIATE_COLUMNS}
+              rows={stats}
+              rules={table.rules}
+              onRulesChange={table.setRules}
+              matchMode={table.matchMode}
+              onMatchModeChange={table.setMatchMode}
+            />
+            <span className="text-sm text-white/40">
+              {table.rows.length} of {stats.length} affiliates
+            </span>
+          </div>
+
           <div className="overflow-x-auto rounded-xl border border-white/8">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-white/8 text-left text-xs text-white/40">
-                  <th className="px-4 py-3">Code</th>
-                  <th className="px-4 py-3">Name</th>
+                  <SortableHeader columnKey="code" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                    Code
+                  </SortableHeader>
+                  <SortableHeader columnKey="name" sort={table.sort} onSort={table.toggleSort} className={TH_CLASS}>
+                    Name
+                  </SortableHeader>
                   <th className="px-4 py-3">Link</th>
                   <th className="px-4 py-3">QR code</th>
-                  <th className="px-4 py-3 text-right">Clicks</th>
-                  <th className="px-4 py-3 text-right">Installs</th>
-                  <th className="px-4 py-3 text-right">Signups</th>
-                  <th className="px-4 py-3 text-right">Confirmed</th>
-                  <th className="px-4 py-3 text-right">Unconfirmed</th>
-                  <th className="px-4 py-3 text-right">Conversion</th>
+                  <SortableHeader columnKey="clicks" sort={table.sort} onSort={table.toggleSort} className={TH_RIGHT_CLASS} alignRight>
+                    Clicks
+                  </SortableHeader>
+                  <SortableHeader columnKey="installs" sort={table.sort} onSort={table.toggleSort} className={TH_RIGHT_CLASS} alignRight>
+                    Installs
+                  </SortableHeader>
+                  <SortableHeader columnKey="signups" sort={table.sort} onSort={table.toggleSort} className={TH_RIGHT_CLASS} alignRight>
+                    Signups
+                  </SortableHeader>
+                  <SortableHeader columnKey="confirmed" sort={table.sort} onSort={table.toggleSort} className={TH_RIGHT_CLASS} alignRight>
+                    Confirmed
+                  </SortableHeader>
+                  <SortableHeader columnKey="unconfirmed" sort={table.sort} onSort={table.toggleSort} className={TH_RIGHT_CLASS} alignRight>
+                    Unconfirmed
+                  </SortableHeader>
+                  <SortableHeader columnKey="conversion" sort={table.sort} onSort={table.toggleSort} className={TH_RIGHT_CLASS} alignRight>
+                    Conversion
+                  </SortableHeader>
                 </tr>
               </thead>
               <tbody>
-                {stats.length === 0 ? (
+                {table.rows.length === 0 ? (
                   <tr>
                     <td colSpan={10} className="px-4 py-8 text-center text-white/30">
-                      No affiliates yet -- add one above.
+                      {stats.length === 0 ? 'No affiliates yet -- add one above.' : 'No affiliates match these filters.'}
                     </td>
                   </tr>
                 ) : (
-                  stats.map((s) => (
+                  table.rows.map((s) => (
                     <tr key={s.code} className="border-b border-white/5 text-white/80">
                       <td className="px-4 py-3 font-mono text-violet-300">{s.code}</td>
                       <td className="px-4 py-3">{s.name ?? '—'}</td>
