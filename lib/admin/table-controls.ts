@@ -7,6 +7,8 @@ export interface TableColumn<T> {
   label: string;
   kind: ColumnKind;
   getValue: (row: T) => CellValue;
+  /** Overrides getValue for sorting only, e.g. a severity rank so "critical" sorts above "low". */
+  getSortValue?: (row: T) => CellValue;
 }
 
 export type SortDirection = 'asc' | 'desc';
@@ -93,9 +95,11 @@ export function sortRows<T>(rows: T[], columns: TableColumn<T>[], sort: SortStat
   if (!column) return rows;
 
   const factor = sort.direction === 'asc' ? 1 : -1;
+  const getSortValue = column.getSortValue ?? column.getValue;
+  const sortKind = column.getSortValue ? 'number' : column.kind;
   return [...rows].sort((a, b) => {
-    const left = toSortable(column.getValue(a), column.kind);
-    const right = toSortable(column.getValue(b), column.kind);
+    const left = toSortable(getSortValue(a), sortKind);
+    const right = toSortable(getSortValue(b), sortKind);
     if (left === null && right === null) return 0;
     if (left === null) return 1;
     if (right === null) return -1;

@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import AdminShell from '../../../components/admin/AdminShell';
+import SortControl from '../../../components/admin/SortControl';
+import TableFilterButton from '../../../components/admin/TableFilterButton';
 import {
   convertBugToRoadmap,
   createReport,
@@ -17,6 +19,8 @@ import type {
   ReportStatus,
   ReportType,
 } from '../../../lib/admin/types';
+import type { TableColumn } from '../../../lib/admin/table-controls';
+import { useTableControls } from '../../../lib/admin/useTableControls';
 
 const STATUS_LABELS: Record<ReportStatus, string> = {
   open: 'Open',
@@ -45,6 +49,25 @@ const STATUS_FILTERS: (ReportStatus | 'all')[] = ['all', 'open', 'in_progress', 
 const TYPE_TABS: (ReportType | 'all')[] = ['bug', 'feature_request', 'all'];
 const STATUS_ACTIONS: ReportStatus[] = ['open', 'in_progress', 'closed'];
 const PRIORITY_OPTIONS: Priority[] = ['critical', 'high', 'medium', 'low'];
+
+const PRIORITY_RANK: Record<Priority, number> = { low: 1, medium: 2, high: 3, critical: 4 };
+
+const REPORT_COLUMNS: TableColumn<BugReport>[] = [
+  { key: 'title', label: 'Title', kind: 'text', getValue: (r) => r.title },
+  {
+    key: 'priority',
+    label: 'Priority',
+    kind: 'choice',
+    getValue: (r) => r.priority,
+    getSortValue: (r) => PRIORITY_RANK[r.priority],
+  },
+  { key: 'status', label: 'Status', kind: 'choice', getValue: (r) => STATUS_LABELS[r.status] },
+  { key: 'type', label: 'Type', kind: 'choice', getValue: (r) => TYPE_TAB_LABELS[r.report_type] },
+  { key: 'reporter', label: 'Reporter', kind: 'text', getValue: (r) => r.reporter_username },
+  { key: 'description', label: 'Description', kind: 'text', getValue: (r) => r.description },
+  { key: 'device', label: 'Device', kind: 'text', getValue: (r) => r.device_info },
+  { key: 'created_at', label: 'Reported', kind: 'date', getValue: (r) => r.created_at },
+];
 
 const inputClass =
   'w-full rounded-lg border border-white/15 bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-white/30 focus:border-violet-400 focus:outline-none';
@@ -187,13 +210,15 @@ export default function BugsPage() {
     ).length;
   }
 
-  const filtered = reports.filter((r) => {
+  const quickFiltered = reports.filter((r) => {
     // Legacy 'resolved' reports count as 'closed' everywhere in this UI.
     const effectiveStatus = r.status === 'resolved' ? 'closed' : r.status;
     const matchStatus = statusFilter === 'all' || effectiveStatus === statusFilter;
     const matchType = typeFilter === 'all' || r.report_type === typeFilter;
     return matchStatus && matchType;
   });
+  const table = useTableControls(quickFiltered, REPORT_COLUMNS);
+  const filtered = table.rows;
 
   const stats = [
     { label: 'Open', value: reports.filter((r) => r.status === 'open').length, color: 'text-red-400' },
@@ -362,7 +387,7 @@ export default function BugsPage() {
             ))}
           </div>
 
-          <div className="mb-8 flex flex-wrap gap-2">
+          <div className="mb-8 flex flex-wrap items-center gap-2">
             {STATUS_FILTERS.map((s) => (
               <button
                 key={s}
@@ -373,6 +398,17 @@ export default function BugsPage() {
                 {s === 'all' ? 'All status' : STATUS_LABELS[s]}
               </button>
             ))}
+            <div className="ml-2 flex flex-wrap items-center gap-3">
+              <TableFilterButton
+                columns={REPORT_COLUMNS}
+                rows={reports}
+                rules={table.rules}
+                onRulesChange={table.setRules}
+                matchMode={table.matchMode}
+                onMatchModeChange={table.setMatchMode}
+              />
+              <SortControl columns={REPORT_COLUMNS} sort={table.sort} onSort={table.toggleSort} />
+            </div>
           </div>
 
           {filtered.length === 0 ? (
