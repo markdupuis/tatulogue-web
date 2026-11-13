@@ -182,7 +182,37 @@ export function todayIso(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
-export function isOverdue(contact: CrmContact): boolean {
+// Only what the CRM list, its search and its filters read; the panel loads the full row on open.
+const CONTACT_LIST_COLUMNS =
+  'id, display_name, shop_name, instagram, email, phone, contact_type, pipeline_stage, owner_user_id, ' +
+  'last_contacted_at, next_follow_up_at, linked_user_id, converted_verified_at, shop_contact_id, tags, city, state, country, created_at';
+// PostgREST returns at most 1,000 rows per request, so the list is fetched in pages of that size.
+const CONTACT_FETCH_PAGE_SIZE = 1000;
+
+export type CrmContactSummary = Pick<
+  CrmContact,
+  | 'id'
+  | 'display_name'
+  | 'shop_name'
+  | 'instagram'
+  | 'email'
+  | 'phone'
+  | 'contact_type'
+  | 'pipeline_stage'
+  | 'owner_user_id'
+  | 'last_contacted_at'
+  | 'next_follow_up_at'
+  | 'linked_user_id'
+  | 'converted_verified_at'
+  | 'shop_contact_id'
+  | 'tags'
+  | 'city'
+  | 'state'
+  | 'country'
+  | 'created_at'
+>;
+
+export function isOverdue(contact: Pick<CrmContact, 'next_follow_up_at'>): boolean {
   return Boolean(contact.next_follow_up_at) && (contact.next_follow_up_at as string) < todayIso();
 }
 
@@ -195,17 +225,30 @@ export async function getCurrentAdminId(): Promise<string | null> {
   return currentUserId();
 }
 
-export async function fetchCrmContacts(): Promise<CrmContact[]> {
-  const { data, error } = await supabase
-    .from('crm_contacts')
-    .select('*')
-    .order('next_follow_up_at', { ascending: true, nullsFirst: false })
-    .order('created_at', { ascending: false });
-  if (error) {
-    console.error('[fetchCrmContacts] failed:', error);
+export async function fetchCrmContacts(): Promise<CrmContactSummary[]> {
+  const { count, error: countError } = await supabase.from('crm_contacts').select('id', { count: 'exact', head: true });
+  if (countError) {
+    console.error('[fetchCrmContacts] count failed:', countError);
     return [];
   }
-  return (data ?? []) as CrmContact[];
+  const pageStarts = Array.from({ length: Math.ceil((count ?? 0) / CONTACT_FETCH_PAGE_SIZE) }, (_, i) => i * CONTACT_FETCH_PAGE_SIZE);
+  const pages = await Promise.all(
+    pageStarts.map((from) =>
+      supabase
+        .from('crm_contacts')
+        .select(CONTACT_LIST_COLUMNS)
+        .order('next_follow_up_at', { ascending: true, nullsFirst: false })
+        .order('created_at', { ascending: false })
+        .order('id', { ascending: true })
+        .range(from, from + CONTACT_FETCH_PAGE_SIZE - 1)
+    )
+  );
+  const failed = pages.find((page) => page.error);
+  if (failed) {
+    console.error('[fetchCrmContacts] failed:', failed.error);
+    return [];
+  }
+  return pages.flatMap((page) => (page.data ?? []) as unknown as CrmContactSummary[]);
 }
 
 export async function fetchCrmOwners(): Promise<CrmOwner[]> {

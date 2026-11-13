@@ -10,6 +10,7 @@ import {
   CONTACT_TYPES,
   PIPELINE_STAGES,
   createCrmContact,
+  fetchCrmContact,
   fetchCrmContacts,
   fetchCrmOwners,
   getCurrentAdminId,
@@ -17,12 +18,16 @@ import {
   labelFor,
   type CrmContact,
   type CrmContactInput,
+  type CrmContactSummary,
   type CrmOwner,
 } from '../../../lib/admin/crm';
 import type { TableColumn } from '../../../lib/admin/table-controls';
 import { useTableControls } from '../../../lib/admin/useTableControls';
 
 const TH_CLASS = 'px-4 py-3 font-medium';
+const ROWS_PER_PAGE = 50;
+const PAGER_BUTTON_CLASS =
+  'rounded-lg border border-white/10 px-3 py-1 text-xs text-white/60 hover:text-white disabled:cursor-not-allowed disabled:opacity-30';
 
 const STAGE_COLORS: Record<string, string> = {
   new: 'bg-white/10 text-white/70',
@@ -60,7 +65,9 @@ function chipClass(active: boolean): string {
 }
 
 export default function CrmPage() {
-  const [contacts, setContacts] = useState<CrmContact[]>([]);
+  const [contacts, setContacts] = useState<CrmContactSummary[]>([]);
+  const [page, setPage] = useState(0);
+  const [selected, setSelected] = useState<CrmContact | null>(null);
   const [owners, setOwners] = useState<CrmOwner[]>([]);
   const [adminId, setAdminId] = useState('');
   const [loading, setLoading] = useState(true);
@@ -111,7 +118,7 @@ export default function CrmPage() {
     });
   }, [scoped, search, typeFilter, stageFilter, overdueOnly, convertedOnly]);
 
-  const columns = useMemo<TableColumn<CrmContact>[]>(() => {
+  const columns = useMemo<TableColumn<CrmContactSummary>[]>(() => {
     const ownerNameById = new Map(owners.map((o) => [o.id, o.name]));
     return [
       { key: 'name', label: 'Name', kind: 'text', getValue: (c) => c.display_name },
@@ -121,14 +128,44 @@ export default function CrmPage() {
       { key: 'owner', label: 'Sourced by', kind: 'choice', getValue: (c) => ownerNameById.get(c.owner_user_id) ?? '?' },
       { key: 'last_contacted', label: 'Last contacted', kind: 'date', getValue: (c) => c.last_contacted_at },
       { key: 'next_follow_up', label: 'Next follow-up', kind: 'date', getValue: (c) => c.next_follow_up_at },
+      { key: 'instagram', label: 'Instagram', kind: 'text', getValue: (c) => c.instagram },
+      { key: 'email', label: 'Email', kind: 'text', getValue: (c) => c.email },
+      { key: 'phone', label: 'Phone', kind: 'text', getValue: (c) => c.phone },
+      { key: 'tags', label: 'Tags', kind: 'text', getValue: (c) => c.tags.join(', ') },
+      { key: 'city', label: 'City', kind: 'text', getValue: (c) => c.city },
+      { key: 'state', label: 'State', kind: 'text', getValue: (c) => c.state },
+      { key: 'country', label: 'Country', kind: 'text', getValue: (c) => c.country },
+      { key: 'added', label: 'Added', kind: 'date', getValue: (c) => c.created_at },
     ];
   }, [owners]);
   const table = useTableControls(quickFiltered, columns);
   const filtered = table.rows;
 
-  const selected = contacts.find((c) => c.id === selectedId) ?? null;
+  const pageCount = Math.max(1, Math.ceil(filtered.length / ROWS_PER_PAGE));
+  const currentPage = Math.min(page, pageCount - 1);
+  const pageStart = currentPage * ROWS_PER_PAGE;
+  const pageRows = filtered.slice(pageStart, pageStart + ROWS_PER_PAGE);
+
+  useEffect(() => {
+    setPage(0);
+  }, [search, typeFilter, stageFilter, mineOnly, overdueOnly, convertedOnly, table.rules, table.matchMode, table.sort]);
+
+  useEffect(() => {
+    if (!selectedId) {
+      setSelected(null);
+      return;
+    }
+    let active = true;
+    fetchCrmContact(selectedId).then((full) => {
+      if (active) setSelected(full);
+    });
+    return () => {
+      active = false;
+    };
+  }, [selectedId]);
 
   const handleChanged = useCallback((updated: CrmContact) => {
+    setSelected((prev) => (prev?.id === updated.id ? updated : prev));
     setContacts((prev) => prev.map((c) => (c.id === updated.id ? updated : c)));
   }, []);
 
@@ -242,7 +279,7 @@ export default function CrmPage() {
               </tr>
             </thead>
             <tbody>
-              {filtered.map((c) => (
+              {pageRows.map((c) => (
                 <tr key={c.id} onClick={() => setSelectedId(c.id)} className="cursor-pointer border-t border-white/8 hover:bg-white/[0.03]">
                   <td className="px-4 py-3">
                     <div className="font-medium text-white">{c.display_name}</div>
@@ -266,6 +303,38 @@ export default function CrmPage() {
               ))}
             </tbody>
           </table>
+          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/8 px-4 py-3 text-xs text-white/50">
+            <span>
+              Showing {pageStart + 1}–{pageStart + pageRows.length} of {filtered.length}
+            </span>
+            <div className="flex items-center gap-2">
+              <button type="button" className={PAGER_BUTTON_CLASS} disabled={currentPage === 0} onClick={() => setPage(0)}>
+                First
+              </button>
+              <button type="button" className={PAGER_BUTTON_CLASS} disabled={currentPage === 0} onClick={() => setPage(currentPage - 1)}>
+                Prev
+              </button>
+              <span>
+                Page {currentPage + 1} of {pageCount}
+              </span>
+              <button
+                type="button"
+                className={PAGER_BUTTON_CLASS}
+                disabled={currentPage >= pageCount - 1}
+                onClick={() => setPage(currentPage + 1)}
+              >
+                Next
+              </button>
+              <button
+                type="button"
+                className={PAGER_BUTTON_CLASS}
+                disabled={currentPage >= pageCount - 1}
+                onClick={() => setPage(pageCount - 1)}
+              >
+                Last
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
