@@ -8,18 +8,21 @@ import SortableHeader from '../../../components/admin/SortableHeader';
 import TableFilterButton from '../../../components/admin/TableFilterButton';
 import {
   CONTACT_TYPES,
+  IG_PRIVACY_VALUES,
   PIPELINE_STAGES,
   createCrmContact,
   fetchCrmContact,
   fetchCrmContacts,
   fetchCrmOwners,
   getCurrentAdminId,
+  igPrivacyLabel,
   isOverdue,
   labelFor,
   type CrmContact,
   type CrmContactInput,
   type CrmContactSummary,
   type CrmOwner,
+  type IgPrivacy,
 } from '../../../lib/admin/crm';
 import type { TableColumn } from '../../../lib/admin/table-controls';
 import { useTableControls } from '../../../lib/admin/useTableControls';
@@ -39,6 +42,13 @@ const STAGE_COLORS: Record<string, string> = {
   not_interested: 'bg-red-500/15 text-red-300',
   dormant: 'bg-white/5 text-white/40',
 };
+
+const IG_PRIVACY_BADGES: Partial<Record<IgPrivacy, string>> = {
+  private: 'bg-amber-500/15 text-amber-300',
+  not_found: 'bg-red-500/15 text-red-300',
+};
+// The empty string is the chip for contacts that have not been checked yet.
+const IG_PRIVACY_FILTERS = ['', ...IG_PRIVACY_VALUES] as const;
 
 function formatDate(iso: string | null): string {
   if (!iso) return '';
@@ -74,6 +84,7 @@ export default function CrmPage() {
   const [search, setSearch] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
   const [stageFilter, setStageFilter] = useState('');
+  const [igFilter, setIgFilter] = useState<string | null>(null);
   const [mineOnly, setMineOnly] = useState(false);
   const [overdueOnly, setOverdueOnly] = useState(false);
   const [convertedOnly, setConvertedOnly] = useState(false);
@@ -109,6 +120,7 @@ export default function CrmPage() {
     return scoped.filter((c) => {
       if (typeFilter && c.contact_type !== typeFilter) return false;
       if (stageFilter && c.pipeline_stage !== stageFilter) return false;
+      if (igFilter !== null && (c.ig_privacy ?? '') !== igFilter) return false;
       if (overdueOnly && !isOverdue(c)) return false;
       if (convertedOnly && !c.linked_user_id) return false;
       if (!term) return true;
@@ -116,7 +128,7 @@ export default function CrmPage() {
         .filter((v): v is string => Boolean(v))
         .some((v) => v.toLowerCase().includes(term));
     });
-  }, [scoped, search, typeFilter, stageFilter, overdueOnly, convertedOnly]);
+  }, [scoped, search, typeFilter, stageFilter, igFilter, overdueOnly, convertedOnly]);
 
   const columns = useMemo<TableColumn<CrmContactSummary>[]>(() => {
     const ownerNameById = new Map(owners.map((o) => [o.id, o.name]));
@@ -129,6 +141,7 @@ export default function CrmPage() {
       { key: 'last_contacted', label: 'Last contacted', kind: 'date', getValue: (c) => c.last_contacted_at },
       { key: 'next_follow_up', label: 'Next follow-up', kind: 'date', getValue: (c) => c.next_follow_up_at },
       { key: 'instagram', label: 'Instagram', kind: 'text', getValue: (c) => c.instagram },
+      { key: 'ig_privacy', label: 'IG profile', kind: 'choice', getValue: (c) => igPrivacyLabel(c.ig_privacy) },
       { key: 'email', label: 'Email', kind: 'text', getValue: (c) => c.email },
       { key: 'phone', label: 'Phone', kind: 'text', getValue: (c) => c.phone },
       { key: 'tags', label: 'Tags', kind: 'text', getValue: (c) => c.tags.join(', ') },
@@ -148,7 +161,7 @@ export default function CrmPage() {
 
   useEffect(() => {
     setPage(0);
-  }, [search, typeFilter, stageFilter, mineOnly, overdueOnly, convertedOnly, table.rules, table.matchMode, table.sort]);
+  }, [search, typeFilter, stageFilter, igFilter, mineOnly, overdueOnly, convertedOnly, table.rules, table.matchMode, table.sort]);
 
   useEffect(() => {
     if (!selectedId) {
@@ -240,11 +253,19 @@ export default function CrmPage() {
           </button>
         ))}
       </div>
-      <div className="mb-5 flex flex-wrap gap-2">
+      <div className="mb-2 flex flex-wrap gap-2">
         <button type="button" onClick={() => setStageFilter('')} className={chipClass(!stageFilter)}>All stages</button>
         {PIPELINE_STAGES.map((s) => (
           <button key={s} type="button" onClick={() => setStageFilter(stageFilter === s ? '' : s)} className={chipClass(stageFilter === s)}>
             {labelFor(s)}
+          </button>
+        ))}
+      </div>
+      <div className="mb-5 flex flex-wrap gap-2">
+        <button type="button" onClick={() => setIgFilter(null)} className={chipClass(igFilter === null)}>All IG profiles</button>
+        {IG_PRIVACY_FILTERS.map((v) => (
+          <button key={v || 'unchecked'} type="button" onClick={() => setIgFilter(igFilter === v ? null : v)} className={chipClass(igFilter === v)}>
+            {igPrivacyLabel(v || null)}
           </button>
         ))}
       </div>
@@ -282,7 +303,14 @@ export default function CrmPage() {
               {pageRows.map((c) => (
                 <tr key={c.id} onClick={() => setSelectedId(c.id)} className="cursor-pointer border-t border-white/8 hover:bg-white/[0.03]">
                   <td className="px-4 py-3">
-                    <div className="font-medium text-white">{c.display_name}</div>
+                    <div className="font-medium text-white">
+                      {c.display_name}
+                      {c.ig_privacy && IG_PRIVACY_BADGES[c.ig_privacy] && (
+                        <span className={`ml-2 rounded-full px-2 py-0.5 text-xs font-normal ${IG_PRIVACY_BADGES[c.ig_privacy]}`}>
+                          {c.ig_privacy === 'private' ? 'Private IG' : 'IG not found'}
+                        </span>
+                      )}
+                    </div>
                     {c.shop_name && <div className="text-xs text-white/40">{c.shop_name}</div>}
                   </td>
                   <td className="px-4 py-3 text-white/60">{labelFor(c.contact_type)}</td>

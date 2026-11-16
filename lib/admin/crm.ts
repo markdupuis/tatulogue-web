@@ -51,6 +51,7 @@ export const COMMITMENT_TYPES = [
 ] as const;
 export const COMMITMENT_STATUSES = ['verbal', 'written', 'signed', 'received', 'withdrawn'] as const;
 export const LIKENESS_PERMISSIONS = ['not_asked', 'asked', 'granted', 'declined'] as const;
+export const IG_PRIVACY_VALUES = ['public', 'private', 'not_found'] as const;
 const SHOP_SEARCH_LIMIT = 8;
 
 export type ContactType = (typeof CONTACT_TYPES)[number];
@@ -58,6 +59,7 @@ export type PipelineStage = (typeof PIPELINE_STAGES)[number];
 export type InterestLevel = (typeof INTEREST_LEVELS)[number];
 export type ActivityType = (typeof ACTIVITY_TYPES)[number];
 export type ActivityDirection = (typeof ACTIVITY_DIRECTIONS)[number];
+export type IgPrivacy = (typeof IG_PRIVACY_VALUES)[number];
 
 export interface CrmContact {
   id: string;
@@ -71,6 +73,8 @@ export interface CrmContact {
   phone: string | null;
   email: string | null;
   instagram: string | null;
+  ig_privacy: IgPrivacy | null;
+  ig_privacy_checked_at: string | null;
   other_socials: string[];
   address_line1: string | null;
   address_line2: string | null;
@@ -178,13 +182,19 @@ export function labelFor(value: string): string {
   return spaced.charAt(0).toUpperCase() + spaced.slice(1);
 }
 
+export function igPrivacyLabel(value: IgPrivacy | null): string {
+  if (!value) return 'Not checked';
+  if (value === 'not_found') return 'Not found';
+  return labelFor(value);
+}
+
 export function todayIso(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
 // Only what the CRM list, its search and its filters read; the panel loads the full row on open.
 const CONTACT_LIST_COLUMNS =
-  'id, display_name, shop_name, instagram, email, phone, contact_type, pipeline_stage, owner_user_id, ' +
+  'id, display_name, shop_name, instagram, ig_privacy, email, phone, contact_type, pipeline_stage, owner_user_id, ' +
   'last_contacted_at, next_follow_up_at, linked_user_id, converted_verified_at, shop_contact_id, tags, city, state, country, created_at';
 // PostgREST returns at most 1,000 rows per request, so the list is fetched in pages of that size.
 const CONTACT_FETCH_PAGE_SIZE = 1000;
@@ -195,6 +205,7 @@ export type CrmContactSummary = Pick<
   | 'display_name'
   | 'shop_name'
   | 'instagram'
+  | 'ig_privacy'
   | 'email'
   | 'phone'
   | 'contact_type'

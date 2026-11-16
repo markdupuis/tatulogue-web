@@ -7,6 +7,7 @@ import {
   ACTIVITY_TYPES,
   COMMITMENT_STATUSES,
   COMMITMENT_TYPES,
+  IG_PRIVACY_VALUES,
   LIKENESS_PERMISSIONS,
   PIPELINE_STAGES,
   addCrmActivity,
@@ -20,6 +21,7 @@ import {
   fetchLinkedUser,
   fetchShopArtists,
   formatStreetAddress,
+  igPrivacyLabel,
   labelFor,
   linkContactToUser,
   searchAppUsers,
@@ -33,6 +35,7 @@ import {
   type CrmContactInput,
   type CrmLinkedUser,
   type CrmOwner,
+  type IgPrivacy,
 } from '../../lib/admin/crm';
 import CrmContactForm from './CrmContactForm';
 
@@ -548,6 +551,22 @@ export default function CrmContactPanel({ contact, owners, onClose, onChanged, o
             <select className={INPUT_CLASS} value={contact.owner_user_id} onChange={(e) => handleQuickPatch({ owner_user_id: e.target.value })}>
               {owners.map((o) => (
                 <option key={o.id} value={o.id}>{o.name}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            <span className="mb-1 block">IG profile</span>
+            <select
+              className={INPUT_CLASS}
+              value={contact.ig_privacy ?? ''}
+              onChange={(e) => {
+                const value = (e.target.value || null) as IgPrivacy | null;
+                handleQuickPatch({ ig_privacy: value, ig_privacy_checked_at: value ? new Date().toISOString() : null });
+              }}
+            >
+              <option value="">{igPrivacyLabel(null)}</option>
+              {IG_PRIVACY_VALUES.map((v) => (
+                <option key={v} value={v}>{igPrivacyLabel(v)}</option>
               ))}
             </select>
           </label>
