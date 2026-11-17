@@ -45,7 +45,7 @@ export default function PrivacyPage() {
       <div className="max-w-3xl mx-auto px-6 pt-28 pb-16">
         <h1 className="text-4xl font-black mb-2">Privacy Policy</h1>
         <p className="text-white/40 text-sm mb-2">TATULOGUE, LLC | State of Utah</p>
-        <p className="text-white/30 text-xs mb-12">Last updated: October 26, 2026</p>
+        <p className="text-white/30 text-xs mb-12">Last updated: November 17, 2026</p>
 
         <div className="space-y-10 text-white/70 leading-relaxed text-sm">
           <p>
@@ -149,6 +149,46 @@ export default function PrivacyPage() {
               <p>Email: <a href="mailto:legal@tatulogue.com" className="text-violet-400 hover:text-violet-300">legal@tatulogue.com</a></p>
               <p>Website: <a href="https://tatulogue.com" className="text-violet-400 hover:text-violet-300">www.tatulogue.com</a></p>
             </address>
+          </Section>
+
+          <Section title="10. If you are in the EU, EEA or UK">
+            <p>This section applies to you if you live in the European Union, the European Economic Area or the United Kingdom. It explains how we handle your information under the General Data Protection Regulation (GDPR) and the UK GDPR, in addition to the rest of this Privacy Policy.</p>
+            <SubSection title="10.1 Who Is Responsible for Your Data">
+              <p>TATULOGUE, LLC, 1233 Nayon Dr, Layton, Utah 84040, USA, is the controller of your personal data. You can reach us about anything in this Privacy Policy at <a href="mailto:legal@tatulogue.com" className="text-violet-400 hover:text-violet-300">legal@tatulogue.com</a>.</p>
+            </SubSection>
+            <SubSection title="10.2 Why We Are Allowed to Use Your Data">
+              <ul className="list-disc pl-5 space-y-1">
+                <li><strong className="text-white/80">To perform our contract with you:</strong> running your account, showing your profile and posts, delivering your messages, and providing search, including the &ldquo;near me&rdquo; search.</li>
+                <li><strong className="text-white/80">Your consent:</strong> personalized ads, and anything else we ask your permission for, such as location access on your device. You can withdraw your consent at any time, and withdrawing it does not affect anything we did before.</li>
+                <li><strong className="text-white/80">Our legitimate interests:</strong> keeping the Platform secure, preventing fraud and abuse, and keeping the service working and improving it.</li>
+                <li><strong className="text-white/80">Legal obligations:</strong> when the law requires us to keep or share information.</li>
+              </ul>
+            </SubSection>
+            <SubSection title="10.3 Ads and Your Consent">
+              <p>In the Tatulogue mobile app, users in the EU, EEA and UK are asked for consent with Google&rsquo;s consent form before any ads load. You can change your choice at any time in the app under Edit Profile &gt; Privacy &gt; Ad privacy choices.</p>
+            </SubSection>
+            <SubSection title="10.4 Location">
+              <p>If you allow it, your device location is used only for the current &ldquo;near me&rdquo; search. It is not saved to your profile.</p>
+            </SubSection>
+            <SubSection title="10.5 Your Rights">
+              <p>You have the right to:</p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>access the personal data we hold about you;</li>
+                <li>have inaccurate data corrected;</li>
+                <li>have your data deleted;</li>
+                <li>receive a copy of your data in a portable format (data portability);</li>
+                <li>ask us to restrict how we use your data;</li>
+                <li>object to our use of your data, including use based on our legitimate interests;</li>
+                <li>withdraw your consent at any time.</li>
+              </ul>
+              <p>You can delete your account yourself with the Delete Account option on your profile screen in the app. For any other request, email <a href="mailto:legal@tatulogue.com" className="text-violet-400 hover:text-violet-300">legal@tatulogue.com</a>. We will answer within one month. We may need to confirm your identity before we act on a request.</p>
+            </SubSection>
+            <SubSection title="10.6 International Transfers">
+              <p>Tatulogue is based in the United States, and some of the service providers that help us run the Platform may process your data outside the EU, EEA or UK. These include Supabase (database, sign-in and storage), Cloudflare (website hosting and media storage), Google (ads and Google sign-in), Apple (Sign in with Apple), Brevo (account emails), and, if you buy from our store, Stripe (payments) and Printful (order fulfillment). When your data is transferred outside the EU, EEA or UK, we rely on the safeguards these providers offer, such as the European Commission&rsquo;s standard contractual clauses or equivalent protections.</p>
+            </SubSection>
+            <SubSection title="10.7 Complaints">
+              <p>If you are unhappy with how we handle your data, please contact us first at <a href="mailto:legal@tatulogue.com" className="text-violet-400 hover:text-violet-300">legal@tatulogue.com</a>. You also have the right to complain to the data protection authority where you live or work. In Denmark, that is Datatilsynet (<a href="https://www.datatilsynet.dk" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300">www.datatilsynet.dk</a>).</p>
+            </SubSection>
           </Section>
 
         </div>
